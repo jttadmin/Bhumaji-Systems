@@ -1,1 +1,10 @@
-const menu=document.querySelector('.menu');const nav=document.querySelector('.nav nav');menu?.addEventListener('click',()=>{nav.style.display=nav.style.display==='flex'?'none':'flex';nav.style.flexDirection='column';nav.style.position='absolute';nav.style.top='78px';nav.style.right='5%';nav.style.background='#fff';nav.style.padding='20px';nav.style.border='1px solid #e6edf6';nav.style.borderRadius='12px'});
+const menu=document.querySelector('.menu');
+const nav=document.querySelector('.nav nav');
+menu?.addEventListener('click',()=>{
+  const open=nav.classList.toggle('open');
+  menu.setAttribute('aria-expanded',open?'true':'false');
+});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  nav.classList.remove('open');
+  menu?.setAttribute('aria-expanded','false');
+}));
