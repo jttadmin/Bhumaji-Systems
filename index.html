@@ -1,181 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhumaji Systems | Rooted in reliability. Built for what's next.</title>
-  <meta name="description" content="Bhumaji Systems helps businesses modernize cloud infrastructure, accelerate software delivery, automate operations, and build reliable technology platforms.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061a3b">
+  <meta name="description" content="Bhumaji Systems builds cloud technology, cloud-native software, DevOps platforms and automation for modern businesses.">
+  <title>Bhumaji Systems | Cloud Technology & Software Engineering</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="#home" aria-label="Bhumaji Systems home">
-      <img src="assets/bhumaji-logo.png" alt="Bhumaji Systems logo">
-    </a>
-    <button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#approach">How we work</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="nav-cta">Talk to us</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Bhumaji Systems home"><img src="assets/bhumaji-logo.png" alt="Bhumaji Systems"></a>
+  <button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="nav-links">
+    <a href="#capabilities">Capabilities</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#approach">Approach</a>
+    <a href="#about">About</a>
+    <a class="nav-cta" href="#contact">Let's talk</a>
+  </nav>
+</header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">CLOUD • DEVOPS • SOFTWARE • AUTOMATION</span>
-        <h1>Build technology<br><span>that keeps moving.</span></h1>
-        <p class="hero-lead">Bhumaji Systems helps businesses build dependable digital foundations, ship software faster, and automate the work that slows teams down.</p>
-        <div class="actions">
-          <a class="btn primary" href="#contact">Start a conversation <span>→</span></a>
-          <a class="btn secondary" href="#services">Explore our services</a>
-        </div>
-        <div class="hero-proof">
-          <div><strong>Cloud-ready</strong><span>Modern infrastructure</span></div>
-          <div><strong>Automation-first</strong><span>Less manual work</span></div>
-          <div><strong>Reliability-minded</strong><span>Built to operate</span></div>
-        </div>
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">CLOUD TECHNOLOGY • SOFTWARE ENGINEERING</p>
+      <h1>Build. Modernize.<br><span>Run in the cloud.</span></h1>
+      <p class="hero-lead">Bhumaji Systems helps businesses design cloud infrastructure, develop cloud-native software, modernize applications and automate delivery.</p>
+      <p class="tagline">Rooted in reliability. Built for what's next.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Start a conversation <span>→</span></a>
+        <a class="btn secondary" href="#capabilities">Explore capabilities</a>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="glow"></div>
-        <div class="architecture-card">
-          <div class="window-bar"><i></i><i></i><i></i><span>production / platform</span></div>
-          <div class="architecture-body">
-            <div class="flow-label">DELIVERY FLOW</div>
-            <div class="flow">
-              <div class="node"><b>01</b><strong>Code</strong><small>Build & test</small></div>
-              <div class="connector"></div>
-              <div class="node active"><b>02</b><strong>Deploy</strong><small>Automated delivery</small></div>
-              <div class="connector"></div>
-              <div class="node"><b>03</b><strong>Operate</strong><small>Observe & improve</small></div>
-            </div>
-            <div class="status"><span class="status-dot"></span> Systems ready <strong>99.9%*</strong></div>
-            <small class="fine">*Illustrative target, not a service-level commitment.</small>
+      <div class="hero-points">
+        <span>Cloud architecture</span><span>DevOps & platforms</span><span>Software development</span>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="Cloud engineering architecture illustration">
+      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      <div class="architecture">
+        <div class="arch-top"><span class="dots"><i></i><i></i><i></i></span><span>cloud / production</span></div>
+        <div class="arch-content">
+          <div class="arch-label">ENGINEERING LAYER</div>
+          <div class="arch-row">
+            <div class="arch-node"><small>01</small><b>Build</b><span>Code & APIs</span></div>
+            <div class="line"></div>
+            <div class="arch-node active"><small>02</small><b>Cloud</b><span>Scale & deploy</span></div>
+            <div class="line"></div>
+            <div class="arch-node"><small>03</small><b>Operate</b><span>Observe & improve</span></div>
           </div>
+          <div class="signals"><span><i></i> Infrastructure as Code</span><span>CI/CD</span><span>Kubernetes</span></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="marquee" aria-label="Capabilities">
-      <div>Cloud infrastructure</div><span>•</span><div>DevOps & CI/CD</div><span>•</span><div>Platform engineering</div><span>•</span><div>Software engineering</div><span>•</span><div>Automation</div><span>•</span><div>Observability</div>
-    </section>
+  <section class="capability-strip" aria-label="Bhumaji Systems capabilities">
+    <span>Cloud Infrastructure</span><b>•</b><span>Cloud-Native Development</span><b>•</b><span>DevOps</span><b>•</b><span>Platform Engineering</span><b>•</b><span>Automation</span>
+  </section>
 
-    <section id="services" class="section">
-      <div class="section-heading">
-        <span class="eyebrow">WHAT WE DO</span>
-        <h2>Technology services designed around business outcomes.</h2>
-        <p>Whether you are modernizing an existing environment or building something new, we focus on practical engineering that your team can operate and grow.</p>
-      </div>
-      <div class="grid services">
-        <article class="card featured">
-          <div class="service-number">01</div><div class="icon">☁</div>
-          <h3>Cloud & Infrastructure</h3>
-          <p>Design and improve cloud environments for scalable, secure and repeatable operations.</p>
-          <ul><li>Cloud architecture & migration</li><li>Infrastructure as Code</li><li>Networking, compute & storage</li><li>Cost and operational efficiency</li></ul>
-        </article>
-        <article class="card">
-          <div class="service-number">02</div><div class="icon">⌁</div>
-          <h3>DevOps & Platform Engineering</h3>
-          <p>Turn software delivery into a dependable engineering process instead of a manual release exercise.</p>
-          <ul><li>CI/CD pipelines</li><li>Docker & Kubernetes</li><li>Release automation</li><li>Developer platforms</li></ul>
-        </article>
-        <article class="card">
-          <div class="service-number">03</div><div class="icon">◈</div>
-          <h3>Software Engineering</h3>
-          <p>Build maintainable applications and services with architecture that supports the next stage of growth.</p>
-          <ul><li>Web & backend applications</li><li>API & microservices architecture</li><li>Database design</li><li>Integration engineering</li></ul>
-        </article>
-        <article class="card">
-          <div class="service-number">04</div><div class="icon">⚙</div>
-          <h3>Automation & Reliability</h3>
-          <p>Reduce repetitive operational work and gain better visibility into the systems your business depends on.</p>
-          <ul><li>Infrastructure automation</li><li>Monitoring & observability</li><li>Backup & disaster recovery</li><li>Operational runbooks</li></ul>
-        </article>
-      </div>
-    </section>
+  <section id="capabilities" class="section">
+    <div class="section-intro">
+      <p class="eyebrow">OUR CAPABILITIES</p>
+      <h2>Focused on the technology that moves modern businesses forward.</h2>
+      <p>We stay close to cloud engineering and software development — from the infrastructure underneath an application to the code and delivery systems that power it.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="cap-card featured"><span class="number">01</span><div class="cap-icon">☁</div><h3>Cloud Technology</h3><p>Design and build cloud environments that are scalable, secure, repeatable and easier to operate.</p><ul><li>Cloud architecture</li><li>AWS infrastructure</li><li>Migration & modernization</li><li>High availability & disaster recovery</li><li>Cloud cost optimization</li></ul></article>
+      <article class="cap-card"><span class="number">02</span><div class="cap-icon">⌁</div><h3>DevOps & Platform Engineering</h3><p>Create a delivery platform that makes building, testing and releasing software more consistent.</p><ul><li>CI/CD pipelines</li><li>Infrastructure as Code</li><li>Docker & Kubernetes</li><li>Release automation</li><li>Developer platforms</li></ul></article>
+      <article class="cap-card"><span class="number">03</span><div class="cap-icon">◈</div><h3>Cloud-Native Development</h3><p>Build applications and services designed for modern cloud environments and continuous delivery.</p><ul><li>Web & backend applications</li><li>APIs & microservices</li><li>Database-backed systems</li><li>Event-driven architecture</li><li>Application modernization</li></ul></article>
+      <article class="cap-card"><span class="number">04</span><div class="cap-icon">⚙</div><h3>Automation & Reliability</h3><p>Reduce manual operations and make systems easier to understand, maintain and improve.</p><ul><li>Infrastructure automation</li><li>Observability</li><li>Monitoring & alerting</li><li>Backup & recovery</li><li>Operational automation</li></ul></article>
+    </div>
+  </section>
 
-    <section id="solutions" class="section solutions">
-      <div class="split">
-        <div>
-          <span class="eyebrow">SOLUTIONS FOR REAL PROBLEMS</span>
-          <h2>From “it works” to “it works reliably.”</h2>
-          <p class="lead">Technology becomes valuable when it makes the business faster, safer and easier to operate. We help close the gap between an application that runs and a platform that can be trusted.</p>
-        </div>
-        <div class="problem-list">
-          <div><span>01</span><div><strong>Releases take too long?</strong><p>Automate build, test and deployment so teams can release with a repeatable process.</p></div></div>
-          <div><span>02</span><div><strong>Infrastructure is hard to manage?</strong><p>Move toward Infrastructure as Code, standardization and clearer operational ownership.</p></div></div>
-          <div><span>03</span><div><strong>Systems are difficult to observe?</strong><p>Bring metrics, logs and traces together so teams can understand what is happening.</p></div></div>
-          <div><span>04</span><div><strong>Planning a cloud migration?</strong><p>Break the move into practical phases with architecture, automation and operational readiness in mind.</p></div></div>
-        </div>
+  <section id="solutions" class="section solutions">
+    <div class="split">
+      <div class="sticky-copy"><p class="eyebrow">WHERE WE HELP</p><h2>Engineering solutions for the problems behind the technology.</h2><p>Whether you're moving to the cloud, modernizing an application or improving software delivery, we turn technical challenges into practical engineering work.</p></div>
+      <div class="solution-list">
+        <article><span>01</span><div><h3>Move to the cloud</h3><p>Assess the current environment, design the target architecture and build a controlled migration path.</p></div></article>
+        <article><span>02</span><div><h3>Modernize applications</h3><p>Improve architecture, APIs, deployment and infrastructure without losing sight of business continuity.</p></div></article>
+        <article><span>03</span><div><h3>Accelerate delivery</h3><p>Automate build, test and deployment so engineering teams can deliver changes through a repeatable process.</p></div></article>
+        <article><span>04</span><div><h3>Improve reliability</h3><p>Introduce observability, automation, recovery practices and operational discipline around critical systems.</p></div></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about" class="section dark">
-      <div class="split about-split">
-        <div>
-          <span class="eyebrow">ABOUT BHUMAJI SYSTEMS</span>
-          <h2>Engineering with a long-term mindset.</h2>
-        </div>
-        <div>
-          <p>Bhumaji Systems is a technology engineering and services company focused on cloud, DevOps, software engineering and automation.</p>
-          <p>Our philosophy is simple: build solutions that are understandable, automatable, observable and ready for what comes next.</p>
-          <div class="values">
-            <div><strong>Reliability</strong><span>Design for dependable operations.</span></div>
-            <div><strong>Simplicity</strong><span>Reduce unnecessary complexity.</span></div>
-            <div><strong>Automation</strong><span>Make repeatable work repeatable.</span></div>
-            <div><strong>Continuous improvement</strong><span>Measure, learn and strengthen.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="technology section">
+    <div class="section-intro center"><p class="eyebrow">TECHNOLOGY FOCUS</p><h2>Built around modern cloud engineering.</h2><p>Our technology focus spans the infrastructure, delivery and application layers of cloud-native systems.</p></div>
+    <div class="tech-grid">
+      <div><strong>Cloud</strong><span>AWS · Compute · Networking · Storage · IAM</span></div>
+      <div><strong>Containers</strong><span>Docker · Kubernetes · Container platforms</span></div>
+      <div><strong>Automation</strong><span>Terraform · CI/CD · Git · Release automation</span></div>
+      <div><strong>Applications</strong><span>APIs · Microservices · Web · Backend systems</span></div>
+      <div><strong>Operations</strong><span>Metrics · Logs · Traces · Alerting · Recovery</span></div>
+      <div><strong>Architecture</strong><span>HA · Scalability · DR · Cloud-native patterns</span></div>
+    </div>
+  </section>
 
-    <section id="approach" class="section">
-      <div class="section-heading center">
-        <span class="eyebrow">HOW WE WORK</span>
-        <h2>A practical path from problem to platform.</h2>
-      </div>
-      <div class="steps">
-        <div class="step"><span>01</span><h3>Discover</h3><p>Understand your business goals, current technology and the problem worth solving.</p></div>
-        <div class="step"><span>02</span><h3>Design</h3><p>Translate requirements into an architecture and delivery plan that can evolve.</p></div>
-        <div class="step"><span>03</span><h3>Build</h3><p>Implement with automation, security and operational readiness built into the work.</p></div>
-        <div class="step"><span>04</span><h3>Improve</h3><p>Measure outcomes, remove friction and continuously improve the platform.</p></div>
-      </div>
-    </section>
+  <section id="approach" class="section approach">
+    <div class="section-intro center"><p class="eyebrow">HOW WE WORK</p><h2>From business requirement to running system.</h2></div>
+    <div class="steps">
+      <div class="step"><span>01</span><h3>Understand</h3><p>Clarify the business objective, existing technology and constraints.</p></div>
+      <div class="step"><span>02</span><h3>Architect</h3><p>Design a practical target architecture and implementation path.</p></div>
+      <div class="step"><span>03</span><h3>Engineer</h3><p>Build with automation, security and operational readiness from the start.</p></div>
+      <div class="step"><span>04</span><h3>Evolve</h3><p>Measure, improve and adapt the platform as requirements change.</p></div>
+    </div>
+  </section>
 
-    <section class="section engagement">
-      <div class="section-heading center">
-        <span class="eyebrow">WAYS WE CAN HELP</span>
-        <h2>Bring us in where you need engineering leverage.</h2>
-      </div>
-      <div class="engagement-grid">
-        <div class="engagement-card"><strong>Project delivery</strong><p>For a defined cloud, software, automation or DevOps initiative.</p></div>
-        <div class="engagement-card"><strong>Modernization</strong><p>For teams improving existing applications, infrastructure or delivery practices.</p></div>
-        <div class="engagement-card"><strong>Engineering support</strong><p>For ongoing technical improvement, reliability and platform operations.</p></div>
-      </div>
-    </section>
+  <section id="about" class="section dark">
+    <div class="split about-grid">
+      <div><p class="eyebrow">ABOUT BHUMAJI SYSTEMS</p><h2>A focused technology company for the cloud era.</h2></div>
+      <div><p>Bhumaji Systems focuses on cloud technology and software development. We combine cloud infrastructure, DevOps practices and application engineering to help businesses build technology that can evolve.</p><p>Our engineering mindset is simple: make systems understandable, automate what can be automated, make operations visible and design for the next stage.</p><div class="principles"><span>Cloud-first</span><span>Engineering-led</span><span>Automation-driven</span><span>Reliability-minded</span></div></div>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
-      <div>
-        <span class="eyebrow">LET'S BUILD WHAT'S NEXT</span>
-        <h2>Have a technology challenge?</h2>
-        <p>Tell us what you are building, where you are stuck, or what you want to improve.</p>
-      </div>
-      <div class="contact-actions">
-        <a class="btn light" href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a>
-        <a class="contact-link" href="https://bhumaji.com">bhumaji.com →</a>
-      </div>
-    </section>
-  </main>
+  <section id="contact" class="contact">
+    <div><p class="eyebrow">START A CONVERSATION</p><h2>Have a cloud or software challenge?</h2><p>Tell us what you're building, what you're modernizing, or where your engineering team needs help.</p></div>
+    <div class="contact-actions"><a class="btn light" href="mailto:hello@bhumaji.com">hello@bhumaji.com</a><a class="contact-link" href="https://bhumaji.com">bhumaji.com ↗</a></div>
+  </section>
+</main>
 
-  <footer>
-    <div><strong>BHUMAJI SYSTEMS</strong><span>Rooted in reliability. Built for what's next.</span></div>
-    <div>© 2026 Bhumaji Systems. All rights reserved.</div>
-  </footer>
-  <script src="script.js"></script>
+<footer><div><strong>BHUMAJI SYSTEMS</strong><span>Rooted in reliability. Built for what's next.</span></div><span>© 2026 Bhumaji Systems. All rights reserved.</span></footer>
+<script src="script.js"></script>
 </body>
 </html>

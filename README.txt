@@ -1,8 +1,10 @@
-# Bhumaji Systems Website
+BHUMAJI SYSTEMS — WEBSITE
 
-Static website for Bhumaji Systems.
+Positioning:
+Cloud Technology + Software Development + DevOps
 
-Tagline: Rooted in reliability. Built for what's next.
+Tagline:
+Rooted in reliability. Built for what's next.
 
 Files:
 - index.html
@@ -10,4 +12,7 @@ Files:
 - script.js
 - assets/bhumaji-logo.png
 
-Designed for GitHub Pages / static hosting.
+GitHub Pages:
+Upload these files to the repository root and publish from main / root.
+
+No backend is required. The contact button uses mailto:hello@bhumaji.com.
