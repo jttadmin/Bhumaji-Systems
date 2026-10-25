@@ -441,6 +441,6 @@ img { max-width: 100%; }
   .brand-tagline { font-size: 5.5px; margin-top: 3px; }
 }
 
-.brand-logo { display: block; width: 250px; max-width: 100%; height: auto; }
-@media (max-width: 1050px) { .brand-logo { width: 218px; } }
-@media (max-width: 760px) { .brand-logo { width: 190px; } }
+.brand-logo { display: block; width: 310px; max-width: none; height: auto; }
+@media (max-width: 1050px) { .brand-logo { width: 280px; } }
+@media (max-width: 760px) { .brand-logo { width: 250px; } }
