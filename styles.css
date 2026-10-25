@@ -37,8 +37,15 @@ img { max-width: 100%; }
   box-shadow: 0 2px 12px rgba(16,35,63,.035);
 }
 .nav-wrap { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-.brand { display: inline-flex; align-items: center; flex-shrink: 0; padding: 7px 0; }
-.brand img { display: block; width: 212px; height: auto; filter: drop-shadow(0 3px 5px rgba(16,35,63,.10)); }
+.brand { display: inline-flex; align-items: center; flex-shrink: 0; gap: 9px; padding: 7px 0; color: var(--navy); }
+.brand-mark { display: block; width: 53px; height: 56px; flex: 0 0 auto; filter: drop-shadow(0 4px 5px rgba(16,35,63,.13)); }
+.brand-type { display: flex; flex-direction: column; min-width: 0; line-height: 1; }
+.brand-name { position: relative; color: #102b4d; font-size: 27px; line-height: 1.02; font-weight: 900; letter-spacing: -.055em; white-space: nowrap; }
+.brand-i { position: relative; }
+.brand-i i { position: absolute; width: 6px; height: 8px; right: 1px; top: -3px; transform: rotate(30deg); background: linear-gradient(135deg,#a7d82c,#168448); border-radius: 100% 0 100% 0; }
+.brand-systems { display: flex; align-items: center; gap: 7px; margin-top: 4px; color: #32465d; font-size: 10px; font-weight: 800; letter-spacing: .28em; padding-left: 2px; }
+.brand-systems span { display: block; width: 19px; height: 1px; background: linear-gradient(90deg,#c99a37,#dce3e9); }
+.brand-tagline { margin-top: 5px; color: #5d6b7b; font-size: 7px; font-weight: 600; letter-spacing: .01em; white-space: nowrap; }
 .nav { display: flex; align-items: center; gap: clamp(14px, 1.7vw, 26px); color: #263c58; font-size: 13px; font-weight: 750; }
 .nav a { transition: color .18s ease, transform .18s ease; }
 .nav a:hover, .footer-links a:hover { color: var(--blue); }
@@ -417,4 +424,19 @@ img { max-width: 100%; }
   .case-study-gallery { grid-template-columns: 1fr; }
   .case-study-image { height: 210px; }
   .case-study-visual { padding: 10px; }
+}
+
+/* Responsive premium brand lockup */
+@media (max-width: 1050px) {
+  .brand-mark { width: 46px; height: 49px; }
+  .brand-name { font-size: 23px; }
+  .brand-tagline { font-size: 6.5px; }
+  .nav { gap: 14px; font-size: 12px; }
+}
+@media (max-width: 760px) {
+  .brand { gap: 7px; }
+  .brand-mark { width: 40px; height: 43px; }
+  .brand-name { font-size: 20px; }
+  .brand-systems { font-size: 8px; margin-top: 3px; }
+  .brand-tagline { font-size: 5.5px; margin-top: 3px; }
 }
