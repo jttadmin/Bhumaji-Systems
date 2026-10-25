@@ -633,3 +633,14 @@ a.brand:has(.brand-tagline-visible) {
 @media (min-width: 721px) {
   .hero { padding-top: 82px; }
 }
+
+
+/* Lift section eyebrow labels and headings slightly across the whole page */
+@media (min-width: 721px) {
+  .hero { padding-top: 70px; }
+  .section { padding-top: 78px; }
+}
+@media (max-width: 720px) {
+  .hero { padding-top: 56px; }
+  .section { padding-top: 58px; }
+}
