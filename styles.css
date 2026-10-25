@@ -349,3 +349,23 @@ img { max-width: 100%; }
   .form-submit-row p { max-width: none; }
   .btn-form { width: 100%; }
 }
+
+
+/* Project spotlight and honest client-feedback section */
+.testimonials { background: #f4f7fa; border-top: 1px solid #e5ebf1; border-bottom: 1px solid #e5ebf1; }
+.testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.testimonial-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 310px; padding: 30px; border: 1px solid var(--line); border-radius: 9px; background: #fff; box-shadow: 0 10px 28px rgba(16,35,63,.045); }
+.testimonial-card-top { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 22px; }
+.testimonial-label { color: #657991; font-size: 9px; font-weight: 850; letter-spacing: .13em; }
+.testimonial-mark { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid #dbe5ed; border-radius: 7px; background: #f5f8fb; color: var(--blue); font-size: 21px; font-weight: 700; }
+.project-monogram { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 14px; border-radius: 8px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 850; letter-spacing: .06em; }
+.testimonial-card h3 { margin: 0 0 10px; color: var(--navy); font-size: 22px; line-height: 1.3; letter-spacing: -.025em; }
+.testimonial-card p { max-width: 560px; margin: 0 0 20px; color: var(--muted); font-size: 13px; line-height: 1.85; }
+.testimonial-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 22px; }
+.testimonial-tags span { padding: 5px 9px; border: 1px solid #e1e7ed; border-radius: 4px; background: #f7f9fb; color: #536579; font-size: 9px; font-weight: 700; }
+.testimonial-link { display: inline-flex; align-items: center; gap: 9px; margin-top: auto; color: var(--blue); font-size: 12px; font-weight: 800; }
+.testimonial-link:hover { color: var(--blue-hover); }
+@media (max-width: 720px) {
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-card { min-height: 0; padding: 24px; }
+}
