@@ -627,3 +627,9 @@ a.brand:has(.brand-tagline-visible) {
 @media (max-width: 760px) {
   .brand-tagline-visible { font-size: 9px; }
 }
+
+
+/* Tighten the space above the hero eyebrow on desktop */
+@media (min-width: 721px) {
+  .hero { padding-top: 82px; }
+}
