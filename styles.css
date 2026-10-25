@@ -126,7 +126,7 @@ img { max-width: 100%; }
   background: #fff; box-shadow: none; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 .cap-card:after { content: none; }
-.cap-blue { border-top-color: var(--blue); }
+.card-blue { border-top-color: var(--blue); }
 .card-purple { border-top-color: #637d9b; }
 .card-green { border-top-color: var(--teal); }
 .card-orange { border-top-color: #b58b54; }
