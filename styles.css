@@ -440,3 +440,7 @@ img { max-width: 100%; }
   .brand-systems { font-size: 8px; margin-top: 3px; }
   .brand-tagline { font-size: 5.5px; margin-top: 3px; }
 }
+
+.brand-logo { display: block; width: 250px; max-width: 100%; height: auto; }
+@media (max-width: 1050px) { .brand-logo { width: 218px; } }
+@media (max-width: 760px) { .brand-logo { width: 190px; } }
