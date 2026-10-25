@@ -577,3 +577,27 @@ a.brand:has(.brand-tagline-visible) {
   .brand-logo { width: 190px; max-height: 38px; }
   .brand-tagline-visible { font-size: 8px; }
 }
+
+/* Increase brand mark size while retaining the separate tagline */
+a.brand:has(.brand-tagline-visible) {
+  align-items: flex-start;
+  gap: 3px;
+}
+.brand-logo {
+  width: 290px;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+}
+.brand-tagline-visible {
+  font-size: 11px;
+  line-height: 1.25;
+}
+@media (max-width: 1050px) {
+  .brand-logo { width: 250px; max-height: none; }
+  .brand-tagline-visible { font-size: 10px; }
+}
+@media (max-width: 760px) {
+  .brand-logo { width: 220px; max-height: none; }
+  .brand-tagline-visible { font-size: 9px; }
+}
