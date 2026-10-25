@@ -492,3 +492,25 @@ a.brand:has(.brand-tagline-visible) {
   .brand-logo { width: 190px; max-height: 42px; }
   .brand-tagline-visible { font-size: 7px; }
 }
+
+/* Larger, clearer brand tagline */
+.brand-tagline-visible {
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .1px;
+  color: #263c55;
+  margin-top: 3px;
+}
+.brand-logo {
+  width: 250px;
+  max-height: 52px;
+}
+@media (max-width: 1050px) {
+  .brand-tagline-visible { font-size: 10px; }
+  .brand-logo { width: 218px; max-height: 47px; }
+}
+@media (max-width: 760px) {
+  .brand-tagline-visible { font-size: 9px; }
+  .brand-logo { width: 190px; max-height: 42px; }
+}
