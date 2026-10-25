@@ -601,3 +601,29 @@ a.brand:has(.brand-tagline-visible) {
   .brand-logo { width: 220px; max-height: none; }
   .brand-tagline-visible { font-size: 9px; }
 }
+
+
+/* Final header lockup: show the tagline as separate text beneath the logo */
+a.brand:has(.brand-tagline-visible) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  line-height: normal;
+}
+.brand-tagline-visible {
+  display: block !important;
+  margin-top: 0;
+  padding-left: 0;
+  font-size: 11px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: #263c55;
+  white-space: nowrap;
+}
+@media (max-width: 1050px) {
+  .brand-tagline-visible { font-size: 10px; }
+}
+@media (max-width: 760px) {
+  .brand-tagline-visible { font-size: 9px; }
+}
