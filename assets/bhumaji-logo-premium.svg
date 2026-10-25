@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="264" viewBox="0 0 1000 264" role="img" aria-labelledby="title desc">
+<title id="title">Bhumaji Systems</title><desc id="desc">Navy and cyan cloud B emblem with green leaves, gold accents, BHUMAJI SYSTEMS wordmark and tagline.</desc>
+<defs>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061a3b"/><stop offset=".55" stop-color="#087fc2"/><stop offset="1" stop-color="#12c6e5"/></linearGradient>
+<linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a6dc32"/><stop offset=".56" stop-color="#27994d"/><stop offset="1" stop-color="#075b3d"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b2"/><stop offset=".52" stop-color="#d6a63b"/><stop offset="1" stop-color="#a86c13"/></linearGradient>
+</defs>
+<g transform="translate(12 10)">
+<path d="M34 8H82C111 8 132 27 132 54C132 76 117 91 99 98C120 103 133 118 133 139C133 160 116 174 91 174H34Z" fill="url(#blue)" stroke="url(#gold)" stroke-width="2.6"/>
+<path d="M42 51C45 31 61 22 79 25C91 8 118 20 121 42C136 48 140 63 134 77C129 87 119 91 105 91H55C34 91 28 67 42 51Z" fill="#fff" stroke="url(#gold)" stroke-width="3.6"/>
+<path d="M48 54C53 40 68 37 79 42C92 30 113 39 114 56C126 59 130 69 124 78H54C42 76 40 63 48 54Z" fill="url(#blue)"/>
+<path d="M30 67C51 77 74 104 87 141C62 132 39 115 25 92C17 79 20 70 30 67Z" fill="url(#green)" stroke="url(#gold)" stroke-width="1.7"/>
+<path d="M28 111C52 116 75 137 87 169C61 166 39 153 26 135C19 125 20 116 28 111Z" fill="url(#green)" stroke="url(#gold)" stroke-width="1.7"/>
+<path d="M30 76C47 92 64 111 78 132M30 119C47 131 64 147 79 163" fill="none" stroke="#eff9d5" stroke-width="2.5" stroke-linecap="round"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="172" y="103" font-size="79" font-weight="900" letter-spacing="-2.8" fill="#102b4d">BHUMAJI</text>
+<path d="M174 135H276M600 135H700" stroke="url(#gold)" stroke-width="3"/>
+<text x="292" y="151" font-size="33" font-weight="700" letter-spacing="10" fill="#263b55">SYSTEMS</text>
+<path d="M963 26C951 24 943 34 947 46C958 43 965 35 963 26Z" fill="url(#green)" stroke="#c99a37" stroke-width="1"/>
+<text x="174" y="195" font-size="22" font-weight="500" fill="#344861">Rooted in reliability. Built for what’s next.</text>
+</g></svg>
