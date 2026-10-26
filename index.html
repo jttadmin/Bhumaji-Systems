@@ -587,6 +587,20 @@ footer a:hover{color:#ff8792}
  .site-header .brand-tagline{font-size:8px}
 }
 
+
+/* Simple navigation: no dropdowns; clear pointer hover on links */
+.mega-menu,.nav-drop .mega-menu{display:none!important}
+.site-header nav li{position:static}
+.site-header nav a{cursor:pointer;transition:color .18s ease,background .18s ease,border-color .18s ease}
+.site-header nav a:not(.nav-cta):hover{color:#39c9ff}
+.site-header nav .nav-cta{cursor:pointer}
+.site-header nav .nav-cta:hover{color:#fff;background:#15263e;border-color:#2c91ff}
+.site-header nav a:focus-visible{outline:2px solid #39c9ff;outline-offset:5px;border-radius:3px}
+@media(max-width:1120px){
+ .site-header nav li{position:static}
+ .site-header nav a:not(.nav-cta):hover{background:#171f2e;padding-left:10px}
+}
+
 </style>
 </head>
 <body id="top">
@@ -610,29 +624,10 @@ footer a:hover{color:#ff8792}
     <button class="burger" aria-label="Open navigation" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
     <nav id="nav" aria-label="Main navigation">
       <ul>
-        <li class="nav-drop"><a href="#cloud">Cloud Services <span class="chev">⌄</span></a><div class="mega-menu">
-          <a href="#cloud"><b>AWS Cloud Solutions</b><small>Architecture, landing zones and managed cloud</small></a>
-          <a href="#migration"><b>Cloud Migration</b><small>Move workloads with a practical migration plan</small></a>
-          <a href="#engineering"><b>Cloud Security &amp; Reliability</b><small>Resilience, governance and recovery</small></a>
-          <a href="#cloud"><b>Cost Optimization</b><small>Visibility, right-sizing and cloud spend control</small></a>
-        </div></li>
-        <li class="nav-drop"><a href="#engineering">Engineering <span class="chev">⌄</span></a><div class="mega-menu">
-          <a href="#engineering"><b>DevOps &amp; CI/CD</b><small>Automated build, test and delivery workflows</small></a>
-          <a href="#engineering"><b>Kubernetes &amp; Containers</b><small>Operate production-ready container platforms</small></a>
-          <a href="#engineering"><b>Infrastructure as Code</b><small>Terraform, repeatability and GitOps</small></a>
-          <a href="#ai"><b>Observability &amp; AIOps</b><small>Metrics, logs, traces and smarter operations</small></a>
-        </div></li>
-        <li class="nav-drop"><a href="#capabilities">Industries <span class="chev">⌄</span></a><div class="mega-menu">
-          <a href="#contact"><b>Startups</b><small>Launch on a secure, scalable foundation</small></a>
-          <a href="#contact"><b>Small Businesses</b><small>Modernize systems without unnecessary complexity</small></a>
-          <a href="#contact"><b>Software Agencies</b><small>Cloud and DevOps delivery support for client projects</small></a>
-          <a href="#contact"><b>Growing Technology Teams</b><small>Improve delivery speed and platform reliability</small></a>
-        </div></li>
-        <li class="nav-drop"><a href="#our-work">Insights <span class="chev">⌄</span></a><div class="mega-menu">
-          <a href="#our-work"><b>Project Showcase</b><small>Explore our engineering approach</small></a>
-          <a href="#migration"><b>Cloud Migration Guide</b><small>Plan a safer move to the cloud</small></a>
-          <a href="#engineering"><b>DevOps Practices</b><small>Practical automation and reliability principles</small></a>
-        </div></li>
+        <li><a href="#cloud">Cloud Services</a></li>
+        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#capabilities">Industries</a></li>
+        <li><a href="#our-work">Insights</a></li>
         <li><a href="#approach">About</a></li>
         <li><a href="#contact" class="nav-cta">Contact Us <span>↗</span></a></li>
       </ul>
