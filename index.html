@@ -601,6 +601,31 @@ footer a:hover{color:#ff8792}
  .site-header nav a:not(.nav-cta):hover{background:#171f2e;padding-left:10px}
 }
 
+
+/* Industries mega-menu modeled on the supplied reference */
+.site-header nav .industries-nav{position:static}
+.site-header nav .industries-nav>a{display:flex;align-items:center;gap:6px}
+.industry-chevron{font-size:14px;color:#a3a3a3;transition:transform .18s ease}
+.industries-mega{display:none;position:absolute;left:0;right:0;top:100%;z-index:100;grid-template-columns:repeat(2,minmax(0,1fr));background:#151515;border:1px solid #292929;border-top:1px solid #303030}
+.industries-mega a{min-height:72px;display:flex!important;align-items:center;justify-content:space-between;gap:20px;padding:0 40px!important;color:#f2f2f2!important;font-size:14px!important;font-weight:600!important;border:0!important;border-bottom:1px dashed #303030!important;white-space:normal!important;transition:background .18s ease,color .18s ease}
+.industries-mega a:nth-child(odd){border-right:1px dashed #303030!important}
+.industries-mega a span{font-size:21px;color:#a3a3a3;font-weight:400;transition:transform .18s ease,color .18s ease}
+.industries-mega a:hover{background:#202020!important;color:#fff!important;padding-left:46px!important}
+.industries-mega a:hover span{color:#fff;transform:translate(2px,-2px)}
+.industries-nav:hover .industries-mega,.industries-nav:focus-within .industries-mega{display:grid}
+.industries-nav:hover>a,.industries-nav:focus-within>a{background:#292929;border-radius:4px;color:#fff}
+.industries-nav:hover .industry-chevron,.industries-nav:focus-within .industry-chevron{transform:rotate(180deg);color:#fff}
+@media(min-width:1121px){
+ .site-header .nav-wrap{position:relative}
+ .industries-mega{width:100%;left:0;right:0}
+}
+@media(max-width:1120px){
+ .site-header nav .industries-nav>a{display:flex;justify-content:space-between}
+ .industries-mega{position:static;width:100%;grid-template-columns:1fr;border:0;border-top:1px solid #303030;margin:2px 0 8px}
+ .industries-mega a{min-height:52px;padding:0 14px!important;border-right:0!important}
+ .industries-mega a:hover{padding-left:20px!important}
+}
+
 </style>
 </head>
 <body id="top">
@@ -626,7 +651,20 @@ footer a:hover{color:#ff8792}
       <ul>
         <li><a href="#cloud">Cloud Services</a></li>
         <li><a href="#engineering">Engineering</a></li>
-        <li><a href="#capabilities">Industries</a></li>
+        <li class="industries-nav">
+          <a href="#industries" aria-haspopup="true" aria-expanded="false">Industries <span class="industry-chevron">⌄</span></a>
+          <div class="industries-mega" id="industries" aria-label="Industries">
+            <a href="#contact">Banking, Finance, and Insurance <span>↗</span></a>
+            <a href="#contact">Healthcare <span>↗</span></a>
+            <a href="#contact">Manufacturing <span>↗</span></a>
+            <a href="#contact">Media and Entertainment <span>↗</span></a>
+            <a href="#contact">Gaming <span>↗</span></a>
+            <a href="#contact">Real Estate <span>↗</span></a>
+            <a href="#contact">Hiring <span>↗</span></a>
+            <a href="#contact">Hospitality <span>↗</span></a>
+            <a href="#contact">E-commerce <span>↗</span></a>
+          </div>
+        </li>
         <li><a href="#our-work">Insights</a></li>
         <li><a href="#approach">About</a></li>
         <li><a href="#contact" class="nav-cta">Contact Us <span>↗</span></a></li>
