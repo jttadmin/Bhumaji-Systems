@@ -799,6 +799,21 @@ footer a:hover{color:#ff8792}
 @media(max-width:850px){.cloud-service-layout{grid-template-columns:1fr}.cost-process{grid-template-columns:repeat(2,minmax(0,1fr))}.migration-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.service-check-grid,.service-outcomes,.cost-feature-grid{grid-template-columns:1fr}.migration-timeline{grid-template-columns:1fr}.timeline-step{border-right:0}.service-side-panel .btn{width:100%}}
 
+
+/* Expanded What We Do, Industries and Insights content */
+.industry-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.industry-detail-grid article{scroll-margin-top:100px;border:1px solid #2a374b;border-radius:12px;background:#101827;padding:24px;display:flex;flex-direction:column;align-items:flex-start;min-height:300px}
+.industry-detail-grid article>span,.insight-grid article>span{font:10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;color:#7dd3fc;margin-bottom:15px}
+.industry-detail-grid h3,.insight-grid h3{font-size:18px;line-height:1.35;margin:0 0 12px;color:#f5f7fb}
+.industry-detail-grid p,.insight-grid p{font-size:13px;line-height:1.75;color:#b2bfd1;margin:0 0 18px}
+.industry-detail-grid .tags{margin-top:auto;margin-bottom:14px}
+.industry-detail-grid .link,.insight-grid .link{margin-top:auto}
+.insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.insight-grid article{border:1px solid #2a374b;border-radius:12px;padding:25px;background:linear-gradient(145deg,#111a29,#0e1420);min-height:270px;display:flex;flex-direction:column;align-items:flex-start}
+#industries,#insights{scroll-margin-top:100px}
+@media(max-width:900px){.industry-detail-grid,.insight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.industry-detail-grid,.insight-grid{grid-template-columns:1fr}.industry-detail-grid article,.insight-grid article{min-height:0}}
+
 </style>
 </head>
 <body id="top">
@@ -835,15 +850,15 @@ footer a:hover{color:#ff8792}
 <a class="cloud-service-item" href="#cost-optimization"><b>Cost Optimization</b><small>Find waste, right-size resources and establish cost guardrails.</small><span>↗</span></a>
 </div></li>
 <li class="hover-info industries-hover"><a href="#industries">Industries</a><div class="hover-panel industry-panel" aria-label="Industries we support">
-<a class="industry-item" href="#contact"><b>Banking, Finance &amp; Insurance</b><small>Secure cloud platforms, access controls, audit-ready infrastructure and resilient data services.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>Healthcare</b><small>Reliable, privacy-conscious systems for digital health services and sensitive workloads.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>Manufacturing</b><small>Connect operations and applications with scalable infrastructure, automation and analytics.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>Media &amp; Entertainment</b><small>Support content delivery, digital experiences and traffic spikes with scalable cloud services.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>Gaming</b><small>Build responsive game backends, deployment pipelines and infrastructure that scales with demand.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>Real Estate</b><small>Modernize property platforms, customer portals and data workflows with secure cloud solutions.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>Hiring &amp; Recruitment</b><small>Keep recruitment platforms, integrations and candidate-facing services available and dependable.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>Hospitality</b><small>Improve booking, guest-service and business systems with reliable, connected infrastructure.</small><span>↗</span></a>
-<a class="industry-item" href="#contact"><b>E-commerce</b><small>Prepare storefronts and order services for peak traffic, secure payments and dependable releases.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-finance"><b>Banking, Finance &amp; Insurance</b><small>Secure cloud platforms, access controls, audit-ready infrastructure and resilient data services.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-healthcare"><b>Healthcare</b><small>Reliable, privacy-conscious systems for digital health services and sensitive workloads.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-manufacturing"><b>Manufacturing</b><small>Connect operations and applications with scalable infrastructure, automation and analytics.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-media"><b>Media &amp; Entertainment</b><small>Support content delivery, digital experiences and traffic spikes with scalable cloud services.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-gaming"><b>Gaming</b><small>Build responsive game backends, deployment pipelines and infrastructure that scales with demand.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-real-estate"><b>Real Estate</b><small>Modernize property platforms, customer portals and data workflows with secure cloud solutions.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-hiring"><b>Hiring &amp; Recruitment</b><small>Keep recruitment platforms, integrations and candidate-facing services available and dependable.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-hospitality"><b>Hospitality</b><small>Improve booking, guest-service and business systems with reliable, connected infrastructure.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-ecommerce"><b>E-commerce</b><small>Prepare storefronts and order services for peak traffic, secure payments and dependable releases.</small><span>↗</span></a>
 </div></li>
 <li class="hover-info"><a href="#engineering">Engineering</a><div class="hover-panel detail-panel" aria-label="Engineering services">
 <a class="detail-item" href="#ai"><b>AI Engineering</b><small>Integrate AI capabilities into practical, production-ready workflows.</small><span>↗</span></a>
@@ -858,11 +873,11 @@ footer a:hover{color:#ff8792}
 <a class="detail-item" href="#engineering"><b>IoT Engineering</b><small>Connect devices, data pipelines and cloud services securely.</small><span>↗</span></a>
 <a class="detail-item" href="#approach"><b>Business Analysis</b><small>Clarify requirements, priorities, scope and acceptance criteria.</small><span>↗</span></a>
 </div></li>
-<li class="hover-info"><a href="#our-work">Insights</a><div class="hover-panel detail-panel" aria-label="Insights">
+<li class="hover-info"><a href="#insights">Insights</a><div class="hover-panel detail-panel" aria-label="Insights">
 <a class="detail-item" href="#our-work"><b>Project Showcases</b><small>See examples of cloud, automation and software delivery work.</small><span>↗</span></a>
-<a class="detail-item" href="#cloud"><b>Cloud Guides</b><small>Practical guidance on AWS foundations, migration and cost management.</small><span>↗</span></a>
-<a class="detail-item" href="#engineering"><b>DevOps Articles</b><small>Learn about CI/CD, Kubernetes, infrastructure as code and GitOps.</small><span>↗</span></a>
-<a class="detail-item" href="#ai"><b>Observability &amp; AI</b><small>Explore monitoring, logging and intelligent operations practices.</small><span>↗</span></a>
+<a class="detail-item" href="#insights"><b>Cloud Guides</b><small>Practical guidance on AWS foundations, migration and cost management.</small><span>↗</span></a>
+<a class="detail-item" href="#insights"><b>DevOps Articles</b><small>Learn about CI/CD, Kubernetes, infrastructure as code and GitOps.</small><span>↗</span></a>
+<a class="detail-item" href="#insights"><b>Observability &amp; AI</b><small>Explore monitoring, logging and intelligent operations practices.</small><span>↗</span></a>
 </div></li>
 <li class="hover-info"><a href="#approach">About Us</a><div class="hover-panel detail-panel about-detail-panel" aria-label="About Bhumaji Systems">
 <div class="about-panel-intro"><b>Engineering for what’s next.</b><p>Bhumaji Systems helps teams build, migrate and operate secure, dependable digital platforms.</p></div>
@@ -905,25 +920,28 @@ footer a:hover{color:#ff8792}
 </div>
 
 <!-- CAPABILITIES -->
-<section id="capabilities">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow">Engineering capabilities</div>
-      <h2>One engineering partner across the technology lifecycle.</h2>
-      <p class="lead">Focused capabilities for organizations building new platforms, modernizing existing environments, or moving critical workloads to the cloud.</p>
-    </div>
-    <div class="grid g4">
-      <article class="card"><span class="num">01</span><div class="ic">☁</div><h3>Cloud Technology</h3><p>Architecture, migration, modernization, resilience, security, and cost-aware cloud engineering.</p>
-        <div class="tags"><span>AWS</span><span>Azure</span><span>GCP</span><span>Hybrid</span></div><a class="link" href="#cloud">Explore cloud →</a></article>
-      <article class="card"><span class="num">02</span><div class="ic">⌘</div><h3>Software &amp; Cloud-Native</h3><p>Modern applications engineered for scalable, observable, cloud-native environments.</p>
-        <div class="tags"><span>APIs</span><span>Microservices</span><span>K8s</span><span>Serverless</span></div><a class="link" href="#software">Explore software →</a></article>
-      <article class="card"><span class="num">03</span><div class="ic">⚙</div><h3>DevOps &amp; Platform</h3><p>Automation, delivery platforms, infrastructure as code, observability, and reliability.</p>
-        <div class="tags"><span>Terraform</span><span>CI/CD</span><span>Automation</span><span>Observability</span></div><a class="link" href="#engineering">Explore platforms →</a></article>
-      <article class="card"><span class="num">04</span><div class="ic">▣</div><h3>Infrastructure Management</h3><p>Operate cloud, hybrid, and on-premises infrastructure with visibility, control, and automation.</p>
-        <div class="tags"><span>Compute</span><span>Network</span><span>Storage</span><span>DR</span></div><a class="link" href="#engineering">Explore infrastructure →</a></article>
-    </div>
-  </div>
-</section>
+<section id="capabilities"><div class="wrap"><div class="head"><div class="eyebrow">What We Do</div><h2>Practical engineering from cloud foundation to production.</h2><p class="lead">Bhumaji Systems helps startups, growing businesses and software agencies design, build, migrate and operate dependable digital platforms. Bring us a specific challenge or use us as an engineering partner across the lifecycle.</p></div>
+<div class="grid g4">
+<article class="card"><span class="num">01</span><div class="ic">☁</div><h3>Cloud &amp; Infrastructure</h3><p>Build a secure cloud foundation, modernize infrastructure and make environments easier to operate.</p><div class="tags"><span>AWS</span><span>Azure</span><span>GCP</span><span>Networking</span></div><a class="link" href="#cloud">Explore cloud setup →</a></article>
+<article class="card"><span class="num">02</span><div class="ic">⇢</div><h3>Migration &amp; Modernization</h3><p>Move applications, servers and databases with assessment, migration waves, cutover planning and validation.</p><div class="tags"><span>Discovery</span><span>Migration</span><span>Modernization</span></div><a class="link" href="#migration">Explore migration →</a></article>
+<article class="card"><span class="num">03</span><div class="ic">⚙</div><h3>DevOps &amp; Platform Engineering</h3><p>Automate builds and deployments, provision infrastructure as code, and improve developer delivery workflows.</p><div class="tags"><span>Terraform</span><span>CI/CD</span><span>Kubernetes</span><span>GitOps</span></div><a class="link" href="#engineering">Explore DevOps →</a></article>
+<article class="card"><span class="num">04</span><div class="ic">◉</div><h3>Reliability &amp; Optimization</h3><p>Improve observability, incident readiness, backup and recovery, security posture and cloud cost visibility.</p><div class="tags"><span>Monitoring</span><span>Security</span><span>FinOps</span></div><a class="link" href="#cloud-security">Explore reliability →</a></article>
+</div>
+<div class="service-outcomes"><div><b>How we engage</b><span>Focused assessments, defined implementation projects, migration engagements or ongoing engineering support.</span></div><div><b>How we measure progress</b><span>Agreed scope, documented decisions, tested changes, clear handover and improvements tied to your business priorities.</span></div></div>
+</div></section>
+<section id="industries" class="alt"><div class="wrap"><div class="head"><div class="eyebrow">Industries</div><h2>Cloud and engineering shaped around your industry.</h2><p class="lead">Different industries have different workloads, risks and customer expectations. We tailor cloud foundations, security, delivery automation and reliability practices to the systems your business depends on.</p></div>
+<div class="industry-detail-grid">
+<article id="industry-finance"><span>01 / FINANCIAL SERVICES</span><h3>Banking, Finance &amp; Insurance</h3><p>Build controlled, auditable infrastructure with least-privilege access, encryption, resilient data services, clear change history and operational monitoring. We help teams plan for security and governance requirements without assuming one compliance model fits every organization.</p><div class="tags"><span>IAM</span><span>Audit logging</span><span>Resilience</span></div><a class="link" href="#contact">Discuss financial workloads →</a></article>
+<article id="industry-healthcare"><span>02 / HEALTHCARE</span><h3>Healthcare</h3><p>Support patient-facing applications and sensitive workloads with access controls, encrypted data paths, backup strategies, careful release processes and dependable service monitoring. Requirements are reviewed with your compliance and security stakeholders.</p><div class="tags"><span>Privacy</span><span>Security</span><span>Availability</span></div><a class="link" href="#contact">Discuss healthcare systems →</a></article>
+<article id="industry-manufacturing"><span>03 / INDUSTRY 4.0</span><h3>Manufacturing</h3><p>Connect business applications, reporting systems and operational data with stable infrastructure, controlled integrations, automation and monitoring. Plan connectivity and recovery around the realities of production operations.</p><div class="tags"><span>Integration</span><span>Data pipelines</span><span>Automation</span></div><a class="link" href="#contact">Discuss manufacturing systems →</a></article>
+<article id="industry-media"><span>04 / DIGITAL CONTENT</span><h3>Media &amp; Entertainment</h3><p>Design platforms that handle variable traffic, media assets and audience-facing services. Improve delivery, caching, deployment workflows and visibility during campaigns, launches and demand spikes.</p><div class="tags"><span>Scalability</span><span>Content delivery</span><span>Observability</span></div><a class="link" href="#contact">Discuss media platforms →</a></article>
+<article id="industry-gaming"><span>05 / INTERACTIVE PLATFORMS</span><h3>Gaming</h3><p>Support game backends, player accounts, APIs and event-driven workloads with scalable deployment patterns, automated releases, performance monitoring and recovery planning.</p><div class="tags"><span>Cloud-native</span><span>APIs</span><span>CI/CD</span></div><a class="link" href="#contact">Discuss gaming infrastructure →</a></article>
+<article id="industry-real-estate"><span>06 / PROPERTY TECHNOLOGY</span><h3>Real Estate</h3><p>Modernize property listings, customer portals, internal workflows and integrations with secure hosting, dependable databases, access controls and straightforward release processes.</p><div class="tags"><span>Web platforms</span><span>Data</span><span>Security</span></div><a class="link" href="#contact">Discuss property platforms →</a></article>
+<article id="industry-hiring"><span>07 / TALENT TECHNOLOGY</span><h3>Hiring &amp; Recruitment</h3><p>Keep candidate portals, recruitment workflows and integrations dependable with reliable APIs, access management, automated deployments, backups and actionable application monitoring.</p><div class="tags"><span>Portals</span><span>APIs</span><span>Monitoring</span></div><a class="link" href="#contact">Discuss recruitment systems →</a></article>
+<article id="industry-hospitality"><span>08 / GUEST EXPERIENCE</span><h3>Hospitality</h3><p>Support booking, guest-service and business systems with stable application hosting, integration reliability, sensible data protection and release processes designed to minimize disruption.</p><div class="tags"><span>Booking</span><span>Integrations</span><span>Availability</span></div><a class="link" href="#contact">Discuss hospitality systems →</a></article>
+<article id="industry-ecommerce"><span>09 / DIGITAL COMMERCE</span><h3>E-commerce</h3><p>Prepare storefronts, catalogues, checkout and order services for traffic peaks. Improve deployment safety, observability, backup practices and cloud cost controls while protecting customer-facing availability.</p><div class="tags"><span>Scalability</span><span>Release safety</span><span>Cost control</span></div><a class="link" href="#contact">Discuss e-commerce infrastructure →</a></article>
+</div><div class="service-outcomes"><div><b>Not sure where you fit?</b><span>Tell us about your product, systems and constraints. We can help identify a practical starting point.</span></div><div><b>Our focus</b><span>Useful engineering, clear trade-offs and services scaled to your actual needs—not industry buzzwords.</span></div></div></div></section>
+
 
 <!-- CLOUD -->
 <section id="cloud" class="alt cloud-detail-section"><div class="wrap">
@@ -1114,6 +1132,15 @@ footer a:hover{color:#ff8792}
 </section>
 
 <!-- WORK -->
+<section id="insights"><div class="wrap"><div class="head"><div class="eyebrow">Insights &amp; field notes</div><h2>Practical guidance for better cloud decisions.</h2><p class="lead">Clear, engineering-led starting points for teams planning cloud work, improving delivery or making production systems more dependable.</p></div>
+<div class="insight-grid">
+<article><span>GUIDE / CLOUD FOUNDATIONS</span><h3>What belongs in a production-ready AWS foundation?</h3><p>Start with account access, network boundaries, logging, backups, budget alerts and documented ownership before adding complexity.</p><a href="#cloud" class="link">Explore AWS setup →</a></article>
+<article><span>GUIDE / MIGRATION</span><h3>Plan a migration before moving workloads</h3><p>Inventory dependencies, define acceptance criteria, sequence workloads, rehearse cutover and agree on rollback before production changes.</p><a href="#migration" class="link">Explore migration planning →</a></article>
+<article><span>FIELD NOTE / DEVOPS</span><h3>Make deployments repeatable</h3><p>Version infrastructure, automate tests, review changes, scan artifacts and define a safe path to roll back a release.</p><a href="#engineering" class="link">Explore DevOps engineering →</a></article>
+<article><span>FIELD NOTE / RELIABILITY</span><h3>Monitor what helps you act</h3><p>Connect service-level signals, actionable alerts, runbooks and ownership so incidents are easier to diagnose and resolve.</p><a href="#cloud-security" class="link">Explore reliability services →</a></article>
+<article><span>GUIDE / FINOPS</span><h3>Build a cloud cost review habit</h3><p>Assign ownership, tag resources, review usage trends and prioritize changes by savings potential, risk and engineering effort.</p><a href="#cost-optimization" class="link">Explore cost optimization →</a></article>
+<article><span>FIELD NOTE / PLATFORM</span><h3>Choose the simplest platform that fits</h3><p>Compare operational effort, team skills, scaling needs and recovery requirements before selecting VMs, containers or managed services.</p><a href="#engineering" class="link">Explore platform engineering →</a></article>
+</div><p class="note">These are practical starting guides, not claims of client outcomes or formal compliance advice. Contact us to discuss how they apply to your environment.</p></div></section>
 <section id="our-work">
   <div class="wrap">
     <div class="head">
