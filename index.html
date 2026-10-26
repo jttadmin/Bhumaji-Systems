@@ -718,6 +718,21 @@ footer a:hover{color:#ff8792}
  .industry-panel .industry-item:hover,.industry-panel .industry-item:focus-visible{min-height:82px!important;padding:10px 14px!important}
 }
 
+
+/* Cloud Services hover details */
+.cloud-services-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cloud-services-panel .cloud-service-item{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;align-content:center;align-items:center;gap:0 18px!important;min-height:68px!important;padding:0 30px!important}
+.cloud-services-panel .cloud-service-item b{grid-column:1;grid-row:1;font-size:13px;font-weight:600;color:#f1f5f9}
+.cloud-services-panel .cloud-service-item small{grid-column:1;grid-row:2;display:block;max-height:0;overflow:hidden;visibility:hidden;opacity:0;color:#aab8ca;font-size:11px;line-height:1.5;font-weight:400;transition:max-height .22s ease,opacity .18s ease,visibility .18s ease;margin:0}
+.cloud-services-panel .cloud-service-item span{grid-column:2;grid-row:1/3;align-self:center}
+.cloud-services-panel .cloud-service-item:hover,.cloud-services-panel .cloud-service-item:focus-visible{min-height:94px!important;padding:12px 30px!important;background:#202a3a!important}
+.cloud-services-panel .cloud-service-item:hover small,.cloud-services-panel .cloud-service-item:focus-visible small{max-height:54px;visibility:visible;opacity:1;margin-top:5px}
+@media(max-width:1120px){
+ .cloud-services-panel{grid-template-columns:1fr}
+ .cloud-services-panel .cloud-service-item{min-height:54px!important;padding:10px 14px!important}
+ .cloud-services-panel .cloud-service-item:hover,.cloud-services-panel .cloud-service-item:focus-visible{min-height:82px!important;padding:10px 14px!important}
+}
+
 </style>
 </head>
 <body id="top">
@@ -742,7 +757,14 @@ footer a:hover{color:#ff8792}
     <nav id="nav" aria-label="Main navigation">
 <ul>
 <li class="hover-info"><a href="#capabilities">What We Do</a><div class="hover-panel"><a href="#cloud">Cloud &amp; Infrastructure <span>↗</span></a><a href="#engineering">DevOps &amp; Automation <span>↗</span></a><a href="#migration">Migration &amp; Modernization <span>↗</span></a><a href="#ai">AI &amp; Intelligent Operations <span>↗</span></a></div></li>
-<li class="hover-info"><a href="#cloud">Cloud Services</a><div class="hover-panel"><a href="#cloud">AWS Cloud Setup <span>↗</span></a><a href="#migration">Cloud Migration <span>↗</span></a><a href="#cloud">Cloud Security <span>↗</span></a><a href="#cloud">Cost Optimization <span>↗</span></a></div></li>
+<li class="hover-info cloud-services-hover"><a href="#cloud">Cloud Services</a><div class="hover-panel cloud-services-panel" aria-label="Cloud services">
+<a class="cloud-service-item" href="#cloud"><b>AWS Cloud Setup</b><small>Set up secure AWS accounts, networking, IAM and a reliable cloud foundation.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#migration"><b>Cloud Migration</b><small>Assess workloads, plan cutovers and move applications with reduced risk.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cloud"><b>Cloud Security &amp; Reliability</b><small>Strengthen access, backups, monitoring, recovery and operational resilience.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cloud"><b>Cost Optimization</b><small>Review usage, right-size resources and improve visibility into cloud spend.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cloud"><b>Cloud Architecture</b><small>Design scalable, maintainable environments for applications and data.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#engineering"><b>Cloud Operations</b><small>Improve observability, patching, incident readiness and day-to-day operations.</small><span>↗</span></a>
+</div></li>
 <li class="hover-info industries-hover"><a href="#industries">Industries</a><div class="hover-panel industry-panel" aria-label="Industries we support">
 <a class="industry-item" href="#contact"><b>Banking, Finance &amp; Insurance</b><small>Secure cloud platforms, access controls, audit-ready infrastructure and resilient data services.</small><span>↗</span></a>
 <a class="industry-item" href="#contact"><b>Healthcare</b><small>Reliable, privacy-conscious systems for digital health services and sensitive workloads.</small><span>↗</span></a>
