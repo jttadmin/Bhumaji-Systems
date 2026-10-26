@@ -1,209 +1,461 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Bhumaji Systems — cloud technology, software development, database and infrastructure migration, DevOps and platform engineering across AWS, Microsoft Azure and Google Cloud.">
-  <meta name="theme-color" content="#071a3a">
-  <title>Bhumaji Systems | Cloud. Software. Platforms.</title>
-  <link rel="icon" type="image/png" href="assets/bhumaji-logo-header.png?v=2">
-  <link rel="stylesheet" href="styles.css?v=20261025-section-spacing">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bhumaji Systems | Cloud. Software. Platforms.</title>
+<meta name="description" content="Bhumaji Systems — cloud technology, software development, database and infrastructure migration, DevOps and platform engineering across AWS, Microsoft Azure and Google Cloud.">
+<meta name="theme-color" content="#071a3a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#071a3a; --navy-2:#0c2a5c; --blue:#1f5fd6; --blue-d:#174aa8; --sky:#e8f0fd;
+  --ink:#0f1c33; --text:#41506a; --muted:#6b7a93; --line:#dde4ef; --bg:#ffffff; --bg-alt:#f5f8fc;
+  --accent:#00a6a6; --radius:10px; --shadow:0 1px 2px rgba(7,26,58,.06),0 8px 24px rgba(7,26,58,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+section{padding:92px 0}
+.alt{background:var(--bg-alt)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--blue)}
+h1,h2,h3{color:var(--ink);line-height:1.18;letter-spacing:-.02em}
+h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;max-width:760px}
+.lead{margin-top:16px;font-size:18px;max-width:700px;color:var(--text)}
+.head{margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:6px;font-weight:600;font-size:15px;border:1.5px solid transparent;cursor:pointer;transition:.2s;font-family:inherit}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-d)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-outline{border-color:var(--blue);color:var(--blue)}
+.btn-outline:hover{background:var(--sky)}
+.link{color:var(--blue);font-weight:600;font-size:14.5px}
+.link:hover{text-decoration:underline}
+
+/* top bar + nav */
+.topbar{background:var(--navy);color:#b9c6df;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:9px 0;gap:16px;flex-wrap:wrap}
+.topbar a:hover{color:#fff}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);font-size:20px;letter-spacing:-.02em}
+.brand img{height:66px;width:auto;display:block}
+nav ul{list-style:none;display:flex;gap:28px;align-items:center}
+nav a{font-size:14.5px;font-weight:500;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--blue);border-color:var(--blue)}
+nav a.btn{color:#fff;border-bottom:0;padding:10px 20px}
+nav a.btn:hover{color:#fff}
+.burger{display:none;background:none;border:0;font-size:26px;color:var(--navy);cursor:pointer}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#12408a 100%);color:#fff;padding:96px 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000 30%,transparent)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero .eyebrow{color:#8fb4ff}.hero .eyebrow::before{background:#8fb4ff}
+.hero h1{color:#fff;font-size:clamp(36px,5vw,58px);font-weight:800;margin-bottom:22px}
+.hero p.lead{color:#c5d3ee;font-size:19px}
+.hero p.lead strong{color:#fff}
+.cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.panel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:26px;backdrop-filter:blur(6px)}
+.panel h4{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fb4ff;margin-bottom:16px;font-weight:700}
+.panel .row{display:flex;gap:16px;align-items:center;padding:15px 0;border-top:1px solid rgba(255,255,255,.12)}
+.panel .row:first-of-type{border-top:0}
+.panel .n{font-size:13px;font-weight:700;color:#8fb4ff;width:26px}
+.panel b{display:block;color:#fff;font-size:16px}
+.panel span{font-size:13.5px;color:#b7c6e4}
+.stats{position:relative;margin-top:72px;border-top:1px solid rgba(255,255,255,.14);background:rgba(4,15,36,.45)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:26px 24px;border-left:1px solid rgba(255,255,255,.12)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-size:30px;color:#fff;font-weight:800;letter-spacing:-.02em}
+.stat span{font-size:13px;color:#9fb2d6}
+
+/* cards */
+.grid{display:grid;gap:24px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:.25s;position:relative}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:#c5d3ea}
+.card .ic{width:46px;height:46px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-size:21px;margin-bottom:20px;font-weight:700}
+.card .num{position:absolute;top:26px;right:28px;font-size:13px;font-weight:700;color:#b6c3da}
+.card h3{font-size:19px;margin-bottom:10px;font-weight:700}
+.card p{font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 20px}
+.tags span{font-size:12px;font-weight:600;color:var(--navy-2);background:var(--bg-alt);border:1px solid var(--line);padding:4px 10px;border-radius:4px}
+.alt .tags span{background:#fff}
+
+/* cloud */
+.cloud-card{text-align:left}
+.cloud-card .logo{height:46px;display:flex;align-items:center;margin-bottom:20px}
+.cloud-card .logo img{max-height:42px;max-width:150px;object-fit:contain}
+.cloud-card small{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+
+/* migration */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);margin-top:48px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+.step{padding:22px 18px;border-left:1px solid var(--line);position:relative}
+.step:first-child{border-left:0}
+.step i{font-style:normal;font-size:12px;font-weight:700;color:var(--blue);display:block;margin-bottom:6px}
+.step b{display:block;color:var(--ink);font-size:16px}
+.step span{font-size:13px;color:var(--muted)}
+.step::after{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--blue);opacity:.15}
+.step:hover::after{opacity:1}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.feat{display:grid;gap:14px;margin-top:28px}
+.feat div{display:flex;gap:14px;padding:16px 18px;background:var(--bg-alt);border-left:3px solid var(--blue);border-radius:0 8px 8px 0}
+.feat b{color:var(--ink);display:block;font-size:15.5px}
+.feat span{font-size:14px}
+.device{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:16px;padding:44px;color:#fff;min-height:360px;display:grid;align-content:center;gap:18px;box-shadow:var(--shadow)}
+.device .big{font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.device .chips{display:flex;gap:8px;flex-wrap:wrap}
+.device .chips span{border:1px solid rgba(255,255,255,.3);padding:5px 12px;border-radius:99px;font-size:12.5px;font-weight:600;color:#cfe0ff}
+.device small{color:#8fb4ff;font-weight:700;letter-spacing:.14em;font-size:11.5px}
+.device p{color:#b7c6e4;font-size:14.5px}
+
+/* approach */
+.approach{background:var(--navy);color:#fff}
+.approach h2{color:#fff}.approach .lead{color:#b7c6e4}
+.approach .eyebrow{color:#8fb4ff}.approach .eyebrow::before{background:#8fb4ff}
+.pill{padding:28px;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);background:rgba(255,255,255,.04)}
+.pill b{display:block;font-size:13px;color:#8fb4ff;margin-bottom:10px}
+.pill span{font-size:18px;font-weight:600;color:#fff}
+
+/* work */
+.project{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
+.shot img{width:100%}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accent);background:#e3f6f6;padding:5px 12px;border-radius:4px;margin-bottom:16px}
+.quote{margin-top:56px;background:#fff;border:1px dashed #b6c3da;border-radius:var(--radius);padding:34px 36px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.quote h3{font-size:20px;margin-bottom:6px}
+.quote p{max-width:640px;font-size:15px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.mail{margin-top:30px;display:flex;gap:16px;align-items:center;padding:20px 22px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.mail .ic{width:46px;height:46px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-size:20px}
+.mail small{display:block;font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--muted)}
+.mail a{font-weight:700;color:var(--ink);font-size:17px}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:36px;box-shadow:var(--shadow)}
+form h3{font-size:22px;margin-bottom:4px}
+form .sub{font-size:13.5px;color:var(--muted);margin-bottom:22px}
+.f{display:grid;gap:6px;margin-bottom:18px}
+.f label{font-size:13.5px;font-weight:600;color:var(--ink)}
+.f input,.f select,.f textarea{font:inherit;font-size:15px;padding:12px 14px;border:1px solid #c9d4e6;border-radius:6px;background:#fff;color:var(--ink);width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid rgba(31,95,214,.35);border-color:var(--blue)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+footer{background:#04122b;color:#9fb2d6;padding:56px 0 28px}
+footer .top{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer b{color:#fff;font-size:20px;display:block;letter-spacing:-.02em}
+footer ul{list-style:none;display:flex;gap:26px;flex-wrap:wrap;font-size:14px;align-items:center}
+footer ul a:hover{color:#fff}
+footer .bot{padding-top:22px;font-size:13px}
+
+@media(max-width:980px){
+  .hero .wrap,.split,.project,.contact{grid-template-columns:1fr;gap:40px}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(odd){border-left:0}
+  .step{border-top:1px solid var(--line)}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  section{padding:68px 0}
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);display:none;padding:16px 24px}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:flex-start;gap:16px}
+}
+@media(max-width:600px){
+  .g4,.g2,.two{grid-template-columns:1fr}
+  .topbar .wrap{justify-content:center}
+  .wrap{width:min(1180px,100% - 32px)}
+  form{padding:24px}
+}
+</style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Bhumaji Systems home">
-  <img class="brand-logo" src="assets/bhumaji-logo-header.png?v=2" alt="Bhumaji Systems">
-  <span class="brand-tagline-visible">Rooted in reliability. Built for what’s next.</span>
-</a>
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#cloud">Cloud</a>
-        <a href="#migration">Migration</a>
-        <a href="#mobile">Mobile</a>
-        <a href="#engineering">Engineering</a><a href="#our-work">Our work</a>
-        <a href="#testimonials">Testimonials</a>
-        <a class="nav-cta" href="#contact">Talk to our engineers <span>↗</span></a>
-      </nav>
+<body id="top">
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Cloud · Software · Platform Engineering</span>
+    <a href="mailto:contactus@bhumaji.com">✉ contactus@bhumaji.com</a>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Bhumaji Systems home">
+      <img src="assets/bhumaji-logo.png" alt="Bhumaji Systems - Rooted in reliability. Built for what&#8217;s next.">
+    </a>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav id="nav">
+      <ul onclick="document.getElementById('nav').classList.remove('open')">
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#cloud">Cloud</a></li>
+        <li><a href="#migration">Migration</a></li>
+        <li><a href="#mobile">Mobile</a></li>
+        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#our-work">Our work</a></li>
+        <li><a href="#contact" class="btn btn-primary">Talk to our engineers</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Cloud Technology · Software · Platform Engineering</div>
+      <h1>Build what’s next. On a stronger foundation.</h1>
+      <p class="lead">Bhumaji Systems helps businesses build, migrate, modernize, and operate reliable digital platforms across <strong>AWS, Microsoft Azure, and Google Cloud.</strong></p>
+      <div class="cta">
+        <a href="#capabilities" class="btn btn-primary">Explore capabilities →</a>
+        <a href="#contact" class="btn btn-ghost">Talk to our engineers</a>
+      </div>
     </div>
-  </header>
+    <div class="panel">
+      <h4>Bhumaji Systems · Engineering focus</h4>
+      <div class="row"><div class="n">01</div><div><b>Cloud</b><span>AWS · Azure · Google Cloud</span></div></div>
+      <div class="row"><div class="n">02</div><div><b>Platform</b><span>Kubernetes · IaC · CI/CD · Observability</span></div></div>
+      <div class="row"><div class="n">03</div><div><b>Software</b><span>APIs · Microservices · Web · Android · iOS</span></div></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>3</b><span>Cloud platforms</span></div>
+      <div class="stat"><b>4</b><span>Core capabilities</span></div>
+      <div class="stat"><b>Build → Migrate</b><span>Modernize → Operate</span></div>
+      <div class="stat"><b>∞</b><span>Engineering possibilities</span></div>
+    </div>
+  </div>
+</div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> CLOUD TECHNOLOGY · SOFTWARE · PLATFORM ENGINEERING</div>
-          <h1>Build what’s next.<br><span>On a stronger foundation.</span></h1>
-          <p class="hero-lead">Bhumaji Systems helps businesses build, migrate, modernize, and operate reliable digital platforms across <b>AWS, Microsoft Azure, and Google Cloud.</b></p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#capabilities">Explore capabilities <span>→</span></a>
-            <a class="btn btn-secondary" href="#contact">Talk to our engineers <span>↗</span></a>
-          </div>
-          <div class="hero-proof"><div><b>03</b><span>Cloud platforms</span></div><i></i><div><b>04</b><span>Core capabilities</span></div><i></i><div><b>∞</b><span>Engineering possibilities</span></div></div>
-        </div>
-        <div class="hero-visual reveal delay-1" aria-label="Bhumaji Systems engineering layers">
-          <div class="visual-top"><span>BHUMAJI SYSTEMS</span><span class="status"><i></i> ENGINEERING FOCUS</span></div>
-          <div class="stack-card active"><span class="stack-number">01</span><div><strong>Cloud</strong><small>AWS · Azure · Google Cloud</small></div><b>↗</b></div>
-          <div class="connector"></div>
-          <div class="stack-card"><span class="stack-number">02</span><div><strong>Platform</strong><small>Kubernetes · IaC · CI/CD · Observability</small></div><b>↗</b></div>
-          <div class="connector"></div>
-          <div class="stack-card"><span class="stack-number">03</span><div><strong>Software</strong><small>APIs · Microservices · Web · Android · iOS</small></div><b>↗</b></div>
-          <div class="visual-footer"><span>BUILD</span><span>→</span><span>MIGRATE</span><span>→</span><span>MODERNIZE</span><span>→</span><span>OPERATE</span></div>
-        </div>
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Engineering capabilities</div>
+      <h2>One engineering partner across the technology lifecycle.</h2>
+      <p class="lead">Focused capabilities for organizations building new platforms, modernizing existing environments, or moving critical workloads to the cloud.</p>
+    </div>
+    <div class="grid g4">
+      <article class="card"><span class="num">01</span><div class="ic">☁</div><h3>Cloud Technology</h3><p>Architecture, migration, modernization, resilience, security, and cost-aware cloud engineering.</p>
+        <div class="tags"><span>AWS</span><span>Azure</span><span>GCP</span><span>Hybrid</span></div><a class="link" href="#cloud">Explore cloud →</a></article>
+      <article class="card"><span class="num">02</span><div class="ic">⌘</div><h3>Software &amp; Cloud-Native</h3><p>Modern applications engineered for scalable, observable, cloud-native environments.</p>
+        <div class="tags"><span>APIs</span><span>Microservices</span><span>K8s</span><span>Serverless</span></div><a class="link" href="#engineering">Explore engineering →</a></article>
+      <article class="card"><span class="num">03</span><div class="ic">⚙</div><h3>DevOps &amp; Platform</h3><p>Automation, delivery platforms, infrastructure as code, observability, and reliability.</p>
+        <div class="tags"><span>Terraform</span><span>CI/CD</span><span>Automation</span><span>Observability</span></div><a class="link" href="#engineering">Explore platforms →</a></article>
+      <article class="card"><span class="num">04</span><div class="ic">▣</div><h3>Infrastructure Management</h3><p>Operate cloud, hybrid, and on-premises infrastructure with visibility, control, and automation.</p>
+        <div class="tags"><span>Compute</span><span>Network</span><span>Storage</span><span>DR</span></div><a class="link" href="#engineering">Explore infrastructure →</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- CLOUD -->
+<section id="cloud" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Multi-cloud engineering</div>
+      <h2>Cloud choice without the complexity.</h2>
+      <p class="lead">Architect, migrate, modernize, and operate workloads across the platforms that fit your business and technical requirements.</p>
+    </div>
+    <div class="grid g3">
+      <article class="card cloud-card"><div class="logo"><img src="https://www.bhumaji.com/assets/cloud/aws-logo.svg" alt="AWS logo"></div><small>01 · Cloud platform</small><h3 style="margin-top:6px">Amazon Web Services</h3><p>Cloud infrastructure, migration, Kubernetes, serverless, networking, security, and resilience.</p>
+        <div class="tags"><span>Compute</span><span>Containers</span><span>Databases</span><span>Networking</span></div></article>
+      <article class="card cloud-card"><div class="logo"><img src="https://www.bhumaji.com/assets/cloud/azure-logo.svg" alt="Microsoft Azure logo"></div><small>02 · Cloud platform</small><h3 style="margin-top:6px">Microsoft Azure</h3><p>Cloud architecture, infrastructure, application platforms, data services, and hybrid environments.</p>
+        <div class="tags"><span>Azure VMs</span><span>AKS</span><span>Azure SQL</span><span>Hybrid</span></div></article>
+      <article class="card cloud-card"><div class="logo"><img src="https://www.bhumaji.com/assets/cloud/gcp-logo.svg" alt="Google Cloud logo"></div><small>03 · Cloud platform</small><h3 style="margin-top:6px">Google Cloud</h3><p>Cloud-native platforms, Kubernetes, data services, infrastructure, and modern application workloads.</p>
+        <div class="tags"><span>GKE</span><span>Cloud SQL</span><span>Data</span><span>Cloud Run</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- MIGRATION -->
+<section id="migration">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Migration &amp; modernization</div>
+      <h2>Move with confidence. Modernize with purpose.</h2>
+      <p class="lead">From discovery through cutover and optimization, we bring infrastructure, applications, and databases into a controlled migration journey.</p>
+    </div>
+    <div class="grid g4">
+      <article class="card"><span class="num">01</span><div class="ic">⇢</div><h3>Infrastructure Migration</h3><p>On-premises to cloud, data-center, server/VM, network, storage, and infrastructure modernization.</p><br><a class="link" href="#contact">Discuss a migration →</a></article>
+      <article class="card"><span class="num">02</span><div class="ic">◉</div><h3>Database Migration</h3><p>Assessment, homogeneous and heterogeneous migrations, replication, validation, cutover, and modernization.</p><br><a class="link" href="#contact">Discuss a database →</a></article>
+      <article class="card"><span class="num">03</span><div class="ic">⌁</div><h3>Application Migration</h3><p>Rehost, replatform, refactor, retire, or retain workloads based on architecture and business requirements.</p><br><a class="link" href="#contact">Modernize an app →</a></article>
+      <article class="card"><span class="num">04</span><div class="ic">⇄</div><h3>Hybrid &amp; Cloud-to-Cloud</h3><p>Migration paths between environments with connectivity, resilience, security, and operational control.</p><br><a class="link" href="#contact">Plan your path →</a></article>
+    </div>
+    <div class="steps">
+      <div class="step"><i>STEP 1</i><b>Assess</b><span>Discover &amp; analyze</span></div>
+      <div class="step"><i>STEP 2</i><b>Plan</b><span>Architecture &amp; roadmap</span></div>
+      <div class="step"><i>STEP 3</i><b>Build</b><span>Landing zone &amp; platform</span></div>
+      <div class="step"><i>STEP 4</i><b>Migrate</b><span>Move &amp; transform</span></div>
+      <div class="step"><i>STEP 5</i><b>Validate</b><span>Test &amp; cut over</span></div>
+      <div class="step"><i>STEP 6</i><b>Optimize</b><span>Operate &amp; improve</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE -->
+<section id="mobile" class="alt">
+  <div class="wrap split">
+    <div class="device">
+      <small>BHUMAJI · SOFTWARE DEVELOPMENT</small>
+      <div class="big">Build for every screen.</div>
+      <div class="chips"><span>Android</span><span>iOS</span><span>Cloud backend</span></div>
+      <p>Mobile experience: APIs · Auth · Payments · Maps</p>
+    </div>
+    <div>
+      <div class="eyebrow">Software development</div>
+      <h2>Mobile experiences built for real-world scale.</h2>
+      <p class="lead">Design and build modern Android and iOS applications connected to secure, scalable cloud-native backends.</p>
+      <div class="feat">
+        <div><p><b>Android &amp; iOS</b><span>Native and cross-platform experiences.</span></p></div>
+        <div><p><b>Cloud-connected</b><span>APIs, authentication, payments, maps, and real-time services.</span></p></div>
+        <div><p><b>Release-ready</b><span>Testing, performance optimization, and app-store delivery workflows.</span></p></div>
       </div>
-    </section>
+      <p style="margin-top:28px"><a href="#contact" class="btn btn-primary">Build a mobile product →</a></p>
+    </div>
+  </div>
+</section>
 
-    <section class="section capabilities" id="capabilities">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">ENGINEERING CAPABILITIES</div>
-          <h2>One engineering partner across the technology lifecycle.</h2>
-          <p>Focused capabilities for organizations building new platforms, modernizing existing environments, or moving critical workloads to the cloud.</p>
-        </div>
-        <div class="cap-grid">
-          <article class="cap-card card-blue reveal"><div class="card-head"><span class="card-icon">☁</span><span class="card-index">01</span></div><h3>Cloud Technology</h3><p>Architecture, migration, modernization, resilience, security, and cost-aware cloud engineering.</p><div class="tag-row"><span>AWS</span><span>Azure</span><span>GCP</span><span>Hybrid</span></div><a href="#cloud">Explore cloud <b>→</b></a></article>
-          <article class="cap-card card-purple reveal delay-1"><div class="card-head"><span class="card-icon">⌘</span><span class="card-index">02</span></div><h3>Software & Cloud-Native</h3><p>Modern applications engineered for scalable, observable, cloud-native environments.</p><div class="tag-row"><span>APIs</span><span>Microservices</span><span>K8s</span><span>Serverless</span></div><a href="#engineering">Explore engineering <b>→</b></a></article>
-          <article class="cap-card card-green reveal delay-2"><div class="card-head"><span class="card-icon">⚙</span><span class="card-index">03</span></div><h3>DevOps & Platform</h3><p>Automation, delivery platforms, infrastructure as code, observability, and reliability.</p><div class="tag-row"><span>Terraform</span><span>CI/CD</span><span>Automation</span><span>Observability</span></div><a href="#engineering">Explore platforms <b>→</b></a></article>
-          <article class="cap-card card-orange reveal delay-3"><div class="card-head"><span class="card-icon">▣</span><span class="card-index">04</span></div><h3>Infrastructure Management</h3><p>Operate cloud, hybrid, and on-premises infrastructure with visibility, control, and automation.</p><div class="tag-row"><span>Compute</span><span>Network</span><span>Storage</span><span>DR</span></div><a href="#engineering">Explore infrastructure <b>→</b></a></article>
-        </div>
+<!-- ENGINEERING -->
+<section id="engineering">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">DevOps &amp; platform engineering</div>
+      <h2>Build it. Automate it. Operate it.</h2>
+      <p class="lead">Connect software delivery with infrastructure engineering so teams can ship safely and operate platforms with visibility and control.</p>
+      <div class="tags" style="margin-top:22px"><span>IaC</span><span>Kubernetes</span><span>CI/CD</span><span>Observability</span><span>Automation</span><span>DR</span></div>
+    </div>
+    <div class="grid g4">
+      <article class="card"><span class="num">01</span><h3>Infrastructure as Code</h3><p>Repeatable environments using declarative provisioning and version-controlled infrastructure.</p></article>
+      <article class="card"><span class="num">02</span><h3>Platform Engineering</h3><p>Reusable platforms and paved paths that simplify application delivery and operations.</p></article>
+      <article class="card"><span class="num">03</span><h3>Observability</h3><p>Metrics, logs, traces, alerting, and operational visibility across applications and infrastructure.</p></article>
+      <article class="card"><span class="num">04</span><h3>Resilience &amp; DR</h3><p>High availability, backup, recovery, replication, and tested disaster-recovery strategies.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Our approach</div>
+      <h2>Engineering decisions designed for the long run.</h2>
+      <p class="lead">We design for the environment you actually need—cloud, hybrid, or on-premises—and create a practical path from today's architecture to what's next.</p>
+    </div>
+    <div class="grid g4">
+      <div class="pill"><b>01</b><span>Reliable by design</span></div>
+      <div class="pill"><b>02</b><span>Automated by default</span></div>
+      <div class="pill"><b>03</b><span>Observable in operation</span></div>
+      <div class="pill"><b>04</b><span>Ready to evolve</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="our-work">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Our work &amp; client feedback</div>
+      <h2>Real projects. Thoughtful engineering. Relationships built on trust.</h2>
+      <p class="lead">See a project from our journey and learn how we approach practical software delivery. We publish client feedback only when it is genuine and approved for sharing.</p>
+    </div>
+    <div class="project">
+      <div>
+        <span class="badge">FEATURED PROJECT · MOBILITY TECHNOLOGY</span>
+        <h2 style="font-size:clamp(26px,3vw,34px)">Jhanvi Cars — a complete cab-booking experience.</h2>
+        <p class="lead" style="font-size:16.5px">A customer-facing ride-booking platform designed to make choosing a vehicle, estimating fares, and following ride status simple and intuitive.</p>
+        <div class="tags"><span>Web presence</span><span>Application development</span><span>Ride booking</span><span>Fare estimation</span><span>Ride status</span></div>
+        <a class="btn btn-outline" href="https://jhanvicars.in/" target="_blank" rel="noopener">Explore Jhanvi Cars ↗</a>
       </div>
-    </section>
+      <div class="shot"><img src="https://www.bhumaji.com/assets/projects/bhumaji-jhanvi-cars-showcase.png" alt="Jhanvi Cars showcase: booking dashboard, vehicle and fare selection, login, registration, pending rides and confirmed rides" loading="lazy"></div>
+    </div>
+    <p class="note" style="margin-top:18px">Project showcase: interface screenshots are illustrative of the customer experience. Live booking and driver availability depend on the deployed application.</p>
 
-    <section class="section cloud-section" id="cloud">
-      <div class="container">
-        <div class="cloud-intro reveal"><div><div class="eyebrow">MULTI-CLOUD ENGINEERING</div><h2>Cloud choice without the complexity.</h2></div><p>Architect, migrate, modernize, and operate workloads across the platforms that fit your business and technical requirements.</p></div>
-        <div class="cloud-cards">
-          <article class="cloud-card reveal"><div class="cloud-logo"><img src="assets/cloud/aws-logo.svg" alt="AWS logo"></div><div class="cloud-copy"><span class="cloud-label">01 · CLOUD PLATFORM</span><h3>Amazon Web Services</h3><p>Cloud infrastructure, migration, Kubernetes, serverless, networking, security, and resilience.</p><div class="mini-tags"><span>Compute</span><span>Containers</span><span>Databases</span><span>Networking</span></div></div><span class="card-arrow">↗</span></article>
-          <article class="cloud-card reveal delay-1"><div class="cloud-logo"><img src="assets/cloud/azure-logo.svg" alt="Microsoft Azure logo"></div><div class="cloud-copy"><span class="cloud-label">02 · CLOUD PLATFORM</span><h3>Microsoft Azure</h3><p>Cloud architecture, infrastructure, application platforms, data services, and hybrid environments.</p><div class="mini-tags"><span>Azure VMs</span><span>AKS</span><span>Azure SQL</span><span>Hybrid</span></div></div><span class="card-arrow">↗</span></article>
-          <article class="cloud-card reveal delay-2"><div class="cloud-logo"><img src="assets/cloud/gcp-logo.svg" alt="Google Cloud logo"></div><div class="cloud-copy"><span class="cloud-label">03 · CLOUD PLATFORM</span><h3>Google Cloud</h3><p>Cloud-native platforms, Kubernetes, data services, infrastructure, and modern application workloads.</p><div class="mini-tags"><span>GKE</span><span>Cloud SQL</span><span>Data</span><span>Cloud Run</span></div></div><span class="card-arrow">↗</span></article>
-        </div>
+    <div class="quote">
+      <div>
+        <h3>Your experience matters.</h3>
+        <p>We value clear communication, dependable delivery, and long-term relationships. As clients share feedback and approve it for publication, we’ll feature their words here—without fabricated reviews.</p>
       </div>
-    </section>
+      <a class="btn btn-outline" href="mailto:contactus@bhumaji.com?subject=Feedback%20for%20Bhumaji%20Systems">Share your feedback →</a>
+    </div>
+  </div>
+</section>
 
-    <section class="section migration" id="migration">
-      <div class="container">
-        <div class="section-heading center reveal"><div class="eyebrow">MIGRATION & MODERNIZATION</div><h2>Move with confidence. Modernize with purpose.</h2><p>From discovery through cutover and optimization, we bring infrastructure, applications, and databases into a controlled migration journey.</p></div>
-        <div class="migration-grid">
-          <article class="migration-card reveal"><span class="number">01</span><div class="migration-icon">⇢</div><h3>Infrastructure Migration</h3><p>On-premises to cloud, data-center, server/VM, network, storage, and infrastructure modernization.</p><a href="#contact">Discuss a migration <b>→</b></a></article>
-          <article class="migration-card reveal delay-1"><span class="number">02</span><div class="migration-icon">◉</div><h3>Database Migration</h3><p>Assessment, homogeneous and heterogeneous migrations, replication, validation, cutover, and modernization.</p><a href="#contact">Discuss a database <b>→</b></a></article>
-          <article class="migration-card reveal delay-2"><span class="number">03</span><div class="migration-icon">⌁</div><h3>Application Migration</h3><p>Rehost, replatform, refactor, retire, or retain workloads based on architecture and business requirements.</p><a href="#contact">Modernize an app <b>→</b></a></article>
-          <article class="migration-card reveal delay-3"><span class="number">04</span><div class="migration-icon">⇄</div><h3>Hybrid & Cloud-to-Cloud</h3><p>Migration paths between environments with connectivity, resilience, security, and operational control.</p><a href="#contact">Plan your path <b>→</b></a></article>
-        </div>
-        <div class="lifecycle reveal"><div><b>Assess</b><small>Discover & analyze</small></div><i>→</i><div><b>Plan</b><small>Architecture & roadmap</small></div><i>→</i><div><b>Build</b><small>Landing zone & platform</small></div><i>→</i><div><b>Migrate</b><small>Move & transform</small></div><i>→</i><div><b>Validate</b><small>Test & cut over</small></div><i>→</i><div><b>Optimize</b><small>Operate & improve</small></div></div>
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="wrap contact">
+    <div>
+      <div class="eyebrow">Contact Bhumaji Systems</div>
+      <h2>Let’s discuss what your business needs next.</h2>
+      <p class="lead">Share a little about your project. Our team can follow up about cloud solutions, application development, migration, DevOps, or infrastructure support.</p>
+      <div class="mail"><div class="ic">✉</div><div><small>EMAIL US DIRECTLY</small><a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a></div></div>
+      <p class="note">Please avoid sending passwords, credentials, or other sensitive information through this form.</p>
+    </div>
+    <form id="enquiry">
+      <h3>Send us an enquiry</h3>
+      <p class="sub">Fields marked with * are required.</p>
+      <div class="two">
+        <div class="f"><label for="name">Full name *</label><input id="name" required></div>
+        <div class="f"><label for="email">Work email *</label><input id="email" type="email" required></div>
       </div>
-    </section>
+      <div class="f"><label for="company">Company</label><input id="company"></div>
+      <div class="f"><label for="svc">What can we help with? *</label>
+        <select id="svc" required>
+          <option value="">Select a service</option>
+          <option>Cloud technology</option>
+          <option>Infrastructure or database migration</option>
+          <option>Software and mobile development</option>
+          <option>DevOps and platform engineering</option>
+          <option>Infrastructure management</option>
+          <option>Other enquiry</option>
+        </select></div>
+      <div class="f"><label for="msg">Project details *</label><textarea id="msg" rows="5" required></textarea></div>
+      <p class="note" style="margin:0 0 18px">Your information will be used to respond to your enquiry.</p>
+      <button class="btn btn-primary" type="submit">Send enquiry →</button>
+    </form>
+  </div>
+</section>
 
-    <section class="section mobile-section" id="mobile">
-      <div class="container mobile-grid">
-        <div class="mobile-visual reveal"><div class="phone phone-one"><div class="phone-screen"><span>BHUMAJI</span><strong>Build for<br>every screen.</strong><small>Android · iOS · Cloud</small></div></div><div class="phone phone-two"><div class="phone-screen"><span>01</span><strong>Mobile<br>Experience</strong><small>APIs · Auth · Payments · Maps</small></div></div><div class="floating-chip chip-a">ANDROID</div><div class="floating-chip chip-b">iOS</div><div class="floating-chip chip-c">CLOUD BACKEND</div></div>
-        <div class="mobile-copy reveal delay-1"><div class="eyebrow">SOFTWARE DEVELOPMENT</div><h2>Mobile experiences built for real-world scale.</h2><p>Design and build modern Android and iOS applications connected to secure, scalable cloud-native backends.</p><div class="mobile-features"><div><b>Android & iOS</b><span>Native and cross-platform experiences.</span></div><div><b>Cloud-connected</b><span>APIs, authentication, payments, maps, and real-time services.</span></div><div><b>Release-ready</b><span>Testing, performance optimization, and app-store delivery workflows.</span></div></div><a class="text-link" href="#contact">Build a mobile product <b>→</b></a></div>
-      </div>
-    </section>
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><b>Bhumaji Systems</b>Rooted in reliability. Built for what's next.</div>
+      <ul>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#cloud">Cloud</a></li>
+        <li><a href="#migration">Migration</a></li>
+        <li><a href="#mobile">Mobile</a></li>
+        <li><a href="#our-work">Our work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="bot">© Bhumaji Systems. All rights reserved.</div>
+  </div>
+</footer>
 
-    <section class="section engineering" id="engineering">
-      <div class="container engineering-grid">
-        <div class="engineering-hero reveal"><div class="eyebrow light">DEVOPS & PLATFORM ENGINEERING</div><h2>Build it.<br>Automate it.<br><span>Operate it.</span></h2><p>Connect software delivery with infrastructure engineering so teams can ship safely and operate platforms with visibility and control.</p><div class="pill-row"><span>IaC</span><span>Kubernetes</span><span>CI/CD</span><span>Observability</span><span>Automation</span><span>DR</span></div></div>
-        <div class="principles">
-          <article class="principle reveal delay-1"><span>01</span><h3>Infrastructure as Code</h3><p>Repeatable environments using declarative provisioning and version-controlled infrastructure.</p></article>
-          <article class="principle reveal delay-2"><span>02</span><h3>Platform Engineering</h3><p>Reusable platforms and paved paths that simplify application delivery and operations.</p></article>
-          <article class="principle reveal delay-3"><span>03</span><h3>Observability</h3><p>Metrics, logs, traces, alerting, and operational visibility across applications and infrastructure.</p></article>
-          <article class="principle reveal delay-1"><span>04</span><h3>Resilience & DR</h3><p>High availability, backup, recovery, replication, and tested disaster-recovery strategies.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section approach">
-      <div class="container approach-grid">
-        <div class="reveal"><div class="eyebrow">OUR APPROACH</div><h2>Engineering decisions designed for the long run.</h2><p>We design for the environment you actually need—cloud, hybrid, or on-premises—and create a practical path from today's architecture to what's next.</p></div>
-        <div class="approach-cards reveal delay-1"><div><b>01</b><span>Reliable by design</span></div><div><b>02</b><span>Automated by default</span></div><div><b>03</b><span>Observable in operation</span></div><div><b>04</b><span>Ready to evolve</span></div></div>
-      </div>
-    </section>
-
-
-    <section class="section testimonials" id="testimonials">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">OUR WORK & CLIENT FEEDBACK</div>
-          <h2>Real projects. Thoughtful engineering. Relationships built on trust.</h2>
-          <p>See a project from our journey and learn how we approach practical software delivery. We publish client feedback only when it is genuine and approved for sharing.</p>
-        </div>
-        <div class="testimonial-grid">
-          <article class="testimonial-card project-spotlight reveal">
-            <div class="testimonial-card-top"><span class="testimonial-label">PROJECT SPOTLIGHT</span><span class="testimonial-mark" aria-hidden="true">↗</span></div>
-            <div class="project-monogram" aria-hidden="true">JC</div>
-            <h3>Jhanvi Cars</h3>
-            <p>A cab-booking project showcasing our work in digital experiences and application development.</p>
-            <div class="testimonial-tags"><span>Web presence</span><span>Application development</span></div>
-            <a class="testimonial-link" href="https://jhanvicars.in/" target="_blank" rel="noopener noreferrer">Explore Jhanvi Cars <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="testimonial-card feedback-card reveal delay-1">
-            <div class="testimonial-card-top"><span class="testimonial-label">CLIENT TESTIMONIALS</span><span class="testimonial-mark" aria-hidden="true">“</span></div>
-            <h3>Your experience matters.</h3>
-            <p>We value clear communication, dependable delivery, and long-term relationships. As clients share feedback and approve it for publication, we’ll feature their words here—without fabricated reviews.</p>
-            <a class="testimonial-link" href="mailto:contactus@bhumaji.com?subject=Feedback%20for%20Bhumaji%20Systems">Share your feedback <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section case-study" id="our-work">
-      <div class="container">
-        <div class="case-study-heading">
-          <div class="eyebrow">FEATURED PROJECT · MOBILITY TECHNOLOGY</div>
-          <h2>Jhanvi Cars — a complete cab-booking experience.</h2>
-          <p>A customer-facing ride-booking platform designed to make choosing a vehicle, estimating fares, and following ride status simple and intuitive.</p>
-        </div>
-        <div class="case-study-hero">
-          <div class="case-study-copy">
-            <span class="case-study-kicker">PRODUCT SHOWCASE</span>
-            <h3>From sign-up to ride tracking.</h3>
-            <p>Explore the customer journey across authentication, vehicle selection, fare estimates, and active ride updates.</p>
-            <div class="case-study-tags"><span>Customer experience</span><span>Ride booking</span><span>Fare estimation</span><span>Ride status</span></div>
-          </div>
-          <div class="case-study-visual"><img src="assets/projects/bhumaji-jhanvi-cars-showcase.png" alt="Jhanvi Cars showcase using six real application screenshots: booking dashboard, vehicle and fare selection, login, registration, pending rides, and confirmed rides" loading="lazy"></div>
-        </div>
-        <div class="case-study-gallery">
-          <article class="case-study-card"><div class="case-study-image"><img src="assets/projects/jhanvi-cars-login.svg" alt="Jhanvi Cars customer login screen" loading="lazy"></div><div class="case-study-card-copy"><span>01 · ACCESS</span><h3>Customer login and registration</h3><p>A clear entry point for customers and drivers to access the platform.</p></div></article>
-          <article class="case-study-card"><div class="case-study-image"><img src="assets/projects/jhanvi-cars-booking.svg" alt="Jhanvi Cars booking screen with pickup, destination and vehicle options" loading="lazy"></div><div class="case-study-card-copy"><span>02 · BOOKING</span><h3>Ride planning and vehicle choice</h3><p>Pickup and destination inputs alongside vehicle categories and estimated fares.</p></div></article>
-          <article class="case-study-card"><div class="case-study-image"><img src="assets/projects/jhanvi-cars-active-rides.svg" alt="Jhanvi Cars active rides dashboard showing ride status" loading="lazy"></div><div class="case-study-card-copy"><span>03 · TRIP MANAGEMENT</span><h3>Active ride status</h3><p>Ride cards communicate pending and confirmed states, route details, and estimated prices.</p></div></article>
-        </div>
-        <p class="case-study-footnote">Project showcase: interface screenshots are illustrative of the customer experience. Live booking and driver availability depend on the deployed application.</p>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="container contact-layout">
-        <div class="contact-intro reveal">
-          <div class="eyebrow">CONTACT BHUMAJI SYSTEMS</div>
-          <h2>Let’s discuss what your business needs next.</h2>
-          <p>Share a little about your project. Our team can follow up about cloud solutions, application development, migration, DevOps, or infrastructure support.</p>
-          <div class="contact-detail">
-            <span class="contact-detail-icon" aria-hidden="true">✉</span>
-            <div><small>EMAIL US DIRECTLY</small><a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a></div>
-          </div>
-          <div class="contact-note">Please avoid sending passwords, credentials, or other sensitive information through this form.</div>
-        </div>
-        <form class="contact-form reveal delay-1" action="https://formsubmit.co/contactus@bhumaji.com" method="POST">
-          <input type="hidden" name="_subject" value="New website enquiry — Bhumaji Systems">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
-          <div class="form-heading"><h3>Send us an enquiry</h3><p>Fields marked with * are required.</p></div>
-          <div class="form-grid">
-            <div class="form-field"><label for="contact-name">Full name <span>*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required maxlength="100"></div>
-            <div class="form-field"><label for="contact-email">Work email <span>*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required maxlength="254"></div>
-            <div class="form-field"><label for="contact-company">Company</label><input id="contact-company" name="company" type="text" autocomplete="organization" placeholder="Company name" maxlength="120"></div>
-            <div class="form-field"><label for="contact-service">What can we help with? <span>*</span></label><select id="contact-service" name="service" required><option value="" disabled selected>Select a service</option><option>Cloud technology</option><option>Infrastructure or database migration</option><option>Software and mobile development</option><option>DevOps and platform engineering</option><option>Infrastructure management</option><option>Other enquiry</option></select></div>
-            <div class="form-field form-field-wide"><label for="contact-message">Project details <span>*</span></label><textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your goals, challenges, or timeline..." required maxlength="4000"></textarea></div>
-          </div>
-          <div class="form-submit-row"><p>Your information will be used to respond to your enquiry.</p><button class="btn btn-form" type="submit">Send enquiry <span>→</span></button></div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer"><div class="container footer-inner"><div><strong>Bhumaji Systems</strong><span>Rooted in reliability. Built for what's next.</span></div><div class="footer-links"><a href="#capabilities">Capabilities</a><a href="#cloud">Cloud</a><a href="#migration">Migration</a><a href="#mobile">Mobile</a><a href="#our-work">Our work</a><a href="#contact">Contact</a></div><div class="copyright">© <span id="year"></span> Bhumaji Systems. All rights reserved.</div></div></footer>
-  <script src="script.js"></script>
+<script>
+// Demo handler: opens the visitor's email app with the enquiry pre-filled.
+// Replace with your existing form endpoint if you already have one.
+document.getElementById('enquiry').addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=function(id){return document.getElementById(id).value};
+  var body='Name: '+v('name')+'\nEmail: '+v('email')+'\nCompany: '+v('company')+'\nService: '+v('svc')+'\n\n'+v('msg');
+  location.href='mailto:contactus@bhumaji.com?subject='+encodeURIComponent('Website enquiry: '+v('svc'))+'&body='+encodeURIComponent(body);
+});
+</script>
 </body>
 </html>
