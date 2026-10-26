@@ -626,6 +626,12 @@ footer a:hover{color:#ff8792}
  .industries-mega a:hover{padding-left:20px!important}
 }
 
+
+/* Keep Industries as a normal navigation link: no dropdown or copied mega-menu */
+.industries-mega,.site-header nav .industries-nav{display:none!important}
+.site-header nav a[href="#industries"]{cursor:pointer}
+.site-header nav a[href="#industries"]:hover{color:#39c9ff}
+
 </style>
 </head>
 <body id="top">
@@ -651,20 +657,7 @@ footer a:hover{color:#ff8792}
       <ul>
         <li><a href="#cloud">Cloud Services</a></li>
         <li><a href="#engineering">Engineering</a></li>
-        <li class="industries-nav">
-          <a href="#industries" aria-haspopup="true" aria-expanded="false">Industries <span class="industry-chevron">⌄</span></a>
-          <div class="industries-mega" id="industries" aria-label="Industries">
-            <a href="#contact">Banking, Finance, and Insurance <span>↗</span></a>
-            <a href="#contact">Healthcare <span>↗</span></a>
-            <a href="#contact">Manufacturing <span>↗</span></a>
-            <a href="#contact">Media and Entertainment <span>↗</span></a>
-            <a href="#contact">Gaming <span>↗</span></a>
-            <a href="#contact">Real Estate <span>↗</span></a>
-            <a href="#contact">Hiring <span>↗</span></a>
-            <a href="#contact">Hospitality <span>↗</span></a>
-            <a href="#contact">E-commerce <span>↗</span></a>
-          </div>
-        </li>
+        <li><a href="#industries">Industries</a></li>
         <li><a href="#our-work">Insights</a></li>
         <li><a href="#approach">About</a></li>
         <li><a href="#contact" class="nav-cta">Contact Us <span>↗</span></a></li>
