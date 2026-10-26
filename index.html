@@ -563,6 +563,30 @@ footer a:hover{color:#ff8792}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
+
+/* Rebuilt text-and-symbol brand lockup for the dark developer theme */
+.site-header .brand{flex:0 0 244px;width:244px;min-width:244px;align-items:flex-start;gap:4px;text-align:left;overflow:visible}
+.site-header .brand-lockup{display:flex;align-items:center;gap:10px;min-height:40px}
+.site-header .brand-symbol{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:10px 3px 10px 3px;background:linear-gradient(145deg,#35d6f5 0%,#1687ff 48%,#4256f4 100%);color:#06101f;font-size:30px;font-weight:800;line-height:1;letter-spacing:-.09em;font-family:Inter,system-ui,sans-serif;box-shadow:0 0 22px rgba(31,143,255,.18)}
+.site-header .brand-wordmark{display:flex;flex-direction:column;gap:1px;color:#f5f8ff;line-height:1}
+.site-header .brand-wordmark strong{font-size:22px;letter-spacing:.045em;font-weight:800}
+.site-header .brand-wordmark small{font-size:9px;letter-spacing:.27em;font-weight:600;color:#9eb0ca;padding-left:2px}
+.site-header .brand-tagline{display:block;color:#91a2bc;font-size:9px;line-height:1.25;letter-spacing:.01em;white-space:nowrap}
+.site-header.compact .brand-symbol{width:34px;height:34px;font-size:27px}
+.site-header.compact .brand-wordmark strong{font-size:20px}
+@media(max-width:1120px){
+ .site-header .brand{flex:0 0 230px;width:230px;min-width:230px}
+ .site-header .brand-wordmark strong{font-size:20px}
+ .site-header .brand-symbol{width:35px;height:35px;font-size:28px}
+}
+@media(max-width:700px){
+ .site-header .brand{flex:0 0 210px;width:210px;min-width:210px}
+ .site-header .brand-wordmark strong{font-size:18px}
+ .site-header .brand-wordmark small{font-size:8px}
+ .site-header .brand-symbol{width:32px;height:32px;font-size:25px}
+ .site-header .brand-tagline{font-size:8px}
+}
+
 </style>
 </head>
 <body id="top">
@@ -577,7 +601,10 @@ footer a:hover{color:#ff8792}
 <header class="site-header">
   <div class="wrap nav-wrap">
     <a href="#top" class="brand" aria-label="Bhumaji Systems home">
-      <img src="assets/bhumaji-logo.png" alt="Bhumaji Systems logo">
+      <span class="brand-lockup">
+        <span class="brand-symbol" aria-hidden="true">B</span>
+        <span class="brand-wordmark"><strong>BHUMAJI</strong><small>S Y S T E M S</small></span>
+      </span>
       <span class="brand-tagline">Rooted in reliability. Built for what’s next.</span>
     </a>
     <button class="burger" aria-label="Open navigation" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
