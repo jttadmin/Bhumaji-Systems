@@ -454,6 +454,32 @@ footer .bot{border-top:1px solid rgba(255,255,255,.12);margin-top:28px}
 }
 @media(prefers-reduced-motion:reduce){.cinematic-hero:before{animation:none}}
 
+
+/* Header alignment and logo correction */
+.site-header .nav-wrap{min-height:76px;padding-top:7px;padding-bottom:7px;gap:24px}
+.site-header.compact .nav-wrap{min-height:70px}
+.site-header .brand{flex:0 0 238px;width:238px;min-width:238px;align-items:flex-start;gap:1px;overflow:visible}
+.site-header .brand img{display:block;width:238px;max-width:none;height:43px;object-fit:contain;object-position:left center;background:transparent;border-radius:0;padding:0;clip-path:none}
+.site-header.compact .brand img{width:224px;height:39px;clip-path:none}
+.site-header .brand-tagline{font-size:10px;line-height:1.2;font-weight:500;color:#c5c5c5;white-space:nowrap;letter-spacing:0}
+.site-header nav ul{gap:clamp(12px,1.45vw,22px)}
+.site-header nav a{font-size:13px}
+.site-header nav .nav-cta{padding:10px 14px;gap:12px}
+@media(max-width:1120px){
+ .site-header .nav-wrap{min-height:76px;padding-top:6px;padding-bottom:6px}
+ .site-header .brand{flex:0 0 215px;width:215px;min-width:215px}
+ .site-header .brand img{width:215px;height:40px}
+ .site-header.compact .brand img{width:205px;height:37px}
+ .site-header .brand-tagline{font-size:9px}
+}
+@media(max-width:700px){
+ .site-header .nav-wrap{min-height:72px}
+ .site-header .brand{flex:0 0 190px;width:190px;min-width:190px}
+ .site-header .brand img{width:190px;height:36px}
+ .site-header .brand-tagline{font-size:8.5px}
+ .site-header.compact .brand img{width:180px;height:34px}
+}
+
 </style>
 </head>
 <body id="top">
