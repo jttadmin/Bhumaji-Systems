@@ -1268,7 +1268,7 @@ document.getElementById('enquiry').addEventListener('submit',function(e){
   <div class="bs-chat-quick" id="bsChatQuick"><button type="button" data-question="AWS cloud setup">AWS setup</button><button type="button" data-question="Cloud migration">Cloud migration</button><button type="button" data-question="DevOps and Kubernetes">DevOps / Kubernetes</button><button type="button" data-question="Pricing and consultation">Pricing / consultation</button></div>
   <form class="bs-chat-form" id="bsChatForm"><input id="bsChatInput" aria-label="Type your message" placeholder="Type your question…" autocomplete="off" maxlength="500" required><button type="submit" aria-label="Send message">Send</button></form>
 </div>
-<button class="bs-chat-launcher" id="bsChatLauncher" type="button" aria-label="Chat with Bhumaji Systems on WhatsApp"><svg class="bs-chat-icon" aria-hidden="true" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg> Chat on WhatsApp</button>
+<button class="bs-chat-launcher" id="bsChatLauncher" type="button" aria-expanded="false" aria-controls="bsChatPanel"><svg class="bs-chat-icon" aria-hidden="true" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg> Chat with us</button>
 <script>
 (function(){
  var panel=document.getElementById('bsChatPanel'), launcher=document.getElementById('bsChatLauncher'), close=document.getElementById('bsChatClose'), messages=document.getElementById('bsChatMessages'), form=document.getElementById('bsChatForm'), input=document.getElementById('bsChatInput'), quick=document.getElementById('bsChatQuick');
@@ -1285,7 +1285,7 @@ document.getElementById('enquiry').addEventListener('submit',function(e){
   return 'Thanks for your message. This website chat provides initial guidance and is not connected to a live agent. For a project-specific response, email contactus@bhumaji.com or use the Contact Us form.';
  }
  function send(q){q=(q||'').trim();if(!q)return;addMessage(q,'user');addMessage(answer(q),'bot')}
- launcher.addEventListener('click',function(){window.open('https://wa.me/918050818553?text=Hello%20Bhumaji%20Systems%2C%20I%20have%20an%20enquiry%20about%20your%20services.','_blank','noopener,noreferrer')});
+ launcher.addEventListener('click',function(){panel.classList.contains('open')?closeChat():openChat()});
  close.addEventListener('click',closeChat);
  form.addEventListener('submit',function(e){e.preventDefault();send(input.value);input.value='';input.focus()});
  quick.addEventListener('click',function(e){var b=e.target.closest('button[data-question]');if(b)send(b.getAttribute('data-question'))});
