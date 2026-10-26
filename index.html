@@ -632,6 +632,28 @@ footer a:hover{color:#ff8792}
 .site-header nav a[href="#industries"]{cursor:pointer}
 .site-header nav a[href="#industries"]:hover{color:#39c9ff}
 
+
+/* Engineering hover mega-menu: original Bhumaji service labels and content targets */
+.site-header .nav-wrap{position:relative}
+.site-header nav .engineering-nav{position:static}
+.site-header nav .engineering-nav>a{display:flex;align-items:center;gap:6px}
+.engineering-chevron{font-size:14px;color:#a3a3a3;transition:transform .18s ease}
+.engineering-mega{display:none;position:absolute;left:0;right:0;top:100%;z-index:100;grid-template-columns:repeat(2,minmax(0,1fr));background:#151515;border:1px solid #292929;border-top:1px solid #303030}
+.engineering-mega a{min-height:72px;display:flex!important;align-items:center;justify-content:space-between;gap:20px;padding:0 32px!important;color:#f2f2f2!important;font-size:14px!important;font-weight:600!important;border:0!important;border-bottom:1px dashed #303030!important;white-space:normal!important;transition:background .18s ease,color .18s ease}
+.engineering-mega a:nth-child(odd){border-right:1px dashed #303030!important}
+.engineering-mega a span{font-size:21px;color:#a3a3a3;font-weight:400;transition:transform .18s ease,color .18s ease}
+.engineering-mega a:hover{background:#202020!important;color:#fff!important;padding-left:38px!important}
+.engineering-mega a:hover span{color:#55c8ff;transform:translate(2px,-2px)}
+.engineering-nav:hover .engineering-mega,.engineering-nav:focus-within .engineering-mega{display:grid}
+.engineering-nav:hover>a,.engineering-nav:focus-within>a{background:#292929;border-radius:4px;color:#fff}
+.engineering-nav:hover .engineering-chevron,.engineering-nav:focus-within .engineering-chevron{transform:rotate(180deg);color:#fff}
+@media(max-width:1120px){
+ .site-header nav .engineering-nav>a{display:flex;justify-content:space-between}
+ .engineering-mega{position:static;width:100%;grid-template-columns:1fr;border:0;border-top:1px solid #303030;margin:2px 0 8px}
+ .engineering-mega a{min-height:52px;padding:0 14px!important;border-right:0!important}
+ .engineering-mega a:hover{padding-left:20px!important}
+}
+
 </style>
 </head>
 <body id="top">
@@ -656,7 +678,22 @@ footer a:hover{color:#ff8792}
     <nav id="nav" aria-label="Main navigation">
       <ul>
         <li><a href="#cloud">Cloud Services</a></li>
-        <li><a href="#engineering">Engineering</a></li>
+        <li class="engineering-nav">
+          <a href="#engineering" aria-haspopup="true" aria-expanded="false">Engineering <span class="engineering-chevron">⌄</span></a>
+          <div class="engineering-mega" aria-label="Engineering services">
+            <a href="#ai">AI Engineering <span>↗</span></a>
+            <a href="#software">Full Stack Engineering <span>↗</span></a>
+            <a href="#mobile">Mobile Engineering <span>↗</span></a>
+            <a href="#software">Web Engineering <span>↗</span></a>
+            <a href="#software">Backend Engineering <span>↗</span></a>
+            <a href="#engineering">DevOps Engineering <span>↗</span></a>
+            <a href="#software">UI/UX Engineering <span>↗</span></a>
+            <a href="#software">Design Engineering <span>↗</span></a>
+            <a href="#engineering">QA Engineering <span>↗</span></a>
+            <a href="#engineering">IoT Engineering <span>↗</span></a>
+            <a href="#approach">Business Analysis <span>↗</span></a>
+          </div>
+        </li>
         <li><a href="#industries">Industries</a></li>
         <li><a href="#our-work">Insights</a></li>
         <li><a href="#approach">About</a></li>
