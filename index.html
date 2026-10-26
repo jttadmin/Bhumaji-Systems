@@ -666,6 +666,29 @@ footer a:hover{color:#ff8792}
  .site-header nav .nav-cta{padding:9px 10px}
 }
 
+
+/* Hover-only navigation detail panels; no chevrons or click-triggered dropdowns */
+.site-header .nav-wrap{position:relative}
+.site-header nav ul{gap:clamp(8px,1vw,17px)}
+.site-header nav .hover-info{position:static}
+.site-header nav .hover-info>a{display:flex;align-items:center}
+.hover-panel{display:none;position:absolute;left:0;right:0;top:100%;z-index:120;grid-template-columns:repeat(2,minmax(0,1fr));background:#141414;border:1px solid #2b2b2b;border-top:1px solid #303030;box-shadow:0 22px 50px rgba(0,0,0,.32)}
+.hover-info:hover>.hover-panel,.hover-info:focus-within>.hover-panel{display:grid}
+.hover-panel>a{min-height:62px;display:flex!important;align-items:center;justify-content:space-between;gap:20px;padding:0 30px!important;color:#f4f4f4!important;font-size:14px!important;font-weight:600!important;border:0!important;border-bottom:1px dashed #303030!important;white-space:normal!important;transition:background .18s ease,padding .18s ease}
+.hover-panel>a:nth-child(odd){border-right:1px dashed #303030!important}
+.hover-panel>a span{font-size:20px;color:#9da6b4;font-weight:400;transition:transform .18s ease,color .18s ease}
+.hover-panel>a:hover{background:#202632!important;padding-left:36px!important;color:#fff!important}
+.hover-panel>a:hover span{color:#47c8ff;transform:translate(2px,-2px)}
+.site-header nav .hover-info:hover>a,.site-header nav .hover-info:focus-within>a{color:#fff}
+.site-header nav .hover-info:hover>a:not(.nav-cta){background:#242424;border-radius:4px}
+@media(max-width:1120px){
+ .site-header nav .hover-info{position:static}
+ .hover-panel{position:static;width:100%;grid-template-columns:1fr;border:0;border-top:1px solid #303030;box-shadow:none;margin:0 0 8px;background:#191919}
+ .hover-panel>a{min-height:50px;padding:10px 14px!important;border-right:0!important}
+ .hover-panel>a:hover{padding-left:20px!important}
+ .site-header nav .hover-info:hover>a:not(.nav-cta){background:transparent}
+}
+
 </style>
 </head>
 <body id="top">
@@ -688,31 +711,16 @@ footer a:hover{color:#ff8792}
     </a>
     <button class="burger" aria-label="Open navigation" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
     <nav id="nav" aria-label="Main navigation">
-      <ul>
-        <li><a href="#capabilities">What We Do</a></li>
-        <li><a href="#cloud">Cloud Services</a></li>
-        <li><a href="#industries">Industries</a></li>
-        <li class="engineering-nav">
-          <a href="#engineering" aria-haspopup="true" aria-expanded="false">Engineering <span class="engineering-chevron">⌄</span></a>
-          <div class="engineering-mega" aria-label="Engineering services">
-            <a href="#ai">AI Engineering <span>↗</span></a>
-            <a href="#software">Full Stack Engineering <span>↗</span></a>
-            <a href="#mobile">Mobile Engineering <span>↗</span></a>
-            <a href="#software">Web Engineering <span>↗</span></a>
-            <a href="#software">Backend Engineering <span>↗</span></a>
-            <a href="#engineering">DevOps Engineering <span>↗</span></a>
-            <a href="#software">UI/UX Engineering <span>↗</span></a>
-            <a href="#software">Design Engineering <span>↗</span></a>
-            <a href="#engineering">QA Engineering <span>↗</span></a>
-            <a href="#engineering">IoT Engineering <span>↗</span></a>
-            <a href="#approach">Business Analysis <span>↗</span></a>
-          </div>
-        </li>
-        <li><a href="#our-work">Insights</a></li>
-        <li><a href="#approach">About Us</a></li>
-        <li><a href="#contact" class="nav-cta">Contact Us <span>↗</span></a></li>
-      </ul>
-    </nav>
+<ul>
+<li class="hover-info"><a href="#capabilities">What We Do</a><div class="hover-panel"><a href="#cloud">Cloud &amp; Infrastructure <span>↗</span></a><a href="#engineering">DevOps &amp; Automation <span>↗</span></a><a href="#migration">Migration &amp; Modernization <span>↗</span></a><a href="#ai">AI &amp; Intelligent Operations <span>↗</span></a></div></li>
+<li class="hover-info"><a href="#cloud">Cloud Services</a><div class="hover-panel"><a href="#cloud">AWS Cloud Setup <span>↗</span></a><a href="#migration">Cloud Migration <span>↗</span></a><a href="#cloud">Cloud Security <span>↗</span></a><a href="#cloud">Cost Optimization <span>↗</span></a></div></li>
+<li class="hover-info"><a href="#industries">Industries</a><div class="hover-panel"><a href="#contact">Startups <span>↗</span></a><a href="#contact">Small Businesses <span>↗</span></a><a href="#contact">Software Agencies <span>↗</span></a><a href="#contact">Digital Businesses <span>↗</span></a></div></li>
+<li class="hover-info"><a href="#engineering">Engineering</a><div class="hover-panel"><a href="#ai">AI Engineering <span>↗</span></a><a href="#software">Full Stack Engineering <span>↗</span></a><a href="#mobile">Mobile Engineering <span>↗</span></a><a href="#software">Web Engineering <span>↗</span></a><a href="#software">Backend Engineering <span>↗</span></a><a href="#engineering">DevOps Engineering <span>↗</span></a><a href="#software">UI/UX Engineering <span>↗</span></a><a href="#software">Design Engineering <span>↗</span></a><a href="#engineering">QA Engineering <span>↗</span></a><a href="#engineering">IoT Engineering <span>↗</span></a><a href="#approach">Business Analysis <span>↗</span></a></div></li>
+<li class="hover-info"><a href="#our-work">Insights</a><div class="hover-panel"><a href="#our-work">Project Showcases <span>↗</span></a><a href="#cloud">Cloud Guides <span>↗</span></a><a href="#engineering">DevOps Articles <span>↗</span></a><a href="#ai">AI &amp; Observability <span>↗</span></a></div></li>
+<li class="hover-info"><a href="#approach">About Us</a><div class="hover-panel"><a href="#approach">Our Approach <span>↗</span></a><a href="#our-work">Our Work <span>↗</span></a></div></li>
+<li><a href="#contact" class="nav-cta">Contact Us <span>↗</span></a></li>
+</ul>
+</nav>
   </div>
 </header>
 
