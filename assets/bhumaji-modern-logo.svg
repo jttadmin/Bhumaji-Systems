@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="150" viewBox="0 0 680 150" role="img" aria-labelledby="title desc">
+<title id="title">Bhumaji Systems</title><desc id="desc">Modern blue and cyan cloud B symbol and Bhumaji Systems wordmark</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#35f0ee"/><stop offset=".52" stop-color="#00a8ff"/><stop offset="1" stop-color="#315bff"/></linearGradient></defs>
+<rect width="680" height="150" rx="16" fill="#071225"/>
+<g transform="translate(22 18)" fill="none" stroke="url(#g)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+<path d="M28 75c-13 0-23-10-23-23 0-12 9-22 21-23 5-17 20-28 38-28 14 0 27 7 34 19 18-2 33 12 33 30 0 15-12 27-27 27H28Z"/>
+<path d="M52 16h32c14 0 24 10 24 23s-10 23-24 23H58c-12 0-21 9-21 20s9 20 21 20h40" stroke-width="9"/>
+</g>
+<g fill="url(#g)"><rect x="56" y="102" width="12" height="12" rx="2"/><rect x="75" y="96" width="15" height="15" rx="2"/><rect x="93" y="106" width="11" height="11" rx="2"/></g>
+<text x="180" y="78" font-family="Arial,Helvetica,sans-serif" font-size="53" font-weight="800" letter-spacing="1.5" fill="#f7fbff">BHUMAJI</text>
+<text x="182" y="111" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="600" letter-spacing="10" fill="#27d9ef">SYSTEMS</text>
+<text x="182" y="133" font-family="Arial,Helvetica,sans-serif" font-size="10.5" letter-spacing="2" fill="#c6d5e8">CLOUD  |  DEVOPS  |  ENGINEERING</text>
+</svg>
