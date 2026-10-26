@@ -46,12 +46,12 @@ h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;max-width:760px}
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:132px;gap:24px;transition:min-height .25s}
 header.compact .wrap{min-height:104px}
-.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:0 1 390px;min-width:0;color:var(--navy);letter-spacing:-.02em;text-align:center}
-.brand img{height:96px;width:auto;max-width:100%;object-fit:contain;display:block;transition:height .25s}
-.brand-tagline{display:block;width:100%;max-width:100%;font-size:13px;line-height:1.35;font-weight:500;letter-spacing:0;color:var(--navy);text-align:center;white-space:normal}
-header.compact .brand img{height:76px}
-header.compact .brand-tagline{font-size:12px}
-nav ul{list-style:none;display:flex;gap:28px;align-items:center}
+.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:0 0 270px;width:270px;min-width:270px;color:var(--navy);letter-spacing:-.02em;text-align:center}
+.brand img{height:82px;width:auto;max-width:100%;object-fit:contain;display:block;transition:height .25s}
+.brand-tagline{display:block;width:100%;max-width:100%;font-size:11.5px;line-height:1.3;font-weight:500;letter-spacing:0;color:var(--navy);text-align:center;white-space:nowrap}
+header.compact .brand img{height:68px}
+header.compact .brand-tagline{font-size:11px}
+nav ul{list-style:none;display:flex;gap:18px;align-items:center}
 nav a{font-size:14.5px;font-weight:500;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent}
 nav a:hover{color:var(--blue);border-color:var(--blue)}
 nav a.btn{color:#fff;border-bottom:0;padding:10px 20px}
@@ -271,9 +271,9 @@ footer .bot{padding-top:22px;font-size:13px}
   .stat:nth-child(3){border-left:0;padding-left:0}
   section{padding:68px 0}
   .burger{display:block}
-  .brand{flex:0 1 300px}
+  .brand{flex:0 1 260px;width:260px;min-width:0}
   .brand img{height:70px}
-  .brand-tagline{font-size:11px}
+  .brand-tagline{font-size:11px;white-space:normal}
   header .wrap{min-height:104px}
   nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);display:none;padding:16px 24px}
   nav.open{display:block}
@@ -282,9 +282,9 @@ footer .bot{padding-top:22px;font-size:13px}
 @media(max-width:600px){
   .g4,.g2,.two{grid-template-columns:1fr}
   .topbar .wrap{justify-content:center}
-  .brand{flex-basis:230px}
+  .brand{flex:0 1 230px;width:230px;min-width:0}
   .brand img{height:60px}
-  .brand-tagline{font-size:10px}
+  .brand-tagline{font-size:10px;white-space:normal}
   header.compact .brand img{height:54px}
   header .wrap,header.compact .wrap{min-height:86px;gap:12px}
   .wrap{width:min(1180px,100% - 32px)}
