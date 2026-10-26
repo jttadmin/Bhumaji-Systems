@@ -733,6 +733,26 @@ footer a:hover{color:#ff8792}
  .cloud-services-panel .cloud-service-item:hover,.cloud-services-panel .cloud-service-item:focus-visible{min-height:82px!important;padding:10px 14px!important}
 }
 
+
+/* Shared compact rows with descriptions revealed on hover/focus */
+.detail-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+.detail-panel .detail-item{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;align-content:center;align-items:center;gap:0 18px!important;min-height:68px!important;padding:0 30px!important}
+.detail-panel .detail-item b{grid-column:1;grid-row:1;font-size:13px;font-weight:600;color:#f1f5f9}
+.detail-panel .detail-item small{grid-column:1;grid-row:2;display:block;max-height:0;overflow:hidden;visibility:hidden;opacity:0;color:#aab8ca;font-size:11px;line-height:1.5;font-weight:400;transition:max-height .22s ease,opacity .18s ease,visibility .18s ease;margin:0}
+.detail-panel .detail-item span{grid-column:2;grid-row:1/3;align-self:center}
+.detail-panel .detail-item:hover,.detail-panel .detail-item:focus-visible{min-height:94px!important;padding:12px 30px!important;background:#202a3a!important}
+.detail-panel .detail-item:hover small,.detail-panel .detail-item:focus-visible small{max-height:54px;visibility:visible;opacity:1;margin-top:5px}
+.about-detail-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+.about-panel-intro{grid-column:1/-1;padding:22px 30px;border-bottom:1px dashed #303030}
+.about-panel-intro b{font-size:18px;color:#f5f5f5}
+.about-panel-intro p{font-size:12px;line-height:1.6;color:#aab8ca;margin:7px 0 0;max-width:620px}
+@media(max-width:1120px){
+ .detail-panel,.about-detail-panel{grid-template-columns:1fr}
+ .detail-panel .detail-item{min-height:54px!important;padding:10px 14px!important}
+ .detail-panel .detail-item:hover,.detail-panel .detail-item:focus-visible{min-height:82px!important;padding:10px 14px!important}
+ .about-panel-intro{padding:18px 14px}
+}
+
 </style>
 </head>
 <body id="top">
@@ -756,7 +776,12 @@ footer a:hover{color:#ff8792}
     <button class="burger" aria-label="Open navigation" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
     <nav id="nav" aria-label="Main navigation">
 <ul>
-<li class="hover-info"><a href="#capabilities">What We Do</a><div class="hover-panel"><a href="#cloud">Cloud &amp; Infrastructure <span>↗</span></a><a href="#engineering">DevOps &amp; Automation <span>↗</span></a><a href="#migration">Migration &amp; Modernization <span>↗</span></a><a href="#ai">AI &amp; Intelligent Operations <span>↗</span></a></div></li>
+<li class="hover-info"><a href="#capabilities">What We Do</a><div class="hover-panel detail-panel" aria-label="What we do">
+<a class="detail-item" href="#cloud"><b>Cloud &amp; Infrastructure</b><small>Build secure, scalable cloud foundations for your applications and teams.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>DevOps &amp; Automation</b><small>Automate testing, delivery and infrastructure changes to release with confidence.</small><span>↗</span></a>
+<a class="detail-item" href="#migration"><b>Migration &amp; Modernization</b><small>Move workloads thoughtfully and modernize legacy platforms in manageable stages.</small><span>↗</span></a>
+<a class="detail-item" href="#ai"><b>AI &amp; Intelligent Operations</b><small>Use practical AI and observability to improve insights and operations.</small><span>↗</span></a>
+</div></li>
 <li class="hover-info cloud-services-hover"><a href="#cloud">Cloud Services</a><div class="hover-panel cloud-services-panel" aria-label="Cloud services">
 <a class="cloud-service-item" href="#cloud"><b>AWS Cloud Setup</b><small>Set up secure AWS accounts, networking, IAM and a reliable cloud foundation.</small><span>↗</span></a>
 <a class="cloud-service-item" href="#migration"><b>Cloud Migration</b><small>Assess workloads, plan cutovers and move applications with reduced risk.</small><span>↗</span></a>
@@ -776,9 +801,30 @@ footer a:hover{color:#ff8792}
 <a class="industry-item" href="#contact"><b>Hospitality</b><small>Improve booking, guest-service and business systems with reliable, connected infrastructure.</small><span>↗</span></a>
 <a class="industry-item" href="#contact"><b>E-commerce</b><small>Prepare storefronts and order services for peak traffic, secure payments and dependable releases.</small><span>↗</span></a>
 </div></li>
-<li class="hover-info"><a href="#engineering">Engineering</a><div class="hover-panel"><a href="#ai">AI Engineering <span>↗</span></a><a href="#software">Full Stack Engineering <span>↗</span></a><a href="#mobile">Mobile Engineering <span>↗</span></a><a href="#software">Web Engineering <span>↗</span></a><a href="#software">Backend Engineering <span>↗</span></a><a href="#engineering">DevOps Engineering <span>↗</span></a><a href="#software">UI/UX Engineering <span>↗</span></a><a href="#software">Design Engineering <span>↗</span></a><a href="#engineering">QA Engineering <span>↗</span></a><a href="#engineering">IoT Engineering <span>↗</span></a><a href="#approach">Business Analysis <span>↗</span></a></div></li>
-<li class="hover-info"><a href="#our-work">Insights</a><div class="hover-panel"><a href="#our-work">Project Showcases <span>↗</span></a><a href="#cloud">Cloud Guides <span>↗</span></a><a href="#engineering">DevOps Articles <span>↗</span></a><a href="#ai">AI &amp; Observability <span>↗</span></a></div></li>
-<li class="hover-info"><a href="#approach">About Us</a><div class="hover-panel"><a href="#approach">Our Approach <span>↗</span></a><a href="#our-work">Our Work <span>↗</span></a></div></li>
+<li class="hover-info"><a href="#engineering">Engineering</a><div class="hover-panel detail-panel" aria-label="Engineering services">
+<a class="detail-item" href="#ai"><b>AI Engineering</b><small>Integrate AI capabilities into practical, production-ready workflows.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Full Stack Engineering</b><small>Build connected frontends, APIs and backend services for digital products.</small><span>↗</span></a>
+<a class="detail-item" href="#mobile"><b>Mobile Engineering</b><small>Create maintainable mobile experiences with dependable backend integration.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Web Engineering</b><small>Deliver fast, accessible and maintainable web applications.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Backend Engineering</b><small>Design APIs, service integrations and scalable application logic.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>DevOps Engineering</b><small>Improve CI/CD, Kubernetes, Terraform, GitOps and release reliability.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>UI/UX Engineering</b><small>Turn user needs and interface designs into usable product experiences.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Design Engineering</b><small>Build consistent, reusable interfaces from design systems.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>QA Engineering</b><small>Strengthen quality with repeatable tests and release checks.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>IoT Engineering</b><small>Connect devices, data pipelines and cloud services securely.</small><span>↗</span></a>
+<a class="detail-item" href="#approach"><b>Business Analysis</b><small>Clarify requirements, priorities, scope and acceptance criteria.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info"><a href="#our-work">Insights</a><div class="hover-panel detail-panel" aria-label="Insights">
+<a class="detail-item" href="#our-work"><b>Project Showcases</b><small>See examples of cloud, automation and software delivery work.</small><span>↗</span></a>
+<a class="detail-item" href="#cloud"><b>Cloud Guides</b><small>Practical guidance on AWS foundations, migration and cost management.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>DevOps Articles</b><small>Learn about CI/CD, Kubernetes, infrastructure as code and GitOps.</small><span>↗</span></a>
+<a class="detail-item" href="#ai"><b>Observability &amp; AI</b><small>Explore monitoring, logging and intelligent operations practices.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info"><a href="#approach">About Us</a><div class="hover-panel detail-panel about-detail-panel" aria-label="About Bhumaji Systems">
+<div class="about-panel-intro"><b>Engineering for what’s next.</b><p>Bhumaji Systems helps teams build, migrate and operate secure, dependable digital platforms.</p></div>
+<a class="detail-item" href="#approach"><b>Our Approach</b><small>Practical planning, transparent communication and dependable delivery.</small><span>↗</span></a>
+<a class="detail-item" href="#our-work"><b>Our Work</b><small>Explore our technical projects and engineering experience.</small><span>↗</span></a>
+</div></li>
 <li><a href="#contact" class="nav-cta">Contact Us <span>↗</span></a></li>
 </ul>
 </nav>
