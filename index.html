@@ -822,6 +822,28 @@ footer a:hover{color:#ff8792}
 @media(max-width:1120px){.site-header .brand{flex-basis:230px;width:230px}.site-header .brand .modern-brand-logo{max-height:60px}}
 @media(max-width:560px){.site-header .brand{flex-basis:190px;width:190px}.site-header .brand .modern-brand-logo{max-height:52px}}
 </style>
+
+<style>
+/* Bhumaji Systems floating visitor chat */
+.bs-chat-launcher{position:fixed;right:24px;bottom:22px;z-index:9998;border:0;border-radius:999px;padding:14px 19px;background:linear-gradient(135deg,#08c7ee,#1764ed);color:#fff;font:700 14px/1.2 inherit;box-shadow:0 10px 30px #0005;cursor:pointer;display:flex;align-items:center;gap:10px}
+.bs-chat-launcher .bs-chat-icon{font-size:20px;line-height:1}
+.bs-chat-panel{position:fixed;right:24px;bottom:84px;width:min(365px,calc(100vw - 28px));height:min(500px,calc(100vh - 120px));z-index:9999;background:#0b1424;color:#eef6ff;border:1px solid #24405f;border-radius:18px;box-shadow:0 18px 60px #0009;display:none;overflow:hidden;font-family:inherit}
+.bs-chat-panel.open{display:flex;flex-direction:column}
+.bs-chat-head{padding:17px 18px;background:linear-gradient(120deg,#102a48,#0b1a31);border-bottom:1px solid #25415f;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bs-chat-head strong{display:block;font-size:15px;color:#fff}.bs-chat-head small{display:block;color:#9cb6d2;margin-top:4px;font-size:12px}
+.bs-chat-close{border:0;background:transparent;color:#dbeafe;font-size:24px;cursor:pointer;padding:2px 7px}
+.bs-chat-messages{padding:16px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}
+.bs-chat-msg{max-width:90%;padding:11px 12px;border-radius:13px;font-size:13px;line-height:1.5;white-space:pre-line}
+.bs-chat-msg.bot{align-self:flex-start;background:#14263d;border:1px solid #233e5b;color:#e8f3ff;border-bottom-left-radius:4px}
+.bs-chat-msg.user{align-self:flex-end;background:#075e9e;color:#fff;border-bottom-right-radius:4px}
+.bs-chat-quick{padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:7px}
+.bs-chat-quick button{border:1px solid #2b5b83;background:#10243b;color:#bcecff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer}
+.bs-chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #203850;background:#0a1220}
+.bs-chat-form input{min-width:0;flex:1;border:1px solid #2c435b;background:#101e30;color:#fff;border-radius:10px;padding:11px;font:inherit;font-size:13px;outline:none}
+.bs-chat-form input:focus{border-color:#16c9ee}.bs-chat-form button{border:0;border-radius:10px;background:#08bfe8;color:#061324;font-weight:800;padding:0 14px;cursor:pointer}
+@media(max-width:520px){.bs-chat-launcher{right:14px;bottom:14px;padding:13px 16px}.bs-chat-panel{right:10px;bottom:75px;width:calc(100vw - 20px);height:min(520px,calc(100vh - 100px))}}
+</style>
+
 </head>
 <body id="top">
 
@@ -1239,5 +1261,37 @@ document.getElementById('enquiry').addEventListener('submit',function(e){
   location.href='mailto:contactus@bhumaji.com?subject='+encodeURIComponent('Website enquiry: '+v('svc'))+'&body='+encodeURIComponent(body);
 });
 </script>
+
+<div class="bs-chat-panel" id="bsChatPanel" role="dialog" aria-label="Chat with Bhumaji Systems" aria-modal="false">
+  <div class="bs-chat-head"><div><strong>Chat with Bhumaji Systems</strong><small>Cloud, DevOps &amp; engineering enquiries</small></div><button class="bs-chat-close" id="bsChatClose" aria-label="Close chat">&times;</button></div>
+  <div class="bs-chat-messages" id="bsChatMessages" aria-live="polite"><div class="bs-chat-msg bot">Hi! 👋 Welcome to Bhumaji Systems. What can we help you with today?</div><div class="bs-chat-msg bot">Ask about AWS cloud setup, migration, DevOps, Kubernetes, cost optimization, or getting a consultation.</div></div>
+  <div class="bs-chat-quick" id="bsChatQuick"><button type="button" data-question="AWS cloud setup">AWS setup</button><button type="button" data-question="Cloud migration">Cloud migration</button><button type="button" data-question="DevOps and Kubernetes">DevOps / Kubernetes</button><button type="button" data-question="Pricing and consultation">Pricing / consultation</button></div>
+  <form class="bs-chat-form" id="bsChatForm"><input id="bsChatInput" aria-label="Type your message" placeholder="Type your question…" autocomplete="off" maxlength="500" required><button type="submit" aria-label="Send message">Send</button></form>
+</div>
+<button class="bs-chat-launcher" id="bsChatLauncher" type="button" aria-expanded="false" aria-controls="bsChatPanel"><span class="bs-chat-icon" aria-hidden="true">☏</span> Chat with us</button>
+<script>
+(function(){
+ var panel=document.getElementById('bsChatPanel'), launcher=document.getElementById('bsChatLauncher'), close=document.getElementById('bsChatClose'), messages=document.getElementById('bsChatMessages'), form=document.getElementById('bsChatForm'), input=document.getElementById('bsChatInput'), quick=document.getElementById('bsChatQuick');
+ function openChat(){panel.classList.add('open');launcher.setAttribute('aria-expanded','true');setTimeout(function(){input.focus()},50)}
+ function closeChat(){panel.classList.remove('open');launcher.setAttribute('aria-expanded','false');launcher.focus()}
+ function addMessage(text,who){var d=document.createElement('div');d.className='bs-chat-msg '+who;d.textContent=text;messages.appendChild(d);messages.scrollTop=messages.scrollHeight}
+ function answer(q){var t=q.toLowerCase();
+  if(/price|pricing|cost|quote|consult|budget/.test(t))return 'Project pricing depends on scope, cloud usage, complexity, and support needs. Share a few details and our team can discuss a suitable estimate. Email contactus@bhumaji.com or use the Contact Us form.';
+  if(/migrat|move.*cloud/.test(t))return 'We can help plan cloud migration: assessment, target architecture, migration steps, validation, and cutover planning. Tell us your current platform and approximate workload size.';
+  if(/devops|kubernetes|k8s|cicd|ci\/cd|pipeline/.test(t))return 'We can help with DevOps automation, CI/CD pipelines, Kubernetes platforms, infrastructure as code, and monitoring. Tell us what you are building or operating.';
+  if(/aws|cloud|infrastructure|server|setup/.test(t))return 'We can help with AWS environment setup, networking, IAM, compute, storage, security baselines, and production readiness. What are you starting with: a new environment or an existing workload?';
+  if(/security|reliab|backup|disaster|dr|monitor/.test(t))return 'We can discuss cloud security, monitoring, backup and recovery, reliability improvements, and cost visibility. Share your main concern and current cloud provider.';
+  if(/hello|hi|hey|good morning|good afternoon/.test(t))return 'Hello! Are you looking for AWS cloud setup, cloud migration, DevOps/Kubernetes support, or a project consultation?';
+  return 'Thanks for your message. This website chat provides initial guidance and is not connected to a live agent. For a project-specific response, email contactus@bhumaji.com or use the Contact Us form.';
+ }
+ function send(q){q=(q||'').trim();if(!q)return;addMessage(q,'user');addMessage(answer(q),'bot')}
+ launcher.addEventListener('click',function(){panel.classList.contains('open')?closeChat():openChat()});
+ close.addEventListener('click',closeChat);
+ form.addEventListener('submit',function(e){e.preventDefault();send(input.value);input.value='';input.focus()});
+ quick.addEventListener('click',function(e){var b=e.target.closest('button[data-question]');if(b)send(b.getAttribute('data-question'))});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open'))closeChat()});
+})();
+</script>
+
 </body>
 </html>
