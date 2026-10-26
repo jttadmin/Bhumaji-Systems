@@ -689,6 +689,22 @@ footer a:hover{color:#ff8792}
  .site-header nav .hover-info:hover>a:not(.nav-cta){background:transparent}
 }
 
+
+/* Industry-specific hover details */
+.industry-panel{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.industry-panel .industry-item{position:relative;display:grid!important;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:center;gap:6px 16px;min-height:76px;padding:17px 26px!important;transition:background .2s ease,padding .2s ease}
+.industry-panel .industry-item b{grid-column:1;grid-row:1;font-size:13px;line-height:1.35;font-weight:600;color:#f1f5f9}
+.industry-panel .industry-item small{grid-column:1;grid-row:2;display:block;color:#9caabe;font-size:11px;line-height:1.55;font-weight:400;max-width:440px;opacity:.82;transition:color .2s ease,opacity .2s ease}
+.industry-panel .industry-item span{grid-column:2;grid-row:1/3;align-self:center;font-size:19px;color:#8996a8;transition:transform .2s ease,color .2s ease}
+.industry-panel .industry-item:hover,.industry-panel .industry-item:focus-visible{background:#202a3a!important;padding-left:32px!important}
+.industry-panel .industry-item:hover small,.industry-panel .industry-item:focus-visible small{color:#d0dced;opacity:1}
+.industry-panel .industry-item:hover span,.industry-panel .industry-item:focus-visible span{color:#45c7ff;transform:translate(2px,-2px)}
+@media(max-width:1120px){
+ .industry-panel{grid-template-columns:1fr}
+ .industry-panel .industry-item{min-height:62px;padding:13px 14px!important;border-right:0!important}
+ .industry-panel .industry-item:hover{padding-left:20px!important}
+}
+
 </style>
 </head>
 <body id="top">
@@ -714,7 +730,17 @@ footer a:hover{color:#ff8792}
 <ul>
 <li class="hover-info"><a href="#capabilities">What We Do</a><div class="hover-panel"><a href="#cloud">Cloud &amp; Infrastructure <span>↗</span></a><a href="#engineering">DevOps &amp; Automation <span>↗</span></a><a href="#migration">Migration &amp; Modernization <span>↗</span></a><a href="#ai">AI &amp; Intelligent Operations <span>↗</span></a></div></li>
 <li class="hover-info"><a href="#cloud">Cloud Services</a><div class="hover-panel"><a href="#cloud">AWS Cloud Setup <span>↗</span></a><a href="#migration">Cloud Migration <span>↗</span></a><a href="#cloud">Cloud Security <span>↗</span></a><a href="#cloud">Cost Optimization <span>↗</span></a></div></li>
-<li class="hover-info"><a href="#industries">Industries</a><div class="hover-panel"><a href="#contact">Startups <span>↗</span></a><a href="#contact">Small Businesses <span>↗</span></a><a href="#contact">Software Agencies <span>↗</span></a><a href="#contact">Digital Businesses <span>↗</span></a></div></li>
+<li class="hover-info industries-hover"><a href="#industries">Industries</a><div class="hover-panel industry-panel" aria-label="Industries we support">
+<a class="industry-item" href="#contact"><b>Banking, Finance &amp; Insurance</b><small>Secure cloud platforms, access controls, audit-ready infrastructure and resilient data services.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>Healthcare</b><small>Reliable, privacy-conscious systems for digital health services and sensitive workloads.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>Manufacturing</b><small>Connect operations and applications with scalable infrastructure, automation and analytics.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>Media &amp; Entertainment</b><small>Support content delivery, digital experiences and traffic spikes with scalable cloud services.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>Gaming</b><small>Build responsive game backends, deployment pipelines and infrastructure that scales with demand.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>Real Estate</b><small>Modernize property platforms, customer portals and data workflows with secure cloud solutions.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>Hiring &amp; Recruitment</b><small>Keep recruitment platforms, integrations and candidate-facing services available and dependable.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>Hospitality</b><small>Improve booking, guest-service and business systems with reliable, connected infrastructure.</small><span>↗</span></a>
+<a class="industry-item" href="#contact"><b>E-commerce</b><small>Prepare storefronts and order services for peak traffic, secure payments and dependable releases.</small><span>↗</span></a>
+</div></li>
 <li class="hover-info"><a href="#engineering">Engineering</a><div class="hover-panel"><a href="#ai">AI Engineering <span>↗</span></a><a href="#software">Full Stack Engineering <span>↗</span></a><a href="#mobile">Mobile Engineering <span>↗</span></a><a href="#software">Web Engineering <span>↗</span></a><a href="#software">Backend Engineering <span>↗</span></a><a href="#engineering">DevOps Engineering <span>↗</span></a><a href="#software">UI/UX Engineering <span>↗</span></a><a href="#software">Design Engineering <span>↗</span></a><a href="#engineering">QA Engineering <span>↗</span></a><a href="#engineering">IoT Engineering <span>↗</span></a><a href="#approach">Business Analysis <span>↗</span></a></div></li>
 <li class="hover-info"><a href="#our-work">Insights</a><div class="hover-panel"><a href="#our-work">Project Showcases <span>↗</span></a><a href="#cloud">Cloud Guides <span>↗</span></a><a href="#engineering">DevOps Articles <span>↗</span></a><a href="#ai">AI &amp; Observability <span>↗</span></a></div></li>
 <li class="hover-info"><a href="#approach">About Us</a><div class="hover-panel"><a href="#approach">Our Approach <span>↗</span></a><a href="#our-work">Our Work <span>↗</span></a></div></li>
