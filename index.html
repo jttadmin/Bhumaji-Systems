@@ -290,6 +290,87 @@ footer .bot{padding-top:22px;font-size:13px}
   .wrap{width:min(1180px,100% - 32px)}
   form{padding:24px}
 }
+
+/* Bhumaji Systems refresh — editorial, product-engineering inspired */
+:root{
+  --navy:#071a3a;--navy-2:#0c2a5c;--blue:#2864e8;--blue-d:#194fc4;
+  --sky:#edf3ff;--ink:#101d35;--text:#485772;--muted:#75829a;
+  --line:#e0e7f2;--bg:#fff;--bg-alt:#f6f8fc;--accent:#40d6cb;
+  --radius:14px;--shadow:0 8px 28px rgba(7,26,58,.07),0 2px 6px rgba(7,26,58,.04)
+}
+::selection{background:#cfe0ff;color:#071a3a}
+.topbar{font-size:12px;letter-spacing:.01em}
+header{background:rgba(255,255,255,.94);box-shadow:0 5px 25px rgba(7,26,58,.035)}
+header .wrap{min-height:118px}
+.brand{flex:0 0 270px;width:270px;min-width:270px}
+.brand img{clip-path:none;height:76px}
+header.compact .brand img{clip-path:none;height:68px}
+.brand-tagline{white-space:nowrap;font-size:11px}
+nav ul{gap:16px}
+nav a{font-size:13.5px;font-weight:600;transition:color .2s,border-color .2s}
+nav a.btn{padding:12px 18px;border-radius:7px}
+.hero{padding:92px 0 0;background:radial-gradient(ellipse at 84% 5%,rgba(54,117,235,.3),transparent 38%),linear-gradient(125deg,#061630 0%,#0b2450 58%,#123d83 100%)}
+.hero::before{opacity:.55;background-size:56px 56px}
+.hero .wrap{grid-template-columns:1.08fr .92fr;gap:72px}
+.hero .eyebrow{display:inline-flex;padding:8px 12px;border:1px solid rgba(143,180,255,.25);border-radius:999px;background:rgba(143,180,255,.08);font-size:11px;letter-spacing:.12em}
+.hero .eyebrow::before{width:7px;height:7px;border-radius:50%}
+.hero h1{font-size:clamp(42px,5.2vw,66px);line-height:1.04;letter-spacing:-.055em;max-width:760px;margin:18px 0 22px}
+.hero-highlight{color:#9dc0ff}
+.hero p.lead{font-size:18px;line-height:1.75;max-width:660px}
+.cta{margin-top:30px}
+.btn{border-radius:7px;padding:14px 21px;font-size:14px}
+.btn-primary{box-shadow:0 8px 22px rgba(31,95,214,.22)}
+.panel{border-radius:18px;padding:30px;background:rgba(255,255,255,.075);box-shadow:0 25px 70px rgba(0,0,0,.12)}
+.panel h4{font-size:11px;letter-spacing:.12em}
+.panel .row{padding:20px 0}
+.panel .n{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:rgba(143,180,255,.12);font-size:12px}
+.panel b{font-size:15px;line-height:1.45}
+.panel span{display:block;margin-top:3px;line-height:1.5}
+.stats{margin-top:80px;background:rgba(3,13,32,.42)}
+.stat{padding:24px 22px}
+.stat b{font-size:clamp(19px,2vw,27px)}
+.stat span{display:block;margin-top:5px}
+section{padding:100px 0}
+.head{margin-bottom:42px}
+.eyebrow{font-size:11px;letter-spacing:.14em}
+h2{font-size:clamp(30px,3.8vw,46px);line-height:1.12;letter-spacing:-.04em}
+.lead{font-size:17px;line-height:1.75}
+.card{border-radius:14px;padding:30px;border-color:#e2e8f2;box-shadow:0 1px 2px rgba(7,26,58,.02);transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(7,26,58,.09);border-color:#c6d6f5}
+.card .ic{border-radius:12px;background:linear-gradient(145deg,#eaf1ff,#f5f8ff);font-size:22px}
+.card h3{letter-spacing:-.025em}
+.tags span{border-radius:999px;padding:5px 10px}
+.link{font-size:14px}
+.steps,.device,.project,.contact,form{border-radius:14px}
+.project{overflow:hidden}
+footer{padding-top:54px}
+footer .bot{border-top:1px solid rgba(255,255,255,.12);margin-top:28px}
+@media(max-width:1200px){nav ul{gap:12px}nav a{font-size:12.5px}.brand{flex-basis:245px;width:245px;min-width:245px}.brand-tagline{font-size:10px}}
+@media(max-width:980px){
+  header .wrap{min-height:100px}
+  .brand{flex:0 1 260px;width:260px;min-width:0}
+  .brand img{height:68px}
+  .hero{padding-top:70px}
+  .hero .wrap{grid-template-columns:1fr;gap:38px}
+  .hero h1{max-width:800px}
+  .panel{max-width:700px}
+  section{padding:76px 0}
+}
+@media(max-width:600px){
+  .brand{flex:0 1 220px;width:220px;min-width:0}
+  .brand img{height:56px}
+  .brand-tagline{font-size:9.5px;white-space:normal;line-height:1.2}
+  header .wrap,header.compact .wrap{min-height:82px}
+  .hero{padding-top:56px}
+  .hero h1{font-size:clamp(36px,10vw,48px)}
+  .hero p.lead{font-size:16px}
+  .cta{gap:10px}
+  .btn{padding:12px 15px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{padding:20px 12px}
+  section{padding:62px 0}
+}
+
 </style>
 </head>
 <body id="top">
@@ -328,27 +409,27 @@ footer .bot{padding-top:22px;font-size:13px}
 <div class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">Cloud Technology · Software · Platform Engineering</div>
-      <h1>Build what’s next. On a stronger foundation.</h1>
-      <p class="lead">Bhumaji Systems helps businesses build, migrate, modernize, and operate reliable digital platforms across <strong>AWS, Microsoft Azure, and Google Cloud.</strong></p>
+      <div class="eyebrow">Cloud strategy · DevOps · Platform engineering</div>
+      <h1>Turn cloud complexity into <span class="hero-highlight">production-ready platforms.</span></h1>
+      <p class="lead">We help startups and growing businesses design, migrate, secure, and optimize cloud infrastructure across <strong>AWS, Microsoft Azure, and Google Cloud</strong> — with automation and reliability built in.</p>
       <div class="cta">
-        <a href="#capabilities" class="btn btn-primary">Explore capabilities →</a>
-        <a href="#contact" class="btn btn-ghost">Talk to our engineers</a>
+        <a href="#cloud" class="btn btn-primary">Explore cloud services →</a>
+        <a href="#contact" class="btn btn-ghost">Book a consultation</a>
       </div>
     </div>
     <div class="panel">
-      <h4>Bhumaji Systems · Engineering focus</h4>
-      <div class="row"><div class="n">01</div><div><b>Cloud</b><span>AWS · Azure · Google Cloud</span></div></div>
-      <div class="row"><div class="n">02</div><div><b>Platform</b><span>Kubernetes · IaC · CI/CD · Observability</span></div></div>
-      <div class="row"><div class="n">03</div><div><b>Software</b><span>APIs · Microservices · Web · Android · iOS</span></div></div>
+      <h4>From cloud foundations to reliable operations</h4>
+      <div class="row"><div class="n">01</div><div><b>Cloud architecture & migration</b><span>Secure foundations, landing zones, modernization</span></div></div>
+      <div class="row"><div class="n">02</div><div><b>DevOps & platform engineering</b><span>Kubernetes · Terraform · CI/CD · GitOps</span></div></div>
+      <div class="row"><div class="n">03</div><div><b>Reliability & cost optimization</b><span>Observability · resilience · cloud spend</span></div></div>
     </div>
   </div>
   <div class="stats">
     <div class="wrap">
       <div class="stat"><b>3</b><span>Cloud platforms</span></div>
-      <div class="stat"><b>4</b><span>Core capabilities</span></div>
-      <div class="stat"><b>Build → Migrate</b><span>Modernize → Operate</span></div>
-      <div class="stat"><b>∞</b><span>Engineering possibilities</span></div>
+      <div class="stat"><b>End-to-end</b><span>Plan · build · migrate · operate</span></div>
+      <div class="stat"><b>Cloud-first</b><span>Secure, scalable foundations</span></div>
+      <div class="stat"><b>Outcome-led</b><span>Solutions shaped around your goals</span></div>
     </div>
   </div>
 </div>
@@ -454,7 +535,7 @@ footer .bot{padding-top:22px;font-size:13px}
     </div>
     <div>
       <div class="eyebrow">Software development</div>
-      <h2>Mobile experiences built for real-world scale.</h2>
+      <h2>Cloud-native applications built to scale.</h2>
       <p class="lead">Design and build modern Android and iOS applications connected to secure, scalable cloud-native backends.</p>
       <div class="feat">
         <div><p><b>Android &amp; iOS</b><span>Native and cross-platform experiences.</span></p></div>
