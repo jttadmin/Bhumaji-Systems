@@ -815,6 +815,13 @@ footer a:hover{color:#ff8792}
 @media(max-width:600px){.industry-detail-grid,.insight-grid{grid-template-columns:1fr}.industry-detail-grid article,.insight-grid article{min-height:0}}
 
 </style>
+<style>
+/* Modern Bhumaji Systems logo */
+.site-header .brand{display:flex;align-items:center;flex:0 0 245px;width:245px;min-width:0}
+.site-header .brand .modern-brand-logo{display:block;width:100%;height:auto;max-height:64px;object-fit:contain;object-position:left center;clip-path:none;background:transparent;padding:0;border-radius:0}
+@media(max-width:1120px){.site-header .brand{flex-basis:210px;width:210px}.site-header .brand .modern-brand-logo{max-height:56px}}
+@media(max-width:560px){.site-header .brand{flex-basis:175px;width:175px}.site-header .brand .modern-brand-logo{max-height:48px}}
+</style>
 </head>
 <body id="top">
 
@@ -828,11 +835,7 @@ footer a:hover{color:#ff8792}
 <header class="site-header">
   <div class="wrap nav-wrap">
     <a href="#top" class="brand" aria-label="Bhumaji Systems home">
-      <span class="brand-lockup">
-        <span class="brand-symbol" aria-hidden="true">B</span>
-        <span class="brand-wordmark"><strong>BHUMAJI</strong><small>S Y S T E M S</small></span>
-      </span>
-      <span class="brand-tagline">Rooted in reliability. Built for what’s next.</span>
+      <img src="assets/bhumaji-modern-logo.svg" alt="Bhumaji Systems — Cloud, DevOps and Engineering" class="modern-brand-logo">
     </a>
     <button class="burger" aria-label="Open navigation" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
     <nav id="nav" aria-label="Main navigation">
