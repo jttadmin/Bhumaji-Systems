@@ -654,6 +654,18 @@ footer a:hover{color:#ff8792}
  .engineering-mega a:hover{padding-left:20px!important}
 }
 
+
+/* Navigation labels and order requested for Bhumaji Systems */
+.site-header nav ul{gap:clamp(10px,1.15vw,19px)}
+.site-header nav a{font-size:12.5px}
+.site-header nav .nav-cta{font-size:12.5px;padding:10px 13px}
+@media(min-width:1121px) and (max-width:1300px){
+ .site-header .brand{flex-basis:205px;width:205px;min-width:205px}
+ .site-header nav ul{gap:10px}
+ .site-header nav a{font-size:12px}
+ .site-header nav .nav-cta{padding:9px 10px}
+}
+
 </style>
 </head>
 <body id="top">
@@ -677,7 +689,9 @@ footer a:hover{color:#ff8792}
     <button class="burger" aria-label="Open navigation" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
     <nav id="nav" aria-label="Main navigation">
       <ul>
+        <li><a href="#capabilities">What We Do</a></li>
         <li><a href="#cloud">Cloud Services</a></li>
+        <li><a href="#industries">Industries</a></li>
         <li class="engineering-nav">
           <a href="#engineering" aria-haspopup="true" aria-expanded="false">Engineering <span class="engineering-chevron">⌄</span></a>
           <div class="engineering-mega" aria-label="Engineering services">
@@ -694,9 +708,8 @@ footer a:hover{color:#ff8792}
             <a href="#approach">Business Analysis <span>↗</span></a>
           </div>
         </li>
-        <li><a href="#industries">Industries</a></li>
         <li><a href="#our-work">Insights</a></li>
-        <li><a href="#approach">About</a></li>
+        <li><a href="#approach">About Us</a></li>
         <li><a href="#contact" class="nav-cta">Contact Us <span>↗</span></a></li>
       </ul>
     </nav>
