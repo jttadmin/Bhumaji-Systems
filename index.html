@@ -753,6 +753,52 @@ footer a:hover{color:#ff8792}
  .about-panel-intro{padding:18px 14px}
 }
 
+
+/* Detailed cloud service page layouts */
+.cloud-detail-section .head{max-width:900px;margin-bottom:38px}
+.cloud-service-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.8fr);gap:28px;align-items:start}
+.cloud-service-main,.service-side-panel{border:1px solid #29364b;border-radius:14px;background:#101827;padding:clamp(22px,3vw,36px)}
+.service-kicker,.service-status{font:600 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;color:#7dd3fc}
+.cloud-service-main h3{font-size:clamp(23px,2.5vw,32px);margin:12px 0}
+.cloud-service-main>p{color:#b6c3d6;line-height:1.75}
+.service-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px;margin-top:26px}
+.service-check-grid>div{padding:17px 0;border-top:1px solid #29364b}
+.service-check-grid b,.service-check-grid span{display:block}
+.service-check-grid b{font-size:13px;color:#f1f5f9;margin-bottom:6px}
+.service-check-grid span{font-size:12px;color:#aab8ca;line-height:1.65}
+.service-side-panel ol{list-style:none;counter-reset:service-steps;padding:0;margin:20px 0 24px}
+.service-side-panel li{counter-increment:service-steps;position:relative;padding:0 0 19px 35px;border-left:1px solid #34445d;margin-left:8px}
+.service-side-panel li:before{content:counter(service-steps,decimal-leading-zero);position:absolute;left:-9px;top:0;background:#101827;color:#7dd3fc;font:11px ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 0}
+.service-side-panel li b,.service-side-panel li span{display:block}
+.service-side-panel li b{font-size:13px;color:#f3f6fb;margin-bottom:4px}
+.service-side-panel li span{font-size:11px;color:#aab8ca;line-height:1.55}
+.service-side-panel .btn{width:100%;justify-content:center}
+.service-outcomes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px}
+.service-outcomes>div{border:1px solid #29364b;border-radius:10px;padding:22px;background:rgba(15,23,42,.55)}
+.service-outcomes b,.service-outcomes span{display:block}
+.service-outcomes b{font-size:13px;color:#7dd3fc;margin-bottom:8px}
+.service-outcomes span{font-size:12px;color:#b2bfd1;line-height:1.7}
+.migration-service-cards .card{height:100%}
+.migration-timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #dce3ed;border-radius:12px;overflow:hidden;margin-top:28px}
+.timeline-step{padding:22px;border-right:1px solid #dce3ed;border-bottom:1px solid #dce3ed}
+.timeline-step i,.timeline-step b,.timeline-step span{display:block}
+.timeline-step i{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#e63946;font-style:normal;margin-bottom:12px}
+.timeline-step b{font-size:14px;margin-bottom:7px}
+.timeline-step span{font-size:12px;color:#65748a;line-height:1.6}
+.service-cta-row{margin-top:28px}
+.cost-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cost-feature-grid article{border:1px solid #29364b;border-radius:12px;background:#101827;padding:24px}
+.cost-icon{display:inline-block;font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:#7dd3fc;margin-bottom:15px}
+.cost-feature-grid h3{font-size:17px;margin:0 0 9px}
+.cost-feature-grid p{font-size:13px;line-height:1.7;color:#aab8ca;margin:0}
+.cost-process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}
+.cost-process>div{border-top:2px solid #e63946;padding:16px 12px 0 0}
+.cost-process b,.cost-process span{display:block}
+.cost-process b{font-size:12px;margin-bottom:7px}
+.cost-process span{font-size:11px;color:#aab8ca;line-height:1.6}
+@media(max-width:850px){.cloud-service-layout{grid-template-columns:1fr}.cost-process{grid-template-columns:repeat(2,minmax(0,1fr))}.migration-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.service-check-grid,.service-outcomes,.cost-feature-grid{grid-template-columns:1fr}.migration-timeline{grid-template-columns:1fr}.timeline-step{border-right:0}.service-side-panel .btn{width:100%}}
+
 </style>
 </head>
 <body id="top">
@@ -783,12 +829,10 @@ footer a:hover{color:#ff8792}
 <a class="detail-item" href="#ai"><b>AI &amp; Intelligent Operations</b><small>Use practical AI and observability to improve insights and operations.</small><span>↗</span></a>
 </div></li>
 <li class="hover-info cloud-services-hover"><a href="#cloud">Cloud Services</a><div class="hover-panel cloud-services-panel" aria-label="Cloud services">
-<a class="cloud-service-item" href="#cloud"><b>AWS Cloud Setup</b><small>Set up secure AWS accounts, networking, IAM and a reliable cloud foundation.</small><span>↗</span></a>
-<a class="cloud-service-item" href="#migration"><b>Cloud Migration</b><small>Assess workloads, plan cutovers and move applications with reduced risk.</small><span>↗</span></a>
-<a class="cloud-service-item" href="#cloud"><b>Cloud Security &amp; Reliability</b><small>Strengthen access, backups, monitoring, recovery and operational resilience.</small><span>↗</span></a>
-<a class="cloud-service-item" href="#cloud"><b>Cost Optimization</b><small>Review usage, right-size resources and improve visibility into cloud spend.</small><span>↗</span></a>
-<a class="cloud-service-item" href="#cloud"><b>Cloud Architecture</b><small>Design scalable, maintainable environments for applications and data.</small><span>↗</span></a>
-<a class="cloud-service-item" href="#engineering"><b>Cloud Operations</b><small>Improve observability, patching, incident readiness and day-to-day operations.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cloud"><b>AWS Cloud Setup</b><small>Secure accounts, networking, IAM and a production-ready foundation.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#migration"><b>Cloud Migration</b><small>Assess, plan, move, validate and optimize your workloads.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cloud-security"><b>Cloud Security &amp; Reliability</b><small>Strengthen access, monitoring, backups and operational resilience.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cost-optimization"><b>Cost Optimization</b><small>Find waste, right-size resources and establish cost guardrails.</small><span>↗</span></a>
 </div></li>
 <li class="hover-info industries-hover"><a href="#industries">Industries</a><div class="hover-panel industry-panel" aria-label="Industries we support">
 <a class="industry-item" href="#contact"><b>Banking, Finance &amp; Insurance</b><small>Secure cloud platforms, access controls, audit-ready infrastructure and resilient data services.</small><span>↗</span></a>
@@ -882,50 +926,32 @@ footer a:hover{color:#ff8792}
 </section>
 
 <!-- CLOUD -->
-<section id="cloud" class="alt">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow">Multi-cloud engineering</div>
-      <h2>Cloud choice without the complexity.</h2>
-      <p class="lead">Architect, migrate, modernize, and operate workloads across the platforms that fit your business and technical requirements.</p>
-    </div>
-    <div class="grid g3">
-      <article class="card cloud-card"><div class="logo"><img src="https://www.bhumaji.com/assets/cloud/aws-logo.svg" alt="AWS logo"></div><small>01 · Cloud platform</small><h3 style="margin-top:6px">Amazon Web Services</h3><p>Cloud infrastructure, migration, Kubernetes, serverless, networking, security, and resilience.</p>
-        <div class="tags"><span>Compute</span><span>Containers</span><span>Databases</span><span>Networking</span></div></article>
-      <article class="card cloud-card"><div class="logo"><img src="https://www.bhumaji.com/assets/cloud/azure-logo.svg" alt="Microsoft Azure logo"></div><small>02 · Cloud platform</small><h3 style="margin-top:6px">Microsoft Azure</h3><p>Cloud architecture, infrastructure, application platforms, data services, and hybrid environments.</p>
-        <div class="tags"><span>Azure VMs</span><span>AKS</span><span>Azure SQL</span><span>Hybrid</span></div></article>
-      <article class="card cloud-card"><div class="logo"><img src="https://www.bhumaji.com/assets/cloud/gcp-logo.svg" alt="Google Cloud logo"></div><small>03 · Cloud platform</small><h3 style="margin-top:6px">Google Cloud</h3><p>Cloud-native platforms, Kubernetes, data services, infrastructure, and modern application workloads.</p>
-        <div class="tags"><span>GKE</span><span>Cloud SQL</span><span>Data</span><span>Cloud Run</span></div></article>
-    </div>
-  </div>
-</section>
+<section id="cloud" class="alt cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 01</div><h2>A secure AWS foundation, built around your business.</h2><p class="lead">We help startups, growing businesses and software teams set up AWS environments that are secure, maintainable and ready for real workloads. Start with the essentials, document the decisions, and build a foundation your team can confidently operate.</p></div>
+<div class="cloud-service-layout"><div class="cloud-service-main"><div class="service-kicker">AWS CLOUD SETUP</div><h3>From first account to production-ready cloud.</h3><p>Whether launching a new application or standardizing an existing AWS account, we plan the core infrastructure, identity, networking, security and operational visibility together—not as disconnected tasks.</p>
+<div class="service-check-grid"><div><b>Account &amp; access setup</b><span>AWS account structure, IAM roles, least-privilege permissions and MFA guidance.</span></div><div><b>Network foundation</b><span>VPC design, public and private subnets, routing, security groups and connectivity.</span></div><div><b>Compute &amp; application hosting</b><span>EC2, containers, managed services or serverless options selected for your workload.</span></div><div><b>Security &amp; observability</b><span>Encryption, logging, monitoring, alerts, backup planning and baseline guardrails.</span></div><div><b>Infrastructure as Code</b><span>Terraform-based provisioning where suitable, with reviewable and repeatable changes.</span></div><div><b>Cost visibility</b><span>Budgets, tagging, usage visibility and practical recommendations to avoid waste.</span></div></div></div>
+<aside class="service-side-panel"><span class="service-status">DELIVERY OUTLINE</span><ol><li><b>Discover</b><span>Understand the application, users, risk and constraints.</span></li><li><b>Design</b><span>Agree on architecture, access, network and operating model.</span></li><li><b>Build</b><span>Provision, configure and document the environment.</span></li><li><b>Validate</b><span>Test access, connectivity, monitoring, recovery and handover.</span></li></ol><a class="btn btn-primary" href="#contact">Plan your AWS setup →</a></aside></div>
+<div class="service-outcomes"><div><b>What you receive</b><span>Architecture notes, configured cloud resources, infrastructure code where applicable, a security checklist and handover documentation.</span></div><div><b>Who it helps</b><span>Startups launching a product, businesses moving from a single server, and agencies needing a dependable cloud baseline.</span></div></div>
+</div></section>
 
 <!-- MIGRATION -->
-<section id="migration">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow">Migration &amp; modernization</div>
-      <h2>Move with confidence. Modernize with purpose.</h2>
-      <p class="lead">From discovery through cutover and optimization, we bring infrastructure, applications, and databases into a controlled migration journey.</p>
-    </div>
-    <div class="grid g4">
-      <article class="card"><span class="num">01</span><div class="ic">⇢</div><h3>Infrastructure Migration</h3><p>On-premises to cloud, data-center, server/VM, network, storage, and infrastructure modernization.</p><br><a class="link" href="#contact">Discuss a migration →</a></article>
-      <article class="card"><span class="num">02</span><div class="ic">◉</div><h3>Database Migration</h3><p>Assessment, homogeneous and heterogeneous migrations, replication, validation, cutover, and modernization.</p><br><a class="link" href="#contact">Discuss a database →</a></article>
-      <article class="card"><span class="num">03</span><div class="ic">⌁</div><h3>Application Migration</h3><p>Rehost, replatform, refactor, retire, or retain workloads based on architecture and business requirements.</p><br><a class="link" href="#contact">Modernize an app →</a></article>
-      <article class="card"><span class="num">04</span><div class="ic">⇄</div><h3>Hybrid &amp; Cloud-to-Cloud</h3><p>Migration paths between environments with connectivity, resilience, security, and operational control.</p><br><a class="link" href="#contact">Plan your path →</a></article>
-    </div>
-    <div class="steps">
-      <div class="step"><i>STEP 1</i><b>Assess</b><span>Discover &amp; analyze</span></div>
-      <div class="step"><i>STEP 2</i><b>Plan</b><span>Architecture &amp; roadmap</span></div>
-      <div class="step"><i>STEP 3</i><b>Build</b><span>Landing zone &amp; platform</span></div>
-      <div class="step"><i>STEP 4</i><b>Migrate</b><span>Move &amp; transform</span></div>
-      <div class="step"><i>STEP 5</i><b>Validate</b><span>Test &amp; cut over</span></div>
-      <div class="step"><i>STEP 6</i><b>Optimize</b><span>Operate &amp; improve</span></div>
-    </div>
-  </div>
-</section>
+<section id="migration" class="cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 02</div><h2>Move workloads with a clear plan and controlled risk.</h2><p class="lead">Cloud migration is more than copying servers. We help you understand dependencies, choose the right migration approach, plan cutover and validate that applications and data work correctly after the move.</p></div>
+<div class="grid g3 migration-service-cards"><article class="card"><span class="num">01</span><h3>Infrastructure migration</h3><p>Assess servers, virtual machines, storage and network dependencies. Plan a practical move to AWS with target sizing and rollback considerations.</p><div class="tags"><span>EC2</span><span>VPC</span><span>Storage</span></div></article><article class="card"><span class="num">02</span><h3>Application modernization</h3><p>Choose between rehosting, replatforming, refactoring, replacing or retiring components based on value, effort and operational risk.</p><div class="tags"><span>Containers</span><span>Managed services</span><span>CI/CD</span></div></article><article class="card"><span class="num">03</span><h3>Database migration</h3><p>Plan data movement, replication, validation, performance checks, maintenance windows and cutover steps for supported database paths.</p><div class="tags"><span>PostgreSQL</span><span>Replication</span><span>Validation</span></div></article></div>
+<div class="migration-timeline"><div class="timeline-step"><i>01</i><b>Discover</b><span>Inventory applications, data, dependencies and constraints.</span></div><div class="timeline-step"><i>02</i><b>Assess</b><span>Identify risks, readiness, costs and target architecture.</span></div><div class="timeline-step"><i>03</i><b>Plan</b><span>Sequence waves, testing, communications and rollback.</span></div><div class="timeline-step"><i>04</i><b>Move</b><span>Execute migration and coordinate cutover windows.</span></div><div class="timeline-step"><i>05</i><b>Verify</b><span>Test functionality, data integrity, security and performance.</span></div><div class="timeline-step"><i>06</i><b>Optimize</b><span>Right-size resources and improve operations after launch.</span></div></div>
+<div class="service-outcomes"><div><b>What you receive</b><span>Workload assessment, target-state plan, migration sequence, testing and cutover checklist, rollback plan and post-migration recommendations.</span></div><div><b>Our principle</b><span>No migration starts without agreed scope, recovery options, ownership and a way to verify success.</span></div></div><p class="service-cta-row"><a class="btn btn-primary" href="#contact">Discuss a migration →</a></p>
+</div></section>
 
 <!-- MOBILE -->
+<section id="cloud-security" class="alt cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 03</div><h2>Security and reliability built into everyday operations.</h2><p class="lead">Reduce avoidable cloud risk with sensible identity controls, network boundaries, monitoring, backup and recovery practices. We help make security actionable for your team—not just a checklist.</p></div>
+<div class="grid g3"><article class="card"><span class="num">01</span><h3>Identity &amp; access</h3><p>Review IAM roles and policies, least-privilege access, MFA, admin access patterns and credential handling.</p></article><article class="card"><span class="num">02</span><h3>Network &amp; data protection</h3><p>Review VPC boundaries, security groups, public exposure, encryption settings and secrets management.</p></article><article class="card"><span class="num">03</span><h3>Monitoring &amp; response</h3><p>Improve logs, metrics, alert routing and incident runbooks so teams can detect and investigate issues sooner.</p></article><article class="card"><span class="num">04</span><h3>Backup &amp; recovery</h3><p>Define backup coverage, retention, recovery objectives and practical restore tests for critical systems.</p></article><article class="card"><span class="num">05</span><h3>Reliability review</h3><p>Identify single points of failure, capacity risks, health checks and opportunities to improve availability.</p></article><article class="card"><span class="num">06</span><h3>Governance &amp; guardrails</h3><p>Introduce resource tagging, change review, baseline policies and clear ownership suited to your scale.</p></article></div>
+<div class="service-outcomes"><div><b>What you receive</b><span>Prioritized findings, remediation recommendations, an actionable hardening plan and operational runbooks where in scope.</span></div><div><b>How we work</b><span>We prioritize by exposure and business impact, agree on changes first, and avoid disruptive changes without a rollback plan.</span></div></div><p class="service-cta-row"><a class="btn btn-primary" href="#contact">Review my cloud environment →</a></p></div></section>
+<section id="cost-optimization" class="cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 04</div><h2>Make cloud spend visible, explainable and efficient.</h2><p class="lead">Cloud costs grow when resources are oversized, idle, poorly tagged or not aligned with usage. We help you understand where spend goes and prioritize changes that reduce waste without compromising reliability.</p></div>
+<div class="cost-feature-grid"><article><span class="cost-icon">01</span><h3>Understand spend</h3><p>Review billing trends, service-level costs, tags, environments and the main cost drivers.</p></article><article><span class="cost-icon">02</span><h3>Right-size resources</h3><p>Identify over-provisioned compute, unattached storage, idle resources and mismatched capacity.</p></article><article><span class="cost-icon">03</span><h3>Improve architecture</h3><p>Evaluate autoscaling, storage tiers, managed services and workload scheduling where appropriate.</p></article><article><span class="cost-icon">04</span><h3>Set guardrails</h3><p>Configure budgets, alerts, ownership tags and review routines to catch unexpected spend earlier.</p></article></div>
+<div class="cost-process"><div><b>01 · Baseline</b><span>Capture current spend and usage patterns.</span></div><div><b>02 · Prioritize</b><span>Rank opportunities by impact, risk and effort.</span></div><div><b>03 · Implement</b><span>Apply agreed changes with validation and rollback.</span></div><div><b>04 · Track</b><span>Compare results and establish ongoing reviews.</span></div></div>
+<div class="service-outcomes"><div><b>What you receive</b><span>A cost review, prioritized optimization backlog, budget and tagging recommendations, and a repeatable review cadence.</span></div><div><b>Our approach</b><span>Recommendations are workload-specific. We do not promise fixed savings before reviewing actual usage and constraints.</span></div></div><p class="service-cta-row"><a class="btn btn-primary" href="#contact">Review my cloud costs →</a></p></div></section>
 <section id="mobile" class="alt">
   <div class="wrap split">
     <div class="device">
