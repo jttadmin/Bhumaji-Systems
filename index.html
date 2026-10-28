@@ -1392,6 +1392,33 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 [style*="#c8f169"],[style*="#d9ff8b"],[style*="#dcff9b"],[style*="#ddff98"],[style*="#d9ff8b"]{background-color:#1769e0!important;border-color:#1769e0!important;color:#fff!important}
 </style>
 
+
+<style id="bhumaji-enterprise-footer-redesign">
+.bs-enterprise-footer{background:#07172f!important;color:#b9c9dd!important;padding:72px 0 22px!important;border-top:1px solid #1c304b}
+.bs-enterprise-footer .bs-footer-main{display:grid;grid-template-columns:1.25fr 1fr 1fr .8fr;gap:clamp(28px,4vw,62px);padding-bottom:56px}
+.bs-enterprise-footer .bs-footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:13px;min-width:0}
+.bs-enterprise-footer .bs-footer-wordmark{font-size:26px;font-weight:800;letter-spacing:-.045em;line-height:1.2;color:#fff!important}
+.bs-enterprise-footer .bs-footer-brand p{margin:0;color:#a9bdd6;font-size:13px;line-height:1.65}
+.bs-enterprise-footer .bs-footer-brand .bs-footer-summary{margin-top:2px;max-width:300px;color:#8fa4bf;font-size:14px}
+.bs-enterprise-footer .bs-socials{display:flex;gap:10px;margin-top:8px}
+.bs-enterprise-footer .bs-socials a{width:39px;height:39px;display:grid;place-items:center;border:1px solid #30435e;border-radius:50%;background:#0d2442;color:#dbe8f8!important;transition:background .2s,border-color .2s,transform .2s}
+.bs-enterprise-footer .bs-socials a:hover{background:#1769e0;border-color:#1769e0;transform:translateY(-2px)}
+.bs-enterprise-footer .bs-socials svg{width:17px;height:17px;fill:currentColor}
+.bs-enterprise-footer .bs-footer-column h3{font-size:13px!important;font-weight:800!important;text-transform:uppercase;letter-spacing:.12em;color:#fff!important;margin:3px 0 20px}
+.bs-enterprise-footer .bs-footer-column ul{list-style:none!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:11px!important;margin:0!important;padding:0!important}
+.bs-enterprise-footer .bs-footer-column li{margin:0!important;padding:0!important}
+.bs-enterprise-footer .bs-footer-column a{font-size:13px!important;line-height:1.55;color:#a9bdd6!important;transition:color .18s}
+.bs-enterprise-footer .bs-footer-column a:hover{color:#48d4e3!important}
+.bs-enterprise-footer .bs-footer-contact{display:inline-flex;align-items:center;gap:9px;margin-top:23px;padding:10px 15px;border:1px solid #40536e;border-radius:999px;color:#fff!important;font-size:12px!important;font-weight:700}
+.bs-enterprise-footer .bs-footer-contact:hover{background:#1769e0;border-color:#1769e0;color:#fff!important}
+.bs-enterprise-footer .bs-footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:20px;border-top:1px solid #273a54;color:#8298b4;font-size:12px}
+.bs-enterprise-footer .bs-footer-bottom div{display:flex;gap:22px}
+.bs-enterprise-footer .bs-footer-bottom a{color:#a9bdd6!important;font-size:12px}
+.bs-enterprise-footer .bs-footer-bottom a:hover{color:#48d4e3!important}
+@media(max-width:980px){.bs-enterprise-footer .bs-footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 32px}.bs-enterprise-footer .bs-footer-brand .bs-footer-summary{max-width:360px}}
+@media(max-width:560px){.bs-enterprise-footer{padding:52px 0 20px!important}.bs-enterprise-footer .bs-footer-main{grid-template-columns:1fr 1fr;gap:34px 18px}.bs-enterprise-footer .bs-footer-brand{grid-column:1/-1}.bs-enterprise-footer .bs-footer-column h3{font-size:12px!important;margin-bottom:15px}.bs-enterprise-footer .bs-footer-column a{font-size:12px!important}.bs-enterprise-footer .bs-footer-bottom{align-items:flex-start;flex-direction:column}.bs-enterprise-footer .bs-footer-bottom div{gap:18px}}
+</style>
+
 </head>
 <body id="top">
 
@@ -1806,22 +1833,30 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<footer>
+<footer class="bs-enterprise-footer">
   <div class="wrap">
-    <div class="top">
-      <div><b>Bhumaji Systems</b>Rooted in reliability. Built for what's next.</div>
-      <ul>
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#cloud">Cloud</a></li>
-        <li><a href="#migration">Migration</a></li>
-        <li><a href="#mobile">Mobile</a></li>
-        <li><a href="#software">Software</a></li>
-        <li><a href="#ai">AI &amp; MLOps</a></li>
-        <li><a href="#our-work">Our work</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <div class="bs-footer-main">
+      <div class="bs-footer-brand">
+        <a class="bs-footer-wordmark" href="#top" aria-label="Bhumaji Systems home">Bhumaji Systems</a>
+        <p>Rooted in reliability. Built for what's next.</p>
+        <p class="bs-footer-summary">Cloud foundations, software engineering and platform operations built around your business goals.</p>
+        <div class="bs-socials" aria-label="Social media">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM3.4 9.5H7v11H3.4zM9.3 9.5h3.5V11h.1a3.8 3.8 0 0 1 3.4-1.9c3.7 0 4.4 2.4 4.4 5.5v5.9h-3.7v-5.2c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.3H9.3z"/></svg></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.2 7a3 3 0 0 0-2.1-2.1C19.2 4.4 12 4.4 12 4.4s-7.2 0-9.1.5A3 3 0 0 0 .8 7 31 31 0 0 0 .3 12a31 31 0 0 0 .5 5 3 3 0 0 0 2.1 2.1c1.9.5 9.1.5 9.1.5s7.2 0 9.1-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5 31 31 0 0 0-.5-5ZM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.6-1.3-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.1 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.8-5.5 6.1.4.3.8 1 .8 2v3.1c0 .3.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg></a>
+        </div>
+      </div>
+      <div class="bs-footer-column"><h3>Services</h3><ul>
+        <li><a href="#capabilities">All Capabilities</a></li><li><a href="#cloud">Cloud &amp; Infrastructure</a></li><li><a href="#migration">Cloud Migration &amp; Modernization</a></li><li><a href="#cloud-security">Cloud Security &amp; Reliability</a></li><li><a href="#cost-optimization">Cost Optimization</a></li><li><a href="#engineering">DevOps &amp; Platform Engineering</a></li><li><a href="#software">Software Engineering</a></li><li><a href="#mobile">Mobile Engineering</a></li><li><a href="#ai">AI, MLOps &amp; AIOps</a></li>
+      </ul></div>
+      <div class="bs-footer-column"><h3>Industries</h3><ul>
+        <li><a href="#industries">All Industries</a></li><li><a href="#industry-finance">Banking &amp; Financial Services</a></li><li><a href="#industry-healthcare">Healthcare &amp; Life Sciences</a></li><li><a href="#industry-manufacturing">Manufacturing</a></li><li><a href="#industry-media">Media &amp; Entertainment</a></li><li><a href="#industry-gaming">Gaming &amp; Digital Products</a></li><li><a href="#industry-real-estate">Real Estate</a></li><li><a href="#industry-hospitality">Hospitality</a></li><li><a href="#industry-ecommerce">E-commerce &amp; Retail</a></li>
+      </ul></div>
+      <div class="bs-footer-column"><h3>Explore</h3><ul>
+        <li><a href="#approach">Our Approach</a></li><li><a href="#our-work">Our Work</a></li><li><a href="#insights">Insights</a></li><li><a href="#contact">Contact Us</a></li><li><a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a></li>
+      </ul><a class="bs-footer-contact" href="#contact">Discuss your project <span aria-hidden="true">↗</span></a></div>
     </div>
-    <div class="bot">© Bhumaji Systems. All rights reserved.</div>
+    <div class="bs-footer-bottom"><span>© Bhumaji Systems. All rights reserved.</span><div><a href="#contact">Contact</a><a href="#top">Back to top ↑</a></div></div>
   </div>
 </footer>
 
