@@ -1660,6 +1660,49 @@ footer .bs-footer-bottom,footer .bs-footer-bottom a{color:#8fa2bc!important}
 }
 </style>
 
+
+<style id="bhumaji-enterprise-contact-form">
+#contact.alt{position:relative;isolation:isolate;overflow:hidden;background:#101116!important;color:#e6eaf1!important}
+#contact.alt:after{content:"";position:absolute;z-index:-1;right:-180px;top:-110px;width:440px;height:680px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(77,58,142,.5) 0%,rgba(77,58,142,.16) 52%,transparent 72%);pointer-events:none}
+#contact .wrap.contact{position:relative;z-index:1;display:grid!important;grid-template-columns:minmax(260px,.72fr) minmax(0,1.5fr)!important;gap:clamp(36px,6vw,90px)!important;align-items:start!important}
+#contact .eyebrow{color:#67e8f9!important}
+#contact h2,#contact h3{color:#fff!important}
+#contact .lead{color:#b7c0cf!important}
+#contact .mail{background:rgba(255,255,255,.045)!important;border:1px solid #303541!important;border-radius:8px!important;padding:18px!important}
+#contact .mail a{color:#8ce8f0!important}
+#contact .note{color:#9ca8ba!important;font-size:12px!important}
+#contact .enterprise-contact-form{padding:clamp(24px,3.5vw,44px)!important;background:rgba(20,21,27,.92)!important;border:1px solid #343640!important;border-radius:10px!important;box-shadow:0 24px 80px rgba(0,0,0,.2)!important;min-width:0!important}
+#contact .enterprise-form-heading{margin-bottom:28px!important}
+#contact .form-kicker{display:block;color:#6fe6f2!important;font-size:10px!important;font-weight:800!important;letter-spacing:.17em!important;margin-bottom:10px!important}
+#contact .enterprise-form-heading h3{font-size:clamp(24px,3vw,34px)!important;line-height:1.15!important;letter-spacing:-.04em!important;margin:0 0 10px!important}
+#contact .enterprise-form-heading p{color:#aeb8c8!important;font-size:13px!important;margin:0!important}
+#contact .enterprise-form-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:clamp(18px,3vw,38px)!important;row-gap:22px!important}
+#contact .enterprise-form-grid .f{display:flex!important;flex-direction:column!important;gap:8px!important;min-width:0!important;margin:0!important}
+#contact .enterprise-form-grid label{font-size:13px!important;font-weight:650!important;color:#e0e5ee!important;line-height:1.4!important}
+#contact .enterprise-form-grid input,#contact .enterprise-form-grid select,#contact .enterprise-form-grid textarea{
+  width:100%!important;min-width:0!important;min-height:43px!important;padding:9px 2px 11px!important;
+  border:0!important;border-bottom:1px solid #697181!important;border-radius:0!important;
+  background:transparent!important;color:#fff!important;font:inherit!important;font-size:14px!important;
+  box-shadow:none!important;outline-offset:4px!important;appearance:auto!important;
+}
+#contact .enterprise-form-grid input::placeholder,#contact .enterprise-form-grid textarea::placeholder{color:#7f899a!important;opacity:1!important}
+#contact .enterprise-form-grid input:focus,#contact .enterprise-form-grid select:focus,#contact .enterprise-form-grid textarea:focus{border-bottom-color:#6fe6f2!important;outline:0!important}
+#contact .enterprise-form-grid select{color-scheme:dark!important;cursor:pointer!important}
+#contact .enterprise-form-grid select option{background:#171a22!important;color:#fff!important}
+#contact .enterprise-form-grid textarea{resize:vertical!important;min-height:70px!important;line-height:1.65!important}
+#contact .enterprise-message-field{grid-column:1/-1!important}
+#contact .enterprise-form-consent{display:grid!important;gap:14px!important;margin:26px 0 22px!important}
+#contact .consent-line{display:grid!important;grid-template-columns:18px minmax(0,1fr)!important;gap:10px!important;align-items:start!important;color:#c2c9d4!important;font-size:12px!important;line-height:1.7!important;cursor:pointer!important}
+#contact .consent-line input{width:17px!important;height:17px!important;margin:2px 0 0!important;accent-color:#1769e0!important}
+#contact .consent-line.optional{color:#9da8b9!important}
+#contact .enterprise-submit{display:inline-flex!important;justify-content:center!important;align-items:center!important;gap:20px!important;min-width:170px!important;min-height:48px!important;padding:13px 20px!important;border:1px solid #2878ec!important;border-radius:4px!important;background:#1769e0!important;color:#fff!important;font-size:14px!important;font-weight:750!important}
+#contact .enterprise-submit:hover{background:#0e54bd!important}
+#contact .enterprise-form-footnote{font-size:11px!important;color:#8e99aa!important;line-height:1.6!important;margin:16px 0 0!important}
+#contact .enterprise-form-footnote a{color:#8ce8f0!important;text-decoration:underline!important}
+@media(max-width:900px){#contact .wrap.contact{grid-template-columns:1fr!important;gap:32px!important}#contact .wrap.contact>div:first-child{max-width:680px!important}}
+@media(max-width:560px){#contact .enterprise-contact-form{padding:23px 18px!important}#contact .enterprise-form-grid{grid-template-columns:1fr!important;row-gap:18px!important}#contact .enterprise-message-field{grid-column:auto!important}#contact .enterprise-form-heading{margin-bottom:23px!important}}
+</style>
+
 </head>
 <body id="top">
 
@@ -2052,30 +2095,31 @@ footer .bs-footer-bottom,footer .bs-footer-bottom a{color:#8fa2bc!important}
       <div class="mail"><div class="ic">✉</div><div><small>EMAIL US DIRECTLY</small><a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a></div></div>
       <p class="note">Please avoid sending passwords, credentials, or other sensitive information through this form.</p>
     </div>
-    <form id="enquiry">
-      <h3>Send us an enquiry</h3>
-      <p class="sub">Fields marked with * are required.</p>
-      <div class="two">
-        <div class="f"><label for="name">Full name *</label><input id="name" required></div>
-        <div class="f"><label for="email">Work email *</label><input id="email" type="email" required></div>
+    <form id="enquiry" class="enterprise-contact-form">
+      <div class="enterprise-form-heading">
+        <span class="form-kicker">LET'S CONNECT</span>
+        <h3>Tell us what you’re working on.</h3>
+        <p>Share a few details and we’ll help you find a practical next step. Fields marked * are required.</p>
       </div>
-      <div class="f"><label for="company">Company</label><input id="company"></div>
-      <div class="f"><label for="svc">What can we help with? *</label>
-        <select id="svc" required>
-          <option value="">Select a service</option>
-          <option>Cloud technology</option>
-          <option>Infrastructure or database migration</option>
-          <option>Software and mobile development</option>
-          <option>DevOps and platform engineering</option>
-          <option>MLOps and AIOps</option>
-          <option>Infrastructure management</option>
-          <option>Other enquiry</option>
-        </select></div>
-      <div class="f"><label for="msg">Project details *</label><textarea id="msg" rows="5" required></textarea></div>
-      <p class="note" style="margin:0 0 18px">Your information will be used to respond to your enquiry.</p>
-      <button class="btn btn-primary" type="submit">Send enquiry →</button>
-    </form>
-  </div>
+      <div class="enterprise-form-grid">
+        <div class="f"><label for="firstName">First name *</label><input id="firstName" name="firstName" autocomplete="given-name" placeholder="First name" required></div>
+        <div class="f"><label for="lastName">Last name *</label><input id="lastName" name="lastName" autocomplete="family-name" placeholder="Last name" required></div>
+        <div class="f"><label for="email">Business email *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
+        <div class="f"><label for="company">Company name *</label><input id="company" name="company" autocomplete="organization" placeholder="Company name" required></div>
+        <div class="f"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 00000 00000" required></div>
+        <div class="f"><label for="country">Country *</label><select id="country" name="country" autocomplete="country-name" required><option value="">Select country</option><option>India</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option><option>Singapore</option><option>United Arab Emirates</option><option>Germany</option><option>Other</option></select></div>
+        <div class="f"><label for="role">Role *</label><select id="role" name="role" required><option value="">Select your role</option><option>Founder / Owner</option><option>CEO / Executive</option><option>CTO / Technology leader</option><option>IT / Engineering leader</option><option>Product / Project manager</option><option>Developer / Engineer</option><option>Procurement</option><option>Other</option></select></div>
+        <div class="f"><label for="function">Function *</label><select id="function" name="function" required><option value="">Select function</option><option>IT / Technology</option><option>Engineering / DevOps</option><option>Cloud / Infrastructure</option><option>Security</option><option>Data / AI</option><option>Product</option><option>Operations</option><option>Business / Management</option><option>Other</option></select></div>
+        <div class="f"><label for="svc">Type of inquiry *</label><select id="svc" name="service" required><option value="">Choose an inquiry type</option><option>AWS / Cloud setup</option><option>Cloud migration &amp; modernization</option><option>DevOps &amp; platform engineering</option><option>Software / mobile development</option><option>Cloud security &amp; reliability</option><option>Cloud cost optimization</option><option>AI / MLOps / AIOps</option><option>Ongoing engineering support</option><option>Partnership</option><option>Other enquiry</option></select></div>
+        <div class="f enterprise-message-field"><label for="msg">Message *</label><textarea id="msg" name="message" rows="3" placeholder="Tell us about your goals, challenges, timeline or requirements…" required></textarea></div>
+      </div>
+      <div class="enterprise-form-consent">
+        <label class="consent-line"><input type="checkbox" id="privacyConsent" name="privacyConsent" required><span>I agree that Bhumaji Systems may use my information to respond to this enquiry. Please don’t include passwords or sensitive credentials. *</span></label>
+        <label class="consent-line optional"><input type="checkbox" id="updatesConsent" name="updatesConsent"><span>I’d also like to receive occasional company updates and service news. I can opt out at any time.</span></label>
+      </div>
+      <button class="btn btn-primary enterprise-submit" type="submit">Submit enquiry <span aria-hidden="true">↗</span></button>
+      <p class="enterprise-form-footnote">Submitting opens your default email application with your enquiry prepared to send to <a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a>.</p>
+    </form>  </div>
 </section>
 
 <footer class="bs-enterprise-footer">
@@ -2113,8 +2157,23 @@ footer .bs-footer-bottom,footer .bs-footer-bottom a{color:#8fa2bc!important}
 // Replace with your existing form endpoint if you already have one.
 document.getElementById('enquiry').addEventListener('submit',function(e){
   e.preventDefault();
-  var v=function(id){return document.getElementById(id).value};
-  var body='Name: '+v('name')+'\nEmail: '+v('email')+'\nCompany: '+v('company')+'\nService: '+v('svc')+'\n\n'+v('msg');
+  var v=function(id){var el=document.getElementById(id);return el?el.value.trim():''};
+  var body=[
+    'New Bhumaji Systems website enquiry',
+    '',
+    'Name: '+v('firstName')+' '+v('lastName'),
+    'Business email: '+v('email'),
+    'Company: '+v('company'),
+    'Phone: '+v('phone'),
+    'Country: '+v('country'),
+    'Role: '+v('role'),
+    'Function: '+v('function'),
+    'Inquiry type: '+v('svc'),
+    'Marketing updates opted in: '+(document.getElementById('updatesConsent').checked?'Yes':'No'),
+    '',
+    'Message:',
+    v('msg')
+  ].join('\n');
   location.href='mailto:contactus@bhumaji.com?subject='+encodeURIComponent('Website enquiry: '+v('svc'))+'&body='+encodeURIComponent(body);
 });
 </script>
