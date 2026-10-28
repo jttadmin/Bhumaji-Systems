@@ -883,6 +883,174 @@ header.site-header,
   .site-header nav .hover-panel { background: #020A12 !important; }
 }
 </style>
+
+<style id="bhumaji-brillio-inspired-redesign">
+/* Bhumaji Systems — enterprise editorial redesign, inspired by modern digital-services sites.
+   Original styling for Bhumaji; not a copy of Brillio branding or content. */
+:root{
+  --bs-ink:#101522;
+  --bs-deep:#080d19;
+  --bs-panel:#111a2a;
+  --bs-text:#4b5668;
+  --bs-muted:#687487;
+  --bs-line:#e1e6ec;
+  --bs-cyan:#22d3ee;
+  --bs-blue:#1769ff;
+  --bs-lime:#c8f169;
+}
+html{scroll-padding-top:100px}
+body{background:#fff!important;color:var(--bs-text)!important;font-family:Inter,"Segoe UI",Arial,sans-serif!important;letter-spacing:-.012em}
+.wrap{width:min(1240px,calc(100% - 64px))!important}
+.topbar{background:#080d19!important;color:#b8c4d7!important;font-size:12px!important}
+.topbar .wrap{min-height:35px;padding-top:7px!important;padding-bottom:7px!important}
+.topbar a{color:#dce6f5!important}
+.site-header,.site-header.compact{background:#080d19!important;background-image:none!important;border-bottom:1px solid #202a3b!important;box-shadow:0 8px 28px rgba(3,8,18,.10)!important}
+.site-header .nav-wrap{min-height:86px!important;width:min(1240px,calc(100% - 64px))!important}
+.site-header.compact .nav-wrap{min-height:74px!important}
+.site-header .brand{flex:0 0 250px!important;width:250px!important}
+.site-header .brand .modern-brand-logo{max-height:62px!important}
+.site-header nav ul{gap:clamp(12px,1.45vw,22px)!important}
+.site-header nav a:not(.nav-cta){color:#d7deea!important;font-size:13px!important;font-weight:550!important;border-bottom:2px solid transparent!important}
+.site-header nav a:not(.nav-cta):hover,.site-header nav .hover-info:hover>a:not(.nav-cta){color:var(--bs-cyan)!important;border-color:var(--bs-cyan)!important;background:transparent!important}
+.site-header nav .nav-cta{background:var(--bs-lime)!important;color:#111522!important;border:1px solid var(--bs-lime)!important;border-radius:3px!important;padding:12px 18px!important;font-weight:750!important;box-shadow:none!important}
+.site-header nav .nav-cta:hover{background:#d9ff8b!important;border-color:#d9ff8b!important;color:#111522!important}
+.hover-panel,.industries-mega,.engineering-mega{background:#101827!important;border-color:#29364a!important;box-shadow:0 24px 60px rgba(0,0,0,.24)!important}
+.hover-panel>a,.industries-mega a,.engineering-mega a{color:#edf3fb!important;border-color:#283449!important}
+.hover-panel>a:hover,.industries-mega a:hover,.engineering-mega a:hover{background:#18253a!important}
+.cinematic-hero{position:relative!important;background:#080d19!important;color:#fff!important;min-height:0!important;isolation:isolate!important}
+.cinematic-hero:before{opacity:.38!important;filter:saturate(.65)!important}
+.cinematic-hero:after{background:linear-gradient(90deg,rgba(5,9,18,.97) 0%,rgba(5,9,18,.83) 50%,rgba(5,9,18,.48) 100%),linear-gradient(0deg,rgba(5,9,18,.95),transparent 70%)!important}
+.cinematic-hero .wrap{width:min(1240px,calc(100% - 64px))!important;min-height:650px!important;padding:130px 0 88px!important;grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr)!important;gap:clamp(36px,6vw,90px)!important}
+.cinematic-hero .wrap>div:first-child{max-width:760px!important}
+.cinematic-hero .eyebrow{color:var(--bs-lime)!important;font-size:11px!important;letter-spacing:.16em!important}
+.cinematic-hero .eyebrow:before{background:var(--bs-lime)!important}
+.cinematic-hero h1{font-size:clamp(48px,6.1vw,82px)!important;line-height:.99!important;letter-spacing:-.065em!important;font-weight:650!important;margin:0 0 28px!important;max-width:850px!important}
+.cinematic-hero .hero-highlight{color:var(--bs-lime)!important}
+.cinematic-hero p.lead{max-width:620px!important;font-size:17px!important;line-height:1.8!important;color:#c9d2e0!important}
+.cinematic-hero p.lead strong{color:#fff!important}
+.cinematic-hero .cta{gap:14px!important;margin-top:36px!important}
+.cinematic-hero .btn{min-height:52px!important;padding:15px 22px!important;border-radius:3px!important;font-size:13px!important;font-weight:750!important}
+.cinematic-hero .btn-primary{background:var(--bs-lime)!important;border-color:var(--bs-lime)!important;color:#111522!important}
+.cinematic-hero .btn-primary:hover{background:#dcff9b!important;border-color:#dcff9b!important}
+.cinematic-hero .btn-ghost{border-color:#667287!important;color:#fff!important;background:transparent!important}
+.cinematic-hero .btn-ghost:hover{border-color:var(--bs-lime)!important;color:var(--bs-lime)!important}
+.cinematic-hero .panel{background:rgba(15,23,39,.78)!important;border:1px solid rgba(210,224,245,.22)!important;border-radius:4px!important;padding:30px!important;box-shadow:0 30px 90px rgba(0,0,0,.25)!important;backdrop-filter:blur(12px)!important}
+.cinematic-hero .panel:before{color:#9daac0!important;border-color:rgba(210,224,245,.16)!important}
+.cinematic-hero .panel h4{color:var(--bs-lime)!important}
+.cinematic-hero .panel .row{border-color:rgba(210,224,245,.13)!important;padding:17px 0!important}
+.cinematic-hero .panel .n{color:var(--bs-lime)!important}
+.cinematic-hero .panel b{font-size:15px!important}
+.cinematic-hero .panel span{color:#b8c4d7!important}
+.cinematic-hero .stats{margin-top:0!important;background:#0d1422!important;border-top:1px solid #263044!important}
+.cinematic-hero .stats .wrap{width:min(1240px,calc(100% - 64px))!important;min-height:0!important;padding:0!important}
+.cinematic-hero .stat{padding:25px 26px!important;border-color:#263044!important}
+.cinematic-hero .stat b{font-size:22px!important;font-weight:650!important;color:#fff!important}
+.cinematic-hero .stat span{font-size:11px!important;color:#aab6c9!important;letter-spacing:.035em!important}
+section{padding:clamp(72px,8vw,112px) 0!important}
+section .head{max-width:900px!important;margin-bottom:48px!important}
+section .eyebrow{font-size:11px!important;letter-spacing:.14em!important;color:#1769a6!important}
+section .eyebrow:before{background:#1769a6!important}
+section h2{font-size:clamp(34px,4.4vw,54px)!important;line-height:1.08!important;letter-spacing:-.055em!important;font-weight:620!important;color:#111827!important;max-width:900px!important}
+section .lead{font-size:16px!important;line-height:1.85!important;color:#586477!important;max-width:790px!important}
+section:not(.approach):not(#contact){background:#fff!important}
+section.alt:not(.approach):not(#contact){background:#f5f7fa!important}
+#capabilities .grid{gap:16px!important}
+#capabilities .card,.migration-service-cards .card,.grid .card{background:#fff!important;border:1px solid #dfe5ec!important;border-radius:4px!important;box-shadow:none!important;padding:28px!important;transition:transform .2s,border-color .2s,box-shadow .2s!important}
+#capabilities .card:hover,.migration-service-cards .card:hover,.grid .card:hover{transform:translateY(-4px)!important;border-color:#9baec4!important;box-shadow:0 18px 40px rgba(15,23,42,.08)!important}
+.card .num{color:#8c98a9!important;font-size:11px!important}
+.card .ic{background:#eef8fb!important;color:#087d9b!important;border-radius:3px!important}
+.card h3{font-size:20px!important;line-height:1.25!important;letter-spacing:-.035em!important;color:#121a2a!important}
+.card p{font-size:13.5px!important;line-height:1.8!important;color:#5a6678!important}
+.tags{gap:6px!important}
+.tags span{background:#f5f7fa!important;color:#425166!important;border:1px solid #e1e6ed!important;border-radius:2px!important;font-size:10px!important}
+.link{color:#1265c7!important;font-weight:700!important}
+.link:hover{color:#008da8!important}
+.service-outcomes{gap:16px!important}
+.service-outcomes>div{background:#f8fafc!important;border:1px solid #e0e6ed!important;border-radius:4px!important;padding:24px!important}
+.service-outcomes b{color:#15233a!important;font-size:13px!important}
+.service-outcomes span{color:#5b687b!important;font-size:12.5px!important;line-height:1.8!important}
+.industry-detail-grid,.insight-grid{gap:16px!important}
+.industry-detail-grid article,.insight-grid article{background:#fff!important;border:1px solid #dfe5ec!important;border-radius:4px!important;min-height:0!important;padding:28px!important;transition:transform .2s,border-color .2s,box-shadow .2s!important}
+.industry-detail-grid article:hover,.insight-grid article:hover{transform:translateY(-3px)!important;border-color:#9baec4!important;box-shadow:0 18px 40px rgba(15,23,42,.08)!important}
+.industry-detail-grid article>span,.insight-grid article>span{color:#0c819c!important}
+.industry-detail-grid h3,.insight-grid h3{color:#121a2a!important;font-size:20px!important;letter-spacing:-.03em!important}
+.industry-detail-grid p,.insight-grid p{color:#5a6678!important;font-size:13px!important;line-height:1.8!important}
+.cloud-service-main,.service-side-panel,.cost-feature-grid article{background:#fff!important;border-color:#dfe5ec!important;border-radius:4px!important}
+.cloud-service-main h3,.cost-feature-grid h3{color:#121a2a!important}
+.cloud-service-main>p,.service-check-grid span,.service-side-panel li span,.cost-feature-grid p{color:#5a6678!important}
+.service-check-grid>div,.service-side-panel li{border-color:#e0e6ed!important}
+.service-check-grid b,.service-side-panel li b{color:#15233a!important}
+.service-side-panel li:before{background:#fff!important;color:#0c819c!important}
+.service-kicker,.service-status,.cost-icon{color:#087d9b!important}
+.migration-timeline{border-color:#dfe5ec!important;background:#fff!important;border-radius:4px!important}
+.timeline-step{border-color:#dfe5ec!important}
+.timeline-step i{color:#087d9b!important}
+.timeline-step span{color:#5a6678!important}
+#engineering,.engineering{background:#0b1220!important;color:#fff!important}
+#engineering h2,#engineering h3,#engineering .head h2{color:#fff!important}
+#engineering .lead{color:#b8c4d7!important}
+#engineering .card,#engineering .principle{background:#111b2d!important;border-color:#29364b!important}
+#engineering .card h3,#engineering .card p{color:#edf3fb!important}
+#engineering .card p{color:#b3c0d2!important}
+#engineering .card .num{color:#8a9ab2!important}
+#engineering .tags span{background:#17243a!important;color:#d9e5f3!important;border-color:#2a3a52!important}
+.approach{background:#f4f7fa!important;border-top:1px solid #e4e9ef!important;border-bottom:1px solid #e4e9ef!important}
+.approach h2,.approach h3,.approach .pill span{color:#121a2a!important}
+.approach p{color:#586477!important}
+.approach .pill{background:#fff!important;border:1px solid #dfe5ec!important;border-radius:4px!important}
+.approach .pill b{color:#087d9b!important}
+#our-work .project{border:1px solid #dfe5ec!important;border-radius:4px!important;padding:clamp(24px,4vw,48px)!important;background:#fff!important}
+#our-work .badge{background:#eaf8fb!important;color:#087d9b!important}
+#our-work .quote{background:#f5f7fa!important;border-color:#dfe5ec!important;border-radius:4px!important}
+#contact{background:#0b1220!important;color:#fff!important}
+#contact h2{color:#fff!important}
+#contact .lead,#contact .note{color:#bdc8d8!important}
+#contact .eyebrow{color:var(--bs-lime)!important}
+#contact .eyebrow:before{background:var(--bs-lime)!important}
+#contact form{background:#fff!important;color:#111827!important;border:1px solid #dfe5ec!important;border-radius:4px!important;box-shadow:none!important}
+#contact form h3{color:#111827!important}
+#contact form .sub,#contact form label{color:#4b5668!important}
+#contact input,#contact select,#contact textarea{border:1px solid #d5dde7!important;border-radius:3px!important;background:#fff!important;color:#111827!important}
+#contact input:focus,#contact select:focus,#contact textarea:focus{outline:2px solid rgba(34,211,238,.22)!important;border-color:#087d9b!important}
+#contact .btn-primary{background:#c8f169!important;color:#111522!important;border-color:#c8f169!important;border-radius:3px!important}
+footer{background:#080d19!important;color:#aebbd0!important}
+footer .top,footer .bot{border-color:#263044!important}
+footer b,footer strong{color:#fff!important}
+footer a{color:#c4cfdf!important}
+footer a:hover{color:var(--bs-lime)!important}
+.bs-chat-launcher{background:var(--bs-lime)!important;color:#111522!important;border-radius:3px!important;box-shadow:0 12px 30px rgba(0,0,0,.2)!important}
+.bs-chat-panel{border-radius:5px!important}
+.bs-chat-head{background:#111b2d!important}
+.bs-chat-quick button{border-radius:3px!important}
+.bs-chat-form button{background:var(--bs-lime)!important;color:#111522!important}
+@media(max-width:1120px){
+ .wrap,.site-header .nav-wrap,.cinematic-hero .wrap,.cinematic-hero .stats .wrap{width:calc(100% - 40px)!important}
+ .cinematic-hero .wrap{grid-template-columns:1fr!important;min-height:0!important;padding:100px 0 55px!important}
+ .cinematic-hero .panel{max-width:700px!important}
+ .site-header .nav-wrap{min-height:76px!important}
+ .site-header nav{background:#080d19!important;border-color:#29364b!important}
+ .site-header nav a:not(.nav-cta){color:#d7deea!important}
+}
+@media(max-width:700px){
+ .wrap,.site-header .nav-wrap,.cinematic-hero .wrap,.cinematic-hero .stats .wrap{width:calc(100% - 32px)!important}
+ .site-header .brand{flex-basis:185px!important;width:185px!important}
+ .site-header .brand .modern-brand-logo{max-height:48px!important}
+ .cinematic-hero .wrap{padding:76px 0 38px!important;gap:28px!important}
+ .cinematic-hero h1{font-size:clamp(42px,12vw,58px)!important}
+ .cinematic-hero p.lead{font-size:15px!important}
+ .cinematic-hero .panel{padding:22px!important}
+ .cinematic-hero .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .cinematic-hero .stat{padding:18px 12px!important}
+ section{padding:68px 0!important}
+ section .head{margin-bottom:32px!important}
+ section h2{font-size:clamp(31px,9vw,42px)!important}
+ #capabilities .g4,.industry-detail-grid,.insight-grid{grid-template-columns:1fr!important}
+ #contact .wrap.contact{grid-template-columns:1fr!important}
+ .service-outcomes{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){.industry-detail-grid article,.insight-grid article,.card{transition:none!important}}
+</style>
+
 </head>
 <body id="top">
 
