@@ -1,3 +1,2157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bhumaji Systems | Cloud, Digital Engineering &amp; AI</title>
+<meta name="description" content="Bhumaji Systems helps organizations modernize cloud infrastructure, engineer digital products, automate delivery and improve platform reliability across AWS, Microsoft Azure and Google Cloud.">
+<meta name="theme-color" content="#071a3a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#071a3a; --navy-2:#0c2a5c; --blue:#1f5fd6; --blue-d:#174aa8; --sky:#e8f0fd;
+  --ink:#0f1c33; --text:#41506a; --muted:#6b7a93; --line:#dde4ef; --bg:#ffffff; --bg-alt:#f5f8fc;
+  --accent:#00a6a6; --radius:10px; --shadow:0 1px 2px rgba(7,26,58,.06),0 8px 24px rgba(7,26,58,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+section{padding:92px 0}
+.alt{background:var(--bg-alt)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--blue)}
+h1,h2,h3{color:var(--ink);line-height:1.18;letter-spacing:-.02em}
+h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;max-width:760px}
+.lead{margin-top:16px;font-size:18px;max-width:700px;color:var(--text)}
+.head{margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:6px;font-weight:600;font-size:15px;border:1.5px solid transparent;cursor:pointer;transition:.2s;font-family:inherit}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-d)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-outline{border-color:var(--blue);color:var(--blue)}
+.btn-outline:hover{background:var(--sky)}
+.link{color:var(--blue);font-weight:600;font-size:14.5px}
+.link:hover{text-decoration:underline}
+
+/* top bar + nav */
+.topbar{background:var(--navy);color:#b9c6df;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:9px 0;gap:16px;flex-wrap:wrap}
+.topbar a:hover{color:#fff}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:132px;gap:24px;transition:min-height .25s}
+header.compact .wrap{min-height:104px}
+.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:0 0 270px;width:270px;min-width:270px;color:var(--navy);letter-spacing:-.02em;text-align:center}
+.brand img{height:82px;width:auto;max-width:100%;object-fit:contain;display:block;transition:height .25s;clip-path:inset(0 0 16% 0)}
+.brand-tagline{display:block;width:100%;max-width:100%;font-size:11.5px;line-height:1.3;font-weight:500;letter-spacing:0;color:var(--navy);text-align:center;white-space:nowrap}
+header.compact .brand img{height:68px;clip-path:inset(0 0 16% 0)}
+header.compact .brand-tagline{font-size:11px}
+nav ul{list-style:none;display:flex;gap:18px;align-items:center}
+nav a{font-size:14.5px;font-weight:500;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--blue);border-color:var(--blue)}
+nav a.btn{color:#fff;border-bottom:0;padding:10px 20px}
+nav a.btn:hover{color:#fff}
+.burger{display:none;background:none;border:0;font-size:26px;color:var(--navy);cursor:pointer}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#12408a 100%);color:#fff;padding:96px 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000 30%,transparent)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero .eyebrow{color:#8fb4ff}.hero .eyebrow::before{background:#8fb4ff}
+.hero h1{color:#fff;font-size:clamp(36px,5vw,58px);font-weight:800;margin-bottom:22px}
+.hero p.lead{color:#c5d3ee;font-size:19px}
+.hero p.lead strong{color:#fff}
+.cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.panel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:26px;backdrop-filter:blur(6px)}
+.panel h4{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fb4ff;margin-bottom:16px;font-weight:700}
+.panel .row{display:flex;gap:16px;align-items:center;padding:15px 0;border-top:1px solid rgba(255,255,255,.12)}
+.panel .row:first-of-type{border-top:0}
+.panel .n{font-size:13px;font-weight:700;color:#8fb4ff;width:26px}
+.panel b{display:block;color:#fff;font-size:16px}
+.panel span{font-size:13.5px;color:#b7c6e4}
+.stats{position:relative;margin-top:72px;border-top:1px solid rgba(255,255,255,.14);background:rgba(4,15,36,.45)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:26px 24px;border-left:1px solid rgba(255,255,255,.12)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-size:30px;color:#fff;font-weight:800;letter-spacing:-.02em}
+.stat span{font-size:13px;color:#9fb2d6}
+
+/* cards */
+.grid{display:grid;gap:24px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:.25s;position:relative}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:#c5d3ea}
+.card .ic{width:46px;height:46px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-size:21px;margin-bottom:20px;font-weight:700}
+.card .num{position:absolute;top:26px;right:28px;font-size:13px;font-weight:700;color:#b6c3da}
+.card h3{font-size:19px;margin-bottom:10px;font-weight:700}
+.card p{font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 20px}
+.tags span{font-size:12px;font-weight:600;color:var(--navy-2);background:var(--bg-alt);border:1px solid var(--line);padding:4px 10px;border-radius:4px}
+.alt .tags span{background:#fff}
+
+/* cloud */
+.cloud-card{text-align:left}
+.cloud-card .logo{height:46px;display:flex;align-items:center;margin-bottom:20px}
+.cloud-card .logo img{max-height:42px;max-width:150px;object-fit:contain}
+.cloud-card small{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+
+/* migration */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);margin-top:48px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+.step{padding:22px 18px;border-left:1px solid var(--line);position:relative}
+.step:first-child{border-left:0}
+.step i{font-style:normal;font-size:12px;font-weight:700;color:var(--blue);display:block;margin-bottom:6px}
+.step b{display:block;color:var(--ink);font-size:16px}
+.step span{font-size:13px;color:var(--muted)}
+.step::after{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--blue);opacity:.15}
+.step:hover::after{opacity:1}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.feat{display:grid;gap:14px;margin-top:28px}
+.feat div{display:flex;gap:14px;padding:16px 18px;background:var(--bg-alt);border-left:3px solid var(--blue);border-radius:0 8px 8px 0}
+.feat b{color:var(--ink);display:block;font-size:15.5px}
+.feat span{font-size:14px}
+.device{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:16px;padding:44px;color:#fff;min-height:360px;display:grid;align-content:center;gap:18px;box-shadow:var(--shadow)}
+.device .big{font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.device .chips{display:flex;gap:8px;flex-wrap:wrap}
+.device .chips span{border:1px solid rgba(255,255,255,.3);padding:5px 12px;border-radius:99px;font-size:12.5px;font-weight:600;color:#cfe0ff}
+.device small{color:#8fb4ff;font-weight:700;letter-spacing:.14em;font-size:11.5px}
+.device p{color:#b7c6e4;font-size:14.5px}
+
+
+/* phone mockups */
+.phones{display:flex;justify-content:center;align-items:flex-start;gap:1.8em;font-size:10px;padding:6px 0 4px}
+.phone{margin:0;width:15.2em}
+.phone.ios{margin-top:2.6em}
+.phone .scr{position:relative;aspect-ratio:9/19.2;border:.55em solid #0a1226;overflow:hidden;display:flex;flex-direction:column;color:#fff;text-align:left;box-shadow:0 1.6em 3em rgba(0,0,0,.45),0 0 0 .12em #3a4a6b}
+.phone.android .scr{border-radius:2.3em;background:radial-gradient(120% 55% at 15% 0%,#8b6bff 0,transparent 60%),radial-gradient(90% 55% at 100% 45%,#00c2b8 0,transparent 62%),linear-gradient(170deg,#1b2f6b,#0c1a3d 70%,#3b1f5e)}
+.phone.ios .scr{border-radius:3em;background:radial-gradient(100% 50% at 85% 0%,#ffa066 0,transparent 60%),radial-gradient(100% 55% at 0% 60%,#3b82f6 0,transparent 62%),linear-gradient(175deg,#4a2c8f,#1a2b6d 60%,#0e3a6e)}
+.phone .sb{display:flex;justify-content:space-between;align-items:center;padding:.5em 1.6em 0;height:2.4em;font-size:.85em;font-weight:700;position:relative;z-index:3;flex:none}
+.phone .sb span{width:1.9em;height:.8em;border-radius:.2em;border:.12em solid #fff;position:relative}
+.phone .sb span::after{content:"";position:absolute;inset:.1em;right:.45em;background:#fff;border-radius:.1em}
+.phone .hole{position:absolute;top:.75em;left:50%;width:.9em;height:.9em;margin-left:-.45em;background:#05080f;border-radius:50%;z-index:4}
+.phone .island{position:absolute;top:.65em;left:50%;width:5em;height:1.5em;margin-left:-2.5em;background:#05080f;border-radius:1em;z-index:4}
+.phone .clock{padding:1em 1.5em .2em;flex:none}
+.phone .clock b{display:block;font-size:3.4em;font-weight:300;line-height:1.05;letter-spacing:-.02em}
+.phone .clock span{font-size:.95em;opacity:.92}
+.phone .gsearch{margin:.9em 1em 1.1em;height:2.6em;background:rgba(255,255,255,.93);border-radius:1.4em;display:flex;align-items:center;justify-content:space-between;padding:0 .6em 0 1.1em;color:#41506a;font-size:.9em;flex:none}
+.phone .gsearch em{width:1.7em;height:1.7em;border-radius:50%;background:linear-gradient(135deg,#1f5fd6,#00a6a6)}
+.phone .apps{display:grid;grid-template-columns:repeat(4,1fr);gap:.8em .3em;padding:0 .9em;flex:none}
+.phone.ios .apps{padding-top:.7em;gap:.6em .3em}
+.phone .app{display:flex;flex-direction:column;align-items:center;gap:.28em;text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.phone .app i{width:2.9em;height:2.9em;display:grid;place-items:center;font-style:normal;background:linear-gradient(160deg,rgba(255,255,255,.28),rgba(0,0,0,.2)),var(--c);box-shadow:0 .1em .35em rgba(0,0,0,.35)}
+.phone.android .app i{border-radius:50%}
+.phone.ios .app i{border-radius:.72em}
+.phone .app i b{font-size:1.45em;font-weight:400;line-height:1;color:#fff}
+.phone .app span{font-size:.7em;line-height:1.1;white-space:nowrap}
+.phone .dock{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0 .9em .7em;flex:none}
+.phone .dock .app span{display:none}
+.phone.ios .dock{margin:auto .9em .6em;padding:.8em .4em;background:rgba(255,255,255,.24);border-radius:1.9em;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.phone .dots{display:flex;gap:.45em;justify-content:center;margin:auto 0 .8em;flex:none}
+.phone .dots i{width:.55em;height:.55em;border-radius:50%;background:rgba(255,255,255,.5)}
+.phone .dots i:first-child{background:#fff}
+.phone .hbar{height:1.2em;display:flex;justify-content:center;align-items:center;flex:none}
+.phone .hbar::after{content:"";width:4.4em;height:.32em;background:#fff;border-radius:1em;opacity:.9}
+.phone figcaption{margin-top:1em;text-align:center;font-size:1.2em;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8fb4ff}
+.device .chips{justify-content:center}
+.device small{text-align:center}
+.device .big{text-align:center}
+.device>p{text-align:center}
+@media(max-width:600px){.phones{font-size:8px;gap:14px}.device{padding:28px 14px}.device .big{font-size:28px}}
+
+/* software development */
+.ide{background:#0b1530;border-radius:14px;box-shadow:var(--shadow);overflow:hidden;border:1px solid #1b2c57;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.ide .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#08112a;border-bottom:1px solid #1b2c57}
+.ide .bar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}.ide .bar i:nth-child(2){background:#febc2e}.ide .bar i:nth-child(3){background:#28c840}
+.ide .tabs{display:flex;gap:2px;background:#08112a;padding:0 10px;font-size:12.5px}
+.ide .tabs span{padding:9px 14px;color:#7d8fb8;border-top:2px solid transparent}
+.ide .tabs span.on{color:#fff;background:#0b1530;border-top-color:#3b82f6}
+.ide pre{margin:0;padding:18px 0;font-size:13.5px;line-height:1.75;color:#d6e2ff;overflow-x:auto}
+.ide pre code{display:block;min-width:max-content}
+.ide .ln{display:inline-block;width:46px;padding-right:16px;text-align:right;color:#4a5b85;user-select:none}
+.k{color:#c792ea}.fn{color:#82aaff}.s{color:#c3e88d}.c{color:#637799;font-style:italic}.n{color:#f78c6c}.t{color:#ffcb6b}
+.term{background:#050c20;border-top:1px solid #1b2c57;padding:16px 20px;font-size:13px;line-height:1.8;color:#9fb2d6}
+.term b{color:#fff;font-weight:600}.term .ok{color:#34d399}.term .dim{color:#64779f}
+.split>*{min-width:0}
+.ide{max-width:100%}
+.ide-note{font-size:12.5px;color:var(--muted);margin-top:12px}
+.sd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.sd{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:10px;background:#fff;transition:.2s}
+.sd:hover{border-color:#c5d3ea;box-shadow:var(--shadow)}
+.sd .ic{flex:none;width:38px;height:38px;border-radius:9px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:700;font-size:14px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.sd b{display:block;color:var(--ink);font-size:15.5px;line-height:1.3}
+.sd span{font-size:13.5px;line-height:1.5;display:block;margin-top:3px}
+@media(max-width:1200px){nav ul{gap:18px}nav a{font-size:14px}}
+@media(max-width:1120px){.burger{display:block}.brand img{height:70px}header .wrap{height:88px}nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);display:none;padding:16px 24px}nav.open{display:block}nav ul{flex-direction:column;align-items:flex-start;gap:16px}}
+nav a{white-space:nowrap}
+
+@media(max-width:600px){.sd-grid{grid-template-columns:1fr}.ide pre{font-size:12px}}
+
+
+/* AI / ML */
+.aiv{background:linear-gradient(160deg,#071a3a,#0c2a5c);border-radius:16px;padding:30px;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.aiv::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(143,180,255,.18) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(135deg,#000,transparent 70%);pointer-events:none}
+.aiv>*{position:relative}
+.aiv h4{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fb4ff;font-weight:700;margin-bottom:16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.aiv h4 em{font-style:normal;color:#6f86b3;letter-spacing:.04em;text-transform:none;font-weight:500}
+.mlflow{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:30px}
+.mlflow .ar{display:none}
+.mlflow .st{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:12px 6px;text-align:center;line-height:1.3}
+.mlflow .st:not(:last-of-type)::after{content:"\2192";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:#6aa0ff;font-size:13px;width:12px;text-align:center}
+.mlflow .st b{display:block;font-size:13px;color:#fff;margin-bottom:3px}
+.mlflow .st span{display:block;font-size:10.5px;color:#9fb2d6;line-height:1.3}
+.wf{display:grid;gap:0}
+.wf .row{display:flex;gap:14px;align-items:flex-start;padding-bottom:16px;position:relative}
+.wf .row:last-child{padding-bottom:0}
+.wf .row::before{content:"";position:absolute;left:13px;top:28px;bottom:0;width:2px;background:rgba(143,180,255,.3)}
+.wf .row:last-child::before{display:none}
+.wf .dot{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;background:#1f5fd6;color:#fff;border:2px solid #0c2a5c;box-shadow:0 0 0 2px rgba(143,180,255,.35)}
+.wf .dot.ai{background:linear-gradient(135deg,#00a6a6,#1f5fd6)}
+.wf .dot.hu{background:#f1b92f;color:#3a2a00}
+.wf b{display:block;font-size:14.5px;color:#fff;line-height:1.3;padding-top:3px}
+.wf span{font-size:12.5px;color:#9fb2d6}
+.ai-note{margin-top:22px;padding:14px 18px;background:var(--sky);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;font-size:14px;color:var(--ink)}
+@media(max-width:600px){.aiv{padding:22px 16px}.mlflow{grid-template-columns:repeat(3,1fr);gap:10px}.mlflow .st::after{display:none}}
+
+/* approach */
+.approach{background:var(--navy);color:#fff}
+.approach h2{color:#fff}.approach .lead{color:#b7c6e4}
+.approach .eyebrow{color:#8fb4ff}.approach .eyebrow::before{background:#8fb4ff}
+.pill{padding:28px;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);background:rgba(255,255,255,.04)}
+.pill b{display:block;font-size:13px;color:#8fb4ff;margin-bottom:10px}
+.pill span{font-size:18px;font-weight:600;color:#fff}
+
+/* work */
+.project{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
+.shot img{width:100%}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accent);background:#e3f6f6;padding:5px 12px;border-radius:4px;margin-bottom:16px}
+.quote{margin-top:56px;background:#fff;border:1px dashed #b6c3da;border-radius:var(--radius);padding:34px 36px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.quote h3{font-size:20px;margin-bottom:6px}
+.quote p{max-width:640px;font-size:15px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.mail{margin-top:30px;display:flex;gap:16px;align-items:center;padding:20px 22px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.mail .ic{width:46px;height:46px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-size:20px}
+.mail small{display:block;font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--muted)}
+.mail a{font-weight:700;color:var(--ink);font-size:17px}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:36px;box-shadow:var(--shadow)}
+form h3{font-size:22px;margin-bottom:4px}
+form .sub{font-size:13.5px;color:var(--muted);margin-bottom:22px}
+.f{display:grid;gap:6px;margin-bottom:18px}
+.f label{font-size:13.5px;font-weight:600;color:var(--ink)}
+.f input,.f select,.f textarea{font:inherit;font-size:15px;padding:12px 14px;border:1px solid #c9d4e6;border-radius:6px;background:#fff;color:var(--ink);width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid rgba(31,95,214,.35);border-color:var(--blue)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+footer{background:#04122b;color:#9fb2d6;padding:56px 0 28px}
+footer .top{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer b{color:#fff;font-size:20px;display:block;letter-spacing:-.02em}
+footer ul{list-style:none;display:flex;gap:26px;flex-wrap:wrap;font-size:14px;align-items:center}
+footer ul a:hover{color:#fff}
+footer .bot{padding-top:22px;font-size:13px}
+
+@media(max-width:980px){
+  .hero .wrap,.split,.project,.contact{grid-template-columns:1fr;gap:40px}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(odd){border-left:0}
+  .step{border-top:1px solid var(--line)}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  section{padding:68px 0}
+  .burger{display:block}
+  .brand{flex:0 1 260px;width:260px;min-width:0}
+  .brand img{height:70px}
+  .brand-tagline{font-size:11px;white-space:normal}
+  header .wrap{min-height:104px}
+  nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);display:none;padding:16px 24px}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:flex-start;gap:16px}
+}
+@media(max-width:600px){
+  .g4,.g2,.two{grid-template-columns:1fr}
+  .topbar .wrap{justify-content:center}
+  .brand{flex:0 1 230px;width:230px;min-width:0}
+  .brand img{height:60px}
+  .brand-tagline{font-size:10px;white-space:normal}
+  header.compact .brand img{height:54px}
+  header .wrap,header.compact .wrap{min-height:86px;gap:12px}
+  .wrap{width:min(1180px,100% - 32px)}
+  form{padding:24px}
+}
+
+/* Bhumaji Systems refresh — editorial, product-engineering inspired */
+:root{
+  --navy:#071a3a;--navy-2:#0c2a5c;--blue:#2864e8;--blue-d:#194fc4;
+  --sky:#edf3ff;--ink:#101d35;--text:#485772;--muted:#75829a;
+  --line:#e0e7f2;--bg:#fff;--bg-alt:#f6f8fc;--accent:#40d6cb;
+  --radius:14px;--shadow:0 8px 28px rgba(7,26,58,.07),0 2px 6px rgba(7,26,58,.04)
+}
+::selection{background:#cfe0ff;color:#071a3a}
+.topbar{font-size:12px;letter-spacing:.01em}
+header{background:rgba(255,255,255,.94);box-shadow:0 5px 25px rgba(7,26,58,.035)}
+header .wrap{min-height:118px}
+.brand{flex:0 0 270px;width:270px;min-width:270px}
+.brand img{clip-path:none;height:76px}
+header.compact .brand img{clip-path:none;height:68px}
+.brand-tagline{white-space:nowrap;font-size:11px}
+nav ul{gap:16px}
+nav a{font-size:13.5px;font-weight:600;transition:color .2s,border-color .2s}
+nav a.btn{padding:12px 18px;border-radius:7px}
+.hero{padding:92px 0 0;background:radial-gradient(ellipse at 84% 5%,rgba(54,117,235,.3),transparent 38%),linear-gradient(125deg,#061630 0%,#0b2450 58%,#123d83 100%)}
+.hero::before{opacity:.55;background-size:56px 56px}
+.hero .wrap{grid-template-columns:1.08fr .92fr;gap:72px}
+.hero .eyebrow{display:inline-flex;padding:8px 12px;border:1px solid rgba(143,180,255,.25);border-radius:999px;background:rgba(143,180,255,.08);font-size:11px;letter-spacing:.12em}
+.hero .eyebrow::before{width:7px;height:7px;border-radius:50%}
+.hero h1{font-size:clamp(42px,5.2vw,66px);line-height:1.04;letter-spacing:-.055em;max-width:760px;margin:18px 0 22px}
+.hero-highlight{color:#9dc0ff}
+.hero p.lead{font-size:18px;line-height:1.75;max-width:660px}
+.cta{margin-top:30px}
+.btn{border-radius:7px;padding:14px 21px;font-size:14px}
+.btn-primary{box-shadow:0 8px 22px rgba(31,95,214,.22)}
+.panel{border-radius:18px;padding:30px;background:rgba(255,255,255,.075);box-shadow:0 25px 70px rgba(0,0,0,.12)}
+.panel h4{font-size:11px;letter-spacing:.12em}
+.panel .row{padding:20px 0}
+.panel .n{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:rgba(143,180,255,.12);font-size:12px}
+.panel b{font-size:15px;line-height:1.45}
+.panel span{display:block;margin-top:3px;line-height:1.5}
+.stats{margin-top:80px;background:rgba(3,13,32,.42)}
+.stat{padding:24px 22px}
+.stat b{font-size:clamp(19px,2vw,27px)}
+.stat span{display:block;margin-top:5px}
+section{padding:100px 0}
+.head{margin-bottom:42px}
+.eyebrow{font-size:11px;letter-spacing:.14em}
+h2{font-size:clamp(30px,3.8vw,46px);line-height:1.12;letter-spacing:-.04em}
+.lead{font-size:17px;line-height:1.75}
+.card{border-radius:14px;padding:30px;border-color:#e2e8f2;box-shadow:0 1px 2px rgba(7,26,58,.02);transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(7,26,58,.09);border-color:#c6d6f5}
+.card .ic{border-radius:12px;background:linear-gradient(145deg,#eaf1ff,#f5f8ff);font-size:22px}
+.card h3{letter-spacing:-.025em}
+.tags span{border-radius:999px;padding:5px 10px}
+.link{font-size:14px}
+.steps,.device,.project,.contact,form{border-radius:14px}
+.project{overflow:hidden}
+footer{padding-top:54px}
+footer .bot{border-top:1px solid rgba(255,255,255,.12);margin-top:28px}
+@media(max-width:1200px){nav ul{gap:12px}nav a{font-size:12.5px}.brand{flex-basis:245px;width:245px;min-width:245px}.brand-tagline{font-size:10px}}
+@media(max-width:980px){
+  header .wrap{min-height:100px}
+  .brand{flex:0 1 260px;width:260px;min-width:0}
+  .brand img{height:68px}
+  .hero{padding-top:70px}
+  .hero .wrap{grid-template-columns:1fr;gap:38px}
+  .hero h1{max-width:800px}
+  .panel{max-width:700px}
+  section{padding:76px 0}
+}
+@media(max-width:600px){
+  .brand{flex:0 1 220px;width:220px;min-width:0}
+  .brand img{height:56px}
+  .brand-tagline{font-size:9.5px;white-space:normal;line-height:1.2}
+  header .wrap,header.compact .wrap{min-height:82px}
+  .hero{padding-top:56px}
+  .hero h1{font-size:clamp(36px,10vw,48px)}
+  .hero p.lead{font-size:16px}
+  .cta{gap:10px}
+  .btn{padding:12px 15px}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{padding:20px 12px}
+  section{padding:62px 0}
+}
+
+
+/* Premium dark agency navigation and cinematic cloud hero */
+:root{--navy:#111111;--navy-2:#171717;--blue:#e63946;--blue-d:#c92d3a;--sky:#f4f4f4;--ink:#161616;--text:#555;--muted:#858585;--line:#e7e7e7;--bg-alt:#f7f7f7;--accent:#e63946}
+.site-header{background:rgba(17,17,17,.97);border-bottom:1px solid rgba(255,255,255,.09);backdrop-filter:blur(14px)}
+.site-header .nav-wrap{min-height:82px;gap:28px}
+.site-header.compact .nav-wrap{min-height:72px}
+.site-header .brand{flex:0 0 190px;width:190px;min-width:190px;align-items:flex-start;text-align:left;gap:3px}
+.site-header .brand img{height:42px;width:180px;object-fit:contain;object-position:left center;background:#fff;border-radius:3px;padding:2px 6px;clip-path:none}
+.site-header .brand-tagline{color:#c8c8c8;text-align:left;font-size:9px;white-space:nowrap;letter-spacing:.01em}
+.site-header.compact .brand img{height:36px;clip-path:none}
+.site-header nav{position:static;display:block;background:transparent;border:0;padding:0}
+.site-header nav ul{gap:clamp(13px,1.6vw,25px);align-items:center}
+.site-header nav li{position:relative}
+.site-header nav a{color:#d4d4d4;font-size:13px;font-weight:500;padding:10px 0;border:0;white-space:nowrap;transition:color .2s}
+.site-header nav a:hover{color:#fff;border:0}
+.site-header nav .chev{color:#888;margin-left:4px;font-size:15px}
+.site-header nav .nav-cta{display:flex;align-items:center;gap:16px;border:1px solid #333;border-radius:4px;padding:11px 16px;color:#fff}
+.site-header nav .nav-cta span{color:#ef4b56;font-size:18px}
+.site-header nav .nav-cta:hover{background:#222;border-color:#555}
+.mega-menu{display:none;position:absolute;top:calc(100% + 16px);left:-24px;width:min(640px,80vw);padding:22px;background:#151515;border:1px solid #303030;box-shadow:0 22px 55px rgba(0,0,0,.4);grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;z-index:80}
+.nav-drop:hover .mega-menu,.nav-drop:focus-within .mega-menu{display:grid}
+.mega-menu a{display:block!important;white-space:normal!important;padding:15px 10px!important;border-bottom:1px solid #2b2b2b!important}
+.mega-menu a:hover{background:#1d1d1d}
+.mega-menu b{display:block;color:#f5f5f5;font-size:13px;font-weight:600;margin-bottom:5px}
+.mega-menu small{display:block;color:#999;font-size:11px;line-height:1.5;font-weight:400}
+.cinematic-hero{min-height:580px;padding:0;display:flex;flex-direction:column;justify-content:flex-end;background:#101010;isolation:isolate}
+.cinematic-hero:before{content:"";position:absolute;inset:0;z-index:-2;background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=85');background-size:cover;background-position:center 45%;animation:heroFade 1.1s ease both}
+.cinematic-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,10,13,.88) 0%,rgba(8,10,13,.61) 48%,rgba(8,10,13,.22) 100%),linear-gradient(0deg,rgba(0,0,0,.5),transparent 60%)}
+.cinematic-hero .wrap{display:block;width:min(1180px,100% - 48px);padding:145px 0 72px;min-height:500px}
+.cinematic-hero .wrap>div:first-child{max-width:720px}
+.cinematic-hero .eyebrow{color:#f1a0a4;letter-spacing:.12em;font-size:11px}
+.cinematic-hero .eyebrow:before{background:#ef4652}
+.cinematic-hero h1{font-size:clamp(40px,5.5vw,68px);font-weight:650;line-height:1.04;letter-spacing:-.045em;margin-bottom:20px;max-width:760px}
+.cinematic-hero .hero-highlight{color:#f1f1f1}
+.cinematic-hero p.lead{font-size:16px;line-height:1.75;color:#d0d0d0;max-width:620px}
+.cinematic-hero .cta{margin-top:27px}
+.cinematic-hero .btn-primary{background:#e63946;border-color:#e63946;color:white}
+.cinematic-hero .btn-primary:hover{background:#c92d3a}
+.cinematic-hero .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.cinematic-hero .panel{display:none}
+.cinematic-hero .stats{margin-top:0;background:rgba(12,12,12,.72);border-top:1px solid rgba(255,255,255,.17);backdrop-filter:blur(8px)}
+.cinematic-hero .stats .wrap{min-height:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.cinematic-hero .stat{padding:20px 24px;border-color:rgba(255,255,255,.12)}
+.cinematic-hero .stat b{font-size:21px;font-weight:650}
+.cinematic-hero .stat span{color:#b6b6b6;font-size:11px}
+.eyebrow{color:#d93442}.eyebrow:before{background:#d93442}
+.btn-primary{background:#e63946}.btn-primary:hover{background:#c92d3a}
+.card .ic,.sd .ic,.mail .ic{background:#fcebed;color:#d93442}
+.link{color:#d93442}
+.btn-outline{border-color:#d93442;color:#d93442}
+.btn-outline:hover{background:#fff1f2}
+.approach{background:#141414}
+.approach .eyebrow{color:#f1a0a4}.approach .eyebrow:before{background:#e63946}
+@keyframes heroFade{from{opacity:.45;transform:scale(1.025)}to{opacity:1;transform:scale(1)}}
+@media(max-width:1120px){
+ .site-header .nav-wrap{min-height:78px}
+ .site-header .brand{flex-basis:180px;width:180px;min-width:180px}
+ .site-header .brand img{height:40px}
+ .site-header .burger{display:block;color:#fff;font-size:25px}
+ .site-header nav{position:absolute;left:0;right:0;top:100%;background:#121212;border-bottom:1px solid #333;display:none;padding:18px 24px;max-height:75vh;overflow:auto}
+ .site-header nav.open{display:block}
+ .site-header nav ul{flex-direction:column;align-items:stretch;gap:2px}
+ .site-header nav li{width:100%}
+ .site-header nav a{display:block;padding:12px 0}
+ .site-header nav .nav-cta{display:flex;justify-content:space-between;margin-top:8px}
+ .mega-menu{position:static;width:100%;display:none;box-shadow:none;border:0;border-top:1px solid #292929;padding:8px 10px;background:#191919;grid-template-columns:1fr}
+ .nav-drop:hover .mega-menu,.nav-drop:focus-within .mega-menu{display:grid}
+ .cinematic-hero .wrap{padding-top:115px}
+}
+@media(max-width:700px){
+ .cinematic-hero{min-height:0}
+ .cinematic-hero .wrap{width:calc(100% - 36px);padding:100px 0 55px;min-height:430px}
+ .cinematic-hero h1{font-size:clamp(37px,10vw,52px)}
+ .cinematic-hero p.lead{font-size:15px}
+ .cinematic-hero .stats .wrap{grid-template-columns:repeat(2,1fr)}
+ .cinematic-hero .stat{padding:16px 12px;border-top:1px solid rgba(255,255,255,.1)}
+ .cinematic-hero .stat:nth-child(odd){border-left:0;padding-left:0}
+ .site-header .brand{flex-basis:170px;width:170px;min-width:170px}
+ .site-header .brand img{width:165px;height:37px}
+ .site-header .brand-tagline{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.cinematic-hero:before{animation:none}}
+
+
+/* Header alignment and logo correction */
+.site-header .nav-wrap{min-height:76px;padding-top:7px;padding-bottom:7px;gap:24px}
+.site-header.compact .nav-wrap{min-height:70px}
+.site-header .brand{flex:0 0 238px;width:238px;min-width:238px;align-items:flex-start;gap:1px;overflow:visible}
+.site-header .brand img{display:block;width:238px;max-width:none;height:43px;object-fit:contain;object-position:left center;background:transparent;border-radius:0;padding:0;clip-path:none}
+.site-header.compact .brand img{width:224px;height:39px;clip-path:none}
+.site-header .brand-tagline{font-size:10px;line-height:1.2;font-weight:500;color:#c5c5c5;white-space:nowrap;letter-spacing:0}
+.site-header nav ul{gap:clamp(12px,1.45vw,22px)}
+.site-header nav a{font-size:13px}
+.site-header nav .nav-cta{padding:10px 14px;gap:12px}
+@media(max-width:1120px){
+ .site-header .nav-wrap{min-height:76px;padding-top:6px;padding-bottom:6px}
+ .site-header .brand{flex:0 0 215px;width:215px;min-width:215px}
+ .site-header .brand img{width:215px;height:40px}
+ .site-header.compact .brand img{width:205px;height:37px}
+ .site-header .brand-tagline{font-size:9px}
+}
+@media(max-width:700px){
+ .site-header .nav-wrap{min-height:72px}
+ .site-header .brand{flex:0 0 190px;width:190px;min-width:190px}
+ .site-header .brand img{width:190px;height:36px}
+ .site-header .brand-tagline{font-size:8.5px}
+ .site-header.compact .brand img{width:180px;height:34px}
+}
+
+
+/* Modern developer-focused visual refinement */
+:root{--dev-bg:#0b1020;--dev-panel:#111a2e;--dev-border:#26334c;--dev-muted:#9ba9c2;--dev-accent:#ff5364;--dev-cyan:#7dd3fc}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.01em}
+section{padding:clamp(64px,7vw,100px) 0}
+.wrap{width:min(1200px,100% - 56px)}
+h1,h2,h3{letter-spacing:-.035em}
+h2{font-size:clamp(29px,3.2vw,42px);line-height:1.12}
+.lead{line-height:1.75}
+.site-header .nav-wrap{width:min(1280px,100% - 56px)}
+.site-header .brand{flex-basis:220px;width:220px;min-width:220px}
+.site-header .brand img{width:215px;height:39px;object-fit:contain;object-position:left center}
+.site-header .brand-tagline{font-size:9px;color:#b6c0d0}
+.cinematic-hero{background:#080d19;min-height:0;overflow:hidden}
+.cinematic-hero:before{background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=85');background-position:center;background-size:cover;opacity:.72}
+.cinematic-hero:after{background:linear-gradient(90deg,rgba(5,9,18,.96) 0%,rgba(5,9,18,.84) 44%,rgba(5,9,18,.5) 100%),linear-gradient(0deg,rgba(5,9,18,.92),transparent 75%)}
+.cinematic-hero .wrap{width:min(1200px,100% - 56px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);align-items:center;gap:clamp(32px,5vw,76px);padding:clamp(94px,10vw,145px) 0 70px;min-height:540px}
+.cinematic-hero .wrap>div:first-child{max-width:700px}
+.cinematic-hero .eyebrow{font-size:11px;letter-spacing:.15em;color:#ff9ca6}
+.cinematic-hero h1{font-size:clamp(40px,5.1vw,66px);line-height:1.03;max-width:760px;margin-bottom:22px;overflow-wrap:normal}
+.cinematic-hero .hero-highlight{color:#fff}
+.cinematic-hero p.lead{font-size:16px;color:#c1cadd;max-width:620px}
+.cinematic-hero .panel{display:block;background:rgba(10,17,32,.88);border:1px solid rgba(148,163,184,.25);border-radius:14px;padding:26px;box-shadow:0 24px 80px rgba(0,0,0,.3);backdrop-filter:blur(16px);position:relative}
+.cinematic-hero .panel:before{content:"●  ●  ●     cloud-platform.yml";display:block;color:#8b9bb5;font:11px ui-monospace,SFMono-Regular,Menlo,monospace;padding:0 0 17px;border-bottom:1px solid rgba(148,163,184,.18);margin-bottom:14px}
+.cinematic-hero .panel h4{font-size:10px;letter-spacing:.14em;color:#7dd3fc}
+.cinematic-hero .panel .row{padding:14px 0;border-top:1px solid rgba(148,163,184,.13)}
+.cinematic-hero .panel .n{color:#7dd3fc;font:12px ui-monospace,SFMono-Regular,Menlo,monospace}
+.cinematic-hero .panel b{font-size:14px;font-weight:600}
+.cinematic-hero .panel span{font-size:12px;color:#a9b7ce;line-height:1.5}
+.cinematic-hero .stats{background:rgba(5,9,18,.82)}
+.cinematic-hero .stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));min-height:0;padding:0;gap:0}
+.cinematic-hero .stat{padding:19px 22px}
+.cinematic-hero .stat b{font:600 20px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.04em}
+.cinematic-hero .stat span{font-size:11px;letter-spacing:.01em}
+.eyebrow{letter-spacing:.12em}
+.card,.sd,.mail,form,.shot,.quote{border-radius:12px}
+.card{padding:28px;border-color:#e4e8f0;box-shadow:0 5px 20px rgba(16,24,40,.025)}
+.card:hover,.sd:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(20,30,50,.09);border-color:#cbd5e1}
+.card .num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#c3cad6}
+.card .ic,.sd .ic,.mail .ic{border-radius:10px;background:#fff0f2;color:#e63946}
+.tags span{border-radius:5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:-.02em}
+.steps{border-radius:12px}
+.step i{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.ide{border-radius:12px;box-shadow:0 18px 50px rgba(10,20,40,.12)}
+.sd{padding:17px;border-radius:10px}
+.sd .ic{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.aiv{border-radius:14px}
+.approach{background:#0b1020;border-top:1px solid #202a3d;border-bottom:1px solid #202a3d}
+.approach .pill{background:#101a2e;border-color:#29354b;border-radius:10px}
+.approach .pill b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#7dd3fc}
+.approach .pill span{font-size:16px}
+.badge{background:#fff0f2;color:#d93442;border-radius:5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px}
+.quote{border-style:solid;border-color:#e1e6ee}
+form{box-shadow:0 18px 55px rgba(20,30,50,.06)}
+input,select,textarea{border-radius:7px}
+input:focus,select:focus,textarea:focus{outline:3px solid rgba(230,57,70,.14);border-color:#e63946}
+footer{background:#080e1c}
+footer .top{border-color:#253149}
+footer .bot{border-color:#253149}
+footer a{transition:color .2s}
+footer a:hover{color:#ff8792}
+@media(max-width:1120px){
+ .site-header .brand{flex-basis:205px;width:205px;min-width:205px}
+ .site-header .brand img{width:200px;height:38px}
+ .cinematic-hero .wrap{grid-template-columns:minmax(0,1fr);gap:32px;padding-top:100px;padding-bottom:48px;min-height:0}
+ .cinematic-hero .wrap>div:first-child{max-width:760px}
+ .cinematic-hero .panel{max-width:680px}
+}
+@media(max-width:700px){
+ .wrap,.site-header .nav-wrap,.cinematic-hero .wrap{width:calc(100% - 36px)}
+ .cinematic-hero .wrap{padding:82px 0 38px;gap:28px}
+ .cinematic-hero h1{font-size:clamp(36px,10vw,50px);line-height:1.04}
+ .cinematic-hero p.lead{font-size:15px}
+ .cinematic-hero .panel{padding:20px}
+ .cinematic-hero .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cinematic-hero .stat{padding:15px 10px;border-top:1px solid rgba(255,255,255,.1)}
+ .cinematic-hero .stat:nth-child(odd){border-left:0;padding-left:0}
+ .site-header .brand{flex-basis:185px;width:185px;min-width:185px}
+ .site-header .brand img{width:180px;height:34px}
+ .site-header .brand-tagline{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+
+/* Rebuilt text-and-symbol brand lockup for the dark developer theme */
+.site-header .brand{flex:0 0 244px;width:244px;min-width:244px;align-items:flex-start;gap:4px;text-align:left;overflow:visible}
+.site-header .brand-lockup{display:flex;align-items:center;gap:10px;min-height:40px}
+.site-header .brand-symbol{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:10px 3px 10px 3px;background:linear-gradient(145deg,#35d6f5 0%,#1687ff 48%,#4256f4 100%);color:#06101f;font-size:30px;font-weight:800;line-height:1;letter-spacing:-.09em;font-family:Inter,system-ui,sans-serif;box-shadow:0 0 22px rgba(31,143,255,.18)}
+.site-header .brand-wordmark{display:flex;flex-direction:column;gap:1px;color:#f5f8ff;line-height:1}
+.site-header .brand-wordmark strong{font-size:22px;letter-spacing:.045em;font-weight:800}
+.site-header .brand-wordmark small{font-size:9px;letter-spacing:.27em;font-weight:600;color:#9eb0ca;padding-left:2px}
+.site-header .brand-tagline{display:block;color:#91a2bc;font-size:9px;line-height:1.25;letter-spacing:.01em;white-space:nowrap}
+.site-header.compact .brand-symbol{width:34px;height:34px;font-size:27px}
+.site-header.compact .brand-wordmark strong{font-size:20px}
+@media(max-width:1120px){
+ .site-header .brand{flex:0 0 230px;width:230px;min-width:230px}
+ .site-header .brand-wordmark strong{font-size:20px}
+ .site-header .brand-symbol{width:35px;height:35px;font-size:28px}
+}
+@media(max-width:700px){
+ .site-header .brand{flex:0 0 210px;width:210px;min-width:210px}
+ .site-header .brand-wordmark strong{font-size:18px}
+ .site-header .brand-wordmark small{font-size:8px}
+ .site-header .brand-symbol{width:32px;height:32px;font-size:25px}
+ .site-header .brand-tagline{font-size:8px}
+}
+
+
+/* Simple navigation: no dropdowns; clear pointer hover on links */
+.mega-menu,.nav-drop .mega-menu{display:none!important}
+.site-header nav li{position:static}
+.site-header nav a{cursor:pointer;transition:color .18s ease,background .18s ease,border-color .18s ease}
+.site-header nav a:not(.nav-cta):hover{color:#39c9ff}
+.site-header nav .nav-cta{cursor:pointer}
+.site-header nav .nav-cta:hover{color:#fff;background:#15263e;border-color:#2c91ff}
+.site-header nav a:focus-visible{outline:2px solid #39c9ff;outline-offset:5px;border-radius:3px}
+@media(max-width:1120px){
+ .site-header nav li{position:static}
+ .site-header nav a:not(.nav-cta):hover{background:#171f2e;padding-left:10px}
+}
+
+
+/* Industries mega-menu modeled on the supplied reference */
+.site-header nav .industries-nav{position:static}
+.site-header nav .industries-nav>a{display:flex;align-items:center;gap:6px}
+.industry-chevron{font-size:14px;color:#a3a3a3;transition:transform .18s ease}
+.industries-mega{display:none;position:absolute;left:0;right:0;top:100%;z-index:100;grid-template-columns:repeat(2,minmax(0,1fr));background:#151515;border:1px solid #292929;border-top:1px solid #303030}
+.industries-mega a{min-height:72px;display:flex!important;align-items:center;justify-content:space-between;gap:20px;padding:0 40px!important;color:#f2f2f2!important;font-size:14px!important;font-weight:600!important;border:0!important;border-bottom:1px dashed #303030!important;white-space:normal!important;transition:background .18s ease,color .18s ease}
+.industries-mega a:nth-child(odd){border-right:1px dashed #303030!important}
+.industries-mega a span{font-size:21px;color:#a3a3a3;font-weight:400;transition:transform .18s ease,color .18s ease}
+.industries-mega a:hover{background:#202020!important;color:#fff!important;padding-left:46px!important}
+.industries-mega a:hover span{color:#fff;transform:translate(2px,-2px)}
+.industries-nav:hover .industries-mega,.industries-nav:focus-within .industries-mega{display:grid}
+.industries-nav:hover>a,.industries-nav:focus-within>a{background:#292929;border-radius:4px;color:#fff}
+.industries-nav:hover .industry-chevron,.industries-nav:focus-within .industry-chevron{transform:rotate(180deg);color:#fff}
+@media(min-width:1121px){
+ .site-header .nav-wrap{position:relative}
+ .industries-mega{width:100%;left:0;right:0}
+}
+@media(max-width:1120px){
+ .site-header nav .industries-nav>a{display:flex;justify-content:space-between}
+ .industries-mega{position:static;width:100%;grid-template-columns:1fr;border:0;border-top:1px solid #303030;margin:2px 0 8px}
+ .industries-mega a{min-height:52px;padding:0 14px!important;border-right:0!important}
+ .industries-mega a:hover{padding-left:20px!important}
+}
+
+
+/* Keep Industries as a normal navigation link: no dropdown or copied mega-menu */
+.industries-mega,.site-header nav .industries-nav{display:none!important}
+.site-header nav a[href="#industries"]{cursor:pointer}
+.site-header nav a[href="#industries"]:hover{color:#39c9ff}
+
+
+/* Engineering hover mega-menu: original Bhumaji service labels and content targets */
+.site-header .nav-wrap{position:relative}
+.site-header nav .engineering-nav{position:static}
+.site-header nav .engineering-nav>a{display:flex;align-items:center;gap:6px}
+.engineering-chevron{font-size:14px;color:#a3a3a3;transition:transform .18s ease}
+.engineering-mega{display:none;position:absolute;left:0;right:0;top:100%;z-index:100;grid-template-columns:repeat(2,minmax(0,1fr));background:#151515;border:1px solid #292929;border-top:1px solid #303030}
+.engineering-mega a{min-height:72px;display:flex!important;align-items:center;justify-content:space-between;gap:20px;padding:0 32px!important;color:#f2f2f2!important;font-size:14px!important;font-weight:600!important;border:0!important;border-bottom:1px dashed #303030!important;white-space:normal!important;transition:background .18s ease,color .18s ease}
+.engineering-mega a:nth-child(odd){border-right:1px dashed #303030!important}
+.engineering-mega a span{font-size:21px;color:#a3a3a3;font-weight:400;transition:transform .18s ease,color .18s ease}
+.engineering-mega a:hover{background:#202020!important;color:#fff!important;padding-left:38px!important}
+.engineering-mega a:hover span{color:#55c8ff;transform:translate(2px,-2px)}
+.engineering-nav:hover .engineering-mega,.engineering-nav:focus-within .engineering-mega{display:grid}
+.engineering-nav:hover>a,.engineering-nav:focus-within>a{background:#292929;border-radius:4px;color:#fff}
+.engineering-nav:hover .engineering-chevron,.engineering-nav:focus-within .engineering-chevron{transform:rotate(180deg);color:#fff}
+@media(max-width:1120px){
+ .site-header nav .engineering-nav>a{display:flex;justify-content:space-between}
+ .engineering-mega{position:static;width:100%;grid-template-columns:1fr;border:0;border-top:1px solid #303030;margin:2px 0 8px}
+ .engineering-mega a{min-height:52px;padding:0 14px!important;border-right:0!important}
+ .engineering-mega a:hover{padding-left:20px!important}
+}
+
+
+/* Navigation labels and order requested for Bhumaji Systems */
+.site-header nav ul{gap:clamp(10px,1.15vw,19px)}
+.site-header nav a{font-size:12.5px}
+.site-header nav .nav-cta{font-size:12.5px;padding:10px 13px}
+@media(min-width:1121px) and (max-width:1300px){
+ .site-header .brand{flex-basis:205px;width:205px;min-width:205px}
+ .site-header nav ul{gap:10px}
+ .site-header nav a{font-size:12px}
+ .site-header nav .nav-cta{padding:9px 10px}
+}
+
+
+/* Hover-only navigation detail panels; no chevrons or click-triggered dropdowns */
+.site-header .nav-wrap{position:relative}
+.site-header nav ul{gap:clamp(8px,1vw,17px)}
+.site-header nav .hover-info{position:static}
+.site-header nav .hover-info>a{display:flex;align-items:center}
+.hover-panel{display:none;position:absolute;left:0;right:0;top:100%;z-index:120;grid-template-columns:repeat(2,minmax(0,1fr));background:#141414;border:1px solid #2b2b2b;border-top:1px solid #303030;box-shadow:0 22px 50px rgba(0,0,0,.32)}
+.hover-info:hover>.hover-panel,.hover-info:focus-within>.hover-panel{display:grid}
+.hover-panel>a{min-height:62px;display:flex!important;align-items:center;justify-content:space-between;gap:20px;padding:0 30px!important;color:#f4f4f4!important;font-size:14px!important;font-weight:600!important;border:0!important;border-bottom:1px dashed #303030!important;white-space:normal!important;transition:background .18s ease,padding .18s ease}
+.hover-panel>a:nth-child(odd){border-right:1px dashed #303030!important}
+.hover-panel>a span{font-size:20px;color:#9da6b4;font-weight:400;transition:transform .18s ease,color .18s ease}
+.hover-panel>a:hover{background:#202632!important;padding-left:36px!important;color:#fff!important}
+.hover-panel>a:hover span{color:#47c8ff;transform:translate(2px,-2px)}
+.site-header nav .hover-info:hover>a,.site-header nav .hover-info:focus-within>a{color:#fff}
+.site-header nav .hover-info:hover>a:not(.nav-cta){background:#242424;border-radius:4px}
+@media(max-width:1120px){
+ .site-header nav .hover-info{position:static}
+ .hover-panel{position:static;width:100%;grid-template-columns:1fr;border:0;border-top:1px solid #303030;box-shadow:none;margin:0 0 8px;background:#191919}
+ .hover-panel>a{min-height:50px;padding:10px 14px!important;border-right:0!important}
+ .hover-panel>a:hover{padding-left:20px!important}
+ .site-header nav .hover-info:hover>a:not(.nav-cta){background:transparent}
+}
+
+
+/* Industry-specific hover details */
+.industry-panel{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.industry-panel .industry-item{position:relative;display:grid!important;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:center;gap:6px 16px;min-height:76px;padding:17px 26px!important;transition:background .2s ease,padding .2s ease}
+.industry-panel .industry-item b{grid-column:1;grid-row:1;font-size:13px;line-height:1.35;font-weight:600;color:#f1f5f9}
+.industry-panel .industry-item small{grid-column:1;grid-row:2;display:block;color:#9caabe;font-size:11px;line-height:1.55;font-weight:400;max-width:440px;opacity:.82;transition:color .2s ease,opacity .2s ease}
+.industry-panel .industry-item span{grid-column:2;grid-row:1/3;align-self:center;font-size:19px;color:#8996a8;transition:transform .2s ease,color .2s ease}
+.industry-panel .industry-item:hover,.industry-panel .industry-item:focus-visible{background:#202a3a!important;padding-left:32px!important}
+.industry-panel .industry-item:hover small,.industry-panel .industry-item:focus-visible small{color:#d0dced;opacity:1}
+.industry-panel .industry-item:hover span,.industry-panel .industry-item:focus-visible span{color:#45c7ff;transform:translate(2px,-2px)}
+@media(max-width:1120px){
+ .industry-panel{grid-template-columns:1fr}
+ .industry-panel .industry-item{min-height:62px;padding:13px 14px!important;border-right:0!important}
+ .industry-panel .industry-item:hover{padding-left:20px!important}
+}
+
+
+/* Industries menu: keep rows compact until an individual industry is hovered */
+.industry-panel .industry-item{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;align-items:center!important;justify-content:stretch!important;min-height:68px!important;gap:0 18px!important;padding:0 30px!important}
+.industry-panel .industry-item b{grid-column:1!important;grid-row:1!important;align-self:center!important}
+.industry-panel .industry-item small{grid-column:1!important;grid-row:2!important;display:block!important;max-height:0;overflow:hidden;opacity:0;visibility:hidden;line-height:1.5;transition:max-height .22s ease,opacity .18s ease,margin .18s ease,visibility .18s ease;margin:0!important}
+.industry-panel .industry-item span{grid-column:2!important;grid-row:1/3!important}
+.industry-panel .industry-item:hover,.industry-panel .industry-item:focus-visible{min-height:94px!important;padding:12px 30px!important}
+.industry-panel .industry-item:hover small,.industry-panel .industry-item:focus-visible small{max-height:54px;opacity:1;visibility:visible;margin-top:5px!important}
+@media(max-width:1120px){
+ .industry-panel .industry-item{min-height:54px!important;padding:10px 14px!important}
+ .industry-panel .industry-item:hover,.industry-panel .industry-item:focus-visible{min-height:82px!important;padding:10px 14px!important}
+}
+
+
+/* Cloud Services hover details */
+.cloud-services-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cloud-services-panel .cloud-service-item{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;align-content:center;align-items:center;gap:0 18px!important;min-height:68px!important;padding:0 30px!important}
+.cloud-services-panel .cloud-service-item b{grid-column:1;grid-row:1;font-size:13px;font-weight:600;color:#f1f5f9}
+.cloud-services-panel .cloud-service-item small{grid-column:1;grid-row:2;display:block;max-height:0;overflow:hidden;visibility:hidden;opacity:0;color:#aab8ca;font-size:11px;line-height:1.5;font-weight:400;transition:max-height .22s ease,opacity .18s ease,visibility .18s ease;margin:0}
+.cloud-services-panel .cloud-service-item span{grid-column:2;grid-row:1/3;align-self:center}
+.cloud-services-panel .cloud-service-item:hover,.cloud-services-panel .cloud-service-item:focus-visible{min-height:94px!important;padding:12px 30px!important;background:#202a3a!important}
+.cloud-services-panel .cloud-service-item:hover small,.cloud-services-panel .cloud-service-item:focus-visible small{max-height:54px;visibility:visible;opacity:1;margin-top:5px}
+@media(max-width:1120px){
+ .cloud-services-panel{grid-template-columns:1fr}
+ .cloud-services-panel .cloud-service-item{min-height:54px!important;padding:10px 14px!important}
+ .cloud-services-panel .cloud-service-item:hover,.cloud-services-panel .cloud-service-item:focus-visible{min-height:82px!important;padding:10px 14px!important}
+}
+
+
+/* Shared compact rows with descriptions revealed on hover/focus */
+.detail-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+.detail-panel .detail-item{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;align-content:center;align-items:center;gap:0 18px!important;min-height:68px!important;padding:0 30px!important}
+.detail-panel .detail-item b{grid-column:1;grid-row:1;font-size:13px;font-weight:600;color:#f1f5f9}
+.detail-panel .detail-item small{grid-column:1;grid-row:2;display:block;max-height:0;overflow:hidden;visibility:hidden;opacity:0;color:#aab8ca;font-size:11px;line-height:1.5;font-weight:400;transition:max-height .22s ease,opacity .18s ease,visibility .18s ease;margin:0}
+.detail-panel .detail-item span{grid-column:2;grid-row:1/3;align-self:center}
+.detail-panel .detail-item:hover,.detail-panel .detail-item:focus-visible{min-height:94px!important;padding:12px 30px!important;background:#202a3a!important}
+.detail-panel .detail-item:hover small,.detail-panel .detail-item:focus-visible small{max-height:54px;visibility:visible;opacity:1;margin-top:5px}
+.about-detail-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+.about-panel-intro{grid-column:1/-1;padding:22px 30px;border-bottom:1px dashed #303030}
+.about-panel-intro b{font-size:18px;color:#f5f5f5}
+.about-panel-intro p{font-size:12px;line-height:1.6;color:#aab8ca;margin:7px 0 0;max-width:620px}
+@media(max-width:1120px){
+ .detail-panel,.about-detail-panel{grid-template-columns:1fr}
+ .detail-panel .detail-item{min-height:54px!important;padding:10px 14px!important}
+ .detail-panel .detail-item:hover,.detail-panel .detail-item:focus-visible{min-height:82px!important;padding:10px 14px!important}
+ .about-panel-intro{padding:18px 14px}
+}
+
+
+/* Detailed cloud service page layouts */
+.cloud-detail-section .head{max-width:900px;margin-bottom:38px}
+.cloud-service-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.8fr);gap:28px;align-items:start}
+.cloud-service-main,.service-side-panel{border:1px solid #29364b;border-radius:14px;background:#101827;padding:clamp(22px,3vw,36px)}
+.service-kicker,.service-status{font:600 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;color:#7dd3fc}
+.cloud-service-main h3{font-size:clamp(23px,2.5vw,32px);margin:12px 0}
+.cloud-service-main>p{color:#b6c3d6;line-height:1.75}
+.service-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px;margin-top:26px}
+.service-check-grid>div{padding:17px 0;border-top:1px solid #29364b}
+.service-check-grid b,.service-check-grid span{display:block}
+.service-check-grid b{font-size:13px;color:#f1f5f9;margin-bottom:6px}
+.service-check-grid span{font-size:12px;color:#aab8ca;line-height:1.65}
+.service-side-panel ol{list-style:none;counter-reset:service-steps;padding:0;margin:20px 0 24px}
+.service-side-panel li{counter-increment:service-steps;position:relative;padding:0 0 19px 35px;border-left:1px solid #34445d;margin-left:8px}
+.service-side-panel li:before{content:counter(service-steps,decimal-leading-zero);position:absolute;left:-9px;top:0;background:#101827;color:#7dd3fc;font:11px ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 0}
+.service-side-panel li b,.service-side-panel li span{display:block}
+.service-side-panel li b{font-size:13px;color:#f3f6fb;margin-bottom:4px}
+.service-side-panel li span{font-size:11px;color:#aab8ca;line-height:1.55}
+.service-side-panel .btn{width:100%;justify-content:center}
+.service-outcomes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px}
+.service-outcomes>div{border:1px solid #29364b;border-radius:10px;padding:22px;background:rgba(15,23,42,.55)}
+.service-outcomes b,.service-outcomes span{display:block}
+.service-outcomes b{font-size:13px;color:#7dd3fc;margin-bottom:8px}
+.service-outcomes span{font-size:12px;color:#b2bfd1;line-height:1.7}
+.migration-service-cards .card{height:100%}
+.migration-timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #dce3ed;border-radius:12px;overflow:hidden;margin-top:28px}
+.timeline-step{padding:22px;border-right:1px solid #dce3ed;border-bottom:1px solid #dce3ed}
+.timeline-step i,.timeline-step b,.timeline-step span{display:block}
+.timeline-step i{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#e63946;font-style:normal;margin-bottom:12px}
+.timeline-step b{font-size:14px;margin-bottom:7px}
+.timeline-step span{font-size:12px;color:#65748a;line-height:1.6}
+.service-cta-row{margin-top:28px}
+.cost-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cost-feature-grid article{border:1px solid #29364b;border-radius:12px;background:#101827;padding:24px}
+.cost-icon{display:inline-block;font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:#7dd3fc;margin-bottom:15px}
+.cost-feature-grid h3{font-size:17px;margin:0 0 9px}
+.cost-feature-grid p{font-size:13px;line-height:1.7;color:#aab8ca;margin:0}
+.cost-process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}
+.cost-process>div{border-top:2px solid #e63946;padding:16px 12px 0 0}
+.cost-process b,.cost-process span{display:block}
+.cost-process b{font-size:12px;margin-bottom:7px}
+.cost-process span{font-size:11px;color:#aab8ca;line-height:1.6}
+@media(max-width:850px){.cloud-service-layout{grid-template-columns:1fr}.cost-process{grid-template-columns:repeat(2,minmax(0,1fr))}.migration-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.service-check-grid,.service-outcomes,.cost-feature-grid{grid-template-columns:1fr}.migration-timeline{grid-template-columns:1fr}.timeline-step{border-right:0}.service-side-panel .btn{width:100%}}
+
+
+/* Expanded What We Do, Industries and Insights content */
+.industry-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.industry-detail-grid article{scroll-margin-top:100px;border:1px solid #2a374b;border-radius:12px;background:#101827;padding:24px;display:flex;flex-direction:column;align-items:flex-start;min-height:300px}
+.industry-detail-grid article>span,.insight-grid article>span{font:10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;color:#7dd3fc;margin-bottom:15px}
+.industry-detail-grid h3,.insight-grid h3{font-size:18px;line-height:1.35;margin:0 0 12px;color:#f5f7fb}
+.industry-detail-grid p,.insight-grid p{font-size:13px;line-height:1.75;color:#b2bfd1;margin:0 0 18px}
+.industry-detail-grid .tags{margin-top:auto;margin-bottom:14px}
+.industry-detail-grid .link,.insight-grid .link{margin-top:auto}
+.insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.insight-grid article{border:1px solid #2a374b;border-radius:12px;padding:25px;background:linear-gradient(145deg,#111a29,#0e1420);min-height:270px;display:flex;flex-direction:column;align-items:flex-start}
+#industries,#insights{scroll-margin-top:100px}
+@media(max-width:900px){.industry-detail-grid,.insight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.industry-detail-grid,.insight-grid{grid-template-columns:1fr}.industry-detail-grid article,.insight-grid article{min-height:0}}
+
+
+/* Brand-matched dark navigation: align the header with the Bhumaji logo background */
+.site-header{
+  background:#020A12!important;
+  border-bottom:1px solid #17232D!important;
+  box-shadow:none!important;
+}
+.site-header nav a:not(.nav-cta){color:#D9DEE5}
+.site-header nav a:not(.nav-cta):hover,
+.site-header nav .hover-info:hover>a:not(.nav-cta){color:#00C8FF}
+.site-header .brand-tagline{color:#91A2BC}
+@media(max-width:1120px){
+  .site-header nav{background:#020A12!important;border-color:#263442!important}
+  .site-header nav a:not(.nav-cta){color:#D9DEE5}
+}
+
+</style>
+<style>
+/* Modern Bhumaji Systems logo */
+.site-header .brand{display:flex;align-items:center;flex:0 0 280px;width:280px;min-width:0}
+.site-header .brand .modern-brand-logo{display:block;width:100%;height:auto;max-height:70px;object-fit:contain;object-position:left center;clip-path:none;background:transparent;padding:0;border-radius:0}
+@media(max-width:1120px){.site-header .brand{flex-basis:230px;width:230px}.site-header .brand .modern-brand-logo{max-height:60px}}
+@media(max-width:560px){.site-header .brand{flex-basis:190px;width:190px}.site-header .brand .modern-brand-logo{max-height:52px}}
+</style>
+
+<style>
+/* Bhumaji Systems floating visitor chat */
+.bs-chat-launcher{position:fixed;right:24px;bottom:22px;z-index:9998;border:0;border-radius:999px;padding:14px 19px;background:linear-gradient(135deg,#08c7ee,#1764ed);color:#fff;font:700 14px/1.2 inherit;box-shadow:0 10px 30px #0005;cursor:pointer;display:flex;align-items:center;gap:10px}
+.bs-chat-launcher .bs-chat-icon{font-size:20px;line-height:1}
+.bs-chat-panel{position:fixed;right:24px;bottom:84px;width:min(365px,calc(100vw - 28px));height:min(500px,calc(100vh - 120px));z-index:9999;background:#0b1424;color:#eef6ff;border:1px solid #24405f;border-radius:18px;box-shadow:0 18px 60px #0009;display:none;overflow:hidden;font-family:inherit}
+.bs-chat-panel.open{display:flex;flex-direction:column}
+.bs-chat-head{padding:17px 18px;background:linear-gradient(120deg,#102a48,#0b1a31);border-bottom:1px solid #25415f;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bs-chat-head strong{display:block;font-size:15px;color:#fff}.bs-chat-head small{display:block;color:#9cb6d2;margin-top:4px;font-size:12px}
+.bs-chat-close{border:0;background:transparent;color:#dbeafe;font-size:24px;cursor:pointer;padding:2px 7px}
+.bs-chat-messages{padding:16px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}
+.bs-chat-msg{max-width:90%;padding:11px 12px;border-radius:13px;font-size:13px;line-height:1.5;white-space:pre-line}
+.bs-chat-msg.bot{align-self:flex-start;background:#14263d;border:1px solid #233e5b;color:#e8f3ff;border-bottom-left-radius:4px}
+.bs-chat-msg.user{align-self:flex-end;background:#075e9e;color:#fff;border-bottom-right-radius:4px}
+.bs-chat-quick{padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:7px}
+.bs-chat-quick button{border:1px solid #2b5b83;background:#10243b;color:#bcecff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer}
+.bs-chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #203850;background:#0a1220}
+.bs-chat-form input{min-width:0;flex:1;border:1px solid #2c435b;background:#101e30;color:#fff;border-radius:10px;padding:11px;font:inherit;font-size:13px;outline:none}
+.bs-chat-form input:focus{border-color:#16c9ee}.bs-chat-form button{border:0;border-radius:10px;background:#08bfe8;color:#061324;font-weight:800;padding:0 14px;cursor:pointer}
+@media(max-width:520px){.bs-chat-launcher{right:14px;bottom:14px;padding:13px 16px}.bs-chat-panel{right:10px;bottom:75px;width:calc(100vw - 20px);height:min(520px,calc(100vh - 100px))}}
+</style>
+
+<style id="bhumaji-logo-matched-navigation">
+/* Final override: match navigation to the dark background in the Bhumaji logo */
+header.site-header,
+.site-header,
+.site-header.compact,
+.site-header .nav-wrap {
+  background-color: #020A12 !important;
+  background-image: none !important;
+}
+.site-header {
+  border-bottom: 1px solid #17232D !important;
+  box-shadow: none !important;
+}
+.site-header nav a:not(.nav-cta) { color: #D9DEE5 !important; }
+.site-header nav a:not(.nav-cta):hover,
+.site-header nav .hover-info:hover > a:not(.nav-cta) { color: #00C8FF !important; }
+.site-header .nav-cta { background: transparent !important; color: #F5F8FF !important; border-color: #34404A !important; }
+.site-header .nav-cta:hover { background: #101C2A !important; border-color: #00C8FF !important; }
+@media (max-width: 1120px) {
+  .site-header nav,
+  .site-header nav .hover-panel { background: #020A12 !important; }
+}
+</style>
+
+<style id="bhumaji-brillio-inspired-redesign">
+/* Bhumaji Systems — enterprise editorial redesign, inspired by modern digital-services sites.
+   Original styling for Bhumaji; not a copy of Brillio branding or content. */
+:root{
+  --bs-ink:#101522;
+  --bs-deep:#080d19;
+  --bs-panel:#111a2a;
+  --bs-text:#4b5668;
+  --bs-muted:#687487;
+  --bs-line:#e1e6ec;
+  --bs-cyan:#22d3ee;
+  --bs-blue:#1769ff;
+  --bs-lime:#c8f169;
+}
+html{scroll-padding-top:100px}
+body{background:#fff!important;color:var(--bs-text)!important;font-family:Inter,"Segoe UI",Arial,sans-serif!important;letter-spacing:-.012em}
+.wrap{width:min(1240px,calc(100% - 64px))!important}
+.topbar{background:#080d19!important;color:#b8c4d7!important;font-size:12px!important}
+.topbar .wrap{min-height:35px;padding-top:7px!important;padding-bottom:7px!important}
+.topbar a{color:#dce6f5!important}
+.site-header,.site-header.compact{background:#080d19!important;background-image:none!important;border-bottom:1px solid #202a3b!important;box-shadow:0 8px 28px rgba(3,8,18,.10)!important}
+.site-header .nav-wrap{min-height:86px!important;width:min(1240px,calc(100% - 64px))!important}
+.site-header.compact .nav-wrap{min-height:74px!important}
+.site-header .brand{flex:0 0 250px!important;width:250px!important}
+.site-header .brand .modern-brand-logo{max-height:62px!important}
+.site-header nav ul{gap:clamp(12px,1.45vw,22px)!important}
+.site-header nav a:not(.nav-cta){color:#d7deea!important;font-size:13px!important;font-weight:550!important;border-bottom:2px solid transparent!important}
+.site-header nav a:not(.nav-cta):hover,.site-header nav .hover-info:hover>a:not(.nav-cta){color:var(--bs-cyan)!important;border-color:var(--bs-cyan)!important;background:transparent!important}
+.site-header nav .nav-cta{background:var(--bs-lime)!important;color:#111522!important;border:1px solid var(--bs-lime)!important;border-radius:3px!important;padding:12px 18px!important;font-weight:750!important;box-shadow:none!important}
+.site-header nav .nav-cta:hover{background:#d9ff8b!important;border-color:#d9ff8b!important;color:#111522!important}
+.hover-panel,.industries-mega,.engineering-mega{background:#101827!important;border-color:#29364a!important;box-shadow:0 24px 60px rgba(0,0,0,.24)!important}
+.hover-panel>a,.industries-mega a,.engineering-mega a{color:#edf3fb!important;border-color:#283449!important}
+.hover-panel>a:hover,.industries-mega a:hover,.engineering-mega a:hover{background:#18253a!important}
+.cinematic-hero{position:relative!important;background:#080d19!important;color:#fff!important;min-height:0!important;isolation:isolate!important}
+.cinematic-hero:before{opacity:.38!important;filter:saturate(.65)!important}
+.cinematic-hero:after{background:linear-gradient(90deg,rgba(5,9,18,.97) 0%,rgba(5,9,18,.83) 50%,rgba(5,9,18,.48) 100%),linear-gradient(0deg,rgba(5,9,18,.95),transparent 70%)!important}
+.cinematic-hero .wrap{width:min(1240px,calc(100% - 64px))!important;min-height:650px!important;padding:130px 0 88px!important;grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr)!important;gap:clamp(36px,6vw,90px)!important}
+.cinematic-hero .wrap>div:first-child{max-width:760px!important}
+.cinematic-hero .eyebrow{color:var(--bs-lime)!important;font-size:11px!important;letter-spacing:.16em!important}
+.cinematic-hero .eyebrow:before{background:var(--bs-lime)!important}
+.cinematic-hero h1{font-size:clamp(48px,6.1vw,82px)!important;line-height:.99!important;letter-spacing:-.065em!important;font-weight:650!important;margin:0 0 28px!important;max-width:850px!important}
+.cinematic-hero .hero-highlight{color:var(--bs-lime)!important}
+.cinematic-hero p.lead{max-width:620px!important;font-size:17px!important;line-height:1.8!important;color:#c9d2e0!important}
+.cinematic-hero p.lead strong{color:#fff!important}
+.cinematic-hero .cta{gap:14px!important;margin-top:36px!important}
+.cinematic-hero .btn{min-height:52px!important;padding:15px 22px!important;border-radius:3px!important;font-size:13px!important;font-weight:750!important}
+.cinematic-hero .btn-primary{background:var(--bs-lime)!important;border-color:var(--bs-lime)!important;color:#111522!important}
+.cinematic-hero .btn-primary:hover{background:#dcff9b!important;border-color:#dcff9b!important}
+.cinematic-hero .btn-ghost{border-color:#667287!important;color:#fff!important;background:transparent!important}
+.cinematic-hero .btn-ghost:hover{border-color:var(--bs-lime)!important;color:var(--bs-lime)!important}
+.cinematic-hero .panel{background:rgba(15,23,39,.78)!important;border:1px solid rgba(210,224,245,.22)!important;border-radius:4px!important;padding:30px!important;box-shadow:0 30px 90px rgba(0,0,0,.25)!important;backdrop-filter:blur(12px)!important}
+.cinematic-hero .panel:before{color:#9daac0!important;border-color:rgba(210,224,245,.16)!important}
+.cinematic-hero .panel h4{color:var(--bs-lime)!important}
+.cinematic-hero .panel .row{border-color:rgba(210,224,245,.13)!important;padding:17px 0!important}
+.cinematic-hero .panel .n{color:var(--bs-lime)!important}
+.cinematic-hero .panel b{font-size:15px!important}
+.cinematic-hero .panel span{color:#b8c4d7!important}
+.cinematic-hero .stats{margin-top:0!important;background:#0d1422!important;border-top:1px solid #263044!important}
+.cinematic-hero .stats .wrap{width:min(1240px,calc(100% - 64px))!important;min-height:0!important;padding:0!important}
+.cinematic-hero .stat{padding:25px 26px!important;border-color:#263044!important}
+.cinematic-hero .stat b{font-size:22px!important;font-weight:650!important;color:#fff!important}
+.cinematic-hero .stat span{font-size:11px!important;color:#aab6c9!important;letter-spacing:.035em!important}
+section{padding:clamp(72px,8vw,112px) 0!important}
+section .head{max-width:900px!important;margin-bottom:48px!important}
+section .eyebrow{font-size:11px!important;letter-spacing:.14em!important;color:#1769a6!important}
+section .eyebrow:before{background:#1769a6!important}
+section h2{font-size:clamp(34px,4.4vw,54px)!important;line-height:1.08!important;letter-spacing:-.055em!important;font-weight:620!important;color:#111827!important;max-width:900px!important}
+section .lead{font-size:16px!important;line-height:1.85!important;color:#586477!important;max-width:790px!important}
+section:not(.approach):not(#contact){background:#fff!important}
+section.alt:not(.approach):not(#contact){background:#f5f7fa!important}
+#capabilities .grid{gap:16px!important}
+#capabilities .card,.migration-service-cards .card,.grid .card{background:#fff!important;border:1px solid #dfe5ec!important;border-radius:4px!important;box-shadow:none!important;padding:28px!important;transition:transform .2s,border-color .2s,box-shadow .2s!important}
+#capabilities .card:hover,.migration-service-cards .card:hover,.grid .card:hover{transform:translateY(-4px)!important;border-color:#9baec4!important;box-shadow:0 18px 40px rgba(15,23,42,.08)!important}
+.card .num{color:#8c98a9!important;font-size:11px!important}
+.card .ic{background:#eef8fb!important;color:#087d9b!important;border-radius:3px!important}
+.card h3{font-size:20px!important;line-height:1.25!important;letter-spacing:-.035em!important;color:#121a2a!important}
+.card p{font-size:13.5px!important;line-height:1.8!important;color:#5a6678!important}
+.tags{gap:6px!important}
+.tags span{background:#f5f7fa!important;color:#425166!important;border:1px solid #e1e6ed!important;border-radius:2px!important;font-size:10px!important}
+.link{color:#1265c7!important;font-weight:700!important}
+.link:hover{color:#008da8!important}
+.service-outcomes{gap:16px!important}
+.service-outcomes>div{background:#f8fafc!important;border:1px solid #e0e6ed!important;border-radius:4px!important;padding:24px!important}
+.service-outcomes b{color:#15233a!important;font-size:13px!important}
+.service-outcomes span{color:#5b687b!important;font-size:12.5px!important;line-height:1.8!important}
+.industry-detail-grid,.insight-grid{gap:16px!important}
+.industry-detail-grid article,.insight-grid article{background:#fff!important;border:1px solid #dfe5ec!important;border-radius:4px!important;min-height:0!important;padding:28px!important;transition:transform .2s,border-color .2s,box-shadow .2s!important}
+.industry-detail-grid article:hover,.insight-grid article:hover{transform:translateY(-3px)!important;border-color:#9baec4!important;box-shadow:0 18px 40px rgba(15,23,42,.08)!important}
+.industry-detail-grid article>span,.insight-grid article>span{color:#0c819c!important}
+.industry-detail-grid h3,.insight-grid h3{color:#121a2a!important;font-size:20px!important;letter-spacing:-.03em!important}
+.industry-detail-grid p,.insight-grid p{color:#5a6678!important;font-size:13px!important;line-height:1.8!important}
+.cloud-service-main,.service-side-panel,.cost-feature-grid article{background:#fff!important;border-color:#dfe5ec!important;border-radius:4px!important}
+.cloud-service-main h3,.cost-feature-grid h3{color:#121a2a!important}
+.cloud-service-main>p,.service-check-grid span,.service-side-panel li span,.cost-feature-grid p{color:#5a6678!important}
+.service-check-grid>div,.service-side-panel li{border-color:#e0e6ed!important}
+.service-check-grid b,.service-side-panel li b{color:#15233a!important}
+.service-side-panel li:before{background:#fff!important;color:#0c819c!important}
+.service-kicker,.service-status,.cost-icon{color:#087d9b!important}
+.migration-timeline{border-color:#dfe5ec!important;background:#fff!important;border-radius:4px!important}
+.timeline-step{border-color:#dfe5ec!important}
+.timeline-step i{color:#087d9b!important}
+.timeline-step span{color:#5a6678!important}
+#engineering,.engineering{background:#0b1220!important;color:#fff!important}
+#engineering h2,#engineering h3,#engineering .head h2{color:#fff!important}
+#engineering .lead{color:#b8c4d7!important}
+#engineering .card,#engineering .principle{background:#111b2d!important;border-color:#29364b!important}
+#engineering .card h3,#engineering .card p{color:#edf3fb!important}
+#engineering .card p{color:#b3c0d2!important}
+#engineering .card .num{color:#8a9ab2!important}
+#engineering .tags span{background:#17243a!important;color:#d9e5f3!important;border-color:#2a3a52!important}
+.approach{background:#f4f7fa!important;border-top:1px solid #e4e9ef!important;border-bottom:1px solid #e4e9ef!important}
+.approach h2,.approach h3,.approach .pill span{color:#121a2a!important}
+.approach p{color:#586477!important}
+.approach .pill{background:#fff!important;border:1px solid #dfe5ec!important;border-radius:4px!important}
+.approach .pill b{color:#087d9b!important}
+#our-work .project{border:1px solid #dfe5ec!important;border-radius:4px!important;padding:clamp(24px,4vw,48px)!important;background:#fff!important}
+#our-work .badge{background:#eaf8fb!important;color:#087d9b!important}
+#our-work .quote{background:#f5f7fa!important;border-color:#dfe5ec!important;border-radius:4px!important}
+#contact{background:#0b1220!important;color:#fff!important}
+#contact h2{color:#fff!important}
+#contact .lead,#contact .note{color:#bdc8d8!important}
+#contact .eyebrow{color:var(--bs-lime)!important}
+#contact .eyebrow:before{background:var(--bs-lime)!important}
+#contact form{background:#fff!important;color:#111827!important;border:1px solid #dfe5ec!important;border-radius:4px!important;box-shadow:none!important}
+#contact form h3{color:#111827!important}
+#contact form .sub,#contact form label{color:#4b5668!important}
+#contact input,#contact select,#contact textarea{border:1px solid #d5dde7!important;border-radius:3px!important;background:#fff!important;color:#111827!important}
+#contact input:focus,#contact select:focus,#contact textarea:focus{outline:2px solid rgba(34,211,238,.22)!important;border-color:#087d9b!important}
+#contact .btn-primary{background:#c8f169!important;color:#111522!important;border-color:#c8f169!important;border-radius:3px!important}
+footer{background:#080d19!important;color:#aebbd0!important}
+footer .top,footer .bot{border-color:#263044!important}
+footer b,footer strong{color:#fff!important}
+footer a{color:#c4cfdf!important}
+footer a:hover{color:var(--bs-lime)!important}
+.bs-chat-launcher{background:var(--bs-lime)!important;color:#111522!important;border-radius:3px!important;box-shadow:0 12px 30px rgba(0,0,0,.2)!important}
+.bs-chat-panel{border-radius:5px!important}
+.bs-chat-head{background:#111b2d!important}
+.bs-chat-quick button{border-radius:3px!important}
+.bs-chat-form button{background:var(--bs-lime)!important;color:#111522!important}
+@media(max-width:1120px){
+ .wrap,.site-header .nav-wrap,.cinematic-hero .wrap,.cinematic-hero .stats .wrap{width:calc(100% - 40px)!important}
+ .cinematic-hero .wrap{grid-template-columns:1fr!important;min-height:0!important;padding:100px 0 55px!important}
+ .cinematic-hero .panel{max-width:700px!important}
+ .site-header .nav-wrap{min-height:76px!important}
+ .site-header nav{background:#080d19!important;border-color:#29364b!important}
+ .site-header nav a:not(.nav-cta){color:#d7deea!important}
+}
+@media(max-width:700px){
+ .wrap,.site-header .nav-wrap,.cinematic-hero .wrap,.cinematic-hero .stats .wrap{width:calc(100% - 32px)!important}
+ .site-header .brand{flex-basis:185px!important;width:185px!important}
+ .site-header .brand .modern-brand-logo{max-height:48px!important}
+ .cinematic-hero .wrap{padding:76px 0 38px!important;gap:28px!important}
+ .cinematic-hero h1{font-size:clamp(42px,12vw,58px)!important}
+ .cinematic-hero p.lead{font-size:15px!important}
+ .cinematic-hero .panel{padding:22px!important}
+ .cinematic-hero .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .cinematic-hero .stat{padding:18px 12px!important}
+ section{padding:68px 0!important}
+ section .head{margin-bottom:32px!important}
+ section h2{font-size:clamp(31px,9vw,42px)!important}
+ #capabilities .g4,.industry-detail-grid,.insight-grid{grid-template-columns:1fr!important}
+ #contact .wrap.contact{grid-template-columns:1fr!important}
+ .service-outcomes{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){.industry-detail-grid article,.insight-grid article,.card{transition:none!important}}
+</style>
+
+
+<style id="bhumaji-header-stability-fix">
+/* Remove the narrow utility strip above the main navigation. */
+.topbar{display:none!important}
+/* Keep the navigation and logo at a constant size; no shrink/zoom on scroll. */
+.site-header,.site-header.compact{
+  position:sticky!important;top:0!important;
+  transform:none!important;scale:1!important;
+  transition:none!important;
+}
+.site-header .nav-wrap,.site-header.compact .nav-wrap{
+  min-height:86px!important;
+}
+.site-header .brand .modern-brand-logo,
+.site-header.compact .brand .modern-brand-logo{
+  max-height:62px!important;
+  transform:none!important;
+  transition:none!important;
+}
+.site-header nav,.site-header.compact nav,
+.site-header nav ul,.site-header.compact nav ul{
+  transform:none!important;
+  transition:none!important;
+}
+</style>
+
+
+<style id="bhumaji-cinematic-homepage">
+/* Original cinematic homepage treatment inspired by premium enterprise technology sites. */
+.cinematic-hero{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  min-height:590px!important;padding:0!important;color:#fff!important;
+  background:#080b12 url('/assets/bhumaji-cinematic-hero.svg') center center/cover no-repeat!important;
+}
+.cinematic-hero:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;
+  background:linear-gradient(90deg,rgba(8,11,18,.99) 0%,rgba(8,11,18,.92) 34%,rgba(8,11,18,.38) 66%,rgba(8,11,18,.1) 100%)!important;
+  opacity:1!important;pointer-events:none!important;
+}
+.cinematic-hero:after{
+  content:""!important;position:absolute!important;inset:auto 0 0!important;height:4px!important;z-index:2!important;
+  background:linear-gradient(90deg,#9b6cff 0%,#694cff 48%,#27d4f3 100%)!important;
+}
+.cinematic-hero>.wrap{
+  position:relative!important;z-index:1!important;display:grid!important;grid-template-columns:minmax(0,680px) 1fr!important;
+  align-items:center!important;min-height:510px!important;width:min(1240px,calc(100% - 64px))!important;
+  padding:82px 0 105px!important;
+}
+.cinematic-hero .eyebrow{
+  color:#b4a0ff!important;font-size:13px!important;font-weight:700!important;letter-spacing:.14em!important;
+  text-transform:uppercase!important;margin-bottom:25px!important;
+}
+.cinematic-hero h1{
+  max-width:760px!important;color:#fff!important;font-size:clamp(42px,5.5vw,76px)!important;
+  line-height:1.04!important;letter-spacing:-.045em!important;font-weight:760!important;margin:0 0 24px!important;
+  text-wrap:balance!important;
+}
+.cinematic-hero .hero-highlight{
+  background:linear-gradient(95deg,#a78bfa 0%,#7c67ff 52%,#6bdcff 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+.cinematic-hero .lead{
+  max-width:610px!important;color:#d0d7e5!important;font-size:17px!important;line-height:1.75!important;margin-bottom:30px!important;
+}
+.cinematic-hero .lead strong{color:#fff!important}
+.cinematic-hero .cta{display:flex!important;align-items:center!important;gap:16px!important;flex-wrap:wrap!important}
+.cinematic-hero .btn-primary{
+  background:#c8f169!important;color:#101522!important;border:1px solid #c8f169!important;border-radius:2px!important;
+  padding:15px 21px!important;font-weight:750!important;box-shadow:none!important;
+}
+.cinematic-hero .btn-primary:hover{background:#ddff98!important;transform:translateY(-2px)!important}
+.cinematic-hero .btn-ghost{
+  background:transparent!important;color:#fff!important;border:1px solid rgba(255,255,255,.42)!important;border-radius:2px!important;
+  padding:15px 21px!important;
+}
+.cinematic-hero .panel{display:none!important}
+.cinematic-hero .stats{display:none!important}
+.cinematic-hero .hero-slider-controls{
+  position:absolute!important;left:max(calc((100% - 1240px)/2),32px)!important;bottom:34px!important;z-index:4!important;
+  display:flex!important;align-items:center!important;gap:10px!important;
+}
+.cinematic-hero .hero-slide-dot{
+  width:9px!important;height:9px!important;padding:0!important;border:0!important;border-radius:0!important;
+  background:rgba(255,255,255,.45)!important;cursor:pointer!important;transition:background .2s ease,width .2s ease!important;
+}
+.cinematic-hero .hero-slide-dot[aria-current="true"]{
+  width:30px!important;height:30px!important;background:transparent!important;border:1px solid #fff!important;
+  color:#fff!important;font-size:13px!important;font-weight:650!important;
+}
+.cinematic-hero .hero-next{
+  margin-left:14px!important;border:0!important;background:transparent!important;color:#c8f169!important;
+  font-size:34px!important;line-height:1!important;cursor:pointer!important;padding:2px 8px!important;
+}
+.cinematic-hero .hero-next:hover{color:#fff!important;transform:translateX(3px)!important}
+.cinematic-hero .hero-slide-dot:focus-visible,.cinematic-hero .hero-next:focus-visible{outline:2px solid #c8f169!important;outline-offset:4px!important}
+.cinematic-hero .hero-slide-content{animation:bhHeroEnter .55s ease both}
+@keyframes bhHeroEnter{from{opacity:.25;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){
+ .cinematic-hero{min-height:560px!important;background-position:58% center!important}
+ .cinematic-hero>.wrap{grid-template-columns:1fr!important;min-height:490px!important;padding:76px 0 110px!important;width:calc(100% - 40px)!important}
+ .cinematic-hero h1{font-size:clamp(42px,8vw,64px)!important}
+ .cinematic-hero:before{background:linear-gradient(90deg,rgba(8,11,18,.97),rgba(8,11,18,.72))!important}
+ .cinematic-hero .hero-slider-controls{left:20px!important;bottom:28px!important}
+}
+@media(max-width:600px){
+ .cinematic-hero{min-height:580px!important}
+ .cinematic-hero>.wrap{min-height:515px!important;padding:65px 0 115px!important;width:calc(100% - 32px)!important}
+ .cinematic-hero .eyebrow{font-size:11px!important;letter-spacing:.1em!important}
+ .cinematic-hero h1{font-size:clamp(38px,11vw,52px)!important}
+ .cinematic-hero .lead{font-size:15px!important;line-height:1.7!important}
+ .cinematic-hero .cta{gap:10px!important}
+ .cinematic-hero .btn{padding:13px 15px!important;font-size:13px!important}
+ .cinematic-hero .hero-slider-controls{left:16px!important;bottom:24px!important}
+}
+@media(prefers-reduced-motion:reduce){.cinematic-hero .hero-slide-content{animation:none!important}.cinematic-hero *{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+
+<style id="bhumaji-remove-yellow-text-highlight">
+/* Remove yellow/lime coloring and gradient effects from highlighted text only. */
+.hero-highlight,
+.cinematic-hero .hero-highlight,
+h1 .hero-highlight,
+h2 .hero-highlight,
+.highlight,
+.text-highlight,
+mark,
+mark *,
+[style*="background-color: yellow"],
+[style*="background: yellow"]{
+  background:none!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#fff!important;
+  color:#fff!important;
+  text-shadow:none!important;
+  box-shadow:none!important;
+}
+.cinematic-hero .hero-highlight{color:#fff!important;-webkit-text-fill-color:#fff!important}
+</style>
+
+
+<style id="bhumaji-contact-chat-neutral-buttons">
+/* Remove lime/yellow fill from the Contact Us and Chat with Us controls. */
+.site-header nav .nav-cta,
+.site-header nav .nav-cta:hover,
+.site-header nav .nav-cta:focus-visible{
+  background:#101827!important;
+  background-image:none!important;
+  color:#f4f7fb!important;
+  border:1px solid #64748b!important;
+  box-shadow:none!important;
+}
+.site-header nav .nav-cta:hover,
+.site-header nav .nav-cta:focus-visible{
+  border-color:#22d3ee!important;
+  color:#22d3ee!important;
+}
+.bs-chat-launcher,
+.bs-chat-launcher:hover,
+.bs-chat-launcher:focus-visible{
+  background:#101827!important;
+  background-image:none!important;
+  color:#f4f7fb!important;
+  border:1px solid #64748b!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.24)!important;
+}
+.bs-chat-launcher:hover,
+.bs-chat-launcher:focus-visible{
+  border-color:#22d3ee!important;
+  color:#22d3ee!important;
+}
+</style>
+
+
+<style id="bhumaji-remove-navigation-topic-arrows">
+/* Hide only the decorative arrow icons in navigation dropdown topics and Contact Us. */
+.site-header nav .hover-panel a > span,
+.site-header nav .nav-cta > span{
+  display:none!important;
+  visibility:hidden!important;
+}
+</style>
+
+
+<style id="bhumaji-enterprise-redesign-2026">
+/* Bhumaji Systems — cohesive enterprise redesign, inspired by modern digital engineering sites */
+:root{--navy:#07172f;--navy-2:#102b50;--blue:#1769e0;--blue-d:#1054bd;--sky:#eaf3ff;--ink:#101d32;--text:#4c5b70;--muted:#718097;--line:#e1e8f1;--bg:#fff;--bg-alt:#f5f8fc;--accent:#26c6c8;--radius:16px;--shadow:0 12px 36px rgba(13,35,68,.08)}
+html{scroll-padding-top:100px}
+body{font-size:16px;line-height:1.72;color:#4c5b70;background:#fff}
+.wrap{width:min(1240px,100% - 64px)}
+section{padding:clamp(72px,8vw,116px) 0}
+h1,h2,h3{letter-spacing:-.035em}
+h2{font-size:clamp(32px,4vw,50px);line-height:1.12;font-weight:750}
+h3{font-weight:700;line-height:1.25}
+p{line-height:1.75}
+.eyebrow{letter-spacing:.16em;font-size:11px;font-weight:800;gap:12px}
+.eyebrow::before{width:32px;height:3px;border-radius:2px;background:linear-gradient(90deg,#27c6d0,#1769e0)}
+.head{margin-bottom:54px}
+.lead{font-size:18px;line-height:1.75;color:#53647a}
+.btn{border-radius:999px;padding:14px 25px;min-height:50px;gap:10px;font-size:14px;font-weight:700;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:#1769e0;box-shadow:0 8px 20px rgba(23,105,224,.2)}
+.btn-primary:hover{background:#0f55bf;box-shadow:0 12px 24px rgba(23,105,224,.25)}
+.btn-outline{border-color:#cbd8e9;color:#12345b;background:#fff}
+.btn-outline:hover{border-color:#1769e0;background:#eef5ff}
+header{background:rgba(255,255,255,.96);border-bottom:1px solid rgba(213,225,240,.9);box-shadow:0 4px 20px rgba(12,34,64,.035)}
+header .wrap{min-height:94px!important;height:94px;gap:28px}
+.brand{flex-basis:238px;width:238px;min-width:238px}
+.brand img{height:68px!important;clip-path:none!important}
+.brand-tagline{font-size:10.5px;letter-spacing:.01em}
+header.compact .wrap{min-height:94px!important;height:94px}
+header.compact .brand img{height:68px!important}
+nav ul{gap:clamp(12px,1.45vw,23px)}
+nav a{font-size:13px;font-weight:650;color:#24364f;border-bottom:0;padding:10px 0;transition:color .2s}
+nav a:hover{color:#1769e0;border-color:transparent}
+nav a.btn{padding:12px 20px;background:#102b50;color:#fff!important;border-radius:999px}
+nav a.btn:hover{background:#1769e0}
+.hero{padding:100px 0 82px;background:#07172f url('/assets/bhumaji-cinematic-hero.svg') center/cover no-repeat;isolation:isolate}
+.hero::before{background:radial-gradient(ellipse at 75% 35%,rgba(23,105,224,.28),transparent 45%),linear-gradient(90deg,rgba(7,23,47,.98) 0%,rgba(7,23,47,.94) 48%,rgba(7,23,47,.42) 100%);mask-image:none;z-index:-1}
+.hero .wrap{grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr);gap:64px}
+.hero h1{font-size:clamp(42px,5.2vw,68px);line-height:1.04;letter-spacing:-.055em;font-weight:780;max-width:760px}
+.hero p.lead{font-size:19px;line-height:1.8;max-width:650px;color:#c7d6e9}
+.hero .eyebrow{color:#a9d9ff}
+.hero .eyebrow::before{background:#35d3d4}
+.hero-highlight{color:#fff!important;background:none!important;-webkit-text-fill-color:#fff!important}
+.hero .cta{gap:12px;margin-top:32px}
+.hero .btn-primary{background:#1769e0}
+.hero .btn-ghost{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.04)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.12)}
+.hero-slider-controls{margin-top:34px;display:flex;align-items:center;gap:10px}
+.hero-slide-dot{height:4px;width:26px;border:0;border-radius:8px;background:#516780;cursor:pointer;font-size:0;padding:0;transition:width .2s,background .2s}
+.hero-slide-dot[aria-current=true]{width:48px;background:#35d3d4}
+.hero-next{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:transparent;color:#fff;cursor:pointer}
+.hero-next:hover{background:rgba(255,255,255,.12)}
+section:not(.hero){position:relative}
+.alt{background:linear-gradient(180deg,#f7f9fc,#f2f6fb)}
+/* Services and capability cards */
+.cards,.service-grid,.capabilities,.industries-grid,.work-grid{gap:20px}
+.card,.service-card,.capability,.industry-card,.work-card,.project-card,.feature-card{border:1px solid #e2eaf4!important;border-radius:18px!important;background:#fff;box-shadow:0 4px 16px rgba(16,42,78,.025);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover,.service-card:hover,.capability:hover,.industry-card:hover,.work-card:hover,.project-card:hover,.feature-card:hover{transform:translateY(-5px);border-color:#b9d3f8!important;box-shadow:0 18px 42px rgba(16,42,78,.09)}
+.card h3,.service-card h3,.capability h3,.industry-card h3,.work-card h3,.project-card h3{font-size:20px}
+.card p,.service-card p,.capability p,.industry-card p,.work-card p,.project-card p{color:#5b6b80;font-size:15px}
+.ic,.icon,.service-icon{border-radius:13px!important;background:#edf5ff!important;color:#1769e0!important}
+/* Broad, editorial section rhythm */
+#capabilities,#cloud,#migration,#mobile,#software,#engineering,#ai,#industries,#our-work,#insights,#about,#contact{scroll-margin-top:100px}
+#capabilities .head h2,#cloud .head h2,#migration .head h2,#engineering .head h2,#ai .head h2{max-width:820px}
+#capabilities .head .lead,#cloud .head .lead,#migration .head .lead,#engineering .head .lead,#ai .head .lead{max-width:760px}
+#about{background:#0b2140;color:#d0dced}
+#about h2,#about h3{color:#fff}
+#about .lead,#about p{color:#c3d1e3}
+#about .eyebrow{color:#9ccfff}
+#about .eyebrow::before{background:#35d3d4}
+#contact{background:#f3f7fc}
+#contact .contact{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,6vw,80px);align-items:start}
+#contact h2{max-width:600px}
+#contact form{padding:clamp(24px,3vw,38px);border:1px solid #e0e8f2;border-radius:22px;background:#fff;box-shadow:0 16px 48px rgba(15,43,80,.07)}
+#contact form h3{font-size:24px;color:#102b50}
+#contact form .sub{color:#78879b;font-size:13px;margin:6px 0 22px}
+#contact .f{margin-bottom:17px}
+#contact label{display:block;color:#233752;font-weight:650;font-size:13px;margin-bottom:7px}
+#contact input,#contact select,#contact textarea{width:100%;border:1px solid #d8e2ef;border-radius:10px;padding:13px 14px;font:inherit;font-size:14px;color:#1c2e46;background:#fbfdff;outline:none;transition:border-color .2s,box-shadow .2s}
+#contact input:focus,#contact select:focus,#contact textarea:focus{border-color:#1769e0;box-shadow:0 0 0 3px rgba(23,105,224,.11);background:#fff}
+#contact .mail{display:flex;align-items:center;gap:14px;margin-top:28px}
+#contact .mail a{color:#1769e0;font-weight:700}
+#contact .note{color:#758399;font-size:12px;margin-top:18px}
+footer{background:#06152c;color:#c5d2e4;padding:54px 0 22px}
+footer .top{display:flex;justify-content:space-between;gap:32px;align-items:flex-start;padding-bottom:36px}
+footer .top>div{display:flex;flex-direction:column;gap:7px;color:#9aacc4;font-size:13px}
+footer .top>div b{font-size:23px;color:#fff;letter-spacing:-.03em}
+footer ul{display:flex;gap:12px 22px;flex-wrap:wrap;justify-content:flex-end;list-style:none}
+footer a{font-size:13px;color:#c5d2e4;transition:color .2s}
+footer a:hover{color:#56d5e0}
+footer .bot{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;color:#879bb6;font-size:12px}
+.bs-chat-launcher{border-radius:999px!important;background:#102b50!important;box-shadow:0 12px 30px rgba(7,23,47,.2)!important}
+.bs-chat-launcher:hover{background:#1769e0!important}
+.bs-chat-panel{border-radius:20px!important;box-shadow:0 24px 70px rgba(7,23,47,.25)!important}
+@media(max-width:1050px){
+ .wrap{width:min(100% - 44px,900px)}
+ header .wrap{gap:18px}
+ .brand{flex-basis:190px;width:190px;min-width:190px}
+ .brand img{height:62px!important}
+ nav ul{gap:12px}
+ nav a{font-size:12px}
+ .hero .wrap{gap:36px}
+}
+@media(max-width:820px){
+ .wrap{width:calc(100% - 36px)}
+ section{padding:70px 0}
+ header .wrap{height:82px;min-height:82px!important}
+ header.compact .wrap{height:82px;min-height:82px!important}
+ .brand{align-items:flex-start;text-align:left;flex-basis:180px;width:180px;min-width:0}
+ .brand img{height:56px!important}
+ .brand-tagline{text-align:left;font-size:9px}
+ .burger{display:block}
+ nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid #e0e8f2;box-shadow:0 18px 32px rgba(7,23,47,.1);padding:12px 22px 22px}
+ nav.open{display:block}
+ nav ul{display:flex;align-items:stretch;flex-direction:column;gap:4px}
+ nav a{display:block;font-size:14px;padding:11px 4px}
+ nav a.btn{display:inline-flex;margin-top:8px}
+ .hero{padding:72px 0 62px}
+ .hero .wrap{grid-template-columns:1fr;gap:30px}
+ .hero h1{font-size:clamp(40px,8vw,58px)}
+ #contact .contact{grid-template-columns:1fr}
+ footer .top{flex-direction:column}
+ footer ul{justify-content:flex-start}
+}
+@media(max-width:520px){
+ .wrap{width:calc(100% - 30px)}
+ section{padding:58px 0}
+ .hero{padding:58px 0 48px}
+ .hero h1{font-size:39px}
+ .hero p.lead{font-size:16px}
+ .hero .cta{flex-direction:column;align-items:stretch}
+ .hero .cta .btn{justify-content:center}
+ #contact form{padding:22px 18px}
+ #contact .two{display:grid;grid-template-columns:1fr;gap:0}
+ footer .top>div b{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+
+<style id="bhumaji-remove-yellow-sitewide">
+/* Replace all yellow/lime brand accents with the site's blue/cyan palette. */
+:root{--bs-lime:#22d3ee!important;--lime:#22d3ee!important;--accent:#22d3ee!important}
+.cinematic-hero .eyebrow,.hero .eyebrow,.cinematic-hero .hero-highlight,.hero .hero-highlight{color:#fff!important;-webkit-text-fill-color:#fff!important}
+.cinematic-hero .eyebrow:before,.hero .eyebrow:before{background:#22d3ee!important}
+.cinematic-hero .btn-primary,.hero .btn-primary,#contact .btn-primary,.btn-primary{background:#1769e0!important;border-color:#1769e0!important;color:#fff!important}
+.cinematic-hero .btn-primary:hover,.hero .btn-primary:hover,#contact .btn-primary:hover,.btn-primary:hover{background:#1054bd!important;border-color:#1054bd!important;color:#fff!important}
+.site-header nav .nav-cta,.site-header nav .nav-cta:hover,.site-header nav .nav-cta:focus-visible{background:#102b50!important;border-color:#102b50!important;color:#fff!important}
+.cinematic-hero .hero-next{color:#22d3ee!important}
+.cinematic-hero .hero-slide-dot[aria-current=true]{background:#22d3ee!important}
+.cinematic-hero .hero-slide-dot:focus-visible,.cinematic-hero .hero-next:focus-visible{outline-color:#22d3ee!important}
+a:hover,.link:hover{color:#1769e0}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:#22d3ee}
+.wf .dot.hu{background:#1769e0!important;color:#fff!important}
+[style*="#c8f169"],[style*="#d9ff8b"],[style*="#dcff9b"],[style*="#ddff98"],[style*="#d9ff8b"]{background-color:#1769e0!important;border-color:#1769e0!important;color:#fff!important}
+</style>
+
+
+<style id="bhumaji-enterprise-footer-redesign">
+.bs-enterprise-footer{background:#07172f!important;color:#b9c9dd!important;padding:72px 0 22px!important;border-top:1px solid #1c304b}
+.bs-enterprise-footer .bs-footer-main{display:grid;grid-template-columns:1.25fr 1fr 1fr .8fr;gap:clamp(28px,4vw,62px);padding-bottom:56px}
+.bs-enterprise-footer .bs-footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:13px;min-width:0}
+.bs-enterprise-footer .bs-footer-wordmark{font-size:26px;font-weight:800;letter-spacing:-.045em;line-height:1.2;color:#fff!important}
+.bs-enterprise-footer .bs-footer-brand p{margin:0;color:#a9bdd6;font-size:13px;line-height:1.65}
+.bs-enterprise-footer .bs-footer-brand .bs-footer-summary{margin-top:2px;max-width:300px;color:#8fa4bf;font-size:14px}
+.bs-enterprise-footer .bs-socials{display:flex;gap:10px;margin-top:8px}
+.bs-enterprise-footer .bs-socials a{width:39px;height:39px;display:grid;place-items:center;border:1px solid #30435e;border-radius:50%;background:#0d2442;color:#dbe8f8!important;transition:background .2s,border-color .2s,transform .2s}
+.bs-enterprise-footer .bs-socials a:hover{background:#1769e0;border-color:#1769e0;transform:translateY(-2px)}
+.bs-enterprise-footer .bs-socials svg{width:17px;height:17px;fill:currentColor}
+.bs-enterprise-footer .bs-footer-column h3{font-size:13px!important;font-weight:800!important;text-transform:uppercase;letter-spacing:.12em;color:#fff!important;margin:3px 0 20px}
+.bs-enterprise-footer .bs-footer-column ul{list-style:none!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:11px!important;margin:0!important;padding:0!important}
+.bs-enterprise-footer .bs-footer-column li{margin:0!important;padding:0!important}
+.bs-enterprise-footer .bs-footer-column a{font-size:13px!important;line-height:1.55;color:#a9bdd6!important;transition:color .18s}
+.bs-enterprise-footer .bs-footer-column a:hover{color:#48d4e3!important}
+.bs-enterprise-footer .bs-footer-contact{display:inline-flex;align-items:center;gap:9px;margin-top:23px;padding:10px 15px;border:1px solid #40536e;border-radius:999px;color:#fff!important;font-size:12px!important;font-weight:700}
+.bs-enterprise-footer .bs-footer-contact:hover{background:#1769e0;border-color:#1769e0;color:#fff!important}
+.bs-enterprise-footer .bs-footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:20px;border-top:1px solid #273a54;color:#8298b4;font-size:12px}
+.bs-enterprise-footer .bs-footer-bottom div{display:flex;gap:22px}
+.bs-enterprise-footer .bs-footer-bottom a{color:#a9bdd6!important;font-size:12px}
+.bs-enterprise-footer .bs-footer-bottom a:hover{color:#48d4e3!important}
+@media(max-width:980px){.bs-enterprise-footer .bs-footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 32px}.bs-enterprise-footer .bs-footer-brand .bs-footer-summary{max-width:360px}}
+@media(max-width:560px){.bs-enterprise-footer{padding:52px 0 20px!important}.bs-enterprise-footer .bs-footer-main{grid-template-columns:1fr 1fr;gap:34px 18px}.bs-enterprise-footer .bs-footer-brand{grid-column:1/-1}.bs-enterprise-footer .bs-footer-column h3{font-size:12px!important;margin-bottom:15px}.bs-enterprise-footer .bs-footer-column a{font-size:12px!important}.bs-enterprise-footer .bs-footer-bottom{align-items:flex-start;flex-direction:column}.bs-enterprise-footer .bs-footer-bottom div{gap:18px}}
+</style>
+
+
+<style id="bhumaji-what-we-do-content-visibility">
+/* Keep the What We Do mega-menu informative: title plus readable topic summary. */
+@media (min-width:821px) {
+  #nav li.hover-info > .detail-panel { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  #nav .detail-panel > a.detail-item {
+    min-height:116px !important;
+    grid-template-columns:minmax(0,1fr) 18px !important;
+    grid-template-rows:auto auto !important;
+    align-content:start !important;
+    padding:20px 22px !important;
+    gap:7px 12px !important;
+  }
+  #nav .detail-panel > a.detail-item b {
+    display:block !important; grid-column:1 !important; grid-row:1 !important;
+    font-size:14px !important; line-height:1.4 !important;
+  }
+  #nav .detail-panel > a.detail-item small {
+    display:block !important; visibility:visible !important;
+    grid-column:1 !important; grid-row:2 !important;
+    white-space:normal !important; overflow:visible !important;
+    height:auto !important; max-height:none !important;
+    font-size:12px !important; line-height:1.55 !important;
+    color:#5c6d82 !important; opacity:1 !important;
+  }
+  #nav .detail-panel > a.detail-item span {
+    grid-column:2 !important; grid-row:1/3 !important; align-self:center !important;
+  }
+}
+@media (max-width:820px) {
+  #nav .detail-panel > a.detail-item small {
+    display:block !important; visibility:visible !important;
+    white-space:normal !important; height:auto !important; max-height:none !important;
+  }
+}
+</style>
+
+
+<style id="bhumaji-all-navigation-topic-details">
+/* Show descriptive copy for every navigation menu, not only menu headings. */
+@media (min-width:821px) {
+  #nav .hover-panel { grid-auto-rows:minmax(100px,auto) !important; }
+  #nav .hover-panel > a small {
+    display:block !important; visibility:visible !important; opacity:1 !important;
+    height:auto !important; max-height:none !important; overflow:visible !important;
+    white-space:normal !important; text-overflow:clip !important;
+    font-size:12px !important; line-height:1.6 !important;
+    color:#5c6d82 !important; font-weight:400 !important;
+  }
+  #nav .hover-panel > a b { display:block !important; white-space:normal !important; }
+  #nav .industry-panel { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  #nav .detail-panel { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  #nav .contact-detail-panel { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  #nav .contact-detail-panel .about-panel-intro { grid-column:1/-1 !important; }
+}
+@media (max-width:820px) {
+  #nav .hover-panel > a small {
+    display:block !important; visibility:visible !important; opacity:1 !important;
+    white-space:normal !important; height:auto !important; max-height:none !important;
+  }
+}
+</style>
+
+
+<style id="bhumaji-enterprise-redesign-v1">
+/* Bhumaji Systems: enterprise digital consulting visual system. */
+:root{
+  --bs-ink:#10233f;--bs-navy:#08172d;--bs-blue:#1769e0;--bs-cyan:#19c6d7;
+  --bs-text:#52627a;--bs-muted:#71819a;--bs-line:#e1e8f1;--bs-cloud:#f5f8fc;
+}
+html{scroll-padding-top:92px}
+body{color:var(--bs-text);background:#fff;font-size:15px;line-height:1.72}
+.wrap{width:min(1240px,calc(100% - 64px))}
+section{padding:clamp(76px,8vw,112px) 0}
+h1,h2,h3{color:var(--bs-ink);letter-spacing:-.045em}
+h2{font-size:clamp(32px,4vw,48px);line-height:1.12;font-weight:700;max-width:850px}
+h3{line-height:1.25}
+p{line-height:1.75}
+.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:750;color:var(--bs-blue)}
+.eyebrow:before{width:24px;background:var(--bs-cyan)}
+.head{max-width:850px;margin-bottom:48px}
+.head .lead{font-size:17px;color:#64748b;max-width:760px}
+.site-header{background:rgba(255,255,255,.96)!important;border-bottom:1px solid #e8edf4!important;box-shadow:0 4px 24px rgba(8,23,45,.035)}
+.site-header .nav-wrap{width:min(1320px,calc(100% - 64px));min-height:88px!important;padding-top:8px!important;padding-bottom:8px!important;gap:28px!important}
+.site-header.compact .nav-wrap{min-height:76px!important}
+.site-header .brand{flex:0 0 220px!important;width:220px!important;min-width:220px!important;align-items:flex-start!important;text-align:left!important}
+.site-header .brand img{width:215px!important;height:42px!important;object-position:left center!important;clip-path:none!important}
+.site-header.compact .brand img{height:38px!important}
+.site-header nav ul{gap:clamp(12px,1.5vw,24px)!important}
+.site-header nav>ul>li>a{font-size:13px!important;font-weight:650!important;letter-spacing:-.01em;color:#21344f!important}
+.site-header nav>ul>li>a:hover{color:var(--bs-blue)!important}
+.site-header nav .nav-cta{background:var(--bs-blue)!important;color:#fff!important;border:1px solid var(--bs-blue)!important;border-radius:5px!important;padding:11px 17px!important}
+.site-header nav .nav-cta:hover{background:#0e53bd!important}
+.hero.cinematic-hero{position:relative;background:#08172d!important;min-height:0!important;padding:0!important;overflow:hidden!important}
+.hero.cinematic-hero:before{content:""!important;position:absolute!important;inset:0!important;background-image:linear-gradient(90deg,rgba(5,15,32,.98) 0%,rgba(5,15,32,.9) 45%,rgba(5,15,32,.54) 100%),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2200&q=85')!important;background-size:cover!important;background-position:center!important;opacity:1!important;animation:none!important}
+.hero.cinematic-hero:after{content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(0deg,rgba(5,15,32,.88),transparent 45%)!important;pointer-events:none!important}
+.hero.cinematic-hero>.wrap{position:relative!important;z-index:1!important;width:min(1240px,calc(100% - 64px))!important;min-height:570px!important;display:grid!important;grid-template-columns:minmax(0,1.12fr) minmax(330px,.72fr)!important;gap:clamp(40px,7vw,100px)!important;align-items:center!important;padding:92px 0 74px!important}
+.hero.cinematic-hero .eyebrow{color:#8ce8f0!important;font-size:11px!important;letter-spacing:.18em!important}
+.hero.cinematic-hero .eyebrow:before{background:var(--bs-cyan)!important}
+.hero.cinematic-hero h1{font-size:clamp(44px,6vw,76px)!important;line-height:1.015!important;letter-spacing:-.065em!important;font-weight:650!important;max-width:760px!important;margin:0 0 25px!important}
+.hero.cinematic-hero .hero-highlight{color:#8ce8f0!important;background:none!important;-webkit-text-fill-color:#8ce8f0!important}
+.hero.cinematic-hero p.lead{max-width:670px!important;font-size:17px!important;line-height:1.8!important;color:#c6d3e5!important;margin:0!important}
+.hero.cinematic-hero p.lead strong{color:#fff!important}
+.hero.cinematic-hero .cta{gap:13px!important;margin-top:32px!important}
+.hero.cinematic-hero .btn{min-height:48px!important;border-radius:5px!important;padding:13px 20px!important;font-size:13px!important;font-weight:700!important}
+.hero.cinematic-hero .btn-primary{background:var(--bs-blue)!important;border-color:var(--bs-blue)!important;color:#fff!important}
+.hero.cinematic-hero .btn-primary:hover{background:#0f55c0!important}
+.hero.cinematic-hero .btn-ghost{border-color:rgba(255,255,255,.42)!important;color:#fff!important;background:rgba(255,255,255,.035)!important}
+.hero.cinematic-hero .btn-ghost:hover{background:rgba(255,255,255,.12)!important}
+.hero.cinematic-hero .panel{background:rgba(8,23,45,.74)!important;border:1px solid rgba(163,190,222,.3)!important;border-radius:10px!important;padding:27px!important;box-shadow:0 28px 90px rgba(0,0,0,.25)!important;backdrop-filter:blur(16px)!important}
+.hero.cinematic-hero .panel:before{content:"BHUMAJI SYSTEMS / CAPABILITIES"!important;display:block!important;font:700 10px ui-monospace,monospace!important;letter-spacing:.16em!important;color:#8ce8f0!important;border-bottom:1px solid rgba(255,255,255,.14)!important;padding-bottom:18px!important;margin-bottom:4px!important}
+.hero.cinematic-hero .panel h4{color:#8ce8f0!important;font-size:10px!important;letter-spacing:.15em!important}
+.hero.cinematic-hero .panel .row{padding:17px 0!important;border-color:rgba(255,255,255,.12)!important;gap:14px!important}
+.hero.cinematic-hero .panel .n{color:#8ce8f0!important;font:12px ui-monospace,monospace!important}
+.hero.cinematic-hero .panel b{font-size:13px!important;color:#fff!important;font-weight:650!important}
+.hero.cinematic-hero .panel span{display:block!important;font-size:11px!important;line-height:1.6!important;color:#b8c8dd!important;margin-top:3px!important}
+.hero.cinematic-hero .stats{position:relative!important;z-index:1!important;margin-top:0!important;background:rgba(4,12,25,.72)!important;border-top:1px solid rgba(255,255,255,.14)!important}
+.hero.cinematic-hero .stats .wrap{width:min(1240px,calc(100% - 64px))!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;padding:0!important;gap:0!important}
+.hero.cinematic-hero .stat{padding:22px 26px!important;border-left:1px solid rgba(255,255,255,.13)!important}
+.hero.cinematic-hero .stat:first-child{padding-left:0!important;border-left:0!important}
+.hero.cinematic-hero .stat b{font-size:20px!important;font-weight:650!important;letter-spacing:-.03em!important}
+.hero.cinematic-hero .stat span{font-size:11px!important;color:#b7c6da!important}
+.grid{gap:20px!important}
+.card{border:1px solid var(--bs-line)!important;border-radius:8px!important;padding:29px!important;box-shadow:none!important;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease!important}
+.card:hover{border-color:#b8d4f7!important;box-shadow:0 18px 48px rgba(16,35,63,.09)!important;transform:translateY(-4px)!important}
+.card .ic{width:44px!important;height:44px!important;border-radius:8px!important;background:#eaf4ff!important;color:var(--bs-blue)!important}
+.card .num{font:600 11px ui-monospace,monospace!important;color:#9aa9bd!important}
+.card h3{font-size:18px!important;letter-spacing:-.03em!important}
+.card p{font-size:14px!important;color:#5f6f86!important}
+.tags{gap:6px!important}
+.tags span{font-size:10px!important;letter-spacing:.015em!important;border-radius:3px!important;background:#f4f7fb!important;border-color:#e4eaf2!important;color:#334b69!important}
+.link{color:var(--bs-blue)!important;font-size:13px!important;font-weight:700!important}
+.alt{background:#f5f8fc!important}
+.industry-detail-grid{gap:16px!important}
+.industry-detail-grid article{background:#fff!important;border:1px solid var(--bs-line)!important;border-radius:8px!important;padding:27px!important;transition:transform .2s,border-color .2s,box-shadow .2s!important}
+.industry-detail-grid article:hover{transform:translateY(-3px)!important;border-color:#b8d4f7!important;box-shadow:0 14px 34px rgba(16,35,63,.07)!important}
+.industry-detail-grid article>span{font:700 10px ui-monospace,monospace!important;letter-spacing:.1em!important;color:var(--bs-blue)!important}
+.industry-detail-grid article h3{font-size:19px!important;margin:15px 0 10px!important}
+.industry-detail-grid article p{font-size:13px!important;color:#5f6f86!important}
+.service-outcomes{border-top:1px solid var(--bs-line)!important;border-bottom:1px solid var(--bs-line)!important;margin-top:38px!important;padding:24px 0!important;gap:34px!important}
+.service-outcomes b{font-size:13px!important;color:var(--bs-ink)!important}
+.service-outcomes span{font-size:13px!important;color:#64748b!important}
+.steps,.ide,.quote,.mail,.sd,.shot,.aiv{border-radius:8px!important}
+.approach{background:#09182f!important}
+.approach h2,.approach h3{color:#fff!important}
+.approach p,.approach .lead{color:#c1cee0!important}
+.approach .eyebrow{color:#8ce8f0!important}
+.approach .eyebrow:before{background:var(--bs-cyan)!important}
+.approach .pill{background:#101f38!important;border-color:#2a3b55!important;border-radius:6px!important}
+.approach .pill b{color:#8ce8f0!important}
+footer.bs-enterprise-footer{background:#071326!important;color:#b9c7d9!important;border-top:1px solid #1f324b!important}
+footer .bs-footer-main{gap:42px!important;padding-top:60px!important;padding-bottom:44px!important}
+footer .bs-footer-wordmark{color:#fff!important;font-size:22px!important;font-weight:700!important;letter-spacing:-.04em!important}
+footer .bs-footer-brand p{color:#aabbd0!important}
+footer .bs-footer-column h3{color:#fff!important;font-size:12px!important;text-transform:uppercase!important;letter-spacing:.1em!important}
+footer .bs-footer-column a{color:#b8c7d9!important;font-size:12px!important}
+footer .bs-footer-column a:hover{color:#8ce8f0!important}
+footer .bs-socials a{background:#11233d!important;border-color:#2b405c!important}
+footer .bs-socials a:hover{background:#173b65!important}
+footer .bs-footer-bottom{border-color:#20334d!important}
+footer .bs-footer-bottom,footer .bs-footer-bottom a{color:#8fa2bc!important}
+@media(max-width:1120px){
+ .site-header .nav-wrap{width:calc(100% - 40px)!important;gap:16px!important}
+ .site-header .brand{flex:0 0 185px!important;width:185px!important;min-width:185px!important}
+ .site-header .brand img{width:180px!important;height:36px!important}
+ .site-header nav ul{gap:10px!important}
+ .site-header nav>ul>li>a{font-size:11px!important}
+ .hero.cinematic-hero>.wrap{grid-template-columns:minmax(0,1fr)!important;gap:32px!important;padding:78px 0 52px!important;min-height:0!important}
+ .hero.cinematic-hero .panel{max-width:680px!important}
+}
+@media(max-width:820px){
+ .wrap,.hero.cinematic-hero>.wrap,.hero.cinematic-hero .stats .wrap{width:calc(100% - 36px)!important}
+ .site-header .nav-wrap{width:calc(100% - 36px)!important;min-height:74px!important}
+ .site-header .brand{flex:0 0 176px!important;width:176px!important;min-width:176px!important}
+ .site-header .brand img{width:174px!important;height:34px!important}
+ .site-header .burger{display:block!important;color:var(--bs-ink)!important}
+ .site-header nav{background:#fff!important;border-bottom:1px solid var(--bs-line)!important;box-shadow:0 24px 35px rgba(8,23,45,.12)!important}
+ .site-header nav ul{gap:2px!important}
+ .site-header nav>ul>li>a{font-size:14px!important;color:var(--bs-ink)!important}
+ .hero.cinematic-hero>.wrap{padding:68px 0 42px!important;gap:28px!important}
+ .hero.cinematic-hero h1{font-size:clamp(40px,10vw,58px)!important}
+ .hero.cinematic-hero p.lead{font-size:15px!important}
+ .hero.cinematic-hero .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .hero.cinematic-hero .stat{padding:17px 14px!important;border-top:1px solid rgba(255,255,255,.12)!important}
+ .hero.cinematic-hero .stat:nth-child(odd){border-left:0!important;padding-left:0!important}
+ .g4,.g3,.g2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .industry-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ section{padding:70px 0!important}
+}
+@media(max-width:560px){
+ .g4,.g3,.g2,.industry-detail-grid{grid-template-columns:1fr!important}
+ .hero.cinematic-hero h1{font-size:39px!important}
+ .hero.cinematic-hero .cta{align-items:stretch!important;flex-direction:column!important}
+ .hero.cinematic-hero .cta .btn{justify-content:center!important}
+ .hero.cinematic-hero .panel{padding:20px!important}
+ .hero.cinematic-hero .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .hero.cinematic-hero .stat b{font-size:17px!important}
+ .head{margin-bottom:32px!important}
+ .card{padding:24px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+
+<style id="bhumaji-service-outcomes-labels">
+/* Keep service outcome panels consistent without repeating generic labels. */
+.cloud-detail-section .service-outcomes{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:18px!important;
+  align-items:stretch!important;
+}
+.cloud-detail-section .service-outcomes>div{
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:8px!important;
+  padding:24px!important;
+  background:#f6f9fc!important;
+  border:1px solid #dce5ef!important;
+  border-radius:7px!important;
+}
+.cloud-detail-section .service-outcomes>div b{
+  color:#10233f!important;
+  font-size:13px!important;
+  line-height:1.5!important;
+  font-weight:750!important;
+}
+.cloud-detail-section .service-outcomes>div span{
+  display:block!important;
+  color:#52627a!important;
+  font-size:13px!important;
+  line-height:1.75!important;
+}
+@media(max-width:700px){
+  .cloud-detail-section .service-outcomes{grid-template-columns:1fr!important;gap:12px!important}
+  .cloud-detail-section .service-outcomes>div{padding:19px!important}
+}
+</style>
+
+
+<style id="bhumaji-enterprise-contact-form">
+#contact.alt{position:relative;isolation:isolate;overflow:hidden;background:#101116!important;color:#e6eaf1!important}
+#contact.alt:after{content:"";position:absolute;z-index:-1;right:-180px;top:-110px;width:440px;height:680px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(77,58,142,.5) 0%,rgba(77,58,142,.16) 52%,transparent 72%);pointer-events:none}
+#contact .wrap.contact{position:relative;z-index:1;display:grid!important;grid-template-columns:minmax(260px,.72fr) minmax(0,1.5fr)!important;gap:clamp(36px,6vw,90px)!important;align-items:start!important}
+#contact .eyebrow{color:#67e8f9!important}
+#contact h2,#contact h3{color:#fff!important}
+#contact .lead{color:#b7c0cf!important}
+#contact .mail{background:rgba(255,255,255,.045)!important;border:1px solid #303541!important;border-radius:8px!important;padding:18px!important}
+#contact .mail a{color:#8ce8f0!important}
+#contact .note{color:#9ca8ba!important;font-size:12px!important}
+#contact .enterprise-contact-form{padding:clamp(24px,3.5vw,44px)!important;background:rgba(20,21,27,.92)!important;border:1px solid #343640!important;border-radius:10px!important;box-shadow:0 24px 80px rgba(0,0,0,.2)!important;min-width:0!important}
+#contact .enterprise-form-heading{margin-bottom:28px!important}
+#contact .form-kicker{display:block;color:#6fe6f2!important;font-size:10px!important;font-weight:800!important;letter-spacing:.17em!important;margin-bottom:10px!important}
+#contact .enterprise-form-heading h3{font-size:clamp(24px,3vw,34px)!important;line-height:1.15!important;letter-spacing:-.04em!important;margin:0 0 10px!important}
+#contact .enterprise-form-heading p{color:#aeb8c8!important;font-size:13px!important;margin:0!important}
+#contact .enterprise-form-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:clamp(18px,3vw,38px)!important;row-gap:22px!important}
+#contact .enterprise-form-grid .f{display:flex!important;flex-direction:column!important;gap:8px!important;min-width:0!important;margin:0!important}
+#contact .enterprise-form-grid label{font-size:13px!important;font-weight:650!important;color:#e0e5ee!important;line-height:1.4!important}
+#contact .enterprise-form-grid input,#contact .enterprise-form-grid select,#contact .enterprise-form-grid textarea{
+  width:100%!important;min-width:0!important;min-height:43px!important;padding:9px 2px 11px!important;
+  border:0!important;border-bottom:1px solid #697181!important;border-radius:0!important;
+  background:transparent!important;color:#fff!important;font:inherit!important;font-size:14px!important;
+  box-shadow:none!important;outline-offset:4px!important;appearance:auto!important;
+}
+#contact .enterprise-form-grid input::placeholder,#contact .enterprise-form-grid textarea::placeholder{color:#7f899a!important;opacity:1!important}
+#contact .enterprise-form-grid input:focus,#contact .enterprise-form-grid select:focus,#contact .enterprise-form-grid textarea:focus{border-bottom-color:#6fe6f2!important;outline:0!important}
+#contact .enterprise-form-grid select{color-scheme:dark!important;cursor:pointer!important}
+#contact .enterprise-form-grid select option{background:#171a22!important;color:#fff!important}
+#contact .enterprise-form-grid textarea{resize:vertical!important;min-height:70px!important;line-height:1.65!important}
+#contact .enterprise-message-field{grid-column:1/-1!important}
+#contact .enterprise-form-consent{display:grid!important;gap:14px!important;margin:26px 0 22px!important}
+#contact .consent-line{display:grid!important;grid-template-columns:18px minmax(0,1fr)!important;gap:10px!important;align-items:start!important;color:#c2c9d4!important;font-size:12px!important;line-height:1.7!important;cursor:pointer!important}
+#contact .consent-line input{width:17px!important;height:17px!important;margin:2px 0 0!important;accent-color:#1769e0!important}
+#contact .consent-line.optional{color:#9da8b9!important}
+#contact .enterprise-submit{display:inline-flex!important;justify-content:center!important;align-items:center!important;gap:20px!important;min-width:170px!important;min-height:48px!important;padding:13px 20px!important;border:1px solid #2878ec!important;border-radius:4px!important;background:#1769e0!important;color:#fff!important;font-size:14px!important;font-weight:750!important}
+#contact .enterprise-submit:hover{background:#0e54bd!important}
+#contact .enterprise-form-footnote{font-size:11px!important;color:#8e99aa!important;line-height:1.6!important;margin:16px 0 0!important}
+#contact .enterprise-form-footnote a{color:#8ce8f0!important;text-decoration:underline!important}
+@media(max-width:900px){#contact .wrap.contact{grid-template-columns:1fr!important;gap:32px!important}#contact .wrap.contact>div:first-child{max-width:680px!important}}
+@media(max-width:560px){#contact .enterprise-contact-form{padding:23px 18px!important}#contact .enterprise-form-grid{grid-template-columns:1fr!important;row-gap:18px!important}#contact .enterprise-message-field{grid-column:auto!important}#contact .enterprise-form-heading{margin-bottom:23px!important}}
+</style>
+
+</head>
+<body id="top">
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Cloud · Software · Platform Engineering</span>
+    <a href="mailto:contactus@bhumaji.com">✉ contactus@bhumaji.com</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap nav-wrap">
+    <a href="#top" class="brand" aria-label="Bhumaji Systems home">
+      <img src="/assets/bhumaji-final.png?v=3" alt="Bhumaji Systems — Cloud, DevOps and Engineering" class="modern-brand-logo">
+    </a>
+    <button class="burger" aria-label="Open navigation" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
+    <nav id="nav" aria-label="Main navigation">
+<ul>
+<li class="hover-info"><a href="#capabilities">What We Do</a><div class="hover-panel detail-panel" aria-label="What we do">
+<a class="detail-item" href="#cloud"><b>Cloud &amp; Infrastructure</b><small>AWS architecture, VPC and networking, IAM, secure landing zones, high availability, backups, monitoring and cost optimization.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>DevOps &amp; Automation</b><small>CI/CD pipelines, GitHub Actions, Jenkins, Terraform, Docker, Kubernetes, GitOps with Argo CD and automated release workflows.</small><span>↗</span></a>
+<a class="detail-item" href="#migration"><b>Migration &amp; Modernization</b><small>Cloud readiness assessments, application and database migration, infrastructure modernization, cutover planning, validation and rollback strategies.</small><span>↗</span></a>
+<a class="detail-item" href="#ai"><b>AI &amp; Intelligent Operations</b><small>Prometheus and Grafana observability, logs and traces, alerting, incident insights, AIOps opportunities and practical AI/ML platform enablement.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info cloud-services-hover"><a href="#cloud">Cloud Services</a><div class="hover-panel cloud-services-panel" aria-label="Cloud services">
+<a class="cloud-service-item" href="#cloud"><b>AWS Cloud Setup</b><small>Plan and configure AWS accounts, VPCs, subnets, routing, IAM roles and secure baseline infrastructure for a reliable start.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#migration"><b>Cloud Migration</b><small>Map dependencies, choose a migration approach, plan cutover, validate workloads and optimize performance and spend after migration.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cloud-security"><b>Cloud Security &amp; Reliability</b><small>Apply least-privilege access, security controls, logging, backup policies, recovery testing and reliability practices.</small><span>↗</span></a>
+<a class="cloud-service-item" href="#cost-optimization"><b>Cost Optimization</b><small>Review usage and billing, right-size compute and storage, improve scaling and create budgets and cost alerts.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info industries-hover"><a href="#industries">Industries</a><div class="hover-panel industry-panel" aria-label="Industries we support">
+<a class="industry-item" href="#industry-finance"><b>Banking, Finance &amp; Insurance</b><small>Design secure environments with controlled access, audit trails, resilient data services and operational visibility for regulated workloads.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-healthcare"><b>Healthcare</b><small>Support secure patient-facing applications, privacy-aware data flows, dependable APIs and resilient healthcare workloads.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-manufacturing"><b>Manufacturing</b><small>Support factory and business systems with dependable connectivity, automated deployments, data integration and scalable analytics.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-media"><b>Media &amp; Entertainment</b><small>Scale streaming, publishing and media workflows with content delivery, storage, resilient services and traffic-aware infrastructure.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-gaming"><b>Gaming</b><small>Support game APIs, matchmaking and player services with repeatable releases, monitoring and demand-based scaling.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-real-estate"><b>Real Estate</b><small>Improve property listings, customer portals and business integrations with secure hosting, reliable APIs and streamlined data workflows.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-hiring"><b>Hiring &amp; Recruitment</b><small>Keep job portals, applicant tracking integrations and candidate workflows responsive, secure and available.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-hospitality"><b>Hospitality</b><small>Support booking engines, guest applications and operational integrations with reliable services and safe, repeatable deployments.</small><span>↗</span></a>
+<a class="industry-item" href="#industry-ecommerce"><b>E-commerce</b><small>Improve storefront performance, cart and order reliability, secure payment integrations and release readiness for peak campaigns.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info"><a href="#engineering">Engineering</a><div class="hover-panel detail-panel" aria-label="Engineering services">
+<a class="detail-item" href="#ai"><b>AI Engineering</b><small>Connect AI models and APIs to business workflows with evaluation, deployment, monitoring and responsible operational controls.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Full Stack Engineering</b><small>Deliver end-to-end product features across user interfaces, APIs, data models, integrations and production deployment.</small><span>↗</span></a>
+<a class="detail-item" href="#mobile"><b>Mobile Engineering</b><small>Build mobile app experiences that connect securely to APIs, handle app releases and support reliable performance.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Web Engineering</b><small>Create responsive websites and web apps with clear navigation, accessible interfaces, performance tuning and maintainable code.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Backend Engineering</b><small>Develop well-structured APIs, service boundaries, database access, authentication and dependable integrations.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>DevOps Engineering</b><small>Automate build, test and deployment workflows, manage infrastructure as code and improve rollback and release safety.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>UI/UX Engineering</b><small>Translate user journeys and design prototypes into accessible, responsive interfaces with consistent interaction patterns.</small><span>↗</span></a>
+<a class="detail-item" href="#software"><b>Design Engineering</b><small>Create reusable components, shared UI patterns and design tokens that keep products consistent and easier to maintain.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>QA Engineering</b><small>Build test strategies across API, UI, integration and regression checks so releases are more predictable.</small><span>↗</span></a>
+<a class="detail-item" href="#engineering"><b>IoT Engineering</b><small>Plan device connectivity, telemetry ingestion, secure messaging and cloud data flows for connected products.</small><span>↗</span></a>
+<a class="detail-item" href="#approach"><b>Business Analysis</b><small>Translate stakeholder needs into clear requirements, user stories, process flows and testable acceptance criteria.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info"><a href="#insights">Insights</a><div class="hover-panel detail-panel" aria-label="Insights">
+<a class="detail-item" href="#our-work"><b>Project Showcases</b><small>Explore project examples that demonstrate architecture decisions, implementation choices and delivery outcomes.</small><span>↗</span></a>
+<a class="detail-item" href="#insights"><b>Cloud Guides</b><small>Read approachable guides on cloud architecture, account security, networking, migration planning and cloud spend.</small><span>↗</span></a>
+<a class="detail-item" href="#insights"><b>DevOps Articles</b><small>Explore delivery patterns, deployment strategies, Terraform practices, Kubernetes operations and automation lessons.</small><span>↗</span></a>
+<a class="detail-item" href="#insights"><b>Observability &amp; AI</b><small>Learn how metrics, logs, traces, alerting and AI-assisted insights can support faster troubleshooting.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info"><a href="#approach">About Us</a><div class="hover-panel detail-panel about-detail-panel" aria-label="About Bhumaji Systems">
+<div class="about-panel-intro"><b>Engineering for what’s next.</b><p>Bhumaji Systems helps teams build, migrate and operate secure, dependable digital platforms.</p></div>
+<a class="detail-item" href="#approach"><b>Our Approach</b><small>We align scope and priorities early, explain trade-offs clearly and deliver in manageable, reviewable steps.</small><span>↗</span></a>
+<a class="detail-item" href="#our-work"><b>Our Work</b><small>See hands-on work across cloud infrastructure, Kubernetes, CI/CD, observability and application engineering.</small><span>↗</span></a>
+</div></li>
+<li class="hover-info contact-hover"><a href="#contact" class="nav-cta">Contact Us</a><div class="hover-panel detail-panel contact-detail-panel" aria-label="Contact Bhumaji Systems">
+<div class="about-panel-intro"><b>Let’s discuss your next project.</b><p>Tell us about your cloud, DevOps, migration or software engineering goals. We’ll help identify practical next steps.</p></div>
+<a class="detail-item" href="mailto:contactus@bhumaji.com"><b>Email our team</b><small>contactus@bhumaji.com — share your requirements and preferred timeline.</small><span>↗</span></a>
+<a class="detail-item" href="#contact"><b>Request a consultation</b><small>Use the contact form to describe your challenge and the support you need.</small><span>↗</span></a>
+</div></li>
+</ul>
+</nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero cinematic-hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Cloud · Digital Engineering · Intelligent Operations</div>
+      <h1>Technology that moves your business <span class="hero-highlight">forward.</span></h1>
+      <p class="lead">We help ambitious teams modernize infrastructure, engineer digital experiences and build dependable platforms—with cloud, automation and software solutions designed around real business outcomes.</p>
+      <div class="cta">
+        <a href="#capabilities" class="btn btn-primary">Explore our capabilities <span>↗</span></a>
+        <a href="#contact" class="btn btn-ghost">Start a conversation <span>↗</span></a>
+      </div>
+    </div>
+    <div class="panel">
+      <h4>From cloud foundations to reliable operations</h4>
+      <div class="row"><div class="n">01</div><div><b>Cloud architecture & migration</b><span>Secure foundations, landing zones, modernization</span></div></div>
+      <div class="row"><div class="n">02</div><div><b>DevOps & platform engineering</b><span>Kubernetes · Terraform · CI/CD · GitOps</span></div></div>
+      <div class="row"><div class="n">03</div><div><b>Reliability & cost optimization</b><span>Observability · resilience · cloud spend</span></div></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>3</b><span>Cloud platforms</span></div>
+      <div class="stat"><b>End-to-end</b><span>Plan · build · migrate · operate</span></div>
+      <div class="stat"><b>Cloud-first</b><span>Secure, scalable foundations</span></div>
+      <div class="stat"><b>Outcome-led</b><span>Solutions shaped around your goals</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CAPABILITIES -->
+<section id="capabilities"><div class="wrap"><div class="head"><div class="eyebrow">What We Do</div><h2>Practical engineering from cloud foundation to production.</h2><p class="lead">Bhumaji Systems helps startups, growing businesses and software agencies design, build, migrate and operate dependable digital platforms. Bring us a specific challenge or use us as an engineering partner across the lifecycle.</p></div>
+<div class="grid g4">
+<article class="card"><span class="num">01</span><div class="ic">☁</div><h3>Cloud &amp; Infrastructure</h3><p>Build a secure cloud foundation, modernize infrastructure and make environments easier to operate.</p><div class="tags"><span>AWS</span><span>Azure</span><span>GCP</span><span>Networking</span></div><a class="link" href="#cloud">Explore cloud setup →</a></article>
+<article class="card"><span class="num">02</span><div class="ic">⇢</div><h3>Migration &amp; Modernization</h3><p>Move applications, servers and databases with assessment, migration waves, cutover planning and validation.</p><div class="tags"><span>Discovery</span><span>Migration</span><span>Modernization</span></div><a class="link" href="#migration">Explore migration →</a></article>
+<article class="card"><span class="num">03</span><div class="ic">⚙</div><h3>DevOps &amp; Platform Engineering</h3><p>Automate builds and deployments, provision infrastructure as code, and improve developer delivery workflows.</p><div class="tags"><span>Terraform</span><span>CI/CD</span><span>Kubernetes</span><span>GitOps</span></div><a class="link" href="#engineering">Explore DevOps →</a></article>
+<article class="card"><span class="num">04</span><div class="ic">◉</div><h3>Reliability &amp; Optimization</h3><p>Improve observability, incident readiness, backup and recovery, security posture and cloud cost visibility.</p><div class="tags"><span>Monitoring</span><span>Security</span><span>FinOps</span></div><a class="link" href="#cloud-security">Explore reliability →</a></article>
+</div>
+<div class="service-outcomes"><div><b>How we engage</b><span>Focused assessments, defined implementation projects, migration engagements or ongoing engineering support.</span></div><div><b>How we measure progress</b><span>Agreed scope, documented decisions, tested changes, clear handover and improvements tied to your business priorities.</span></div></div>
+</div></section>
+<section id="industries" class="alt"><div class="wrap"><div class="head"><div class="eyebrow">Industries</div><h2>Cloud and engineering shaped around your industry.</h2><p class="lead">Different industries have different workloads, risks and customer expectations. We tailor cloud foundations, security, delivery automation and reliability practices to the systems your business depends on.</p></div>
+<div class="industry-detail-grid">
+<article id="industry-finance"><span>01 / FINANCIAL SERVICES</span><h3>Banking, Finance &amp; Insurance</h3><p>Build controlled, auditable infrastructure with least-privilege access, encryption, resilient data services, clear change history and operational monitoring. We help teams plan for security and governance requirements without assuming one compliance model fits every organization.</p><div class="tags"><span>IAM</span><span>Audit logging</span><span>Resilience</span></div><a class="link" href="#contact">Discuss financial workloads →</a></article>
+<article id="industry-healthcare"><span>02 / HEALTHCARE</span><h3>Healthcare</h3><p>Support patient-facing applications and sensitive workloads with access controls, encrypted data paths, backup strategies, careful release processes and dependable service monitoring. Requirements are reviewed with your compliance and security stakeholders.</p><div class="tags"><span>Privacy</span><span>Security</span><span>Availability</span></div><a class="link" href="#contact">Discuss healthcare systems →</a></article>
+<article id="industry-manufacturing"><span>03 / INDUSTRY 4.0</span><h3>Manufacturing</h3><p>Connect business applications, reporting systems and operational data with stable infrastructure, controlled integrations, automation and monitoring. Plan connectivity and recovery around the realities of production operations.</p><div class="tags"><span>Integration</span><span>Data pipelines</span><span>Automation</span></div><a class="link" href="#contact">Discuss manufacturing systems →</a></article>
+<article id="industry-media"><span>04 / DIGITAL CONTENT</span><h3>Media &amp; Entertainment</h3><p>Design platforms that handle variable traffic, media assets and audience-facing services. Improve delivery, caching, deployment workflows and visibility during campaigns, launches and demand spikes.</p><div class="tags"><span>Scalability</span><span>Content delivery</span><span>Observability</span></div><a class="link" href="#contact">Discuss media platforms →</a></article>
+<article id="industry-gaming"><span>05 / INTERACTIVE PLATFORMS</span><h3>Gaming</h3><p>Support game backends, player accounts, APIs and event-driven workloads with scalable deployment patterns, automated releases, performance monitoring and recovery planning.</p><div class="tags"><span>Cloud-native</span><span>APIs</span><span>CI/CD</span></div><a class="link" href="#contact">Discuss gaming infrastructure →</a></article>
+<article id="industry-real-estate"><span>06 / PROPERTY TECHNOLOGY</span><h3>Real Estate</h3><p>Modernize property listings, customer portals, internal workflows and integrations with secure hosting, dependable databases, access controls and straightforward release processes.</p><div class="tags"><span>Web platforms</span><span>Data</span><span>Security</span></div><a class="link" href="#contact">Discuss property platforms →</a></article>
+<article id="industry-hiring"><span>07 / TALENT TECHNOLOGY</span><h3>Hiring &amp; Recruitment</h3><p>Keep candidate portals, recruitment workflows and integrations dependable with reliable APIs, access management, automated deployments, backups and actionable application monitoring.</p><div class="tags"><span>Portals</span><span>APIs</span><span>Monitoring</span></div><a class="link" href="#contact">Discuss recruitment systems →</a></article>
+<article id="industry-hospitality"><span>08 / GUEST EXPERIENCE</span><h3>Hospitality</h3><p>Support booking, guest-service and business systems with stable application hosting, integration reliability, sensible data protection and release processes designed to minimize disruption.</p><div class="tags"><span>Booking</span><span>Integrations</span><span>Availability</span></div><a class="link" href="#contact">Discuss hospitality systems →</a></article>
+<article id="industry-ecommerce"><span>09 / DIGITAL COMMERCE</span><h3>E-commerce</h3><p>Prepare storefronts, catalogues, checkout and order services for traffic peaks. Improve deployment safety, observability, backup practices and cloud cost controls while protecting customer-facing availability.</p><div class="tags"><span>Scalability</span><span>Release safety</span><span>Cost control</span></div><a class="link" href="#contact">Discuss e-commerce infrastructure →</a></article>
+</div><div class="service-outcomes"><div><b>Not sure where you fit?</b><span>Tell us about your product, systems and constraints. We can help identify a practical starting point.</span></div><div><b>Our focus</b><span>Useful engineering, clear trade-offs and services scaled to your actual needs—not industry buzzwords.</span></div></div></div></section>
+
+
+<!-- CLOUD -->
+<section id="cloud" class="alt cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 01</div><h2>A secure AWS foundation, built around your business.</h2><p class="lead">We help startups, growing businesses and software teams set up AWS environments that are secure, maintainable and ready for real workloads. Start with the essentials, document the decisions, and build a foundation your team can confidently operate.</p></div>
+<div class="cloud-service-layout"><div class="cloud-service-main"><div class="service-kicker">AWS CLOUD SETUP</div><h3>From first account to production-ready cloud.</h3><p>Whether launching a new application or standardizing an existing AWS account, we plan the core infrastructure, identity, networking, security and operational visibility together—not as disconnected tasks.</p>
+<div class="service-check-grid"><div><b>Account &amp; access setup</b><span>AWS account structure, IAM roles, least-privilege permissions and MFA guidance.</span></div><div><b>Network foundation</b><span>VPC design, public and private subnets, routing, security groups and connectivity.</span></div><div><b>Compute &amp; application hosting</b><span>EC2, containers, managed services or serverless options selected for your workload.</span></div><div><b>Security &amp; observability</b><span>Encryption, logging, monitoring, alerts, backup planning and baseline guardrails.</span></div><div><b>Infrastructure as Code</b><span>Terraform-based provisioning where suitable, with reviewable and repeatable changes.</span></div><div><b>Cost visibility</b><span>Budgets, tagging, usage visibility and practical recommendations to avoid waste.</span></div></div></div>
+<aside class="service-side-panel"><span class="service-status">DELIVERY OUTLINE</span><ol><li><b>Discover</b><span>Understand the application, users, risk and constraints.</span></li><li><b>Design</b><span>Agree on architecture, access, network and operating model.</span></li><li><b>Build</b><span>Provision, configure and document the environment.</span></li><li><b>Validate</b><span>Test access, connectivity, monitoring, recovery and handover.</span></li></ol><a class="btn btn-primary" href="#contact">Plan your AWS setup →</a></aside></div>
+<div class="service-outcomes"><div><b>Setup deliverables</b><span>Architecture notes, configured cloud resources, infrastructure code where applicable, a security checklist and handover documentation.</span></div><div><b>Who it helps</b><span>Startups launching a product, businesses moving from a single server, and agencies needing a dependable cloud baseline.</span></div></div>
+</div></section>
+
+<!-- MIGRATION -->
+<section id="migration" class="cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 02</div><h2>Move workloads with a clear plan and controlled risk.</h2><p class="lead">Cloud migration is more than copying servers. We help you understand dependencies, choose the right migration approach, plan cutover and validate that applications and data work correctly after the move.</p></div>
+<div class="grid g3 migration-service-cards"><article class="card"><span class="num">01</span><h3>Infrastructure migration</h3><p>Assess servers, virtual machines, storage and network dependencies. Plan a practical move to AWS with target sizing and rollback considerations.</p><div class="tags"><span>EC2</span><span>VPC</span><span>Storage</span></div></article><article class="card"><span class="num">02</span><h3>Application modernization</h3><p>Choose between rehosting, replatforming, refactoring, replacing or retiring components based on value, effort and operational risk.</p><div class="tags"><span>Containers</span><span>Managed services</span><span>CI/CD</span></div></article><article class="card"><span class="num">03</span><h3>Database migration</h3><p>Plan data movement, replication, validation, performance checks, maintenance windows and cutover steps for supported database paths.</p><div class="tags"><span>PostgreSQL</span><span>Replication</span><span>Validation</span></div></article></div>
+<div class="migration-timeline"><div class="timeline-step"><i>01</i><b>Discover</b><span>Inventory applications, data, dependencies and constraints.</span></div><div class="timeline-step"><i>02</i><b>Assess</b><span>Identify risks, readiness, costs and target architecture.</span></div><div class="timeline-step"><i>03</i><b>Plan</b><span>Sequence waves, testing, communications and rollback.</span></div><div class="timeline-step"><i>04</i><b>Move</b><span>Execute migration and coordinate cutover windows.</span></div><div class="timeline-step"><i>05</i><b>Verify</b><span>Test functionality, data integrity, security and performance.</span></div><div class="timeline-step"><i>06</i><b>Optimize</b><span>Right-size resources and improve operations after launch.</span></div></div>
+<div class="service-outcomes"><div><b>Migration deliverables</b><span>Workload assessment, target-state plan, migration sequence, testing and cutover checklist, rollback plan and post-migration recommendations.</span></div><div><b>Our principle</b><span>No migration starts without agreed scope, recovery options, ownership and a way to verify success.</span></div></div><p class="service-cta-row"><a class="btn btn-primary" href="#contact">Discuss a migration →</a></p>
+</div></section>
+
+<!-- MOBILE -->
+<section id="cloud-security" class="alt cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 03</div><h2>Security and reliability built into everyday operations.</h2><p class="lead">Reduce avoidable cloud risk with sensible identity controls, network boundaries, monitoring, backup and recovery practices. We help make security actionable for your team—not just a checklist.</p></div>
+<div class="grid g3"><article class="card"><span class="num">01</span><h3>Identity &amp; access</h3><p>Review IAM roles and policies, least-privilege access, MFA, admin access patterns and credential handling.</p></article><article class="card"><span class="num">02</span><h3>Network &amp; data protection</h3><p>Review VPC boundaries, security groups, public exposure, encryption settings and secrets management.</p></article><article class="card"><span class="num">03</span><h3>Monitoring &amp; response</h3><p>Improve logs, metrics, alert routing and incident runbooks so teams can detect and investigate issues sooner.</p></article><article class="card"><span class="num">04</span><h3>Backup &amp; recovery</h3><p>Define backup coverage, retention, recovery objectives and practical restore tests for critical systems.</p></article><article class="card"><span class="num">05</span><h3>Reliability review</h3><p>Identify single points of failure, capacity risks, health checks and opportunities to improve availability.</p></article><article class="card"><span class="num">06</span><h3>Governance &amp; guardrails</h3><p>Introduce resource tagging, change review, baseline policies and clear ownership suited to your scale.</p></article></div>
+<div class="service-outcomes"><div><b>Security review outputs</b><span>Prioritized findings, remediation recommendations, an actionable hardening plan and operational runbooks where in scope.</span></div><div><b>How we work</b><span>We prioritize by exposure and business impact, agree on changes first, and avoid disruptive changes without a rollback plan.</span></div></div><p class="service-cta-row"><a class="btn btn-primary" href="#contact">Review my cloud environment →</a></p></div></section>
+<section id="cost-optimization" class="cloud-detail-section"><div class="wrap">
+<div class="head"><div class="eyebrow">Cloud Services · 04</div><h2>Make cloud spend visible, explainable and efficient.</h2><p class="lead">Cloud costs grow when resources are oversized, idle, poorly tagged or not aligned with usage. We help you understand where spend goes and prioritize changes that reduce waste without compromising reliability.</p></div>
+<div class="cost-feature-grid"><article><span class="cost-icon">01</span><h3>Understand spend</h3><p>Review billing trends, service-level costs, tags, environments and the main cost drivers.</p></article><article><span class="cost-icon">02</span><h3>Right-size resources</h3><p>Identify over-provisioned compute, unattached storage, idle resources and mismatched capacity.</p></article><article><span class="cost-icon">03</span><h3>Improve architecture</h3><p>Evaluate autoscaling, storage tiers, managed services and workload scheduling where appropriate.</p></article><article><span class="cost-icon">04</span><h3>Set guardrails</h3><p>Configure budgets, alerts, ownership tags and review routines to catch unexpected spend earlier.</p></article></div>
+<div class="cost-process"><div><b>01 · Baseline</b><span>Capture current spend and usage patterns.</span></div><div><b>02 · Prioritize</b><span>Rank opportunities by impact, risk and effort.</span></div><div><b>03 · Implement</b><span>Apply agreed changes with validation and rollback.</span></div><div><b>04 · Track</b><span>Compare results and establish ongoing reviews.</span></div></div>
+<div class="service-outcomes"><div><b>Optimization deliverables</b><span>A cost review, prioritized optimization backlog, budget and tagging recommendations, and a repeatable review cadence.</span></div><div><b>Our approach</b><span>Recommendations are workload-specific. We do not promise fixed savings before reviewing actual usage and constraints.</span></div></div><p class="service-cta-row"><a class="btn btn-primary" href="#contact">Review my cloud costs →</a></p></div></section>
+<section id="mobile" class="alt">
+  <div class="wrap split">
+    <div class="device">
+      <small>BHUMAJI · SOFTWARE DEVELOPMENT</small>
+      <div class="big">Build for every screen.</div>
+      <div class="phones" role="img" aria-label="Android and iOS smartphone home screens">
+      <figure class="phone android">
+        <div class="scr">
+          <i class="hole"></i>
+          <div class="sb"><b>9:30</b><span></span></div>
+          <div class="clock"><b>9:30</b><span>Tue, 27 Oct</span></div>
+          <div class="gsearch"><span>Search</span><em></em></div>
+          <div class="apps"><div class="app"><i style="--c:#3b82f6"><b>&#9993;</b></i><span>Mail</span></div><div class="app"><i style="--c:#f59e0b"><b>&#10047;</b></i><span>Photos</span></div><div class="app"><i style="--c:#10b981"><b>&#9672;</b></i><span>Maps</span></div><div class="app"><i style="--c:#ef4444"><b>&#9834;</b></i><span>Music</span></div><div class="app"><i style="--c:#ca8a04"><b>&#9998;</b></i><span>Notes</span></div><div class="app"><i style="--c:#0ea5e9"><b>&#9729;</b></i><span>Weather</span></div><div class="app"><i style="--c:#6366f1"><b>&#9638;</b></i><span>Calendar</span></div><div class="app"><i style="--c:#64748b"><b>&#9636;</b></i><span>Files</span></div><div class="app"><i style="--c:#334155"><b>&#9719;</b></i><span>Clock</span></div><div class="app"><i style="--c:#0f766e"><b>&#9635;</b></i><span>Wallet</span></div><div class="app"><i style="--c:#ec4899"><b>&#9829;</b></i><span>Health</span></div><div class="app"><i style="--c:#6b7280"><b>&#9881;</b></i><span>Settings</span></div></div>
+          <div class="dock"><div class="app"><i style="--c:#22c55e"><b>&#9990;</b></i><span>Phone</span></div><div class="app"><i style="--c:#14b8a6"><b>&#9786;</b></i><span>Chat</span></div><div class="app"><i style="--c:#1f2937"><b>&#9673;</b></i><span>Camera</span></div><div class="app"><i style="--c:#8b5cf6"><b>&#9678;</b></i><span>Browser</span></div></div>
+          <div class="hbar"></div>
+        </div>
+        <figcaption>Android</figcaption>
+      </figure>
+      <figure class="phone ios">
+        <div class="scr">
+          <i class="island"></i>
+          <div class="sb"><b>9:41</b><span></span></div>
+          <div class="apps"><div class="app"><i style="--c:#ef4444"><b>&#9638;</b></i><span>Calendar</span></div><div class="app"><i style="--c:#f59e0b"><b>&#10047;</b></i><span>Photos</span></div><div class="app"><i style="--c:#3b82f6"><b>&#9993;</b></i><span>Mail</span></div><div class="app"><i style="--c:#111827"><b>&#9719;</b></i><span>Clock</span></div><div class="app"><i style="--c:#10b981"><b>&#9672;</b></i><span>Maps</span></div><div class="app"><i style="--c:#0ea5e9"><b>&#9729;</b></i><span>Weather</span></div><div class="app"><i style="--c:#ca8a04"><b>&#9998;</b></i><span>Notes</span></div><div class="app"><i style="--c:#0f766e"><b>&#9635;</b></i><span>Wallet</span></div><div class="app"><i style="--c:#ec4899"><b>&#9829;</b></i><span>Health</span></div><div class="app"><i style="--c:#f43f5e"><b>&#9834;</b></i><span>Music</span></div><div class="app"><i style="--c:#2563eb"><b>&#9636;</b></i><span>Files</span></div><div class="app"><i style="--c:#6366f1"><b>&#10022;</b></i><span>Store</span></div><div class="app"><i style="--c:#f97316"><b>&#9745;</b></i><span>Tasks</span></div><div class="app"><i style="--c:#fb923c"><b>&#10064;</b></i><span>Books</span></div><div class="app"><i style="--c:#374151"><b>&#9673;</b></i><span>Camera</span></div><div class="app"><i style="--c:#6b7280"><b>&#9881;</b></i><span>Settings</span></div></div>
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="dock"><div class="app"><i style="--c:#22c55e"><b>&#9990;</b></i><span>Phone</span></div><div class="app"><i style="--c:#3b82f6"><b>&#9678;</b></i><span>Browser</span></div><div class="app"><i style="--c:#a855f7"><b>&#9786;</b></i><span>Chat</span></div><div class="app"><i style="--c:#f43f5e"><b>&#9834;</b></i><span>Music</span></div></div>
+          <div class="hbar"></div>
+        </div>
+        <figcaption>iOS</figcaption>
+      </figure>
+      </div>
+      <div class="chips"><span>Android</span><span>iOS</span><span>Cloud backend</span></div>
+      <p>Mobile experience: APIs · Auth · Payments · Maps</p>
+    </div>
+    <div>
+      <div class="eyebrow">Software development</div>
+      <h2>Cloud-native applications built to scale.</h2>
+      <p class="lead">Design and build modern Android and iOS applications connected to secure, scalable cloud-native backends.</p>
+      <div class="feat">
+        <div><p><b>Android &amp; iOS</b><span>Native and cross-platform experiences.</span></p></div>
+        <div><p><b>Cloud-connected</b><span>APIs, authentication, payments, maps, and real-time services.</span></p></div>
+        <div><p><b>Release-ready</b><span>Testing, performance optimization, and app-store delivery workflows.</span></p></div>
+      </div>
+      <p style="margin-top:28px"><a href="#contact" class="btn btn-primary">Build a mobile product →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARE DEVELOPMENT -->
+<section id="software">
+  <div class="wrap split">
+    <div>
+      <div class="ide" role="img" aria-label="Code editor and delivery pipeline illustration">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="tabs"><span class="on">fare-estimate.ts</span><span>Dockerfile</span><span>pipeline.yml</span></div>
+        <pre><code><span class="ln">1</span><span class="c">// fare-estimate.ts &mdash; illustrative example</span>
+<span class="ln">2</span><span class="k">export async function</span> <span class="fn">estimateFare</span>(req: <span class="t">Request</span>) {
+<span class="ln">3</span>  <span class="k">const</span> { pickup, drop, vehicle } = <span class="k">await</span> req.<span class="fn">json</span>();
+<span class="ln">4</span>  <span class="k">const</span> route = <span class="k">await</span> maps.<span class="fn">distance</span>(pickup, drop);
+<span class="ln">5</span>  <span class="k">const</span> fare  = pricing.<span class="fn">calculate</span>(vehicle, route);
+<span class="ln">6</span>
+<span class="ln">7</span>  <span class="k">return</span> Response.<span class="fn">json</span>({ route, fare, currency: <span class="s">"INR"</span> });
+<span class="ln">8</span>}</code></pre>
+        <div class="term">
+          <div><b>$</b> git push origin main</div>
+          <div><span class="ok">&#10003;</span> build &nbsp;<span class="ok">&#10003;</span> unit tests &nbsp;<span class="ok">&#10003;</span> security scan</div>
+          <div><span class="ok">&#10003;</span> deployed to staging <span class="dim">&rarr;</span> production</div>
+        </div>
+      </div>
+      <p class="ide-note">Illustrative example of our engineering workflow.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Software development</div>
+      <h2>Clean code. Tested. Shipped with confidence.</h2>
+      <p class="lead">From first commit to production release, we engineer software that is built for the cloud and ready to scale.</p>
+      <div class="sd-grid">
+        <div class="sd"><div class="ic">&lt;/&gt;</div><div><b>Web applications</b><span>Responsive, secure web platforms and portals.</span></div></div>
+        <div class="sd"><div class="ic">{ }</div><div><b>APIs &amp; microservices</b><span>Well-designed services that scale independently.</span></div></div>
+        <div class="sd"><div class="ic">&#9635;</div><div><b>Mobile apps</b><span>Android and iOS apps on cloud backends.</span></div></div>
+        <div class="sd"><div class="ic">&#9729;</div><div><b>Cloud-native design</b><span>Containers, serverless and managed services.</span></div></div>
+        <div class="sd"><div class="ic">&#10003;</div><div><b>Testing &amp; quality</b><span>Automated tests and reviews before every release.</span></div></div>
+        <div class="sd"><div class="ic">&#8635;</div><div><b>CI/CD delivery</b><span>Automated pipelines from commit to production.</span></div></div>
+      </div>
+      <p style="margin-top:28px"><a href="#contact" class="btn btn-primary">Start a software project &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- MLOPS & AIOPS -->
+<section id="ai" class="alt">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">MLOps &amp; AIOps</div>
+      <h2>Run AI in production &mdash; reliably, securely, at scale.</h2>
+      <p class="lead">We bring DevOps discipline to machine learning and AI: automated pipelines, scalable model serving, observability, and intelligent operations across AWS, Azure and Google Cloud.</p>
+      <div class="sd-grid">
+        <div class="sd"><div class="ic">&#8635;</div><div><b>MLOps pipelines</b><span>Automate training, versioning, validation and deployment of models.</span></div></div>
+        <div class="sd"><div class="ic">&#9672;</div><div><b>Model serving on Kubernetes</b><span>Scalable, GPU-ready inference on EKS, AKS or GKE.</span></div></div>
+        <div class="sd"><div class="ic">&#9636;</div><div><b>Model registry &amp; tracking</b><span>Experiment tracking, lineage and controlled model releases.</span></div></div>
+        <div class="sd"><div class="ic">&#9678;</div><div><b>Drift &amp; model monitoring</b><span>Watch accuracy, drift and latency in production.</span></div></div>
+        <div class="sd"><div class="ic">&#9881;</div><div><b>AIOps &amp; smart alerting</b><span>Cut alert noise with anomaly detection and event correlation.</span></div></div>
+        <div class="sd"><div class="ic">&#10022;</div><div><b>LLMOps &amp; cost control</b><span>Deploy, evaluate and govern LLM apps with guardrails and spend limits.</span></div></div>
+      </div>
+      <p class="ai-note">We focus on reliability, security, cost control and human oversight for AI systems.</p>
+      <p style="margin-top:26px"><a href="#contact" class="btn btn-primary">Discuss MLOps &amp; AIOps &rarr;</a></p>
+    </div>
+    <div class="aiv" role="img" aria-label="Illustration of an MLOps lifecycle and an AIOps incident workflow with human approval">
+      <h4>MLOps lifecycle <em>illustrative</em></h4>
+      <div class="mlflow">
+        <div class="st"><b>Data</b><span>Ingest &amp; prepare</span></div><div class="ar">&rarr;</div>
+        <div class="st"><b>Train</b><span>Build &amp; tune</span></div><div class="ar">&rarr;</div>
+        <div class="st"><b>Validate</b><span>Test &amp; review</span></div><div class="ar">&rarr;</div>
+        <div class="st"><b>Deploy</b><span>CI/CD &amp; serve</span></div><div class="ar">&rarr;</div>
+        <div class="st"><b>Monitor</b><span>Drift &amp; quality</span></div>
+      </div>
+      <h4>AIOps incident workflow <em>illustrative</em></h4>
+      <div class="wf">
+        <div class="row"><div class="dot">1</div><div><b>Alert fires</b><span>Metrics, logs or traces breach a threshold</span></div></div>
+        <div class="row"><div class="dot ai">AI</div><div><b>Correlate &amp; detect anomalies</b><span>Related alerts grouped, noise reduced</span></div></div>
+        <div class="row"><div class="dot ai">AI</div><div><b>Suggest the likely root cause</b><span>Based on recent changes and past incidents</span></div></div>
+        <div class="row"><div class="dot hu">&#10003;</div><div><b>Approve remediation</b><span>Run a vetted runbook or roll back</span></div></div>
+        <div class="row"><div class="dot">5</div><div><b>Verify &amp; learn</b><span>Confirm recovery and improve the runbook</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING -->
+<section id="engineering">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">DevOps &amp; platform engineering</div>
+      <h2>Build it. Automate it. Operate it.</h2>
+      <p class="lead">Connect software delivery with infrastructure engineering so teams can ship safely and operate platforms with visibility and control.</p>
+      <div class="tags" style="margin-top:22px"><span>IaC</span><span>Kubernetes</span><span>CI/CD</span><span>Observability</span><span>Automation</span><span>DR</span></div>
+    </div>
+    <div class="grid g4">
+      <article class="card"><span class="num">01</span><h3>Infrastructure as Code</h3><p>Repeatable environments using declarative provisioning and version-controlled infrastructure.</p></article>
+      <article class="card"><span class="num">02</span><h3>Platform Engineering</h3><p>Reusable platforms and paved paths that simplify application delivery and operations.</p></article>
+      <article class="card"><span class="num">03</span><h3>Observability</h3><p>Metrics, logs, traces, alerting, and operational visibility across applications and infrastructure.</p></article>
+      <article class="card"><span class="num">04</span><h3>Resilience &amp; DR</h3><p>High availability, backup, recovery, replication, and tested disaster-recovery strategies.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">About Bhumaji Systems</div>
+      <h2>Practical cloud engineering for businesses that want to grow with confidence.</h2>
+      <p class="lead">Bhumaji Systems is a cloud and DevOps engineering services company focused on helping startups, small and medium-sized businesses, and software agencies build, modernize and operate dependable technology platforms. We turn complex infrastructure requirements into practical, secure and maintainable solutions that support real business goals.</p>
+    </div>
+    <div class="grid g2">
+      <article class="card">
+        <span class="num">WHO WE ARE</span>
+        <h3>A hands-on engineering partner</h3>
+        <p>We work alongside your team to plan cloud environments, automate delivery workflows and improve production operations. Our focus is on clear technical decisions, sensible architecture and solutions your team can understand, maintain and extend—not complexity for its own sake.</p>
+      </article>
+      <article class="card">
+        <span class="num">WHAT WE DO</span>
+        <h3>From cloud foundations to production</h3>
+        <p>Our work includes AWS cloud setup and migration, infrastructure as code with Terraform, container platforms with Docker and Kubernetes, CI/CD pipelines, GitOps delivery, monitoring and observability, security practices, backup and disaster recovery, and cloud cost optimization. We can help with a focused task or a broader improvement initiative.</p>
+      </article>
+      <article class="card">
+        <span class="num">WHO WE HELP</span>
+        <h3>Teams at different stages</h3>
+        <p>For startups and small businesses, we help establish a secure cloud foundation without unnecessary spend. For software agencies, we can provide engineering support for client projects, migrations, deployment automation and platform operations. For teams already in production, we help identify reliability, delivery and cost improvements.</p>
+      </article>
+      <article class="card">
+        <span class="num">HOW WE WORK</span>
+        <h3>Clear, collaborative and outcome-led</h3>
+        <p>We start by understanding your goals, current environment, constraints and risks. Then we agree on scope and priorities, implement in manageable steps, validate the result and document important operational details. We value transparent communication, repeatable automation, secure defaults and knowledge sharing throughout delivery.</p>
+      </article>
+    </div>
+    <div class="head" style="margin-top:42px">
+      <div class="eyebrow">Our principles</div>
+      <h2>Engineering decisions designed for the long run.</h2>
+      <p class="lead">We choose solutions for the environment you actually need—cloud, hybrid or on-premises—and create a practical path from today's architecture to what's next.</p>
+    </div>
+    <div class="grid g4">
+      <div class="pill"><b>01</b><span>Reliable by design</span></div>
+      <div class="pill"><b>02</b><span>Automated by default</span></div>
+      <div class="pill"><b>03</b><span>Observable in operation</span></div>
+      <div class="pill"><b>04</b><span>Ready to evolve</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="insights"><div class="wrap"><div class="head"><div class="eyebrow">Insights &amp; field notes</div><h2>Practical guidance for better cloud decisions.</h2><p class="lead">Clear, engineering-led starting points for teams planning cloud work, improving delivery or making production systems more dependable.</p></div>
+<div class="insight-grid">
+<article><span>GUIDE / CLOUD FOUNDATIONS</span><h3>What belongs in a production-ready AWS foundation?</h3><p>Start with account access, network boundaries, logging, backups, budget alerts and documented ownership before adding complexity.</p><a href="#cloud" class="link">Explore AWS setup →</a></article>
+<article><span>GUIDE / MIGRATION</span><h3>Plan a migration before moving workloads</h3><p>Inventory dependencies, define acceptance criteria, sequence workloads, rehearse cutover and agree on rollback before production changes.</p><a href="#migration" class="link">Explore migration planning →</a></article>
+<article><span>FIELD NOTE / DEVOPS</span><h3>Make deployments repeatable</h3><p>Version infrastructure, automate tests, review changes, scan artifacts and define a safe path to roll back a release.</p><a href="#engineering" class="link">Explore DevOps engineering →</a></article>
+<article><span>FIELD NOTE / RELIABILITY</span><h3>Monitor what helps you act</h3><p>Connect service-level signals, actionable alerts, runbooks and ownership so incidents are easier to diagnose and resolve.</p><a href="#cloud-security" class="link">Explore reliability services →</a></article>
+<article><span>GUIDE / FINOPS</span><h3>Build a cloud cost review habit</h3><p>Assign ownership, tag resources, review usage trends and prioritize changes by savings potential, risk and engineering effort.</p><a href="#cost-optimization" class="link">Explore cost optimization →</a></article>
+<article><span>FIELD NOTE / PLATFORM</span><h3>Choose the simplest platform that fits</h3><p>Compare operational effort, team skills, scaling needs and recovery requirements before selecting VMs, containers or managed services.</p><a href="#engineering" class="link">Explore platform engineering →</a></article>
+</div><p class="note">These are practical starting guides, not claims of client outcomes or formal compliance advice. Contact us to discuss how they apply to your environment.</p></div></section>
+<section id="our-work">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Our work &amp; client feedback</div>
+      <h2>Real projects. Thoughtful engineering. Relationships built on trust.</h2>
+      <p class="lead">See a project from our journey and learn how we approach practical software delivery. We publish client feedback only when it is genuine and approved for sharing.</p>
+    </div>
+    <div class="project">
+      <div>
+        <span class="badge">FEATURED PROJECT · MOBILITY TECHNOLOGY</span>
+        <h2 style="font-size:clamp(26px,3vw,34px)">Jhanvi Cars — a complete cab-booking experience.</h2>
+        <p class="lead" style="font-size:16.5px">A customer-facing ride-booking platform designed to make choosing a vehicle, estimating fares, and following ride status simple and intuitive.</p>
+        <div class="tags"><span>Web presence</span><span>Application development</span><span>Ride booking</span><span>Fare estimation</span><span>Ride status</span></div>
+        <a class="btn btn-outline" href="https://jhanvicars.in/" target="_blank" rel="noopener">Explore Jhanvi Cars ↗</a>
+      </div>
+      <div class="shot"><img src="https://www.bhumaji.com/assets/projects/bhumaji-jhanvi-cars-showcase.png" alt="Jhanvi Cars showcase: booking dashboard, vehicle and fare selection, login, registration, pending rides and confirmed rides" loading="lazy"></div>
+    </div>
+    <p class="note" style="margin-top:18px">Project showcase: interface screenshots are illustrative of the customer experience. Live booking and driver availability depend on the deployed application.</p>
+
+    <div class="quote">
+      <div>
+        <h3>Your experience matters.</h3>
+        <p>We value clear communication, dependable delivery, and long-term relationships. As clients share feedback and approve it for publication, we’ll feature their words here—without fabricated reviews.</p>
+      </div>
+      <a class="btn btn-outline" href="mailto:contactus@bhumaji.com?subject=Feedback%20for%20Bhumaji%20Systems">Share your feedback →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="wrap contact">
+    <div class="contact-intro">
+      <div class="eyebrow">LET'S CONNECT</div>
+      <h2>Let’s build something dependable.</h2>
+      <p class="lead">We’d love to hear from you. Tell us what you’re working on, and let’s explore how Bhumaji Systems can help with cloud, DevOps, or engineering.</p>
+      <div class="mail"><div class="ic">✉</div><div><small>EMAIL US DIRECTLY</small><a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a></div></div>
+      <p class="note">A few details are all we need to start the conversation. Please don’t include passwords or sensitive credentials.</p>
+    </div>
+    <form id="enquiry" class="enterprise-contact-form">
+      <div class="enterprise-form-heading">
+        <span class="form-kicker">CONTACT OUR TEAM</span>
+        <h3>Tell us about your project</h3>
+        <p>Complete the form and your email application will open with your enquiry ready to send.</p>
+      </div>
+      <div class="enterprise-form-grid">
+        <div class="f"><label for="firstName">First name <span>*</span></label><input id="firstName" name="firstName" autocomplete="given-name" placeholder="First name" required></div>
+        <div class="f"><label for="lastName">Last name <span>*</span></label><input id="lastName" name="lastName" autocomplete="family-name" placeholder="Last name" required></div>
+        <div class="f"><label for="email">Business email <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div>
+        <div class="f"><label for="company">Company <span class="optional-mark">(optional)</span></label><input id="company" name="company" autocomplete="organization" placeholder="Company or organization"></div>
+        <div class="f"><label for="phone">Phone <span class="optional-mark">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91"></div>
+        <div class="f"><label for="svc">How can we help? <span>*</span></label><select id="svc" name="service" required><option value="">Select a service</option><option>AWS / Cloud setup</option><option>Cloud migration &amp; modernization</option><option>DevOps &amp; platform engineering</option><option>Kubernetes &amp; Terraform</option><option>Cloud security &amp; reliability</option><option>Cloud cost optimization</option><option>Software engineering</option><option>Other enquiry</option></select></div>
+        <div class="f enterprise-message-field"><label for="msg">Project details <span>*</span></label><textarea id="msg" name="message" rows="4" placeholder="What would you like to achieve? Share any goals, challenges, or timelines…" required></textarea></div>
+      </div>
+      <label class="consent-line"><input type="checkbox" id="privacyConsent" name="privacyConsent" required><span>I agree that Bhumaji Systems may use my details to respond to this enquiry. <b>*</b></span></label>
+      <div class="enterprise-submit-row">
+        <button class="btn enterprise-submit" type="submit">Send enquiry <span aria-hidden="true">↗</span></button>
+        <span class="enterprise-form-footnote">Your details are used to respond to your enquiry.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="bs-enterprise-footer">
+  <div class="wrap">
+    <div class="bs-footer-main">
+      <div class="bs-footer-brand">
+        <a class="bs-footer-wordmark" href="#top" aria-label="Bhumaji Systems home">Bhumaji Systems</a>
+        <p>Rooted in reliability. Built for what's next.</p>
+        <p class="bs-footer-summary">Cloud foundations, software engineering and platform operations built around your business goals.</p>
+        <div class="bs-socials" aria-label="Social media">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM3.4 9.5H7v11H3.4zM9.3 9.5h3.5V11h.1a3.8 3.8 0 0 1 3.4-1.9c3.7 0 4.4 2.4 4.4 5.5v5.9h-3.7v-5.2c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.3H9.3z"/></svg></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.2 7a3 3 0 0 0-2.1-2.1C19.2 4.4 12 4.4 12 4.4s-7.2 0-9.1.5A3 3 0 0 0 .8 7 31 31 0 0 0 .3 12a31 31 0 0 0 .5 5 3 3 0 0 0 2.1 2.1c1.9.5 9.1.5 9.1.5s7.2 0 9.1-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5 31 31 0 0 0-.5-5ZM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2.5h10A4.5 4.5 0 0 1 21.5 7v10a4.5 4.5 0 0 1-4.5 4.5H7A4.5 4.5 0 0 1 2.5 17V7A4.5 4.5 0 0 1 7 2.5Zm0 2A2.5 2.5 0 0 0 4.5 7v10A2.5 2.5 0 0 0 7 19.5h10a2.5 2.5 0 0 0 2.5-2.5V7A2.5 2.5 0 0 0 17 4.5H7Zm5 2.2a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6Zm0 2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Zm5.6-3.1a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V13h2.8v8h3.4Z"/></svg></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 13.8 4.8 22H1.7l7.3-8.4L.8 2h6.5l4.5 7.5L18.9 2Zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20Z"/></svg></a>
+        </div>
+      </div>
+      <div class="bs-footer-column"><h3>Services</h3><ul>
+        <li><a href="#capabilities">All Capabilities</a></li><li><a href="#cloud">Cloud &amp; Infrastructure</a></li><li><a href="#migration">Cloud Migration &amp; Modernization</a></li><li><a href="#cloud-security">Cloud Security &amp; Reliability</a></li><li><a href="#cost-optimization">Cost Optimization</a></li><li><a href="#engineering">DevOps &amp; Platform Engineering</a></li><li><a href="#software">Software Engineering</a></li><li><a href="#mobile">Mobile Engineering</a></li><li><a href="#ai">AI, MLOps &amp; AIOps</a></li>
+      </ul></div>
+      <div class="bs-footer-column"><h3>Industries</h3><ul>
+        <li><a href="#industries">All Industries</a></li><li><a href="#industry-finance">Banking &amp; Financial Services</a></li><li><a href="#industry-healthcare">Healthcare &amp; Life Sciences</a></li><li><a href="#industry-manufacturing">Manufacturing</a></li><li><a href="#industry-media">Media &amp; Entertainment</a></li><li><a href="#industry-gaming">Gaming &amp; Digital Products</a></li><li><a href="#industry-real-estate">Real Estate</a></li><li><a href="#industry-hospitality">Hospitality</a></li><li><a href="#industry-ecommerce">E-commerce &amp; Retail</a></li>
+      </ul></div>
+      <div class="bs-footer-column"><h3>Explore</h3><ul>
+        <li><a href="#approach">Our Approach</a></li><li><a href="#our-work">Our Work</a></li><li><a href="#insights">Insights</a></li><li><a href="#contact">Contact Us</a></li><li><a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a></li>
+      </ul><a class="bs-footer-contact" href="#contact">Discuss your project <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="bs-footer-bottom"><span>© Bhumaji Systems. All rights reserved.</span><div><a href="#contact">Contact</a><a href="#" id="bh-cookie-settings-link">Cookie Settings</a><a href="#top">Back to top ↑</a></div></div>
+  </div>
+</footer>
+
+<script>
+/* Header remains a consistent size while scrolling. */
+// Demo handler: opens the visitor's email app with the enquiry pre-filled.
+// Replace with your existing form endpoint if you already have one.
 document.getElementById('enquiry').addEventListener('submit',function(e){
   e.preventDefault();
   var v=function(id){var el=document.getElementById(id);return el?el.value.trim():''};
@@ -14,7 +2168,7 @@ document.getElementById('enquiry').addEventListener('submit',function(e){
     v('msg')
   ].join('\n');
   location.href='mailto:contactus@bhumaji.com?subject='+encodeURIComponent('Website enquiry: '+v('svc'))+'&body='+encodeURIComponent(body);
-});;
+});
 </script>
 
 <div class="bs-chat-panel" id="bsChatPanel" role="dialog" aria-label="Chat with Bhumaji Systems" aria-modal="false">
