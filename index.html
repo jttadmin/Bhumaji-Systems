@@ -2835,7 +2835,8 @@ a,button{touch-action:manipulation}
 button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid #19a6b4!important;outline-offset:3px!important}
 section{scroll-margin-top:84px}
-.hero.cinematic-hero{padding-top:clamp(54px,8vw,96px)!important}
+/* Keep desktop hero vertically balanced; compact the top only on smaller screens. */
+.hero.cinematic-hero{padding-top:0!important}
 .hero.cinematic-hero>.wrap{grid-template-columns:minmax(0,1fr)!important;gap:0!important}
 .hero.cinematic-hero .panel{display:none!important}
 .hero.cinematic-hero h1{max-width:900px;font-size:clamp(2.15rem,6vw,4rem)!important;line-height:1.08!important;overflow-wrap:break-word}
@@ -2852,6 +2853,8 @@ section .wrap>*{min-width:0}
 #contact .enterprise-form-grid input,#contact .enterprise-form-grid select,#contact .enterprise-form-grid textarea{min-width:0;max-width:100%}
 footer .wrap{min-width:0}
 @media(max-width:900px){
+  .hero.cinematic-hero{padding-top:clamp(32px,6vw,54px)!important}
+  .hero.cinematic-hero>.wrap{min-height:0!important;padding:58px 0 52px!important}
   .wrap{width:calc(100% - 36px)}
   section{padding:68px 0!important}
   .head{margin-bottom:30px!important}
