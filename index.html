@@ -1077,6 +1077,97 @@ footer a:hover{color:var(--bs-lime)!important}
 }
 </style>
 
+
+<style id="bhumaji-cinematic-homepage">
+/* Original cinematic homepage treatment inspired by premium enterprise technology sites. */
+.cinematic-hero{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  min-height:590px!important;padding:0!important;color:#fff!important;
+  background:#080b12 url('/assets/bhumaji-cinematic-hero.svg') center center/cover no-repeat!important;
+}
+.cinematic-hero:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;
+  background:linear-gradient(90deg,rgba(8,11,18,.99) 0%,rgba(8,11,18,.92) 34%,rgba(8,11,18,.38) 66%,rgba(8,11,18,.1) 100%)!important;
+  opacity:1!important;pointer-events:none!important;
+}
+.cinematic-hero:after{
+  content:""!important;position:absolute!important;inset:auto 0 0!important;height:4px!important;z-index:2!important;
+  background:linear-gradient(90deg,#9b6cff 0%,#694cff 48%,#27d4f3 100%)!important;
+}
+.cinematic-hero>.wrap{
+  position:relative!important;z-index:1!important;display:grid!important;grid-template-columns:minmax(0,680px) 1fr!important;
+  align-items:center!important;min-height:510px!important;width:min(1240px,calc(100% - 64px))!important;
+  padding:82px 0 105px!important;
+}
+.cinematic-hero .eyebrow{
+  color:#b4a0ff!important;font-size:13px!important;font-weight:700!important;letter-spacing:.14em!important;
+  text-transform:uppercase!important;margin-bottom:25px!important;
+}
+.cinematic-hero h1{
+  max-width:760px!important;color:#fff!important;font-size:clamp(42px,5.5vw,76px)!important;
+  line-height:1.04!important;letter-spacing:-.045em!important;font-weight:760!important;margin:0 0 24px!important;
+  text-wrap:balance!important;
+}
+.cinematic-hero .hero-highlight{
+  background:linear-gradient(95deg,#a78bfa 0%,#7c67ff 52%,#6bdcff 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+.cinematic-hero .lead{
+  max-width:610px!important;color:#d0d7e5!important;font-size:17px!important;line-height:1.75!important;margin-bottom:30px!important;
+}
+.cinematic-hero .lead strong{color:#fff!important}
+.cinematic-hero .cta{display:flex!important;align-items:center!important;gap:16px!important;flex-wrap:wrap!important}
+.cinematic-hero .btn-primary{
+  background:#c8f169!important;color:#101522!important;border:1px solid #c8f169!important;border-radius:2px!important;
+  padding:15px 21px!important;font-weight:750!important;box-shadow:none!important;
+}
+.cinematic-hero .btn-primary:hover{background:#ddff98!important;transform:translateY(-2px)!important}
+.cinematic-hero .btn-ghost{
+  background:transparent!important;color:#fff!important;border:1px solid rgba(255,255,255,.42)!important;border-radius:2px!important;
+  padding:15px 21px!important;
+}
+.cinematic-hero .panel{display:none!important}
+.cinematic-hero .stats{display:none!important}
+.cinematic-hero .hero-slider-controls{
+  position:absolute!important;left:max(calc((100% - 1240px)/2),32px)!important;bottom:34px!important;z-index:4!important;
+  display:flex!important;align-items:center!important;gap:10px!important;
+}
+.cinematic-hero .hero-slide-dot{
+  width:9px!important;height:9px!important;padding:0!important;border:0!important;border-radius:0!important;
+  background:rgba(255,255,255,.45)!important;cursor:pointer!important;transition:background .2s ease,width .2s ease!important;
+}
+.cinematic-hero .hero-slide-dot[aria-current="true"]{
+  width:30px!important;height:30px!important;background:transparent!important;border:1px solid #fff!important;
+  color:#fff!important;font-size:13px!important;font-weight:650!important;
+}
+.cinematic-hero .hero-next{
+  margin-left:14px!important;border:0!important;background:transparent!important;color:#c8f169!important;
+  font-size:34px!important;line-height:1!important;cursor:pointer!important;padding:2px 8px!important;
+}
+.cinematic-hero .hero-next:hover{color:#fff!important;transform:translateX(3px)!important}
+.cinematic-hero .hero-slide-dot:focus-visible,.cinematic-hero .hero-next:focus-visible{outline:2px solid #c8f169!important;outline-offset:4px!important}
+.cinematic-hero .hero-slide-content{animation:bhHeroEnter .55s ease both}
+@keyframes bhHeroEnter{from{opacity:.25;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){
+ .cinematic-hero{min-height:560px!important;background-position:58% center!important}
+ .cinematic-hero>.wrap{grid-template-columns:1fr!important;min-height:490px!important;padding:76px 0 110px!important;width:calc(100% - 40px)!important}
+ .cinematic-hero h1{font-size:clamp(42px,8vw,64px)!important}
+ .cinematic-hero:before{background:linear-gradient(90deg,rgba(8,11,18,.97),rgba(8,11,18,.72))!important}
+ .cinematic-hero .hero-slider-controls{left:20px!important;bottom:28px!important}
+}
+@media(max-width:600px){
+ .cinematic-hero{min-height:580px!important}
+ .cinematic-hero>.wrap{min-height:515px!important;padding:65px 0 115px!important;width:calc(100% - 32px)!important}
+ .cinematic-hero .eyebrow{font-size:11px!important;letter-spacing:.1em!important}
+ .cinematic-hero h1{font-size:clamp(38px,11vw,52px)!important}
+ .cinematic-hero .lead{font-size:15px!important;line-height:1.7!important}
+ .cinematic-hero .cta{gap:10px!important}
+ .cinematic-hero .btn{padding:13px 15px!important;font-size:13px!important}
+ .cinematic-hero .hero-slider-controls{left:16px!important;bottom:24px!important}
+}
+@media(prefers-reduced-motion:reduce){.cinematic-hero .hero-slide-content{animation:none!important}.cinematic-hero *{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
 </head>
 <body id="top">
 
@@ -1550,6 +1641,51 @@ document.getElementById('enquiry').addEventListener('submit',function(e){
  form.addEventListener('submit',function(e){e.preventDefault();send(input.value);input.value='';input.focus()});
  quick.addEventListener('click',function(e){var b=e.target.closest('button[data-question]');if(b)send(b.getAttribute('data-question'))});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open'))closeChat()});
+})();
+</script>
+
+
+<script id="bhumaji-cinematic-slider">
+(function(){
+  var hero=document.querySelector('.cinematic-hero');
+  if(!hero||hero.dataset.sliderReady==='true')return;
+  var title=hero.querySelector('h1'), eyebrow=hero.querySelector('.eyebrow'), lead=hero.querySelector('.lead');
+  var primary=hero.querySelector('.cta .btn-primary'), secondary=hero.querySelector('.cta .btn-ghost');
+  if(!title||!eyebrow||!lead)return;
+  hero.dataset.sliderReady='true';
+  var slides=[
+    {eyebrow:'Cloud strategy · DevOps · Platform engineering',title:'Turning cloud complexity into',highlight:'production-ready reality.',lead:'We help businesses build secure cloud foundations, automate delivery, and run reliable platforms across AWS, Microsoft Azure and Google Cloud.',primary:'Explore our services',href:'#cloud',secondary:'Let’s talk',secondaryHref:'#contact'},
+    {eyebrow:'Cloud migration · Modernization · Security',title:'Build a cloud foundation',highlight:'ready for what’s next.',lead:'Plan migrations, modernize infrastructure, and improve cloud security with practical engineering designed around your business goals.',primary:'Explore cloud services',href:'#migration',secondary:'Discuss your project',secondaryHref:'#contact'},
+    {eyebrow:'Automation · Kubernetes · Observability',title:'Ship faster. Operate smarter.',highlight:'Stay reliable at scale.',lead:'Connect CI/CD, infrastructure as code, Kubernetes and observability to make software delivery more consistent and production operations easier to manage.',primary:'Explore DevOps',href:'#engineering',secondary:'Talk to our team',secondaryHref:'#contact'}
+  ];
+  var controls=document.createElement('div');controls.className='hero-slider-controls';controls.setAttribute('role','group');controls.setAttribute('aria-label','Featured services');
+  var buttons=[];
+  slides.forEach(function(slide,i){
+    var b=document.createElement('button');b.type='button';b.className='hero-slide-dot';b.setAttribute('aria-label','Show slide '+(i+1));b.setAttribute('aria-current',i===0?'true':'false');
+    b.textContent=i===0?'1':'';b.addEventListener('click',function(){show(i,true)});controls.appendChild(b);buttons.push(b);
+  });
+  var next=document.createElement('button');next.type='button';next.className='hero-next';next.setAttribute('aria-label','Next featured service');next.innerHTML='→';controls.appendChild(next);hero.appendChild(controls);
+  var current=0,timer=null,reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(index,manual){
+    current=(index+slides.length)%slides.length;var d=slides[current];
+    eyebrow.textContent=d.eyebrow;
+    title.innerHTML=d.title+' <span class="hero-highlight">'+d.highlight+'</span>';
+    lead.textContent=d.lead;
+    if(primary){primary.href=d.href;primary.innerHTML=d.primary+' <span>↗</span>'}
+    if(secondary){secondary.href=d.secondaryHref;secondary.innerHTML=d.secondary+' <span>↗</span>'}
+    buttons.forEach(function(b,i){b.setAttribute('aria-current',i===current?'true':'false');b.textContent=i===current?String(i+1):''});
+    var old=hero.querySelector('.hero-slide-content');if(old)old.classList.remove('hero-slide-content');
+    title.classList.remove('hero-slide-content');void title.offsetWidth;title.classList.add('hero-slide-content');
+    if(manual)restart();
+  }
+  function restart(){if(timer)clearInterval(timer);if(!reduced&&!document.hidden)timer=setInterval(function(){show(current+1,false)},7500)}
+  next.addEventListener('click',function(){show(current+1,true)});
+  hero.addEventListener('mouseenter',function(){if(timer)clearInterval(timer)});
+  hero.addEventListener('mouseleave',restart);
+  hero.addEventListener('focusin',function(){if(timer)clearInterval(timer)});
+  hero.addEventListener('focusout',restart);
+  document.addEventListener('visibilitychange',restart);
+  show(0,false);restart();
 })();
 </script>
 
