@@ -1,0 +1,13 @@
+name = "bhumaji-chat-bridge"
+main = "worker.js"
+compatibility_date = "2026-10-29"
+
+# Create the namespace with: npx wrangler kv namespace create BHUMAJI_CHAT_KV
+# Then replace REPLACE_WITH_KV_NAMESPACE_ID below.
+[[kv_namespaces]]
+binding = "CHAT_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[vars]
+ALLOWED_ORIGIN = "https://bhumaji.com,https://www.bhumaji.com"
+WHATSAPP_API_VERSION = "v23.0"
