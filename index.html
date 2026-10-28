@@ -1168,6 +1168,31 @@ footer a:hover{color:var(--bs-lime)!important}
 @media(prefers-reduced-motion:reduce){.cinematic-hero .hero-slide-content{animation:none!important}.cinematic-hero *{scroll-behavior:auto!important;transition:none!important}}
 </style>
 
+
+<style id="bhumaji-remove-yellow-text-highlight">
+/* Remove yellow/lime coloring and gradient effects from highlighted text only. */
+.hero-highlight,
+.cinematic-hero .hero-highlight,
+h1 .hero-highlight,
+h2 .hero-highlight,
+.highlight,
+.text-highlight,
+mark,
+mark *,
+[style*="background-color: yellow"],
+[style*="background: yellow"]{
+  background:none!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#fff!important;
+  color:#fff!important;
+  text-shadow:none!important;
+  box-shadow:none!important;
+}
+.cinematic-hero .hero-highlight{color:#fff!important;-webkit-text-fill-color:#fff!important}
+</style>
+
 </head>
 <body id="top">
 
