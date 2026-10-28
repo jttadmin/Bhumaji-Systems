@@ -814,6 +814,22 @@ footer a:hover{color:#ff8792}
 @media(max-width:900px){.industry-detail-grid,.insight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.industry-detail-grid,.insight-grid{grid-template-columns:1fr}.industry-detail-grid article,.insight-grid article{min-height:0}}
 
+
+/* Brand-matched dark navigation: align the header with the Bhumaji logo background */
+.site-header{
+  background:#020A12!important;
+  border-bottom:1px solid #17232D!important;
+  box-shadow:none!important;
+}
+.site-header nav a:not(.nav-cta){color:#D9DEE5}
+.site-header nav a:not(.nav-cta):hover,
+.site-header nav .hover-info:hover>a:not(.nav-cta){color:#00C8FF}
+.site-header .brand-tagline{color:#91A2BC}
+@media(max-width:1120px){
+  .site-header nav{background:#020A12!important;border-color:#263442!important}
+  .site-header nav a:not(.nav-cta){color:#D9DEE5}
+}
+
 </style>
 <style>
 /* Modern Bhumaji Systems logo */
