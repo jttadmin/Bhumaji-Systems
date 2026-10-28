@@ -2677,6 +2677,86 @@ footer .top ul li:nth-last-child(-n+2) a::after{left:auto;right:0}
 })();
 </script>
 
+
+<style id="bhumaji-live-hero-layout-fix">
+/* These overrides intentionally sit at the end of the document to win over legacy inline-page styles. */
+.cinematic-hero{
+ min-height:0!important;display:flex!important;flex-direction:column!important;justify-content:center!important;
+ padding:0!important;background-color:#06101e!important;overflow:hidden!important;
+}
+.cinematic-hero:before{
+ opacity:.48!important;background-position:center 48%!important;
+ background-image:linear-gradient(90deg,rgba(5,13,25,.94) 0%,rgba(5,13,25,.79) 48%,rgba(5,13,25,.40) 100%),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2200&q=85')!important;
+}
+.cinematic-hero:after{
+ background:radial-gradient(ellipse at 80% 25%,rgba(27,196,216,.12),transparent 38%),linear-gradient(0deg,rgba(4,10,19,.84),transparent 54%)!important;
+}
+.cinematic-hero>.wrap{
+ width:min(1240px,100% - 80px)!important;min-height:0!important;
+ padding:84px 0 52px!important;display:grid!important;
+ grid-template-columns:minmax(0,1.05fr) minmax(320px,.75fr)!important;
+ align-items:center!important;gap:clamp(36px,6vw,100px)!important;
+}
+.cinematic-hero>.wrap>div:first-child{max-width:650px!important}
+.cinematic-hero h1{
+ max-width:650px!important;font-size:clamp(44px,4.45vw,62px)!important;
+ line-height:1.04!important;letter-spacing:-.055em!important;font-weight:760!important;
+ margin:20px 0 20px!important;text-wrap:balance!important;
+}
+.cinematic-hero .hero-highlight{
+ color:#82e5eb!important;background:none!important;-webkit-text-fill-color:#82e5eb!important;
+}
+.cinematic-hero .eyebrow{
+ color:#eaf7ff!important;font-size:10px!important;letter-spacing:.14em!important;
+ padding:9px 13px!important;border:1px solid rgba(112,205,230,.3)!important;
+ background:rgba(14,31,51,.62)!important;border-radius:999px!important;
+}
+.cinematic-hero .eyebrow:before{background:#42d8e5!important;flex:0 0 6px!important;width:6px!important;height:6px!important;border-radius:50%!important}
+.cinematic-hero p.lead{font-size:16px!important;line-height:1.75!important;color:#c8d5e5!important;max-width:590px!important}
+.cinematic-hero .cta{display:flex!important;flex-wrap:wrap!important;gap:12px!important;margin-top:28px!important}
+.cinematic-hero .btn-primary{background:#c7f36b!important;border-color:#c7f36b!important;color:#0b1421!important;border-radius:7px!important;font-weight:750!important;padding:13px 18px!important}
+.cinematic-hero .btn-primary:hover{background:#d8ff91!important;transform:translateY(-2px)}
+.cinematic-hero .btn-ghost{background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.3)!important;border-radius:7px!important;padding:13px 18px!important}
+.cinematic-hero .panel{
+ display:block!important;align-self:center!important;max-width:430px!important;width:100%!important;
+ background:rgba(9,24,42,.76)!important;border:1px solid rgba(182,215,244,.2)!important;
+ border-radius:16px!important;padding:27px!important;box-shadow:0 24px 70px rgba(0,0,0,.3)!important;
+ backdrop-filter:blur(16px)!important;
+}
+.cinematic-hero .panel h4{color:#f6f9ff!important;font-size:20px!important;line-height:1.35!important;margin-bottom:16px!important}
+.cinematic-hero .panel .row{display:flex!important;gap:13px!important;padding:17px 0!important;border-top:1px solid rgba(255,255,255,.1)!important}
+.cinematic-hero .panel .n{display:grid!important;place-items:center!important;flex:0 0 38px!important;height:38px!important;border-radius:9px!important;background:rgba(199,243,107,.1)!important;border:1px solid rgba(199,243,107,.25)!important;color:#c7f36b!important;font-weight:800!important}
+.cinematic-hero .panel .row b{color:#f3f7ff!important;font-size:13px!important;display:block!important}
+.cinematic-hero .panel .row span{display:block!important;color:#b0bfd2!important;font-size:11px!important;line-height:1.55!important;margin-top:4px!important}
+.cinematic-hero .stats{background:rgba(3,11,21,.82)!important;border-top:1px solid rgba(255,255,255,.1)!important;backdrop-filter:blur(12px)!important}
+.cinematic-hero .stats .wrap{width:min(1240px,100% - 80px)!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;padding:0!important}
+.cinematic-hero .stat{padding:19px 24px!important;border-left:1px solid rgba(255,255,255,.11)!important}
+.cinematic-hero .stat:first-child{border-left:0!important;padding-left:0!important}
+.cinematic-hero .stat b{color:#fff!important;font-size:20px!important;font-weight:750!important}
+.cinematic-hero .stat span{color:#aebed2!important;font-size:11px!important}
+@media(max-width:1000px){
+ .cinematic-hero>.wrap{width:calc(100% - 48px)!important;grid-template-columns:minmax(0,1fr)!important;gap:28px!important;padding:66px 0 42px!important}
+ .cinematic-hero>.wrap>div:first-child{max-width:720px!important}
+ .cinematic-hero h1{font-size:clamp(42px,6.2vw,58px)!important}
+ .cinematic-hero .panel{max-width:720px!important}
+ .cinematic-hero .panel .row{display:inline-flex!important;vertical-align:top!important;width:32%!important;padding:14px 8px 0 0!important;border-top:1px solid rgba(255,255,255,.1)!important}
+ .cinematic-hero .stats .wrap{width:calc(100% - 48px)!important}
+}
+@media(max-width:650px){
+ .cinematic-hero>.wrap{width:calc(100% - 36px)!important;padding:45px 0 30px!important;gap:24px!important}
+ .cinematic-hero h1{font-size:clamp(37px,9.2vw,48px)!important;line-height:1.06!important;margin:16px 0!important}
+ .cinematic-hero p.lead{font-size:14px!important}
+ .cinematic-hero .cta{gap:9px!important}
+ .cinematic-hero .btn-primary,.cinematic-hero .btn-ghost{font-size:12px!important;padding:11px 13px!important}
+ .cinematic-hero .panel{padding:19px!important}
+ .cinematic-hero .panel .row{display:flex!important;width:100%!important;padding:13px 0!important}
+ .cinematic-hero .stats .wrap{width:calc(100% - 36px)!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .cinematic-hero .stat{padding:14px 10px!important}
+ .cinematic-hero .stat:nth-child(3){border-left:0!important;padding-left:0!important}
+ .cinematic-hero .stat b{font-size:17px!important}
+}
+</style>
+
 </body>
 </html>
 
