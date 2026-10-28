@@ -2147,7 +2147,7 @@ footer .bs-footer-bottom,footer .bs-footer-bottom a{color:#8fa2bc!important}
         <li><a href="#approach">Our Approach</a></li><li><a href="#our-work">Our Work</a></li><li><a href="#insights">Insights</a></li><li><a href="#contact">Contact Us</a></li><li><a href="mailto:contactus@bhumaji.com">contactus@bhumaji.com</a></li>
       </ul><a class="bs-footer-contact" href="#contact">Discuss your project <span aria-hidden="true">↗</span></a></div>
     </div>
-    <div class="bs-footer-bottom"><span>© Bhumaji Systems. All rights reserved.</span><div><a href="#contact">Contact</a><a href="#top">Back to top ↑</a></div></div>
+    <div class="bs-footer-bottom"><span>© Bhumaji Systems. All rights reserved.</span><div><a href="#contact">Contact</a><a href="#" id="bh-cookie-settings-link">Cookie Settings</a><a href="#top">Back to top ↑</a></div></div>
   </div>
 </footer>
 
@@ -2508,6 +2508,75 @@ footer .top ul li:nth-last-child(-n+2) a::after{left:auto;right:0}
  .site-header .nav-wrap .brand img.modern-brand-logo{width:160px!important;min-width:160px!important;max-width:160px!important;height:40px!important;max-height:40px!important}
 }
 </style>
+
+
+<!-- Bhumaji Systems cookie preferences -->
+<style id="bh-cookie-consent-styles">
+#bh-cookie-consent[hidden],#bh-cookie-preferences[hidden]{display:none!important}
+#bh-cookie-consent{position:fixed;z-index:10000;left:24px;right:24px;bottom:24px;max-width:920px;margin:0 auto;background:#fff;color:#24324a;border:1px solid #dce4f0;border-radius:16px;box-shadow:0 18px 60px rgba(7,26,58,.22);padding:24px;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+#bh-cookie-consent .bh-cookie-heading{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+#bh-cookie-consent .bh-cookie-mark{width:42px;height:42px;flex:0 0 42px;border-radius:12px;display:grid;place-items:center;background:#e8f0fd;color:#174aa8;font-size:22px}
+#bh-cookie-consent h2,#bh-cookie-preferences h2{font-size:20px;line-height:1.3;color:#071a3a;margin:0}
+#bh-cookie-consent p,#bh-cookie-preferences p{font-size:14px;line-height:1.6;margin:0 0 16px;color:#52617a}
+#bh-cookie-consent .bh-cookie-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+#bh-cookie-consent button,#bh-cookie-preferences button{appearance:none;border:1px solid #174aa8;border-radius:8px;padding:11px 16px;font:600 13px Inter,system-ui,sans-serif;cursor:pointer;transition:background .2s,color .2s}
+#bh-cookie-consent .bh-cookie-primary,#bh-cookie-preferences .bh-cookie-primary{background:#174aa8;color:#fff}
+#bh-cookie-consent .bh-cookie-secondary,#bh-cookie-preferences .bh-cookie-secondary{background:#fff;color:#174aa8}
+#bh-cookie-consent button:focus-visible,#bh-cookie-preferences button:focus-visible,#bh-cookie-settings-link:focus-visible{outline:3px solid #00a6a6;outline-offset:3px}
+#bh-cookie-preferences{position:fixed;z-index:10001;inset:0;background:rgba(7,26,58,.55);display:grid;place-items:center;padding:18px;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+#bh-cookie-preferences .bh-cookie-panel{width:min(520px,100%);background:#fff;border-radius:16px;padding:24px;box-shadow:0 18px 60px rgba(7,26,58,.25)}
+#bh-cookie-preferences .bh-cookie-pref-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid #e4eaf3}
+#bh-cookie-preferences .bh-cookie-pref-row strong{display:block;color:#132341;font-size:14px}
+#bh-cookie-preferences .bh-cookie-pref-row small{display:block;color:#687790;font-size:12px;margin-top:3px}
+#bh-cookie-preferences input{width:18px;height:18px;accent-color:#174aa8}
+#bh-cookie-preferences .bh-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+#bh-cookie-consent a{color:#174aa8;text-decoration:underline}
+@media(max-width:600px){#bh-cookie-consent{left:12px;right:12px;bottom:12px;padding:18px}#bh-cookie-consent .bh-cookie-actions{display:grid;grid-template-columns:1fr}#bh-cookie-consent button{width:100%}#bh-cookie-preferences .bh-cookie-panel{padding:20px}}
+</style>
+<section id="bh-cookie-consent" role="dialog" aria-modal="false" aria-labelledby="bh-cookie-title" aria-describedby="bh-cookie-description" hidden>
+  <div class="bh-cookie-heading"><div class="bh-cookie-mark" aria-hidden="true">✓</div><h2 id="bh-cookie-title">Your privacy matters</h2></div>
+  <p id="bh-cookie-description">Bhumaji Systems uses essential browser storage to keep this preference and help the website work. We do not currently use analytics or advertising trackers. You can accept optional categories, reject them, or review your choices.</p>
+  <p><a href="/privacy-policy.html">Read our Privacy Policy</a></p>
+  <div class="bh-cookie-actions">
+    <button type="button" class="bh-cookie-primary" id="bh-cookie-accept">Accept all</button>
+    <button type="button" class="bh-cookie-secondary" id="bh-cookie-reject">Reject optional</button>
+    <button type="button" class="bh-cookie-secondary" id="bh-cookie-customize">Customize preferences</button>
+  </div>
+</section>
+<section id="bh-cookie-preferences" role="dialog" aria-modal="true" aria-labelledby="bh-cookie-preferences-title" hidden>
+  <div class="bh-cookie-panel">
+    <h2 id="bh-cookie-preferences-title">Cookie preferences</h2>
+    <p>Choose whether to allow optional categories. Essential storage is always on. Optional categories have no effect until the website adds tools that use them.</p>
+    <div class="bh-cookie-pref-row"><div><strong>Essential</strong><small>Required to remember your privacy choice.</small></div><input type="checkbox" checked disabled aria-label="Essential storage always enabled"></div>
+    <div class="bh-cookie-pref-row"><div><strong>Analytics</strong><small>Helps understand website visits.</small></div><input type="checkbox" id="bh-cookie-analytics"></div>
+    <div class="bh-cookie-pref-row"><div><strong>Marketing</strong><small>Used for advertising measurement or personalization.</small></div><input type="checkbox" id="bh-cookie-marketing"></div>
+    <div class="bh-cookie-actions"><button type="button" class="bh-cookie-primary" id="bh-cookie-save">Save preferences</button><button type="button" class="bh-cookie-secondary" id="bh-cookie-cancel">Cancel</button></div>
+  </div>
+</section>
+<script id="bh-cookie-consent-script">
+(function(){
+  'use strict';
+  var KEY='bhumaji_cookie_preferences_v1';
+  var banner=document.getElementById('bh-cookie-consent');
+  var panel=document.getElementById('bh-cookie-preferences');
+  var analytics=document.getElementById('bh-cookie-analytics');
+  var marketing=document.getElementById('bh-cookie-marketing');
+  var settingsLink=document.getElementById('bh-cookie-settings-link');
+  if(!banner||!panel)return;
+  function read(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){return null}}
+  function save(value){try{localStorage.setItem(KEY,JSON.stringify({essential:true,analytics:!!value.analytics,marketing:!!value.marketing,updatedAt:new Date().toISOString()}))}catch(e){};window.dispatchEvent(new CustomEvent('bhumaji:cookie-preferences-updated',{detail:{essential:true,analytics:!!value.analytics,marketing:!!value.marketing}}));banner.hidden=true;panel.hidden=true}
+  function openPreferences(){var p=read()||{};analytics.checked=!!p.analytics;marketing.checked=!!p.marketing;panel.hidden=false;var focusTarget=document.getElementById('bh-cookie-save');if(focusTarget)focusTarget.focus()}
+  var existing=read();if(!existing)banner.hidden=false;
+  document.getElementById('bh-cookie-accept').addEventListener('click',function(){save({analytics:true,marketing:true})});
+  document.getElementById('bh-cookie-reject').addEventListener('click',function(){save({analytics:false,marketing:false})});
+  document.getElementById('bh-cookie-customize').addEventListener('click',openPreferences);
+  document.getElementById('bh-cookie-save').addEventListener('click',function(){save({analytics:analytics.checked,marketing:marketing.checked})});
+  document.getElementById('bh-cookie-cancel').addEventListener('click',function(){panel.hidden=true});
+  if(settingsLink)settingsLink.addEventListener('click',function(e){e.preventDefault();openPreferences()});
+  panel.addEventListener('click',function(e){if(e.target===panel)panel.hidden=true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden)panel.hidden=true});
+})();
+</script>
 
 </body>
 </html>
