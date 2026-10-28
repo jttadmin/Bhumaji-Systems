@@ -2532,15 +2532,25 @@ footer .top ul li:nth-last-child(-n+2) a::after{left:auto;right:0}
 #bh-cookie-preferences .bh-cookie-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 #bh-cookie-consent a{color:#174aa8;text-decoration:underline}
 @media(max-width:600px){#bh-cookie-consent{left:12px;right:12px;bottom:12px;padding:18px}#bh-cookie-consent .bh-cookie-actions{display:grid;grid-template-columns:1fr}#bh-cookie-consent button{width:100%}#bh-cookie-preferences .bh-cookie-panel{padding:20px}}
+/* Compact bottom consent bar with three clear choices */
+#bh-cookie-consent{left:0;right:0;bottom:0;max-width:none;margin:0;border-radius:0;border:0;border-top:1px solid #dce4f0;padding:14px max(22px,calc((100% - 1180px)/2));box-shadow:0 -8px 32px rgba(7,26,58,.14);display:flex;align-items:center;justify-content:space-between;gap:24px}
+#bh-cookie-consent[hidden]{display:none!important}
+#bh-cookie-consent .bh-cookie-copy{flex:1;min-width:0}
+#bh-cookie-consent .bh-cookie-heading{display:none}
+#bh-cookie-consent .bh-cookie-copy strong{display:block;color:#071a3a;font-size:15px;line-height:1.4;margin-bottom:2px}
+#bh-cookie-consent p{font-size:12px;line-height:1.5;margin:0;color:#52617a}
+#bh-cookie-consent p a{color:#174aa8;text-decoration:underline}
+#bh-cookie-consent .bh-cookie-actions{display:flex;flex:0 0 auto;flex-wrap:nowrap;gap:8px;margin:0}
+#bh-cookie-consent button{min-width:112px;padding:10px 14px;border-radius:7px;white-space:nowrap;font-size:12px}
+@media(max-width:720px){#bh-cookie-consent{padding:14px 16px;display:block}#bh-cookie-consent .bh-cookie-copy{margin-bottom:12px}#bh-cookie-consent .bh-cookie-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}#bh-cookie-consent button{min-width:0;width:100%;padding:10px 6px;font-size:11px}}
+@media(max-width:360px){#bh-cookie-consent .bh-cookie-actions{grid-template-columns:1fr}#bh-cookie-consent button{font-size:12px}}
 </style>
 <section id="bh-cookie-consent" role="dialog" aria-modal="false" aria-labelledby="bh-cookie-title" aria-describedby="bh-cookie-description" hidden>
-  <div class="bh-cookie-heading"><div class="bh-cookie-mark" aria-hidden="true">✓</div><h2 id="bh-cookie-title">Your privacy matters</h2></div>
-  <p id="bh-cookie-description">Bhumaji Systems uses essential browser storage to keep this preference and help the website work. We do not currently use analytics or advertising trackers. You can accept optional categories, reject them, or review your choices.</p>
-  <p><a href="/privacy-policy.html">Read our Privacy Policy</a></p>
+  <div class="bh-cookie-copy"><strong id="bh-cookie-title">We value your privacy</strong><p id="bh-cookie-description">We use essential storage to remember your choice. No analytics or advertising trackers are currently used. <a href="/privacy-policy.html">Privacy Policy</a></p></div>
   <div class="bh-cookie-actions">
-    <button type="button" class="bh-cookie-primary" id="bh-cookie-accept">Accept all</button>
-    <button type="button" class="bh-cookie-secondary" id="bh-cookie-reject">Reject optional</button>
-    <button type="button" class="bh-cookie-secondary" id="bh-cookie-customize">Customize preferences</button>
+    <button type="button" class="bh-cookie-primary" id="bh-cookie-accept">Accept All</button>
+    <button type="button" class="bh-cookie-secondary" id="bh-cookie-reject">Reject All</button>
+    <button type="button" class="bh-cookie-secondary" id="bh-cookie-customize">Customize</button>
   </div>
 </section>
 <section id="bh-cookie-preferences" role="dialog" aria-modal="true" aria-labelledby="bh-cookie-preferences-title" hidden>
