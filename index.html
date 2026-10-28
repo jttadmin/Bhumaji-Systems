@@ -2757,6 +2757,86 @@ footer .top ul li:nth-last-child(-n+2) a::after{left:auto;right:0}
 }
 </style>
 
+
+<style id="bhumaji-animated-cloud-hero">
+/* Animated cloud infrastructure hero: lightweight CSS motion, no third-party JS. */
+.cinematic-hero{isolation:isolate!important;position:relative!important;overflow:hidden!important}
+.cinematic-hero:before{
+ background-image:
+   linear-gradient(90deg,rgba(4,12,24,.95) 0%,rgba(4,12,24,.78) 48%,rgba(4,12,24,.38) 100%),
+   url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2200&q=85')!important;
+ background-size:cover,cover!important;background-position:center,center 48%!important;
+ animation:bhPlanetDrift 32s ease-in-out infinite alternate!important;opacity:.7!important;
+}
+.cinematic-hero:after{
+ background:
+  radial-gradient(circle at 72% 35%,rgba(25,201,220,.16),transparent 27%),
+  linear-gradient(0deg,rgba(4,10,19,.9),transparent 58%)!important;
+ pointer-events:none!important;
+}
+.cinematic-hero .bh-motion-layer{
+ position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+ mask-image:linear-gradient(90deg,transparent 0%,black 28%,black 100%);
+}
+.cinematic-hero .bh-motion-grid{
+ position:absolute;inset:-35%;
+ background-image:linear-gradient(rgba(85,205,229,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(85,205,229,.11) 1px,transparent 1px);
+ background-size:64px 64px;transform:perspective(700px) rotateX(58deg) rotateZ(-14deg);
+ transform-origin:center 70%;opacity:.32;
+ animation:bhGridMove 24s linear infinite;
+}
+.cinematic-hero .bh-orb{
+ position:absolute;border-radius:50%;filter:blur(.2px);opacity:.65;
+ background:radial-gradient(circle at 35% 30%,#e7ffff 0,#42d8e5 9%,rgba(66,216,229,.28) 38%,rgba(66,216,229,0) 72%);
+ box-shadow:0 0 32px rgba(66,216,229,.14);
+}
+.cinematic-hero .bh-orb.one{width:130px;height:130px;right:19%;top:20%;animation:bhFloatOne 9s ease-in-out infinite}
+.cinematic-hero .bh-orb.two{width:66px;height:66px;right:37%;top:54%;opacity:.45;animation:bhFloatTwo 11s ease-in-out infinite}
+.cinematic-hero .bh-orb.three{width:34px;height:34px;right:9%;top:57%;opacity:.7;animation:bhFloatOne 7s ease-in-out infinite reverse}
+.cinematic-hero .bh-data-line{
+ position:absolute;height:1px;transform-origin:left center;
+ background:linear-gradient(90deg,transparent,rgba(66,216,229,.05),rgba(66,216,229,.8),rgba(199,243,107,.45),transparent);
+ box-shadow:0 0 12px rgba(66,216,229,.25);opacity:0;
+}
+.cinematic-hero .bh-data-line.l1{width:47%;left:48%;top:31%;transform:rotate(12deg);animation:bhDataPulse 7s ease-in-out infinite}
+.cinematic-hero .bh-data-line.l2{width:39%;left:56%;top:66%;transform:rotate(-17deg);animation:bhDataPulse 9s 1.8s ease-in-out infinite}
+.cinematic-hero .bh-data-line.l3{width:33%;left:64%;top:45%;transform:rotate(27deg);animation:bhDataPulse 8s 3s ease-in-out infinite}
+.cinematic-hero>.wrap,.cinematic-hero>.stats{position:relative;z-index:2}
+.cinematic-hero .panel{position:relative;overflow:hidden}
+.cinematic-hero .panel:after{
+ content:"";position:absolute;top:-50%;bottom:-50%;left:-70%;width:45%;
+ transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.075),transparent);
+ animation:bhPanelShimmer 8s ease-in-out infinite;pointer-events:none;
+}
+.cinematic-hero .panel .n{animation:bhNumberGlow 5s ease-in-out infinite}
+.cinematic-hero .panel .row:nth-of-type(3) .n{animation-delay:1.4s}
+.cinematic-hero .panel .row:nth-of-type(4) .n{animation-delay:2.8s}
+@keyframes bhPlanetDrift{from{background-position:center,48% 46%;transform:scale(1)}to{background-position:center,54% 52%;transform:scale(1.045)}}
+@keyframes bhGridMove{from{background-position:0 0,0 0}to{background-position:0 256px,256px 0}}
+@keyframes bhFloatOne{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-18px,-24px,0)}}
+@keyframes bhFloatTwo{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(20px,15px,0)}}
+@keyframes bhDataPulse{0%,10%{opacity:0;clip-path:inset(0 100% 0 0)}25%{opacity:.8}65%{opacity:.4;clip-path:inset(0 0 0 0)}100%{opacity:0;clip-path:inset(0 0 0 100%)}}
+@keyframes bhPanelShimmer{0%,65%{left:-70%}85%,100%{left:140%}}
+@keyframes bhNumberGlow{0%,100%{box-shadow:0 0 0 rgba(199,243,107,0)}50%{box-shadow:0 0 20px rgba(199,243,107,.12)}}
+@media(max-width:1000px){.cinematic-hero .bh-motion-layer{mask-image:linear-gradient(180deg,transparent 0%,black 35%,black 100%)}.cinematic-hero .bh-orb.one{right:8%;top:44%;width:90px;height:90px}.cinematic-hero .bh-orb.two{right:44%;top:68%}.cinematic-hero .bh-data-line.l1{left:35%;top:46%;width:58%}.cinematic-hero .bh-data-line.l2{left:30%;top:70%;width:60%}}
+@media(prefers-reduced-motion:reduce){
+ .cinematic-hero:before,.cinematic-hero .bh-grid,.cinematic-hero .bh-orb,.cinematic-hero .bh-data-line,.cinematic-hero .panel:after,.cinematic-hero .panel .n{animation:none!important}
+ .cinematic-hero .bh-motion-grid{animation:none!important}
+}
+</style>
+<script id="bhumaji-animated-cloud-hero-init">
+(function(){
+ function init(){
+  var hero=document.querySelector('.cinematic-hero');
+  if(!hero||hero.querySelector('.bh-motion-layer'))return;
+  var layer=document.createElement('div');layer.className='bh-motion-layer';layer.setAttribute('aria-hidden','true');
+  layer.innerHTML='<div class="bh-motion-grid"></div><span class="bh-orb one"></span><span class="bh-orb two"></span><span class="bh-orb three"></span><i class="bh-data-line l1"></i><i class="bh-data-line l2"></i><i class="bh-data-line l3"></i>';
+  hero.prepend(layer);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
 </body>
 </html>
 
