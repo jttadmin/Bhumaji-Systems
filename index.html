@@ -1051,6 +1051,32 @@ footer a:hover{color:var(--bs-lime)!important}
 @media(prefers-reduced-motion:reduce){.industry-detail-grid article,.insight-grid article,.card{transition:none!important}}
 </style>
 
+
+<style id="bhumaji-header-stability-fix">
+/* Remove the narrow utility strip above the main navigation. */
+.topbar{display:none!important}
+/* Keep the navigation and logo at a constant size; no shrink/zoom on scroll. */
+.site-header,.site-header.compact{
+  position:sticky!important;top:0!important;
+  transform:none!important;scale:1!important;
+  transition:none!important;
+}
+.site-header .nav-wrap,.site-header.compact .nav-wrap{
+  min-height:86px!important;
+}
+.site-header .brand .modern-brand-logo,
+.site-header.compact .brand .modern-brand-logo{
+  max-height:62px!important;
+  transform:none!important;
+  transition:none!important;
+}
+.site-header nav,.site-header.compact nav,
+.site-header nav ul,.site-header.compact nav ul{
+  transform:none!important;
+  transition:none!important;
+}
+</style>
+
 </head>
 <body id="top">
 
@@ -1485,7 +1511,7 @@ footer a:hover{color:var(--bs-lime)!important}
 </footer>
 
 <script>
-(function(){var h=document.querySelector("header");function f(){h.classList.toggle("compact",window.scrollY>60)}window.addEventListener("scroll",f,{passive:true});f();})();
+/* Header remains a consistent size while scrolling. */
 // Demo handler: opens the visitor's email app with the enquiry pre-filled.
 // Replace with your existing form endpoint if you already have one.
 document.getElementById('enquiry').addEventListener('submit',function(e){
