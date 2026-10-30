@@ -43,9 +43,22 @@ src/pages/
 
 1. **Real case studies and testimonials.** The "Engagements" section describes typical work without client names or results. Add real case studies and testimonials in `src/data/content.js` once clients approve them.
 2. **Add contact details** in `site` inside `src/data/content.js` (`contactEmail`, `phone`).
-3. **Enquiry form email.** Get a free access key for contactus@bhumaji.com at https://web3forms.com and add it as the repository variable `WEB3FORMS_KEY` (Settings → Secrets and variables → Actions → Variables). Without a key the form uses FormSubmit; if sending fails, visitors get a pre-filled email instead.
+3. **Enquiry form email.** See "Enquiry emails (AWS)" below.
 4. **Logo.** The official artwork lives in `src/assets/` (`bhumaji-logo.png` lockup, `bhumaji-mark.png` icon) with favicons in `public/`. Replace those files to update it everywhere.
 5. **Add an Open Graph image** (`public/og.png`, 1200×630) and reference it in `index.html`.
+
+## Enquiry emails (AWS)
+
+The contact form posts to our own backend in `infra/enquiry/` (API Gateway HTTP API → Lambda → Amazon SES), which emails each enquiry to contactus@bhumaji.com with Reply-To set to the visitor. No third-party form service is used.
+
+The deploy workflow creates and updates it with Terraform on every push, once AWS access is added to the repo (Settings → Secrets and variables → Actions → **Secrets**):
+
+- `AWS_ROLE_ARN` (GitHub OIDC role, recommended), **or**
+- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+
+On the first run AWS emails contactus@bhumaji.com a verification link ("Amazon Web Services – Email Address Verification Request"). Click it, then re-run the workflow. Until the backend is live, the form offers visitors a pre-filled email instead.
+
+Region: `ap-south-1` (Mumbai). Terraform state: S3 bucket `bhumaji-tfstate-<account-id>`, created by the workflow.
 
 ## Routing
 

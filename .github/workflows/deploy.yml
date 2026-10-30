@@ -15,7 +15,83 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Creates/updates the enquiry backend (API Gateway + Lambda + SES) with Terraform.
+  # Runs only when AWS access is configured as repository secrets:
+  #   AWS_ROLE_ARN                              (recommended, GitHub OIDC), or
+  #   AWS_ACCESS_KEY_ID + AWS_SECRET_ACCESS_KEY (IAM user keys)
+  enquiry-api:
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: ap-south-1
+      ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
+      KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      KEY_SECRET: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    outputs:
+      url: ${{ steps.out.outputs.url }}
+    defaults:
+      run:
+        working-directory: infra/enquiry
+    steps:
+      - id: check
+        working-directory: .
+        run: |
+          if [ -n "$ROLE_ARN" ] || [ -n "$KEY_ID" ]; then echo "enabled=true" >> "$GITHUB_OUTPUT"; else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::AWS credentials not configured; skipping the enquiry backend. The contact form will offer a pre-filled email instead."
+          fi
+      - if: steps.check.outputs.enabled == 'true'
+        uses: actions/checkout@v4
+      - if: steps.check.outputs.enabled == 'true' && env.ROLE_ARN != ''
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      - if: steps.check.outputs.enabled == 'true' && env.ROLE_ARN == ''
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - if: steps.check.outputs.enabled == 'true'
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.5
+          terraform_wrapper: false
+      - id: state
+        if: steps.check.outputs.enabled == 'true'
+        name: Ensure Terraform state bucket
+        run: |
+          ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+          BUCKET="bhumaji-tfstate-${ACCOUNT}"
+          if ! aws s3api head-bucket --bucket "$BUCKET" 2>/dev/null; then
+            aws s3api create-bucket --bucket "$BUCKET" --region "$AWS_REGION" \
+              --create-bucket-configuration LocationConstraint="$AWS_REGION"
+            aws s3api put-bucket-versioning --bucket "$BUCKET" --versioning-configuration Status=Enabled
+            aws s3api put-public-access-block --bucket "$BUCKET" --public-access-block-configuration \
+              BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
+          fi
+          echo "bucket=$BUCKET" >> "$GITHUB_OUTPUT"
+      - if: steps.check.outputs.enabled == 'true'
+        run: terraform init -input=false -backend-config="bucket=${{ steps.state.outputs.bucket }}" -backend-config="region=${AWS_REGION}"
+      - if: steps.check.outputs.enabled == 'true'
+        run: terraform apply -input=false -auto-approve -var="region=${AWS_REGION}"
+      - id: out
+        if: steps.check.outputs.enabled == 'true'
+        run: |
+          URL=$(terraform output -raw enquiry_url)
+          VERIFIED=$(terraform output -raw ses_identity_verified)
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Enquiry backend"
+            echo "- Endpoint: \`$URL\`"
+            if [ "$VERIFIED" = "true" ]; then echo "- SES sender verified ✅"; else
+              echo "- ⚠️ SES sender **not verified yet**: click the link in the 'Amazon Web Services – Email Address Verification Request' email sent to contactus@bhumaji.com (check Spam), then re-run this workflow."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
   build:
+    needs: enquiry-api
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,14 +107,15 @@ jobs:
           BASE_PATH: ${{ vars.BASE_PATH || '/' }}
           # Set a repository variable CHAT_API_URL to the whatsapp-bridge Worker URL to switch on live chat.
           VITE_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
-          # Web3Forms access key for the enquiry form (repository variable WEB3FORMS_KEY).
-          VITE_WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY }}
+          # Enquiry endpoint created by the enquiry-api job (or set manually as ENQUIRY_API_URL).
+          VITE_ENQUIRY_API_URL: ${{ needs.enquiry-api.outputs.url || vars.ENQUIRY_API_URL }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
     needs: build
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
