@@ -14,7 +14,7 @@ export const site = {
   enquiryEmail: 'contactus@bhumaji.com',
   // Web3Forms access key created for enquiryEmail. It is public by design (safe in website code).
   // Paste it here, or set the repository variable WEB3FORMS_KEY.
-  web3formsKey: import.meta.env.VITE_WEB3FORMS_KEY || '',
+  web3formsKey: import.meta.env.VITE_WEB3FORMS_KEY || '968cbc11-7c90-4798-a288-737da1c05013',
   phone: '',
   location: 'Bengaluru, India · Serving clients worldwide',
   // URL of the deployed whatsapp-bridge Worker (e.g. https://bhumaji-chat-bridge.<account>.workers.dev).
