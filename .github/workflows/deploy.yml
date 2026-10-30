@@ -31,6 +31,8 @@ jobs:
           BASE_PATH: ${{ vars.BASE_PATH || '/' }}
           # Set a repository variable CHAT_API_URL to the whatsapp-bridge Worker URL to switch on live chat.
           VITE_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
+          # Web3Forms access key for the enquiry form (repository variable WEB3FORMS_KEY).
+          VITE_WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

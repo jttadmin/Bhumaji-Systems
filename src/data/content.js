@@ -10,8 +10,11 @@ export const site = {
   domain: 'bhumaji.com',
   // Add your real contact details here before launch.
   contactEmail: 'contactus@bhumaji.com',
-  // Enquiry form submissions are emailed here (via FormSubmit, https://formsubmit.co).
+  // Enquiry form submissions are emailed here.
   enquiryEmail: 'contactus@bhumaji.com',
+  // Web3Forms access key (https://web3forms.com) for enquiryEmail. Public by design; set it here
+  // or as the repository variable WEB3FORMS_KEY. Without it the form falls back to FormSubmit.
+  web3formsKey: import.meta.env.VITE_WEB3FORMS_KEY || '',
   phone: '',
   location: 'Bengaluru, India · Serving clients worldwide',
   // URL of the deployed whatsapp-bridge Worker (e.g. https://bhumaji-chat-bridge.<account>.workers.dev).

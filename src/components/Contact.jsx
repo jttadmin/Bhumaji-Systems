@@ -4,33 +4,63 @@ import { pillars, site } from '../data/content.js';
 const TIMELINES = ['As soon as possible', 'Within 3 months', '3–6 months', 'Just exploring'];
 
 /*
- * Sends the enquiry by email to site.enquiryEmail through FormSubmit (https://formsubmit.co).
- * The first submission triggers a one-time activation email to that inbox; after it is confirmed,
- * every enquiry arrives as an email. Swap this function for your own API at any time.
+ * Emails the enquiry to site.enquiryEmail.
+ * Primary: Web3Forms (needs site.web3formsKey). Otherwise: FormSubmit (needs one-time activation).
+ * If both fail, the visitor is offered a pre-filled email instead, so no enquiry is lost.
  */
+const servicesText = (data) => pillars.filter((p) => data.services.includes(p.id)).map((p) => p.title).join(', ');
+
+const enquiryBody = (data) =>
+  [
+    `Name: ${data.name}`,
+    `Company: ${data.company}`,
+    `Email: ${data.email}`,
+    `Services: ${servicesText(data)}`,
+    `Timeline: ${data.timeline}`,
+    '',
+    data.message,
+  ].join('\n');
+
+export const mailtoHref = (data) =>
+  `mailto:${site.contactEmail}?subject=${encodeURIComponent(`Website enquiry: ${data.company || data.name}`)}&body=${encodeURIComponent(enquiryBody(data))}`;
+
 async function submitEnquiry(data) {
-  const services = pillars.filter((p) => data.services.includes(p.id)).map((p) => p.title).join(', ');
+  const subject = `New website enquiry: ${data.company} (${servicesText(data)})`;
+  const fields = {
+    Name: data.name,
+    Company: data.company,
+    Email: data.email,
+    Services: servicesText(data),
+    Timeline: data.timeline,
+    Message: data.message,
+    Page: window.location.href,
+  };
+
+  if (site.web3formsKey) {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: site.web3formsKey,
+        subject,
+        from_name: 'Bhumaji Systems website',
+        replyto: data.email,
+        botcheck: data.website ? true : '',
+        ...fields,
+      }),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || !json.success) throw new Error(json.message || `Web3Forms error ${res.status}`);
+    return json;
+  }
+
   const res = await fetch(`https://formsubmit.co/ajax/${site.enquiryEmail}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({
-      _subject: `New website enquiry: ${data.company} (${services})`,
-      _template: 'table',
-      _replyto: data.email,
-      _honey: data.website || '',
-      Name: data.name,
-      Company: data.company,
-      Email: data.email,
-      Services: services,
-      Timeline: data.timeline,
-      Message: data.message,
-      Page: window.location.href,
-    }),
+    body: JSON.stringify({ _subject: subject, _template: 'table', _replyto: data.email, _honey: data.website || '', ...fields }),
   });
   const json = await res.json().catch(() => ({}));
-  if (!res.ok || json.success === 'false' || json.success === false) {
-    throw new Error(json.message || 'send failed');
-  }
+  if (!res.ok || json.success === 'false' || json.success === false) throw new Error(json.message || `FormSubmit error ${res.status}`);
   return json;
 }
 
@@ -45,7 +75,7 @@ export default function Contact({ preselect }) {
     website: '', // honeypot: real visitors never fill this
   });
   const [errors, setErrors] = useState({});
-  const [state, setState] = useState('idle'); // idle | sending | sent
+  const [state, setState] = useState('idle'); // idle | sending | sent | failed
 
   // The chat box can hand a visitor's message over to this form.
   useEffect(() => {
@@ -84,9 +114,9 @@ export default function Contact({ preselect }) {
     try {
       await submitEnquiry(form);
       setState('sent');
-    } catch {
-      setState('idle');
-      setErrors({ submit: `Your enquiry could not be sent. Please try again, or email us at ${site.contactEmail}.` });
+    } catch (err) {
+      console.warn('Enquiry send failed:', err && err.message);
+      setState('failed');
     }
   };
 
@@ -175,7 +205,13 @@ export default function Contact({ preselect }) {
                 <label htmlFor="f-website">Website</label>
                 <input id="f-website" tabIndex={-1} autoComplete="off" value={form.website} onChange={set('website')} />
               </div>
-              {errors.submit && <p className="err" role="alert">{errors.submit}</p>}
+              {state === 'failed' && (
+                <div className="send-fallback" role="alert">
+                  <p>We couldn&rsquo;t send your enquiry automatically. Send it from your email app instead; everything you typed is already filled in.</p>
+                  <a className="btn btn-primary" href={mailtoHref(form)}>Send by email instead</a>
+                  <p className="form-note">Or write to <span className="selectable">{site.contactEmail}</span></p>
+                </div>
+              )}
               <div className="form-foot">
                 <button type="submit" className="btn btn-primary btn-lg" disabled={state === 'sending'}>
                   {state === 'sending' ? 'Sending…' : 'Request a consultation'}

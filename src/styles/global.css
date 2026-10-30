@@ -521,6 +521,8 @@ main:focus { outline: none; }
 .field.has-error input, .field.has-error textarea { border-color: #d6334a; }
 .err { color: #c8283f; font-size: 0.8125rem; margin-top: 6px; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.send-fallback { display: grid; gap: 12px; justify-items: start; padding: 18px; border-radius: 12px; background: #fff6e6; border: 1px solid #f2c97d; }
+.send-fallback p { color: #5c4210; font-size: 0.9375rem; }
 .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
 .form-note { font-size: 0.8125rem; color: var(--dim); }
 .sent { display: grid; gap: 14px; justify-items: start; padding-block: 24px; }

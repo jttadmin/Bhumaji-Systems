@@ -43,7 +43,7 @@ src/pages/
 
 1. **Real case studies and testimonials.** The "Engagements" section describes typical work without client names or results. Add real case studies and testimonials in `src/data/content.js` once clients approve them.
 2. **Add contact details** in `site` inside `src/data/content.js` (`contactEmail`, `phone`).
-3. **Enquiry form email.** Enquiries are emailed to `site.enquiryEmail` (contactus@bhumaji.com) via FormSubmit. The first submission sends a one-time activation email to that inbox; click the link to start receiving enquiries.
+3. **Enquiry form email.** Get a free access key for contactus@bhumaji.com at https://web3forms.com and add it as the repository variable `WEB3FORMS_KEY` (Settings → Secrets and variables → Actions → Variables). Without a key the form uses FormSubmit; if sending fails, visitors get a pre-filled email instead.
 4. **Logo.** The official artwork lives in `src/assets/` (`bhumaji-logo.png` lockup, `bhumaji-mark.png` icon) with favicons in `public/`. Replace those files to update it everywhere.
 5. **Add an Open Graph image** (`public/og.png`, 1200×630) and reference it in `index.html`.
 
