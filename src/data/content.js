@@ -9,7 +9,9 @@ export const site = {
   tagline: 'Cloud. Intelligence. Engineering.',
   domain: 'bhumaji.com',
   // Add your real contact details here before launch.
-  contactEmail: '',
+  contactEmail: 'contactus@bhumaji.com',
+  // Enquiry form submissions are emailed here (via FormSubmit, https://formsubmit.co).
+  enquiryEmail: 'contactus@bhumaji.com',
   phone: '',
   location: 'Bengaluru, India · Serving clients worldwide',
   // URL of the deployed whatsapp-bridge Worker (e.g. https://bhumaji-chat-bridge.<account>.workers.dev).

@@ -520,6 +520,7 @@ main:focus { outline: none; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; background: #fff; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(11, 143, 176, 0.15); }
 .field.has-error input, .field.has-error textarea { border-color: #d6334a; }
 .err { color: #c8283f; font-size: 0.8125rem; margin-top: 6px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
 .form-note { font-size: 0.8125rem; color: var(--dim); }
 .sent { display: grid; gap: 14px; justify-items: start; padding-block: 24px; }

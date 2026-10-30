@@ -4,12 +4,34 @@ import { pillars, site } from '../data/content.js';
 const TIMELINES = ['As soon as possible', 'Within 3 months', '3–6 months', 'Just exploring'];
 
 /*
- * Front-end only. Wire `submitEnquiry` to your backend
- * (e.g. an API Gateway + Lambda + SES endpoint, or a form service).
+ * Sends the enquiry by email to site.enquiryEmail through FormSubmit (https://formsubmit.co).
+ * The first submission triggers a one-time activation email to that inbox; after it is confirmed,
+ * every enquiry arrives as an email. Swap this function for your own API at any time.
  */
 async function submitEnquiry(data) {
-  // await fetch('/api/enquiry', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-  return new Promise((resolve) => setTimeout(() => resolve(data), 600));
+  const services = pillars.filter((p) => data.services.includes(p.id)).map((p) => p.title).join(', ');
+  const res = await fetch(`https://formsubmit.co/ajax/${site.enquiryEmail}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      _subject: `New website enquiry: ${data.company} (${services})`,
+      _template: 'table',
+      _replyto: data.email,
+      _honey: data.website || '',
+      Name: data.name,
+      Company: data.company,
+      Email: data.email,
+      Services: services,
+      Timeline: data.timeline,
+      Message: data.message,
+      Page: window.location.href,
+    }),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || json.success === 'false' || json.success === false) {
+    throw new Error(json.message || 'send failed');
+  }
+  return json;
 }
 
 export default function Contact({ preselect }) {
@@ -20,6 +42,7 @@ export default function Contact({ preselect }) {
     services: preselect ? [preselect] : [],
     timeline: TIMELINES[1],
     message: '',
+    website: '', // honeypot: real visitors never fill this
   });
   const [errors, setErrors] = useState({});
   const [state, setState] = useState('idle'); // idle | sending | sent
@@ -58,8 +81,13 @@ export default function Contact({ preselect }) {
       return;
     }
     setState('sending');
-    await submitEnquiry(form);
-    setState('sent');
+    try {
+      await submitEnquiry(form);
+      setState('sent');
+    } catch {
+      setState('idle');
+      setErrors({ submit: `Your enquiry could not be sent. Please try again, or email us at ${site.contactEmail}.` });
+    }
   };
 
   const picked = pillars.filter((p) => form.services.includes(p.id)).map((p) => p.short);
@@ -143,6 +171,11 @@ export default function Contact({ preselect }) {
                   placeholder="e.g. We run 30 services on-premise and want to move to AWS EKS within six months."
                 />
               </Field>
+              <div className="hp" aria-hidden="true">
+                <label htmlFor="f-website">Website</label>
+                <input id="f-website" tabIndex={-1} autoComplete="off" value={form.website} onChange={set('website')} />
+              </div>
+              {errors.submit && <p className="err" role="alert">{errors.submit}</p>}
               <div className="form-foot">
                 <button type="submit" className="btn btn-primary btn-lg" disabled={state === 'sending'}>
                   {state === 'sending' ? 'Sending…' : 'Request a consultation'}
