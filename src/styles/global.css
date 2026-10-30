@@ -240,7 +240,7 @@ main:focus { outline: none; }
 @media (max-width: 1239px) { .mega { display: none !important; } }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(36px, 7vw, 88px)); padding-bottom: 40px; overflow: hidden; }
+.hero { position: relative; padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(16px, 2.4vw, 36px)); padding-bottom: 40px; overflow: hidden; }
 .hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
@@ -254,8 +254,8 @@ main:focus { outline: none; }
   mask-image: radial-gradient(70% 60% at 50% 30%, #000 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(70% 60% at 50% 30%, #000 20%, transparent 75%);
 }
-.hero-inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: 24px; }
-.hero-copy { display: grid; gap: 28px; position: relative; z-index: 2; }
+.hero-inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; gap: 24px; }
+.hero-copy { display: grid; gap: 18px; position: relative; z-index: 2; }
 .hero-eyebrow { color: var(--muted); }
 .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 0 rgba(198, 244, 50, 0.6); animation: pulse 2.4s infinite; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(198, 244, 50, 0); } 100% { box-shadow: 0 0 0 0 rgba(198, 244, 50, 0); } }
