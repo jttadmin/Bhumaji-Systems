@@ -4,10 +4,8 @@ import { pillars, site } from '../data/content.js';
 const TIMELINES = ['As soon as possible', 'Within 3 months', '3–6 months', 'Just exploring'];
 
 /*
- * Sends the enquiry by email to site.enquiryEmail:
- *   1. our own backend (infra/enquiry: API Gateway → Lambda → Amazon SES), when deployed;
- *   2. otherwise FormSubmit (formsubmit.co), once its activation email is confirmed;
- *   3. if both fail, the visitor is offered a pre-filled email, so no enquiry is lost.
+ * Emails the enquiry to site.enquiryEmail through Web3Forms (https://web3forms.com).
+ * If sending fails (or no key is set yet), the visitor is offered a pre-filled email instead.
  */
 const servicesText = (data) => pillars.filter((p) => data.services.includes(p.id)).map((p) => p.title).join(', ');
 
@@ -25,36 +23,17 @@ const enquiryBody = (data) =>
 export const mailtoHref = (data) =>
   `mailto:${site.contactEmail}?subject=${encodeURIComponent(`Website enquiry: ${data.company || data.name}`)}&body=${encodeURIComponent(enquiryBody(data))}`;
 
-async function sendToOwnBackend(data) {
-  const res = await fetch(site.enquiryApiUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: data.name,
-      company: data.company,
-      email: data.email,
-      services: pillars.filter((p) => data.services.includes(p.id)).map((p) => p.title),
-      timeline: data.timeline,
-      message: data.message,
-      website: data.website,
-      page: window.location.href,
-    }),
-  });
-  const json = await res.json().catch(() => ({}));
-  if (!res.ok || !json.ok) throw new Error(json.error || `Enquiry error ${res.status}`);
-  return json;
-}
-
-// FormSubmit (https://formsubmit.co): works once its one-time activation email has been confirmed.
-async function sendViaFormSubmit(data) {
-  const res = await fetch(`https://formsubmit.co/ajax/${site.enquiryEmail}`, {
+async function submitEnquiry(data) {
+  if (!site.web3formsKey) throw new Error('Web3Forms access key not set');
+  const res = await fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({
-      _subject: `New website enquiry: ${data.company} (${servicesText(data)})`,
-      _template: 'table',
-      _replyto: data.email,
-      _honey: data.website || '',
+      access_key: site.web3formsKey,
+      subject: `New website enquiry: ${data.company} (${servicesText(data)})`,
+      from_name: 'Bhumaji Systems website',
+      replyto: data.email,
+      botcheck: data.website ? true : '',
       Name: data.name,
       Company: data.company,
       Email: data.email,
@@ -65,19 +44,8 @@ async function sendViaFormSubmit(data) {
     }),
   });
   const json = await res.json().catch(() => ({}));
-  if (!res.ok || json.success === 'false' || json.success === false) throw new Error(json.message || `FormSubmit error ${res.status}`);
+  if (!res.ok || !json.success) throw new Error(json.message || `Web3Forms error ${res.status}`);
   return json;
-}
-
-async function submitEnquiry(data) {
-  if (site.enquiryApiUrl) {
-    try {
-      return await sendToOwnBackend(data);
-    } catch (err) {
-      console.warn('Own backend failed, trying FormSubmit:', err && err.message);
-    }
-  }
-  return sendViaFormSubmit(data);
 }
 
 export default function Contact({ preselect }) {

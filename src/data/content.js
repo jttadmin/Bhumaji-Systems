@@ -10,10 +10,11 @@ export const site = {
   domain: 'bhumaji.com',
   // Add your real contact details here before launch.
   contactEmail: 'contactus@bhumaji.com',
-  // Enquiries are emailed here by our own AWS backend (infra/enquiry: API Gateway + Lambda + SES).
+  // Enquiry form submissions are emailed here through Web3Forms (https://web3forms.com).
   enquiryEmail: 'contactus@bhumaji.com',
-  // Set automatically by the deploy workflow once the backend exists.
-  enquiryApiUrl: import.meta.env.VITE_ENQUIRY_API_URL || '',
+  // Web3Forms access key created for enquiryEmail. It is public by design (safe in website code).
+  // Paste it here, or set the repository variable WEB3FORMS_KEY.
+  web3formsKey: import.meta.env.VITE_WEB3FORMS_KEY || '',
   phone: '',
   location: 'Bengaluru, India · Serving clients worldwide',
   // URL of the deployed whatsapp-bridge Worker (e.g. https://bhumaji-chat-bridge.<account>.workers.dev).
