@@ -3,7 +3,7 @@ import { pillars, site } from '../data/content.js';
 
 export default function Footer() {
   return (
-    <footer className="site-footer band-dark">
+    <footer className="site-footer">
       <div className="wrap">
         <p className="footer-mega" aria-hidden="true">Cloud. Intelligence. Engineering.</p>
         <div className="footer-grid">

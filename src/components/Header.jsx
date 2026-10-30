@@ -105,7 +105,6 @@ export default function Header({ current }) {
 
   return (
     <header ref={headerRef} className={`site-header${scrolled || open ? ' is-solid' : ''}`}>
-      <div className="header-bar band-dark">
       <div className="wrap header-row">
         <Logo />
 
@@ -148,7 +147,6 @@ export default function Header({ current }) {
         >
           <span /><span />
         </button>
-      </div>
       </div>
 
       {['services', 'industries'].map((id) => (
