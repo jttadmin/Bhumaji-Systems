@@ -20,7 +20,7 @@ Node 18 or newer is required.
 ```
 index.html                  SEO meta, Open Graph, JSON-LD, Google Fonts
 public/favicon.svg          Placeholder mark (swap for the official logo)
-src/data/content.js         ALL website copy: services, industries, process, projects, testimonials
+src/data/content.js         ALL website copy: services, industries, process, engagements
 src/styles/global.css       Design tokens (top of file) and all component styles
 src/components/
   Header.jsx                Desktop mega-menus + full-screen mobile navigation
@@ -29,7 +29,7 @@ src/components/
   Ecosystem.jsx             Orbiting technology ecosystem (layered list on mobile)
   Industries.jsx            Tabbed industry stories
   Process.jsx               Discover → Optimize as a CI-style pipeline
-  Projects.jsx              Case-study carousel + testimonials (illustrative placeholders)
+  Projects.jsx              Engagements carousel (typical work we deliver)
   Why.jsx                   "Why Bhumaji" spec sheet
   Insights.jsx              Upcoming articles
   Contact.jsx               Enquiry form with service selection
@@ -41,7 +41,7 @@ src/pages/
 
 ## Before launch
 
-1. **Replace placeholder content.** Every case study and testimonial in `src/data/content.js` is fictional and labelled "Illustrative". Swap in approved client work, or remove the labels only once the content is real.
+1. **Real case studies and testimonials.** The "Engagements" section describes typical work without client names or results. Add real case studies and testimonials in `src/data/content.js` once clients approve them.
 2. **Add contact details** in `site` inside `src/data/content.js` (`contactEmail`, `phone`).
 3. **Connect the enquiry form.** `submitEnquiry()` in `src/components/Contact.jsx` currently simulates a send. Point it at your API (for example API Gateway + Lambda + SES, or a form service).
 4. **Logo.** The official artwork lives in `src/assets/` (`bhumaji-logo.png` lockup, `bhumaji-mark.png` icon) with favicons in `public/`. Replace those files to update it everywhere.

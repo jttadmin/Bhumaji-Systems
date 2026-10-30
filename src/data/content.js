@@ -1,7 +1,7 @@
 /*
  * All editable website copy lives here.
- * Projects and testimonials are ILLUSTRATIVE PLACEHOLDERS — replace them
- * with real, approved client work before launch.
+ * Engagements describe the kind of work we deliver (no client names or results).
+ * Add real case studies and testimonials only with client approval.
  */
 
 export const site = {
@@ -266,86 +266,66 @@ export const projects = [
     id: 'p1',
     kind: 'Cloud migration',
     tone: 'cyan',
-    title: 'Moving a lending platform from data centre to AWS',
-    client: 'A mid-sized regional lender (fictional)',
-    challenge: 'Ageing on-premise hardware and a hard data-centre exit date.',
-    approach: 'Terraform landing zone, six migration waves with rollback plans, managed databases and centralised logging.',
+    title: 'Data-centre exit to AWS',
+    challenge: 'Ageing on-premise hardware, a contract end date and workloads nobody wants to touch.',
+    approach: 'A Terraform landing zone, migration in waves with a rollback plan for each, managed databases and central logging from day one.',
     stack: ['AWS', 'Terraform', 'PostgreSQL', 'Prometheus'],
-    metrics: [
-      { value: '120+', label: 'workloads migrated' },
-      { value: '0', label: 'unplanned outages' },
+    deliverables: [
+      { value: 'Landing zone', label: 'versioned and policy-checked' },
+      { value: 'Wave plan', label: 'with rollback for every move' },
     ],
   },
   {
     id: 'p2',
     kind: 'Kubernetes platform engineering',
     tone: 'teal',
-    title: 'An internal developer platform for 40 product teams',
-    client: 'A B2B SaaS provider (fictional)',
-    challenge: 'Each team ran its own clusters, pipelines and conventions.',
-    approach: 'Shared EKS platform with Argo CD GitOps, golden-path templates and self-service namespaces.',
+    title: 'An internal developer platform on Kubernetes',
+    challenge: 'Every team runs its own clusters, pipelines and conventions, and releases depend on a few experts.',
+    approach: 'A shared EKS platform with Argo CD GitOps, golden-path service templates and self-service namespaces.',
     stack: ['Kubernetes', 'Argo CD', 'GitHub Actions', 'Terraform'],
-    metrics: [
-      { value: '15 min', label: 'from repo to first deploy' },
-      { value: '3×', label: 'more releases per week' },
+    deliverables: [
+      { value: 'Golden paths', label: 'from repo to first deploy' },
+      { value: 'GitOps', label: 'every change reviewed and traceable' },
     ],
   },
   {
     id: 'p3',
     kind: 'AI/ML deployment automation',
     tone: 'teal',
-    title: 'From notebook to production for demand-forecasting models',
-    client: 'A national retail chain (fictional)',
-    challenge: 'Models were retrained by hand and deployed by copying files.',
-    approach: 'MLflow model registry, automated training pipelines, gated promotion and drift alerts.',
+    title: 'From notebook to production for ML models',
+    challenge: 'Models retrained by hand, deployed by copying files and never monitored once live.',
+    approach: 'An MLflow model registry, automated training pipelines, gated promotion to production and drift alerts.',
     stack: ['Python', 'PyTorch', 'MLflow', 'Kubernetes'],
-    metrics: [
-      { value: 'Weekly', label: 'automated retraining' },
-      { value: '< 1 hr', label: 'to roll back a model' },
+    deliverables: [
+      { value: 'Retraining', label: 'scheduled and automated' },
+      { value: 'Rollback', label: 'to any registered model version' },
     ],
   },
   {
     id: 'p4',
     kind: 'Enterprise software development',
     tone: 'lime',
-    title: 'Replacing a monolithic claims system with services',
-    client: 'A health insurance administrator (fictional)',
-    challenge: 'A 15-year-old monolith that only two people could safely change.',
-    approach: 'Strangler-pattern rewrite into Node.js services behind a stable API gateway.',
+    title: 'Breaking up a monolith without stopping the business',
+    challenge: 'A large legacy application that only a few people can change safely.',
+    approach: 'A strangler-pattern rewrite into Node.js services behind a stable API gateway, one capability at a time.',
     stack: ['Node.js', 'PostgreSQL', 'Docker', 'Jenkins'],
-    metrics: [
-      { value: '8', label: 'services extracted' },
-      { value: 'Daily', label: 'release cadence' },
+    deliverables: [
+      { value: 'Services', label: 'with clear ownership and tests' },
+      { value: 'CI/CD', label: 'so releases become routine' },
     ],
   },
   {
     id: 'p5',
     kind: 'Mobile application development',
     tone: 'blue',
-    title: 'A driver and dispatch app for a logistics network',
-    client: 'A last-mile delivery company (fictional)',
-    challenge: 'Drivers worked from paper manifests and phone calls.',
-    approach: 'Cross-platform app with offline sync, live tracking and a React dispatch console.',
+    title: 'A field-operations app for drivers and dispatch',
+    challenge: 'Teams in the field working from paper sheets and phone calls.',
+    approach: 'A cross-platform app with offline sync and live tracking, plus a React console for dispatchers.',
     stack: ['React', 'Node.js', 'PostgreSQL', 'GitHub Actions'],
-    metrics: [
+    deliverables: [
       { value: 'Android + iOS', label: 'from one codebase' },
-      { value: 'Offline', label: 'first by design' },
+      { value: 'Offline-first', label: 'works with patchy coverage' },
     ],
-  },
-];
-
-export const testimonials = [
-  {
-    quote:
-      'They treated our migration like an engineering programme, not a lift-and-shift. Every wave had a plan, a dashboard and a way back.',
-    name: 'Head of Infrastructure',
-    org: 'Regional lender (fictional)',
-  },
-  {
-    quote:
-      'Our data scientists stopped asking how to deploy and started asking what to build next.',
-    name: 'VP, Data & AI',
-    org: 'Retail chain (fictional)',
   },
 ];
 

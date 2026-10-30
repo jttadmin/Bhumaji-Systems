@@ -20,7 +20,7 @@ export default function Footer() {
             <ul>
               <li><a href="#about">About Us</a></li>
               <li><a href="#industries">Industries</a></li>
-              <li><a href="#work">Featured work</a></li>
+              <li><a href="#work">Engagements</a></li>
               <li><a href="#insights">Insights</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
         <div className="footer-base">
           <span>© {new Date().getFullYear()} Bhumaji Systems. All rights reserved.</span>
-          <span>Case studies and testimonials shown are illustrative placeholders.</span>
+          <span>Cloud. Intelligence. Engineering.</span>
         </div>
       </div>
     </footer>

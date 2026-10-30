@@ -50,7 +50,7 @@ export default function ServicePage({ pillar }) {
       {related.length > 0 && (
         <section className="section svc-related">
           <div className="wrap">
-            <p className="eyebrow">Example engagement <span className="ph-badge">Illustrative placeholder</span></p>
+            <p className="eyebrow">Typical engagement</p>
             {related.map((p) => (
               <article key={p.id} className="related-case">
                 <h3>{p.title}</h3>
