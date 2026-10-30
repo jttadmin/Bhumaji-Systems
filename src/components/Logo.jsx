@@ -1,7 +1,7 @@
 import logoUrl from '../assets/bhumaji-logo.png';
 import markUrl from '../assets/bhumaji-mark.png';
 
-/* Official Bhumaji Systems artwork: full lockup in the header/footer, the cloud-B mark on its own elsewhere. */
+/* Official Bhumaji Systems artwork, used unchanged. Place it on a dark background. */
 export function LogoMark({ size = 34 }) {
   return <img src={markUrl} width={size} height={size} alt="" aria-hidden="true" className="logo-mark" decoding="async" />;
 }
