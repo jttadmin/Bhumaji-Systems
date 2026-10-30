@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { pillars, site } from '../data/content.js';
 
 const TIMELINES = ['As soon as possible', 'Within 3 months', '3–6 months', 'Just exploring'];
@@ -23,6 +23,16 @@ export default function Contact({ preselect }) {
   });
   const [errors, setErrors] = useState({});
   const [state, setState] = useState('idle'); // idle | sending | sent
+
+  // The chat box can hand a visitor's message over to this form.
+  useEffect(() => {
+    const onPrefill = (e) => {
+      setState('idle');
+      setForm((f) => ({ ...f, message: e.detail || f.message }));
+    };
+    window.addEventListener('bhumaji:prefill', onPrefill);
+    return () => window.removeEventListener('bhumaji:prefill', onPrefill);
+  }, []);
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
   const toggle = (id) =>

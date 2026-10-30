@@ -12,6 +12,9 @@ export const site = {
   contactEmail: '',
   phone: '',
   location: 'Bengaluru, India · Serving clients worldwide',
+  // URL of the deployed whatsapp-bridge Worker (e.g. https://bhumaji-chat-bridge.<account>.workers.dev).
+  // Leave empty until the Worker is live; the chat box then hands messages to the enquiry form.
+  chatApiUrl: import.meta.env.VITE_CHAT_API_URL || '',
 };
 
 export const hero = {

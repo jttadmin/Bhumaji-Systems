@@ -29,6 +29,8 @@ jobs:
           # Leave as "/" for a custom domain (bhumaji.com) or a username.github.io repo.
           # For https://<user>.github.io/<repo>/ set a repository variable BASE_PATH to "/<repo>/".
           BASE_PATH: ${{ vars.BASE_PATH || '/' }}
+          # Set a repository variable CHAT_API_URL to the whatsapp-bridge Worker URL to switch on live chat.
+          VITE_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

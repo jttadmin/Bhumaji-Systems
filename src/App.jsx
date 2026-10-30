@@ -5,6 +5,7 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
 import ServicePage from './pages/ServicePage.jsx';
+import ChatWidget from './components/ChatWidget.jsx';
 
 /*
  * Lightweight hash routing: '#service-cloud' etc. open a service detail page,
@@ -38,6 +39,7 @@ export default function App() {
         {pillar ? <ServicePage pillar={pillar} /> : <Home />}
       </main>
       <Footer />
+      <ChatWidget />
     </>
   );
 }
