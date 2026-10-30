@@ -44,7 +44,7 @@ src/pages/
 1. **Replace placeholder content.** Every case study and testimonial in `src/data/content.js` is fictional and labelled "Illustrative". Swap in approved client work, or remove the labels only once the content is real.
 2. **Add contact details** in `site` inside `src/data/content.js` (`contactEmail`, `phone`).
 3. **Connect the enquiry form.** `submitEnquiry()` in `src/components/Contact.jsx` currently simulates a send. Point it at your API (for example API Gateway + Lambda + SES, or a form service).
-4. **Swap the logo.** `src/components/Logo.jsx` and `public/favicon.svg` hold a placeholder cloud-B mark; replace with the official artwork.
+4. **Logo.** The official artwork lives in `src/assets/` (`bhumaji-logo.png` lockup, `bhumaji-mark.png` icon) with favicons in `public/`. Replace those files to update it everywhere.
 5. **Add an Open Graph image** (`public/og.png`, 1200×630) and reference it in `index.html`.
 
 ## Routing
