@@ -49,9 +49,9 @@ src/pages/
 
 ## Enquiry emails (Web3Forms)
 
-The contact form emails each enquiry to contactus@bhumaji.com through [Web3Forms](https://web3forms.com), with Reply-To set to the visitor.
+The contact form emails each enquiry to info@bhumaji.com through [Web3Forms](https://web3forms.com), with Reply-To set to the visitor.
 
-1. At https://web3forms.com, create an access key for contactus@bhumaji.com (the key is emailed to that address; check Spam).
+1. At https://web3forms.com, create an access key for info@bhumaji.com (the key is emailed to that address; check Spam).
 2. Put the key in `site.web3formsKey` in `src/data/content.js`, or add it as the repository variable `WEB3FORMS_KEY` (Settings → Secrets and variables → Actions → Variables) and re-run the deploy.
 
 Until a key is set, or if sending fails, the form offers visitors a pre-filled email instead.
