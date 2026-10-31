@@ -29,6 +29,7 @@ export const social = [
   { id: 'linkedin', label: 'LinkedIn', url: '' },
   { id: 'facebook', label: 'Facebook', url: '' },
   { id: 'youtube', label: 'YouTube', url: '' },
+  { id: 'x', label: 'X', url: '' },
 ];
 
 export const hero = {
