@@ -25,10 +25,10 @@ export const site = {
 // Social media profiles shown under the logo in the footer.
 // Paste each full profile URL; until a URL is set the icon shows but is not clickable.
 export const social = [
-  { id: 'instagram', label: 'Instagram', url: '' },
+  { id: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/bhumajisystems/' },
   { id: 'linkedin', label: 'LinkedIn', url: '' },
   { id: 'facebook', label: 'Facebook', url: '' },
-  { id: 'youtube', label: 'YouTube', url: '' },
+  { id: 'youtube', label: 'YouTube', url: 'https://www.youtube.com/@bhumajisystems' },
   { id: 'x', label: 'X', url: '' },
 ];
 
