@@ -9,7 +9,7 @@ export const site = {
   tagline: 'Cloud. Intelligence. Engineering.',
   domain: 'bhumaji.com',
   // Add your real contact details here before launch.
-  contactEmail: 'contactus@bhumaji.com',
+  contactEmail: 'info@bhumaji.com',
   // Enquiry form submissions are emailed here through Web3Forms (https://web3forms.com).
   enquiryEmail: 'info@bhumaji.com',
   // Web3Forms access key created for enquiryEmail. It is public by design (safe in website code).
