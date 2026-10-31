@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: pages
@@ -31,7 +32,7 @@ jobs:
           BASE_PATH: ${{ vars.BASE_PATH || '/' }}
           # Set a repository variable CHAT_API_URL to the whatsapp-bridge Worker URL to switch on live chat.
           VITE_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
-          # Web3Forms access key for contactus@bhumaji.com (repository variable WEB3FORMS_KEY).
+          # Web3Forms access key (optional override) (repository variable WEB3FORMS_KEY).
           VITE_WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -44,5 +45,27 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # While the repo's Pages source is still "Deploy from a branch", GitHub also runs its own
+      # "pages build and deployment", which publishes the unbuilt source (a blank page).
+      # Wait for that run to finish so this deploy of the real build is always published last.
+      # (Once Settings → Pages → Source is "GitHub Actions", no such run exists and this step
+      # finishes after a short check.)
+      - name: Wait for GitHub's branch deploy to finish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          for i in $(seq 1 40); do
+            STATES=$(gh api "repos/$REPO/actions/runs?head_sha=$SHA&per_page=20" \
+              --jq '[.workflow_runs[] | select(.name == "pages build and deployment") | .status] | join(",")')
+            if [ -z "$STATES" ]; then
+              if [ "$i" -ge 6 ]; then echo "No branch deploy for this commit."; exit 0; fi
+            elif ! echo "$STATES" | grep -qv completed; then
+              echo "Branch deploy finished; publishing the real build now."; sleep 5; exit 0
+            fi
+            sleep 10
+          done
+          echo "Timed out waiting; publishing anyway."
       - id: deployment
         uses: actions/deploy-pages@v4
