@@ -22,6 +22,15 @@ export const site = {
   chatApiUrl: import.meta.env.VITE_CHAT_API_URL || '',
 };
 
+// Social media profiles shown in the footer. Paste the full profile URL; an icon appears only when its URL is set.
+export const social = [
+  { id: 'linkedin', label: 'Bhumaji Systems on LinkedIn', url: '' },
+  { id: 'x', label: 'Bhumaji Systems on X', url: '' },
+  { id: 'instagram', label: 'Bhumaji Systems on Instagram', url: '' },
+  { id: 'facebook', label: 'Bhumaji Systems on Facebook', url: '' },
+  { id: 'youtube', label: 'Bhumaji Systems on YouTube', url: '' },
+];
+
 export const hero = {
   eyebrow: 'Cloud · Intelligence · Engineering',
   lineOne: 'Engineering the Future.',

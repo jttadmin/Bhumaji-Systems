@@ -1,4 +1,5 @@
 import Logo from './Logo.jsx';
+import SocialLinks from './SocialLinks.jsx';
 import { pillars, site } from '../data/content.js';
 
 export default function Footer() {
@@ -10,6 +11,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Logo />
             <p>Technology transformation and digital engineering for startups, growing businesses and enterprises.</p>
+            <SocialLinks />
           </div>
           <nav aria-label="Services">
             <p className="footer-label">Services</p>
