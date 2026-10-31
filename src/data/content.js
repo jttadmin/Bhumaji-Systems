@@ -22,13 +22,14 @@ export const site = {
   chatApiUrl: import.meta.env.VITE_CHAT_API_URL || '',
 };
 
-// Social media profiles shown in the footer. Paste the full profile URL; an icon appears only when its URL is set.
+// Social media profiles shown under the logo in the footer.
+// Paste each full profile URL; until a URL is set the icon shows but is not clickable.
 export const social = [
-  { id: 'linkedin', label: 'Bhumaji Systems on LinkedIn', url: '' },
-  { id: 'x', label: 'Bhumaji Systems on X', url: '' },
-  { id: 'instagram', label: 'Bhumaji Systems on Instagram', url: '' },
-  { id: 'facebook', label: 'Bhumaji Systems on Facebook', url: '' },
-  { id: 'youtube', label: 'Bhumaji Systems on YouTube', url: '' },
+  { id: 'instagram', label: 'Instagram', url: '' },
+  { id: 'linkedin', label: 'LinkedIn', url: '' },
+  { id: 'facebook', label: 'Facebook', url: '' },
+  { id: 'youtube', label: 'YouTube', url: '' },
+  { id: 'x', label: 'X', url: '' },
 ];
 
 export const hero = {
