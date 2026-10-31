@@ -1,6 +1,6 @@
 import { social } from '../data/content.js';
 
-/* Simple line icons, drawn for this site. Each link shows only when its URL is set in content.js. */
+/* Simple line icons, drawn for this site. Links come from `social` in content.js. */
 const ICONS = {
   linkedin: (
     <>
@@ -26,17 +26,25 @@ const ICONS = {
 };
 
 export default function SocialLinks() {
-  const items = social.filter((s) => s.url);
-  if (!items.length) return null;
+  const items = social.filter((s) => ICONS[s.id]);
+  const icon = (id) => (
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      {ICONS[id]}
+    </svg>
+  );
   return (
     <ul className="social" aria-label="Bhumaji Systems on social media">
       {items.map((s) => (
         <li key={s.id}>
-          <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label} title={s.label}>
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              {ICONS[s.id]}
-            </svg>
-          </a>
+          {s.url ? (
+            <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`Bhumaji Systems on ${s.label}`} title={s.label}>
+              {icon(s.id)}
+            </a>
+          ) : (
+            <span className="social-soon" role="img" aria-label={`${s.label} (coming soon)`} title={`${s.label} · coming soon`}>
+              {icon(s.id)}
+            </span>
+          )}
         </li>
       ))}
     </ul>
