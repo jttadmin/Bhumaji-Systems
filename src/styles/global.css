@@ -682,10 +682,24 @@ main:focus { outline: none; }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--char); border-top: 1px solid var(--line); padding-block: 72px calc(32px + env(safe-area-inset-bottom, 0px)); overflow: hidden; }
 .footer-mega {
-  font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 7vw, 6rem); line-height: 0.95; letter-spacing: -0.05em;
-  color: transparent; -webkit-text-stroke: 1px var(--line-strong);
-  margin-bottom: 56px;
+  font-family: var(--display); font-weight: 800; font-variation-settings: 'opsz' 96;
+  font-size: clamp(2.4rem, 7.2vw, 6.25rem); line-height: 1; letter-spacing: -0.045em;
+  margin-bottom: 56px; color: var(--ink);
 }
+.fm-word {
+  display: inline-block; padding-bottom: 0.08em;
+  background-size: 220% 100%; background-position: 0% 50%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  filter: drop-shadow(0 6px 28px rgba(34, 211, 238, 0.18));
+  animation: fm-shimmer 9s ease-in-out infinite alternate;
+}
+.fm-word i { font-style: normal; -webkit-text-fill-color: var(--lime); color: var(--lime); }
+.fm-cloud { background-image: linear-gradient(100deg, #e8f7ff 0%, var(--cyan) 45%, var(--blue) 100%); }
+.fm-intel { background-image: linear-gradient(100deg, var(--cyan) 0%, var(--teal) 40%, #a78bfa 100%); animation-delay: -3s; }
+.fm-eng   { background-image: linear-gradient(100deg, var(--teal) 0%, #7ef0c8 45%, var(--lime) 100%); animation-delay: -6s; }
+@keyframes fm-shimmer { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+@media (prefers-reduced-motion: reduce) { .fm-word { animation: none; } }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 36px; }
 .footer-brand { display: grid; gap: 16px; align-content: start; }
 .footer-brand p, .footer-grid > div > p:not(.footer-label) { color: var(--muted); font-size: 1rem; max-width: 36ch; }
