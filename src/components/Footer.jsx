@@ -6,7 +6,11 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="wrap">
-        <p className="footer-mega" aria-hidden="true">Cloud. Intelligence. Engineering.</p>
+        <p className="footer-mega" aria-hidden="true">
+          <span className="fm-word fm-cloud">Cloud<i>.</i></span>{' '}
+          <span className="fm-word fm-intel">Intelligence<i>.</i></span>{' '}
+          <span className="fm-word fm-eng">Engineering<i>.</i></span>
+        </p>
         <div className="footer-grid">
           <div className="footer-brand">
             <Logo />
