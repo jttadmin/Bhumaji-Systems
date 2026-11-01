@@ -683,8 +683,8 @@ main:focus { outline: none; }
 .site-footer { background: var(--char); border-top: 1px solid var(--line); padding-block: 72px calc(32px + env(safe-area-inset-bottom, 0px)); overflow: hidden; }
 .footer-mega {
   font-family: var(--display); font-weight: 800; font-variation-settings: 'opsz' 96;
-  font-size: clamp(2.4rem, 7.2vw, 6.25rem); line-height: 1; letter-spacing: -0.045em;
-  margin-bottom: 56px; color: var(--ink);
+  font-size: clamp(1rem, calc(6.3vw - 0.2rem), 4.7rem); line-height: 1; letter-spacing: -0.035em;
+  white-space: nowrap; margin-bottom: 56px; color: var(--ink);
 }
 .fm-word {
   display: inline-block; padding-bottom: 0.08em;
