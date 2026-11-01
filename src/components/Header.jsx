@@ -8,7 +8,7 @@ function ServicesMega({ onNavigate }) {
   return (
     <div className="mega-grid mega-services">
       {pillars.map((p) => (
-        <a key={p.id} href={`#${p.route}`} className={`mega-pillar tone-${p.tone}`} onClick={onNavigate}>
+        <a key={p.id} href={p.path} className={`mega-pillar tone-${p.tone}`} onClick={onNavigate}>
           <span className="mega-code">{p.code}</span>
           <span className="mega-title">{p.title}</span>
           <span className="mega-lede">{p.lede}</span>
@@ -31,7 +31,7 @@ function IndustriesMega({ onNavigate }) {
       {industries.map((ind) => (
         <a
           key={ind.id}
-          href="#industries"
+          href="/#industries"
           className="mega-industry"
           onClick={() => {
             selectIndustry(ind.id);
@@ -46,7 +46,7 @@ function IndustriesMega({ onNavigate }) {
   );
 }
 
-export default function Header({ current }) {
+export default function Header({ path = '/', hash = '' }) {
   const [open, setOpen] = useState(null); // which mega menu is open
   const [drawer, setDrawer] = useState(false);
   const [expanded, setExpanded] = useState(null); // mobile accordion
@@ -86,7 +86,7 @@ export default function Header({ current }) {
   useEffect(() => {
     setOpen(null);
     setDrawer(false);
-  }, [current]);
+  }, [path, hash]);
 
   const openMenu = (id) => {
     clearTimeout(closeTimer.current);
@@ -101,7 +101,11 @@ export default function Header({ current }) {
     setDrawer(false);
   };
 
-  const isActive = (href) => href.replace('#', '') === current;
+  const isActive = (href) => {
+    if (href === '/') return path === '/' && (!hash || hash === 'top');
+    if (href.startsWith('/#')) return path === '/' && href.slice(2) === hash;
+    return path === href;
+  };
 
   return (
     <header ref={headerRef} className={`site-header${scrolled || open ? ' is-solid' : ''}`}>
@@ -161,7 +165,7 @@ export default function Header({ current }) {
           <div className="wrap">
             <div className="mega-head">
               <span className="eyebrow">{id === 'services' ? 'What we do' : 'Industries we serve'}</span>
-              <a href={id === 'services' ? '#what-we-do' : '#industries'} onClick={closeAll} className="mega-all">
+              <a href={id === 'services' ? '/#what-we-do' : '/#industries'} onClick={closeAll} className="mega-all">
                 {id === 'services' ? 'See all capabilities' : 'Explore industries'} <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -190,12 +194,12 @@ export default function Header({ current }) {
                       <a href={item.href} onClick={closeAll} className="drawer-sublink is-overview">Overview</a>
                       {item.mega === 'services'
                         ? pillars.map((p) => (
-                            <a key={p.id} href={`#${p.route}`} onClick={closeAll} className={`drawer-sublink tone-${p.tone}`}>
+                            <a key={p.id} href={p.path} onClick={closeAll} className={`drawer-sublink tone-${p.tone}`}>
                               <span className="dot" aria-hidden="true" />{p.title}
                             </a>
                           ))
                         : industries.map((ind) => (
-                            <a key={ind.id} href="#industries" onClick={() => { selectIndustry(ind.id); closeAll(); }} className="drawer-sublink">
+                            <a key={ind.id} href="/#industries" onClick={() => { selectIndustry(ind.id); closeAll(); }} className="drawer-sublink">
                               {ind.name}
                             </a>
                           ))}

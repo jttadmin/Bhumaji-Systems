@@ -20,8 +20,8 @@ export default function ServicePage({ pillar }) {
         <div className="wrap svc-hero-grid">
           <div>
             <nav className="crumbs" aria-label="Breadcrumb">
-              <a href="#top">Home</a><span aria-hidden="true">/</span>
-              <a href="#what-we-do">What We Do</a><span aria-hidden="true">/</span>
+              <a href="/">Home</a><span aria-hidden="true">/</span>
+              <a href="/#what-we-do">What We Do</a><span aria-hidden="true">/</span>
               <span aria-current="page">{pillar.short}</span>
             </nav>
             <p className="pillar-code">{pillar.code}</p>
@@ -62,13 +62,32 @@ export default function ServicePage({ pillar }) {
         </section>
       )}
 
+      {pillar.faqs?.length > 0 && (
+        <section className="section svc-faq" aria-labelledby="faq-title">
+          <div className="wrap svc-faq-grid">
+            <div>
+              <p className="eyebrow">Questions</p>
+              <h2 id="faq-title" className="section-title small">Common questions</h2>
+            </div>
+            <div className="faq-list">
+              {pillar.faqs.map((f) => (
+                <details key={f.q} className="faq">
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="section svc-others">
         <div className="wrap">
           <p className="eyebrow">Other disciplines</p>
           <ul className="others">
             {others.map((p) => (
               <li key={p.id} className={`tone-${p.tone}`}>
-                <a href={`#${p.route}`}>
+                <a href={p.path}>
                   <span className="pillar-code">{p.code}</span>
                   <span className="others-title">{p.title}</span>
                   <span aria-hidden="true">→</span>

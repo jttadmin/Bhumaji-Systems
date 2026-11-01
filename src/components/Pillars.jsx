@@ -17,7 +17,7 @@ export default function Pillars() {
           id="pillars-title"
           eyebrow="What we do"
           title={<>Four disciplines.<br />One engineering team.</>}
-          aside="Cloud foundations, intelligent systems, enterprise software and the apps your customers touch, delivered by people who build and run them."
+          aside="Cloud services and migration, AI/ML and MLOps, custom software development, and mobile app and website development, delivered from Bengaluru by people who build and run them."
         />
 
         <div className="pillar-stage" role="list">
@@ -51,7 +51,7 @@ export default function Pillars() {
                   <ul className="pillar-items">
                     {p.items.map((it) => <li key={it}>{it}</li>)}
                   </ul>
-                  <a className="pillar-link" href={`#${p.route}`}>
+                  <a className="pillar-link" href={p.path}>
                     Explore {p.short} <span aria-hidden="true">→</span>
                   </a>
                 </div>
