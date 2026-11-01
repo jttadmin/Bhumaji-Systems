@@ -8,7 +8,7 @@ export function LogoMark({ size = 34 }) {
 
 export default function Logo() {
   return (
-    <a href="#top" className="logo" aria-label="Bhumaji Systems home">
+    <a href="/" className="logo" aria-label="Bhumaji Systems home">
       <img src={logoUrl} alt="Bhumaji Systems" className="logo-img" width="168" height="42" decoding="async" />
     </a>
   );

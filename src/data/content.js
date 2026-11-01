@@ -46,6 +46,15 @@ export const pillars = [
   {
     id: 'cloud',
     route: 'service-cloud',
+    // Real URL for this page; route is the old '#service-…' link, kept so shared links still work.
+    path: '/services/cloud-services-migration/',
+    seoTitle: 'Cloud Services & Cloud Migration Company in Bengaluru | AWS, Azure, GCP',
+    seoDescription: 'Cloud consulting, AWS, Azure and Google Cloud migration, Kubernetes, Terraform and DevOps services from Bengaluru. Bhumaji Systems designs, migrates and runs secure, cost-optimized cloud platforms.',
+    faqs: [
+      { q: 'Which cloud platforms do you work with?', a: 'We design, migrate and run workloads on Amazon Web Services (AWS), Microsoft Azure and Google Cloud, including hybrid and multi-cloud setups.' },
+      { q: 'Can you migrate our existing applications to the cloud?', a: 'Yes. We plan migrations in waves, each with a rollback path, monitoring from day one and a cost baseline, so your business keeps running while systems move.' },
+      { q: 'Do you work with businesses outside Bengaluru?', a: 'Yes. We are based in Bengaluru, India and work with startups, growing businesses and enterprises across India and worldwide.' },
+    ],
     tone: 'cyan',
     code: 'CLD',
     title: 'Cloud Services & Migration',
@@ -70,6 +79,15 @@ export const pillars = [
   {
     id: 'ai',
     route: 'service-ai',
+    // Real URL for this page; route is the old '#service-…' link, kept so shared links still work.
+    path: '/services/ai-ml-mlops/',
+    seoTitle: 'AI & Machine Learning Development and MLOps Services in Bengaluru',
+    seoDescription: 'AI and machine learning development, generative AI integration and MLOps services from Bengaluru. Bhumaji Systems takes models from experiment to reliable, monitored production.',
+    faqs: [
+      { q: 'What AI services do you offer?', a: 'We build machine learning solutions, integrate generative AI into existing products, and set up the MLOps pipelines, infrastructure and monitoring that keep models reliable in production.' },
+      { q: 'Can you add generative AI to our existing application?', a: 'Yes. We integrate generative AI features into existing software through well-designed APIs, with evaluation, monitoring and data governance built in.' },
+      { q: 'Do you work with businesses outside Bengaluru?', a: 'Yes. We are based in Bengaluru, India and work with clients across India and worldwide.' },
+    ],
     tone: 'teal',
     code: 'AI/ML',
     title: 'AI / ML & MLOps',
@@ -92,6 +110,15 @@ export const pillars = [
   {
     id: 'software',
     route: 'service-software',
+    // Real URL for this page; route is the old '#service-…' link, kept so shared links still work.
+    path: '/services/software-development/',
+    seoTitle: 'Custom Software Development Company in Bengaluru | Enterprise, API & Backend',
+    seoDescription: 'Custom software development company in Bengaluru: enterprise applications, backend and API development, microservices, legacy modernization and DevOps CI/CD automation by Bhumaji Systems.',
+    faqs: [
+      { q: 'What kind of software do you build?', a: 'Custom and enterprise applications, backends, APIs and integrations, microservices and databases, along with the CI/CD pipelines that make every release routine.' },
+      { q: 'Can you modernize our legacy system?', a: 'Yes. We modernize legacy systems step by step behind stable interfaces, so the business keeps running while the code changes.' },
+      { q: 'Do you work with businesses outside Bengaluru?', a: 'Yes. We are based in Bengaluru, India and work with clients across India and worldwide.' },
+    ],
     tone: 'lime',
     code: 'ENG',
     title: 'Software Engineering',
@@ -115,6 +142,15 @@ export const pillars = [
   {
     id: 'mobile',
     route: 'service-mobile',
+    // Real URL for this page; route is the old '#service-…' link, kept so shared links still work.
+    path: '/services/mobile-app-website-development/',
+    seoTitle: 'Mobile App & Website Development Company in Bengaluru | Android, iOS, Web',
+    seoDescription: 'Mobile app and website development company in Bengaluru: Android and iOS apps, cross-platform apps, web applications and UI/UX design by Bhumaji Systems.',
+    faqs: [
+      { q: 'Do you build both Android and iOS apps?', a: 'Yes. We build native Android and iOS apps as well as cross-platform apps that share one codebase, and publish them through automated store releases.' },
+      { q: 'Do you also build websites and web applications?', a: 'Yes. We design and develop websites and web applications, from company websites to customer portals and internal tools, with UI/UX design included.' },
+      { q: 'Do you work with businesses outside Bengaluru?', a: 'Yes. We are based in Bengaluru, India and work with clients across India and worldwide.' },
+    ],
     tone: 'blue',
     code: 'APP',
     title: 'Mobile & Application Development',
@@ -384,12 +420,12 @@ export const insights = [
 ];
 
 export const nav = [
-  { label: 'Home', href: '#top' },
-  { label: 'What We Do', href: '#what-we-do', mega: 'services' },
-  { label: 'Cloud Services', href: '#service-cloud' },
-  { label: 'AI & MLOps', href: '#service-ai' },
-  { label: 'Software Engineering', href: '#service-software' },
-  { label: 'Industries', href: '#industries', mega: 'industries' },
-  { label: 'Insights', href: '#insights' },
-  { label: 'About Us', href: '#about' },
+  { label: 'Home', href: '/' },
+  { label: 'What We Do', href: '/#what-we-do', mega: 'services' },
+  { label: 'Cloud Services', href: '/services/cloud-services-migration/' },
+  { label: 'AI & MLOps', href: '/services/ai-ml-mlops/' },
+  { label: 'Software Engineering', href: '/services/software-development/' },
+  { label: 'Industries', href: '/#industries', mega: 'industries' },
+  { label: 'Insights', href: '/#insights' },
+  { label: 'About Us', href: '/#about' },
 ];

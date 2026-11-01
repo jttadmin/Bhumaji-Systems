@@ -19,15 +19,15 @@ export default function Footer() {
           </div>
           <nav aria-label="Services">
             <p className="footer-label">Services</p>
-            <ul>{pillars.map((p) => <li key={p.id}><a href={`#${p.route}`}>{p.title}</a></li>)}</ul>
+            <ul>{pillars.map((p) => <li key={p.id}><a href={p.path}>{p.title}</a></li>)}</ul>
           </nav>
           <nav aria-label="Company">
             <p className="footer-label">Company</p>
             <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#industries">Industries</a></li>
-              <li><a href="#work">Engagements</a></li>
-              <li><a href="#insights">Insights</a></li>
+              <li><a href="/#about">About Us</a></li>
+              <li><a href="/#industries">Industries</a></li>
+              <li><a href="/#work">Engagements</a></li>
+              <li><a href="/#insights">Insights</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </nav>

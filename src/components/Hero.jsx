@@ -41,7 +41,7 @@ export default function Hero() {
         <ul className="hero-strip" aria-label="Our four disciplines">
           {pillars.map((p) => (
             <li key={p.id} className={`tone-${p.tone}`}>
-              <a href={`#${p.route}`}>
+              <a href={p.path}>
                 <span className="strip-code">{p.code}</span>
                 <span className="strip-title">{p.title}</span>
               </a>

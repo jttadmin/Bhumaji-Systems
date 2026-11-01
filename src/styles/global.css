@@ -744,6 +744,16 @@ main:focus { outline: none; }
 .related-case { margin-top: 24px; padding: 32px; border-radius: 22px; border: 1px solid var(--line); background: var(--panel); display: grid; gap: 14px; }
 .related-case h3 { font-family: var(--display); font-size: var(--step-3); letter-spacing: -0.02em; line-height: 1.1; }
 .related-case p { color: var(--muted); max-width: 70ch; }
+.svc-faq-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; }
+.svc-faq-grid > div:first-child { display: grid; gap: 18px; align-content: start; }
+.faq-list { border-top: 1px solid var(--line-strong); }
+.faq { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-family: var(--display); font-weight: 600; font-size: clamp(1.05rem, 1.6vw, 1.25rem); letter-spacing: -0.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; color: var(--tone); font-size: 1.5rem; line-height: 1; transition: transform 0.25s var(--ease); flex: none; }
+.faq[open] summary::after { transform: rotate(45deg); }
+.faq summary:focus-visible { outline: 2px solid var(--tone); outline-offset: 4px; border-radius: 4px; }
+.faq p { color: var(--muted); padding-bottom: 20px; max-width: 62ch; }
 .svc-others { padding-block: 64px; }
 .others { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
 .others a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; padding: 22px; border-radius: 16px; border: 1px solid var(--line); transition: border-color 0.25s; height: 100%; }
@@ -767,7 +777,7 @@ main:focus { outline: none; }
   .hero-strip li:nth-child(odd) a { padding-left: 0; }
   .hero-strip li:nth-child(n + 3) { border-top: 1px solid var(--line); }
   .pipe-detail { grid-template-columns: minmax(0, 1fr); }
-  .why-layout, .contact-layout, .svc-hero-grid, .svc-caps-grid { grid-template-columns: minmax(0, 1fr); }
+  .why-layout, .contact-layout, .svc-hero-grid, .svc-caps-grid, .svc-faq-grid { grid-template-columns: minmax(0, 1fr); }
   .why-intro { position: static; }
   .spec-headrow { display: none; }
   .spec-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
