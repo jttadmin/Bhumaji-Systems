@@ -10,7 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const ssrDir = join(root, 'dist-ssr');
-const ORIGIN = 'https://bhumaji.com';
+const ORIGIN = 'https://www.bhumaji.com'; // keep in step with src/seo.js and public/CNAME
 
 const { render, routes, headTags } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
 const template = readFileSync(join(dist, 'index.html'), 'utf8');

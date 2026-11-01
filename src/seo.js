@@ -4,7 +4,8 @@
  */
 import { pillars, site, social } from './data/content.js';
 
-export const ORIGIN = 'https://bhumaji.com';
+// Must match public/CNAME: GitHub Pages redirects the bare domain to www.
+export const ORIGIN = 'https://www.bhumaji.com';
 
 const HOME = {
   title: 'Bhumaji Systems | Cloud, AI, Software & App Development Company in Bengaluru',
