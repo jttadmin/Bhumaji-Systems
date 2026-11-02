@@ -28,6 +28,7 @@ export default function Footer() {
               <li><a href="/#industries">Industries</a></li>
               <li><a href="/#work">Engagements</a></li>
               <li><a href="/#insights">Insights</a></li>
+              <li><a href="/quote/">Get a Quote</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </nav>

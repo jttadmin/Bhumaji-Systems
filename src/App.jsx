@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { useLocation, navigate, normPath } from './hooks.js';
-import { pillarForPath, routes, applyMeta } from './seo.js';
+import { pillarForPath, routes, applyMeta, QUOTE_PATH } from './seo.js';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
 import ServicePage from './pages/ServicePage.jsx';
+import QuotePage from './pages/QuotePage.jsx';
 import ChatWidget from './components/ChatWidget.jsx';
 
 const KNOWN = new Set(routes);
@@ -51,7 +52,7 @@ export default function App({ initialPath = '/' }) {
       <a className="skip-link" href="#main">Skip to content</a>
       <Header path={path} hash={hash} />
       <main id="main" tabIndex={-1}>
-        {pillar ? <ServicePage pillar={pillar} /> : <Home />}
+        {path === QUOTE_PATH ? <QuotePage /> : pillar ? <ServicePage pillar={pillar} /> : <Home />}
       </main>
       <Footer />
       <ChatWidget />
