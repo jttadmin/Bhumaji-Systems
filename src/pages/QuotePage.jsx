@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import logoUrl from '../assets/bhumaji-logo.png';
 import { site } from '../data/content.js';
-import { quoteCatalog, quoteSettings, currencies, designLevels, timelines } from '../data/quote.js';
+import { quoteCatalog, quoteSettings, currencies, designLevels, timelines, dialCodes } from '../data/quote.js';
 import Contact from '../components/Contact.jsx';
 
 /*
- * Instant quotation: the visitor picks a service, package and extras and sees a live estimate.
- * After entering their details they get a numbered quotation they can save as a PDF,
+ * Instant estimate: the visitor picks a service, package and extras and sees a live budget range.
+ * After entering their details they get a numbered project estimate they can save as a PDF
+ * (the formal quotation is sent by Bhumaji Systems after a scoping call),
  * and a copy is emailed to Bhumaji Systems through Web3Forms (same key as the enquiry form).
  */
 
@@ -56,15 +57,15 @@ const fmtDate = (d) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'l
 
 const quoteText = (q, cur, client) =>
   [
-    `Quotation ${q.number} (${fmtDate(q.date)})`,
+    `Project estimate ${q.number} (${fmtDate(q.date)})`,
     `Service: ${q.calc.cat.title} — ${q.calc.pkg.name}`,
     ...q.calc.lines.map((l) => `• ${l.name}${l.note ? ` (${l.note})` : ''}: ${money(l.amount, cur)}`),
     q.calc.gst ? `GST ${quoteSettings.gstPercent}%: ${money(q.calc.gst, cur)}` : '',
-    `Total (one-time): ${money(q.calc.total, cur)}  [estimate range ${money(q.calc.low, cur)} – ${money(q.calc.high, cur)}]`,
+    `Estimated range: ${money(q.calc.low, cur)} – ${money(q.calc.high, cur)} (typical ${money(q.calc.total, cur)})`,
     ...q.calc.monthlyLines.map((l) => `• Monthly — ${l.name}: ${money(l.amount, cur)}/month`),
     `Timeline: ${q.calc.pkg.weeks}`,
     '',
-    `Client: ${client.name}, ${client.company || '—'}, ${client.email}${client.phone ? `, ${client.phone}` : ''}, ${client.country || ''}`,
+    `Client: ${client.name}, ${client.company || '—'}, ${client.email}${client.phone ? `, ${client.dial} ${client.phone}` : ''}, ${client.country || ''}`,
     client.notes ? `Notes: ${client.notes}` : '',
   ].filter(Boolean).join('\n');
 
@@ -75,18 +76,19 @@ async function sendQuote(q, cur, client) {
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({
       access_key: site.web3formsKey,
-      subject: `New quotation ${q.number}: ${client.company || client.name} — ${q.calc.cat.title} (${money(q.calc.total, cur)})`,
-      from_name: 'Bhumaji Systems website — Quotations',
+      subject: `New estimate ${q.number}: ${client.company || client.name} — ${q.calc.cat.title} (${money(q.calc.low, cur)} – ${money(q.calc.high, cur)})`,
+      from_name: 'Bhumaji Systems website — Estimates',
       replyto: client.email,
       botcheck: client.website ? true : '',
-      Quotation: q.number,
+      Estimate: q.number,
       Name: client.name,
       Company: client.company,
       Email: client.email,
-      Phone: client.phone,
+      Phone: client.phone ? `${client.dial} ${client.phone}` : 'Not given',
       Country: client.country,
       Service: `${q.calc.cat.title} — ${q.calc.pkg.name}`,
-      Total: money(q.calc.total, cur),
+      Range: `${money(q.calc.low, cur)} – ${money(q.calc.high, cur)}`,
+      Typical: money(q.calc.total, cur),
       Monthly: q.calc.monthly ? `${money(q.calc.monthly, cur)}/month` : 'None',
       Details: quoteText(q, cur, client),
       Page: window.location.href,
@@ -104,7 +106,7 @@ export default function QuotePage() {
     category: 'website', package: firstPackage('website'), platform: 'android', design: 'custom', timeline: 'normal', addons: [],
   });
   const [step, setStep] = useState('build'); // build | details | quote
-  const [client, setClient] = useState({ name: '', company: '', email: '', phone: '', country: '', notes: '', website: '' });
+  const [client, setClient] = useState({ name: '', company: '', email: '', dial: '+91', phone: '', country: '', notes: '', website: '' });
   const [errors, setErrors] = useState({});
   const [quote, setQuote] = useState(null);
   const [sendState, setSendState] = useState('idle'); // idle | sending | sent | failed
@@ -113,7 +115,10 @@ export default function QuotePage() {
   useEffect(() => {
     try {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-      if (!/Calcutta|Kolkata/.test(tz)) setCur('USD');
+      if (!/Calcutta|Kolkata/.test(tz)) {
+        setCur('USD');
+        setClient((c) => ({ ...c, dial: '+1' }));
+      }
     } catch { /* keep INR */ }
     const want = new URLSearchParams(window.location.search).get('service');
     if (want && quoteCatalog.some((c) => c.id === want)) setSel((s) => ({ ...s, category: want, package: firstPackage(want), addons: [] }));
@@ -158,13 +163,13 @@ export default function QuotePage() {
       await sendQuote(q, cur, client);
       setSendState('sent');
     } catch (err) {
-      console.warn('Quotation send failed:', err && err.message);
+      console.warn('Estimate send failed:', err && err.message);
       setSendState('failed');
     }
   };
 
   const mailto = quote
-    ? `mailto:${site.contactEmail}?subject=${encodeURIComponent(`Quotation ${quote.number}`)}&body=${encodeURIComponent(quoteText(quote, quote.cur, client))}`
+    ? `mailto:${site.contactEmail}?subject=${encodeURIComponent(`Project estimate ${quote.number}`)}&body=${encodeURIComponent(quoteText(quote, quote.cur, client))}`
     : '#';
 
   return (
@@ -172,12 +177,12 @@ export default function QuotePage() {
       <section className="svc-hero quote-hero">
         <div className="wrap">
           <nav className="crumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Instant quotation</span>
+            <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Instant estimate</span>
           </nav>
-          <p className="eyebrow">Instant quotation</p>
-          <h1 className="svc-title">Get your project price in two minutes.</h1>
+          <p className="eyebrow">Instant estimate</p>
+          <h1 className="svc-title">Estimate your project cost in two minutes.</h1>
           <p className="svc-lede">
-            Choose a service, pick what you need and receive a numbered quotation you can download and share. No sign-up.
+            Choose a service, pick what you need and get a budget estimate you can download and share. No sign-up. Your formal quotation follows a free 30-minute scoping call.
           </p>
           <div className="cur-switch" role="group" aria-label="Currency">
             {Object.values(currencies).map((c) => (
@@ -190,7 +195,7 @@ export default function QuotePage() {
       </section>
 
       {step !== 'quote' && (
-        <section className="section quote-builder" aria-label="Build your quotation">
+        <section className="section quote-builder" aria-label="Build your estimate">
           <div className="wrap quote-layout">
             <div className="quote-steps">
               <fieldset className="q-step">
@@ -272,7 +277,7 @@ export default function QuotePage() {
 
               {step === 'details' && (
                 <form id="quote-details" className="q-step q-details enquiry" onSubmit={onGenerate} noValidate>
-                  <h2 className="q-details-title">Where should we send your quotation?</h2>
+                  <h2 className="q-details-title">Where should we send your estimate?</h2>
                   <div className="field-row">
                     <QField id="name" label="Your name" error={errors.name}>
                       <input id="q-name" autoComplete="name" value={client.name} onChange={setC('name')} aria-invalid={!!errors.name} />
@@ -285,8 +290,13 @@ export default function QuotePage() {
                     <QField id="email" label="Email" error={errors.email}>
                       <input id="q-email" type="email" autoComplete="email" value={client.email} onChange={setC('email')} aria-invalid={!!errors.email} />
                     </QField>
-                    <QField id="phone" label="Phone / WhatsApp (optional)">
-                      <input id="q-phone" type="tel" autoComplete="tel" value={client.phone} onChange={setC('phone')} />
+                    <QField id="phone" label="Mobile / WhatsApp (optional)">
+                      <div className="phone-input">
+                        <select aria-label="Country code" value={client.dial} onChange={setC('dial')}>
+                          {dialCodes.map((d) => <option key={d.code + d.country} value={d.code}>{d.flag} {d.code === '+' ? 'Other' : d.code}</option>)}
+                        </select>
+                        <input id="q-phone" type="tel" inputMode="tel" autoComplete="tel-national" value={client.phone} onChange={setC('phone')} placeholder={client.dial === '+91' ? '10-digit mobile number' : 'Phone number'} />
+                      </div>
                     </QField>
                   </div>
                   <QField id="country" label="Country">
@@ -300,8 +310,8 @@ export default function QuotePage() {
                     <input id="q-website" tabIndex={-1} autoComplete="off" value={client.website} onChange={setC('website')} />
                   </div>
                   <div className="form-foot">
-                    <button type="submit" className="btn btn-primary btn-lg">Generate my quotation <span aria-hidden="true">→</span></button>
-                    <p className="form-note">We only use these details to follow up on this quotation.</p>
+                    <button type="submit" className="btn btn-primary btn-lg">Generate my estimate <span aria-hidden="true">→</span></button>
+                    <p className="form-note">We only use these details to follow up on this estimate.</p>
                   </div>
                 </form>
               )}
@@ -316,14 +326,14 @@ export default function QuotePage() {
                 ))}
               </ul>
               <div className="q-total">
-                <span>Estimated total</span>
-                <strong>{money(calc.oneTime, cur)}</strong>
+                <span>Estimated budget</span>
+                <strong>{money(calc.low, cur)} – {money(calc.high, cur)}</strong>
               </div>
-              <p className="q-range">Typical range {money(calc.low, cur)} – {money(calc.high, cur)} · {calc.pkg.weeks}</p>
+              <p className="q-range">Typical price {money(calc.oneTime, cur)} · {calc.pkg.weeks}</p>
               {calc.monthly > 0 && <p className="q-monthly">+ {money(calc.monthly, cur)} / month ongoing</p>}
               {step === 'build' && (
                 <button type="button" className="btn btn-primary btn-lg q-cta" onClick={goDetails}>
-                  Get my quotation <span aria-hidden="true">→</span>
+                  Get my estimate <span aria-hidden="true">→</span>
                 </button>
               )}
               <p className="form-note">
@@ -336,12 +346,12 @@ export default function QuotePage() {
       )}
 
       {step === 'quote' && quote && (
-        <section className="section quote-result" aria-label="Your quotation">
+        <section className="section quote-result" aria-label="Your estimate">
           <div className="wrap">
             <div className="q-actions" role="status">
               <p>
-                {sendState === 'sending' && 'Saving your quotation…'}
-                {sendState === 'sent' && `Quotation ${quote.number} is ready. Our team has a copy and will contact ${client.email} within one working day.`}
+                {sendState === 'sending' && 'Saving your estimate…'}
+                {sendState === 'sent' && `Estimate ${quote.number} is ready. Our team has a copy and will contact you within one working day to arrange your scoping call and formal quotation.`}
                 {sendState === 'failed' && (
                   <>We couldn&rsquo;t send a copy to our team automatically. <a href={mailto}>Email it to us instead</a> — everything is already filled in.</>
                 )}
@@ -349,7 +359,7 @@ export default function QuotePage() {
               <div className="q-actions-btns">
                 <button type="button" className="btn btn-primary" onClick={() => window.print()}>Download PDF / Print</button>
                 <a className="btn btn-ghost" href="#contact">Book a scoping call</a>
-                <button type="button" className="btn btn-ghost" onClick={() => { setStep('build'); setQuote(null); setSendState('idle'); }}>Edit quotation</button>
+                <button type="button" className="btn btn-ghost" onClick={() => { setStep('build'); setQuote(null); setSendState('idle'); }}>Edit estimate</button>
               </div>
             </div>
             <QuoteDocument quote={quote} client={client} />
@@ -379,7 +389,7 @@ function QuoteDocument({ quote, client }) {
       <header className="qd-head">
         <img src={logoUrl} alt="Bhumaji Systems" width="168" height="42" />
         <div className="qd-head-meta">
-          <p className="qd-label">QUOTATION</p>
+          <p className="qd-label">PROJECT ESTIMATE</p>
           <p className="qd-number">{quote.number}</p>
         </div>
       </header>
@@ -395,7 +405,7 @@ function QuoteDocument({ quote, client }) {
           <p className="qd-label">Prepared for</p>
           <p><strong>{client.name}</strong></p>
           {client.company && <p>{client.company}</p>}
-          <p>{client.email}{client.phone ? ` · ${client.phone}` : ''}</p>
+          <p>{client.email}{client.phone ? ` · ${client.dial} ${client.phone}` : ''}</p>
           {client.country && <p>{client.country}</p>}
         </div>
         <div>
@@ -422,9 +432,9 @@ function QuoteDocument({ quote, client }) {
           ))}
         </tbody>
         <tfoot>
-          <tr><td /><td>Subtotal</td><td>{money(calc.oneTime, cur)}</td></tr>
+          <tr><td /><td>Typical price</td><td>{money(calc.oneTime, cur)}</td></tr>
           {calc.gst > 0 && <tr><td /><td>GST ({quoteSettings.gstPercent}%)</td><td>{money(calc.gst, cur)}</td></tr>}
-          <tr className="qd-grand"><td /><td>Total (one-time)</td><td>{money(calc.total, cur)}</td></tr>
+          <tr className="qd-grand"><td /><td>Estimated budget (one-time)</td><td>{money(calc.low, cur)} – {money(calc.high, cur)}</td></tr>
         </tfoot>
       </table>
 
@@ -444,11 +454,11 @@ function QuoteDocument({ quote, client }) {
       <div className="qd-terms">
         <p className="qd-label">Terms</p>
         <ol>
-          <li>This is an estimate based on the options selected. The final price is confirmed in a written proposal after a free scoping call; it typically falls between {money(calc.low, cur)} and {money(calc.high, cur)}.</li>
+          <li>This is an indicative budget estimate based on the options selected, not a binding quotation. Bhumaji Systems sends a formal quotation with a fixed price after a free scoping call.</li>
           <li>Payment schedule: 40% to start, 40% at the main milestone, 20% on delivery.</li>
           <li>{cur === 'INR' ? (quoteSettings.gstPercent ? 'Prices include GST as shown.' : 'Taxes extra as applicable.') : 'Prices in US dollars. Bank charges and local taxes, if any, are extra.'}</li>
           <li>Third-party costs (cloud hosting, app store accounts, paid plugins, domains) are billed at actual cost unless listed above.</li>
-          <li>This quotation is valid for {quoteSettings.validDays} days from the date above.</li>
+          <li>This estimate is valid for {quoteSettings.validDays} days from the date above.</li>
         </ol>
       </div>
 

@@ -33,7 +33,7 @@ export default function ServicePage({ pillar }) {
             <p className="svc-desc">{pillar.description}</p>
             <div className="svc-ctas">
               <a href="#contact" className="btn btn-primary btn-lg">Discuss your project <span aria-hidden="true">→</span></a>
-              <a href={`/quote/?service=${QUOTE_FOR[pillar.id]}`} className="btn btn-ghost btn-lg">Get an instant quote</a>
+              <a href={`/quote/?service=${QUOTE_FOR[pillar.id]}`} className="btn btn-ghost btn-lg">Get a cost estimate</a>
             </div>
           </div>
           <div className="svc-visual" aria-hidden="true"><Motif /></div>

@@ -15,9 +15,9 @@ const HOME = {
 
 export const QUOTE_PATH = '/quote/';
 const QUOTE = {
-  title: 'Get an Instant Quote | Website, App & Cloud Development Pricing | Bhumaji Systems',
+  title: 'Project Cost Estimator | Website, App & Cloud Development Pricing | Bhumaji Systems',
   description:
-    'Get an instant price quotation for website development, mobile app development, cloud and DevOps, software engineering and AI services from Bhumaji Systems, Bengaluru. Prices in INR and USD.',
+    'Estimate the cost of website development, mobile app development, cloud and DevOps, software engineering and AI services from Bhumaji Systems, Bengaluru. Prices in INR and USD.',
 };
 
 /** Every page of the site, in sitemap order. */
@@ -79,7 +79,7 @@ export function jsonLd(path) {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
-          { '@type': 'ListItem', position: 2, name: 'Instant quotation', item: ORIGIN + QUOTE_PATH },
+          { '@type': 'ListItem', position: 2, name: 'Instant estimate', item: ORIGIN + QUOTE_PATH },
         ],
       },
     });

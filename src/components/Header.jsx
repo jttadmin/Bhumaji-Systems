@@ -20,7 +20,7 @@ function ServicesMega({ onNavigate }) {
         <p className="mega-aside-title">Not sure where to start?</p>
         <p>A 30-minute architecture call maps your next three moves.</p>
         <a href="#contact" className="btn btn-primary btn-sm" onClick={onNavigate}>Book a consultation</a>
-        <a href="/quote/" className="mega-quote" onClick={onNavigate}>Or get an instant price quote <span aria-hidden="true">→</span></a>
+        <a href="/quote/" className="mega-quote" onClick={onNavigate}>Or get an instant cost estimate <span aria-hidden="true">→</span></a>
       </div>
     </div>
   );
@@ -214,7 +214,7 @@ export default function Header({ path = '/', hash = '' }) {
                 )}
               </li>
             ))}
-            <li><a href="/quote/" className="drawer-link" onClick={closeAll}>Get an Instant Quote</a></li>
+            <li><a href="/quote/" className="drawer-link" onClick={closeAll}>Get an Instant Estimate</a></li>
             <li><a href="#contact" className="drawer-link" onClick={closeAll}>Contact</a></li>
           </ul>
           <div className="drawer-foot">

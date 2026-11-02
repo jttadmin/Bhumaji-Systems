@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { pillars, site } from '../data/content.js';
+import { budgetRanges, dialCodes } from '../data/quote.js';
+import { useLocalCurrency } from '../hooks.js';
 
 const TIMELINES = ['As soon as possible', 'Within 3 months', '3–6 months', 'Just exploring'];
 
@@ -9,12 +11,16 @@ const TIMELINES = ['As soon as possible', 'Within 3 months', '3–6 months', 'Ju
  */
 const servicesText = (data) => pillars.filter((p) => data.services.includes(p.id)).map((p) => p.title).join(', ');
 
+const phoneText = (data) => `${data.dial} ${data.phone}`.trim();
+
 const enquiryBody = (data) =>
   [
     `Name: ${data.name}`,
     `Company: ${data.company}`,
     `Email: ${data.email}`,
+    `Phone: ${phoneText(data)}`,
     `Services: ${servicesText(data)}`,
+    `Budget: ${data.budget || 'Not given'}`,
     `Timeline: ${data.timeline}`,
     '',
     data.message,
@@ -37,7 +43,9 @@ async function submitEnquiry(data) {
       Name: data.name,
       Company: data.company,
       Email: data.email,
+      Phone: phoneText(data),
       Services: servicesText(data),
+      Budget: data.budget || 'Not given',
       Timeline: data.timeline,
       Message: data.message,
       Page: window.location.href,
@@ -49,10 +57,14 @@ async function submitEnquiry(data) {
 }
 
 export default function Contact({ preselect }) {
+  const [cur] = useLocalCurrency();
   const [form, setForm] = useState({
     name: '',
     company: '',
     email: '',
+    dial: '+91',
+    phone: '',
+    budget: '',
     services: preselect ? [preselect] : [],
     timeline: TIMELINES[1],
     message: '',
@@ -71,6 +83,11 @@ export default function Contact({ preselect }) {
     return () => window.removeEventListener('bhumaji:prefill', onPrefill);
   }, []);
 
+  // Visitors outside India start with no country code chosen, and budgets switch to USD.
+  useEffect(() => {
+    if (cur === 'USD') setForm((f) => (f.dial === '+91' && !f.phone ? { ...f, dial: '+1', budget: '' } : f));
+  }, [cur]);
+
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
   const toggle = (id) =>
     setForm({ ...form, services: form.services.includes(id) ? form.services.filter((s) => s !== id) : [...form.services, id] });
@@ -80,6 +97,10 @@ export default function Contact({ preselect }) {
     if (!form.name.trim()) e.name = 'Enter your name.';
     if (!form.company.trim()) e.company = 'Enter your company name.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Enter a work email like name@company.com.';
+    const digits = form.phone.replace(/\D/g, '');
+    const want = dialCodes.find((d) => d.code === form.dial)?.digits;
+    if (want ? digits.length !== want : digits.length < 6 || digits.length > 15)
+      e.phone = want ? `Enter a ${want}-digit mobile number.` : 'Enter your phone number.';
     if (!form.services.length) e.services = 'Choose at least one service area.';
     if (form.message.trim().length < 20) e.message = 'Tell us a little more: at least 20 characters.';
     return e;
@@ -169,12 +190,41 @@ export default function Contact({ preselect }) {
                 <Field id="email" label="Work email" error={errors.email}>
                   <input id="f-email" type="email" autoComplete="email" value={form.email} onChange={set('email')} aria-invalid={!!errors.email} />
                 </Field>
-                <Field id="timeline" label="Timeline">
-                  <select id="f-timeline" value={form.timeline} onChange={set('timeline')}>
-                    {TIMELINES.map((t) => <option key={t}>{t}</option>)}
-                  </select>
+                <Field id="phone" label="Mobile / WhatsApp" error={errors.phone}>
+                  <div className="phone-input">
+                    <select aria-label="Country code" value={form.dial} onChange={set('dial')}>
+                      {dialCodes.map((d) => <option key={d.code + d.country} value={d.code}>{d.flag} {d.code === '+' ? 'Other' : d.code}</option>)}
+                    </select>
+                    <input
+                      id="f-phone"
+                      type="tel"
+                      inputMode="tel"
+                      autoComplete="tel-national"
+                      placeholder={form.dial === '+91' ? 'Enter 10-digit mobile number' : 'Phone number'}
+                      value={form.phone}
+                      onChange={set('phone')}
+                      aria-invalid={!!errors.phone}
+                    />
+                  </div>
                 </Field>
               </div>
+
+              <fieldset className="budget-pick">
+                <legend>Budget</legend>
+                <div className="budget-chips">
+                  {budgetRanges[cur].map((b) => (
+                    <button type="button" key={b} className={form.budget === b ? 'is-on' : ''} aria-pressed={form.budget === b} onClick={() => setForm({ ...form, budget: form.budget === b ? '' : b })}>
+                      {b}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+
+              <Field id="timeline" label="Timeline">
+                <select id="f-timeline" value={form.timeline} onChange={set('timeline')}>
+                  {TIMELINES.map((t) => <option key={t}>{t}</option>)}
+                </select>
+              </Field>
               <Field id="message" label="Project description" error={errors.message}>
                 <textarea
                   id="f-message"
@@ -182,7 +232,7 @@ export default function Contact({ preselect }) {
                   value={form.message}
                   onChange={set('message')}
                   aria-invalid={!!errors.message}
-                  placeholder="e.g. We run 30 services on-premise and want to move to AWS EKS within six months."
+                  placeholder="e.g. We want a food delivery app for Bengaluru on Android and iOS, launching in three months."
                 />
               </Field>
               <div className="hp" aria-hidden="true">

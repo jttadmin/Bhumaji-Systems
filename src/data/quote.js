@@ -1,5 +1,5 @@
 /*
- * Price list for the instant quotation page (/quote/).
+ * Price list for the instant estimate page (/quote/).
  * Edit prices here: every amount is the typical price for that item, in INR (Indian clients)
  * and USD (international clients). The page shows the visitor an estimate range around the total.
  */
@@ -8,12 +8,12 @@ export const quoteSettings = {
   // The estimate range shown to visitors: total × low … total × high.
   rangeLow: 0.85,
   rangeHigh: 1.2,
-  // How long a generated quotation stays valid.
+  // How long a generated estimate stays valid.
   validDays: 15,
   // Set to 18 once Bhumaji Systems is GST-registered; Indian quotes then add GST.
   gstPercent: 0,
-  // Prefix for quotation numbers, e.g. BS-Q-261102-4821.
-  numberPrefix: 'BS-Q',
+  // Prefix for estimate numbers, e.g. BS-E-261102-4821.
+  numberPrefix: 'BS-E',
 };
 
 export const currencies = {
@@ -33,10 +33,10 @@ export const quoteCatalog = [
     title: 'Website Development',
     blurb: 'Business websites, e-commerce stores and web portals.',
     packages: [
-      { id: 'landing', name: 'Landing page / starter site', detail: '1–5 pages, responsive, contact form, basic SEO', weeks: '1–2 weeks', price: { INR: 25000, USD: 700 } },
-      { id: 'business', name: 'Business website', detail: '6–20 pages, custom design, SEO setup, blog, analytics', weeks: '3–5 weeks', price: { INR: 75000, USD: 2200 } },
-      { id: 'ecommerce', name: 'E-commerce website', detail: 'Product catalogue, cart, checkout, orders, admin', weeks: '5–8 weeks', price: { INR: 175000, USD: 5500 } },
-      { id: 'portal', name: 'Custom web application / portal', detail: 'Logins, dashboards, roles, database, APIs', weeks: '6–12 weeks', price: { INR: 350000, USD: 11000 } },
+      { id: 'landing', name: 'Landing page / starter site', detail: '1–5 pages, responsive, contact form, basic SEO', weeks: '1–2 weeks', price: { INR: 20000, USD: 700 } },
+      { id: 'business', name: 'Business website', detail: '6–20 pages, custom design, SEO setup, blog, analytics', weeks: '3–5 weeks', price: { INR: 45000, USD: 2200 } },
+      { id: 'ecommerce', name: 'E-commerce website', detail: 'Product catalogue, cart, checkout, orders, admin', weeks: '5–8 weeks', price: { INR: 65000, USD: 5500 } },
+      { id: 'portal', name: 'Custom web application / portal', detail: 'Logins, dashboards, roles, database, APIs', weeks: '6–12 weeks', price: { INR: 150000, USD: 11000 } },
     ],
     addons: [
       { id: 'extra-pages', name: '10 extra pages', price: { INR: 15000, USD: 450 } },
@@ -58,10 +58,10 @@ export const quoteCatalog = [
     title: 'Mobile App Development',
     blurb: 'Android, iOS and cross-platform apps with a backend.',
     packages: [
-      { id: 'starter', name: 'Starter app', detail: '5–8 screens, login, simple backend (Firebase)', weeks: '4–6 weeks', price: { INR: 225000, USD: 6000 } },
-      { id: 'business', name: 'Business app', detail: '10–20 screens, admin panel, API backend, push notifications', weeks: '8–14 weeks', price: { INR: 700000, USD: 21000 } },
-      { id: 'advanced', name: 'Advanced app', detail: 'Payments, real-time features, multiple user roles, AWS backend', weeks: '3–6 months', price: { INR: 1750000, USD: 52000 } },
-      { id: 'ondemand', name: 'On-demand platform (Uber / Swiggy style)', detail: 'Customer + partner apps + admin, scalable cloud', weeks: '6–12 months', price: { INR: 3500000, USD: 100000 } },
+      { id: 'starter', name: 'Starter app', detail: '5–8 screens, login, simple backend (Firebase)', weeks: '4–6 weeks', price: { INR: 175000, USD: 6000 } },
+      { id: 'business', name: 'Business app', detail: '10–20 screens, admin panel, API backend, push notifications', weeks: '8–14 weeks', price: { INR: 500000, USD: 21000 } },
+      { id: 'advanced', name: 'Advanced app', detail: 'Payments, real-time features, multiple user roles, AWS backend', weeks: '3–6 months', price: { INR: 1200000, USD: 52000 } },
+      { id: 'ondemand', name: 'On-demand platform (Uber / Swiggy style)', detail: 'Customer + partner apps + admin, scalable cloud', weeks: '6–12 months', price: { INR: 2500000, USD: 100000 } },
     ],
     platforms: [
       { id: 'android', name: 'Android only', factor: 1 },
@@ -93,7 +93,7 @@ export const quoteCatalog = [
       { id: 'cicd', name: 'CI/CD pipeline', detail: 'GitHub Actions / Jenkins / Argo CD, automated deploys', weeks: '1–3 weeks', price: { INR: 90000, USD: 2800 } },
       { id: 'k8s', name: 'Kubernetes / EKS platform', detail: 'Cluster, ingress, autoscaling, GitOps, Helm charts', weeks: '3–6 weeks', price: { INR: 250000, USD: 7500 } },
       { id: 'migration', name: 'Cloud migration (small–medium)', detail: 'Assessment, plan, migrate workloads with minimal downtime', weeks: '4–10 weeks', price: { INR: 600000, USD: 18000 } },
-      { id: 'audit', name: 'Cloud cost & security audit', detail: 'Findings report with savings and fixes', weeks: '1–2 weeks', price: { INR: 60000, USD: 1800 } },
+      { id: 'audit', name: 'Cloud cost & security audit', detail: 'Findings report with savings and fixes', weeks: '1–2 weeks', price: { INR: 75000, USD: 1800 } },
     ],
     addons: [
       { id: 'monitoring', name: 'Monitoring (Prometheus / Grafana / CloudWatch)', price: { INR: 60000, USD: 1800 } },
@@ -154,4 +154,23 @@ export const designLevels = [
 export const timelines = [
   { id: 'normal', name: 'Standard timeline', factor: 1 },
   { id: 'urgent', name: 'Urgent (priority team)', factor: 1.25 },
+];
+
+/* Budget ranges offered on the enquiry form (the visitor picks one). */
+export const budgetRanges = {
+  INR: ['Under ₹50K', '₹50K – ₹2 Lakhs', '₹2 – ₹5 Lakhs', '₹5 – ₹10 Lakhs', '₹10 Lakhs+', 'Not sure yet'],
+  USD: ['Under $2K', '$2K – $10K', '$10K – $25K', '$25K – $50K', '$50K+', 'Not sure yet'],
+};
+
+/* Country codes for the phone field; the first is the default for visitors in India. */
+export const dialCodes = [
+  { code: '+91', country: 'India', flag: '🇮🇳', digits: 10 },
+  { code: '+1', country: 'USA / Canada', flag: '🇺🇸', digits: 10 },
+  { code: '+44', country: 'United Kingdom', flag: '🇬🇧' },
+  { code: '+971', country: 'UAE', flag: '🇦🇪' },
+  { code: '+966', country: 'Saudi Arabia', flag: '🇸🇦' },
+  { code: '+65', country: 'Singapore', flag: '🇸🇬' },
+  { code: '+61', country: 'Australia', flag: '🇦🇺' },
+  { code: '+49', country: 'Germany', flag: '🇩🇪' },
+  { code: '+', country: 'Other', flag: '🌐' },
 ];

@@ -48,3 +48,15 @@ export function useMedia(query, fallback = false) {
 }
 
 export const useReducedMotion = () => useMedia('(prefers-reduced-motion: reduce)');
+
+/** 'INR' for visitors in India, 'USD' for everyone else (read after mount; pre-rendered as INR). */
+export function useLocalCurrency() {
+  const [cur, setCur] = useState('INR');
+  useEffect(() => {
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      if (!/Calcutta|Kolkata/.test(tz)) setCur('USD');
+    } catch { /* keep INR */ }
+  }, []);
+  return [cur, setCur];
+}
