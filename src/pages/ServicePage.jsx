@@ -9,6 +9,9 @@ const KIND_FOR = {
   mobile: ['Mobile application development'],
 };
 
+// Which instant-quote calculator each service page opens.
+const QUOTE_FOR = { cloud: 'cloud', ai: 'ai', software: 'software', mobile: 'mobile' };
+
 export default function ServicePage({ pillar }) {
   const Motif = motifFor[pillar.id];
   const related = projects.filter((p) => KIND_FOR[pillar.id].includes(p.kind));
@@ -28,7 +31,10 @@ export default function ServicePage({ pillar }) {
             <h1 className="svc-title">{pillar.title}</h1>
             <p className="svc-lede">{pillar.lede}</p>
             <p className="svc-desc">{pillar.description}</p>
-            <a href="#contact" className="btn btn-primary btn-lg">Discuss your project <span aria-hidden="true">→</span></a>
+            <div className="svc-ctas">
+              <a href="#contact" className="btn btn-primary btn-lg">Discuss your project <span aria-hidden="true">→</span></a>
+              <a href={`/quote/?service=${QUOTE_FOR[pillar.id]}`} className="btn btn-ghost btn-lg">Get an instant quote</a>
+            </div>
           </div>
           <div className="svc-visual" aria-hidden="true"><Motif /></div>
         </div>

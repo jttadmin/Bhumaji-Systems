@@ -13,13 +13,21 @@ const HOME = {
     'Bhumaji Systems is a Bengaluru technology company for cloud services and migration, AI/ML and MLOps, custom software development, and mobile app and website development, serving businesses in India and worldwide.',
 };
 
+export const QUOTE_PATH = '/quote/';
+const QUOTE = {
+  title: 'Get an Instant Quote | Website, App & Cloud Development Pricing | Bhumaji Systems',
+  description:
+    'Get an instant price quotation for website development, mobile app development, cloud and DevOps, software engineering and AI services from Bhumaji Systems, Bengaluru. Prices in INR and USD.',
+};
+
 /** Every page of the site, in sitemap order. */
-export const routes = ['/', ...pillars.map((p) => p.path)];
+export const routes = ['/', ...pillars.map((p) => p.path), QUOTE_PATH];
 
 export const pillarForPath = (path) => pillars.find((p) => p.path === path);
 
 export function pageMeta(path) {
   const p = pillarForPath(path);
+  if (path === QUOTE_PATH) return { ...QUOTE, url: ORIGIN + QUOTE_PATH, image: `${ORIGIN}/og-image.png` };
   const base = p ? { title: `${p.seoTitle} | Bhumaji Systems`, description: p.seoDescription } : HOME;
   return { ...base, url: ORIGIN + (p ? p.path : '/'), image: `${ORIGIN}/og-image.png` };
 }
@@ -60,7 +68,22 @@ function organization() {
 export function jsonLd(path) {
   const p = pillarForPath(path);
   const graph = [organization()];
-  if (!p) {
+  if (path === QUOTE_PATH) {
+    graph.push({
+      '@type': 'WebPage',
+      name: QUOTE.title,
+      description: QUOTE.description,
+      url: ORIGIN + QUOTE_PATH,
+      about: { '@id': ORG_ID },
+      breadcrumb: {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
+          { '@type': 'ListItem', position: 2, name: 'Instant quotation', item: ORIGIN + QUOTE_PATH },
+        ],
+      },
+    });
+  } else if (!p) {
     graph.push({ '@type': 'WebSite', '@id': `${ORIGIN}/#website`, url: `${ORIGIN}/`, name: site.name, publisher: { '@id': ORG_ID } });
   } else {
     graph.push(
