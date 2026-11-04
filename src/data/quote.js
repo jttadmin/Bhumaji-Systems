@@ -156,12 +156,6 @@ export const timelines = [
   { id: 'urgent', name: 'Urgent (priority team)', factor: 1.25 },
 ];
 
-/* Budget ranges offered on the enquiry form (the visitor picks one). */
-export const budgetRanges = {
-  INR: ['Under ₹50K', '₹50K – ₹2 Lakhs', '₹2 – ₹5 Lakhs', '₹5 – ₹10 Lakhs', '₹10 Lakhs+', 'Not sure yet'],
-  USD: ['Under $2K', '$2K – $10K', '$10K – $25K', '$25K – $50K', '$50K+', 'Not sure yet'],
-};
-
 /* Country codes for the phone field; the first is the default for visitors in India. */
 export const dialCodes = [
   { code: '+91', country: 'India', flag: '🇮🇳', digits: 10 },
