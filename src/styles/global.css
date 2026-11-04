@@ -676,13 +676,6 @@ main:focus { outline: none; }
 .phone-input select { flex: 0 0 auto; width: 104px !important; min-width: 0; border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; border-right: 0 !important; padding-right: 8px; }
 .phone-input input { flex: 1 1 auto; width: auto !important; min-width: 0; border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; }
 .field.has-error .phone-input select { border-color: #ff7a8a; }
-.budget-pick { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
-.budget-pick legend { font-size: 0.9375rem; font-weight: 600; color: var(--muted); padding: 0; margin-bottom: 10px; }
-.budget-chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.budget-chips button { padding: 12px 10px; border-radius: 12px; border: 1px solid var(--line); font-size: 0.9375rem; font-weight: 600; color: var(--muted); min-height: 48px; transition: all 0.2s; }
-.budget-chips button:hover { border-color: var(--line-strong); color: var(--ink); }
-.budget-chips button.is-on { border-color: var(--cyan); color: var(--ink); background: rgba(34, 211, 238, 0.12); }
-@media (max-width: 560px) { .budget-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .field { display: grid; gap: 8px; min-width: 0; }
 .field label { font-size: 0.9375rem; font-weight: 600; color: var(--muted); }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { pillars, site } from '../data/content.js';
-import { budgetRanges, dialCodes } from '../data/quote.js';
+import { dialCodes } from '../data/quote.js';
 import { useLocalCurrency } from '../hooks.js';
 
 const TIMELINES = ['As soon as possible', 'Within 3 months', '3–6 months', 'Just exploring'];
@@ -20,7 +20,6 @@ const enquiryBody = (data) =>
     `Email: ${data.email}`,
     `Phone: ${phoneText(data)}`,
     `Services: ${servicesText(data)}`,
-    `Budget: ${data.budget || 'Not given'}`,
     `Timeline: ${data.timeline}`,
     '',
     data.message,
@@ -45,7 +44,6 @@ async function submitEnquiry(data) {
       Email: data.email,
       Phone: phoneText(data),
       Services: servicesText(data),
-      Budget: data.budget || 'Not given',
       Timeline: data.timeline,
       Message: data.message,
       Page: window.location.href,
@@ -64,7 +62,6 @@ export default function Contact({ preselect }) {
     email: '',
     dial: '+91',
     phone: '',
-    budget: '',
     services: preselect ? [preselect] : [],
     timeline: TIMELINES[1],
     message: '',
@@ -83,9 +80,9 @@ export default function Contact({ preselect }) {
     return () => window.removeEventListener('bhumaji:prefill', onPrefill);
   }, []);
 
-  // Visitors outside India start with no country code chosen, and budgets switch to USD.
+  // Visitors outside India start with the +1 country code instead of +91.
   useEffect(() => {
-    if (cur === 'USD') setForm((f) => (f.dial === '+91' && !f.phone ? { ...f, dial: '+1', budget: '' } : f));
+    if (cur === 'USD') setForm((f) => (f.dial === '+91' && !f.phone ? { ...f, dial: '+1' } : f));
   }, [cur]);
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
@@ -209,16 +206,6 @@ export default function Contact({ preselect }) {
                 </Field>
               </div>
 
-              <fieldset className="budget-pick">
-                <legend>Budget</legend>
-                <div className="budget-chips">
-                  {budgetRanges[cur].map((b) => (
-                    <button type="button" key={b} className={form.budget === b ? 'is-on' : ''} aria-pressed={form.budget === b} onClick={() => setForm({ ...form, budget: form.budget === b ? '' : b })}>
-                      {b}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
 
               <Field id="timeline" label="Timeline">
                 <select id="f-timeline" value={form.timeline} onChange={set('timeline')}>
